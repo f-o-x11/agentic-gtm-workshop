@@ -6,11 +6,11 @@ Each workshop has 90 guided minutes and 30 minutes for help. Use one local proje
 
 | Chapter | What you finish | Guided minutes |
 |---|---|---|
-| 1. What you will build | See the working play and its four build steps. | 12 |
-| 2. Start your company project | Company brief, paused instructions and verified local setup. | 24 |
+| 1. See Metadata's working examples | See the working play and its four build steps. | 12 |
+| 2. Set up your company | Company brief, paused instructions and verified local setup. | 24 |
 | 3. Choose two target companies | Two source-backed target briefs and a saved target list. | 10 |
 | 4. Build and check your first page | A reviewed page and a claim/source check. | 20 |
-| 5. Save the skill and build page two | A reusable skill, second reviewed page and Part 1 checkpoint. | 24 |
+| 5. Save the skill. Build page two. | A reusable skill, second reviewed page and Part 1 checkpoint. | 24 |
 
 The 30-minute help slot is in Chapter 5. Optional channel guides are outside the timed exercises.
 

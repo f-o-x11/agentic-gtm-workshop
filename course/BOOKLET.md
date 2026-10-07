@@ -46,7 +46,7 @@ Part 1 needs your local coding agent, file/web access, website and supported Pyt
 
 Part 3 uses the same core project. Gojiberry, Loop & Tie, Netlify, Calendly, CRM and Metadata are optional according to the extension you use. API-Setup-Guide.pdf and API-CONNECTIONS.md explain exact supported operations, credits, account ownership and proof.
 
-# Part 1: Start the prepared project. Build two account pages.
+# Part 1: Build two account pages and save the skill.
 
 
 
@@ -67,22 +67,43 @@ Part 3 uses the same core project. Gojiberry, Loop & Tie, Netlify, Calendly, CRM
 
 ## Five chapters
 
-- 1. What you will build: See the working play and its four build steps.
-- 2. Start your company project: Company brief, paused instructions and verified local setup.
-- 3. Choose two target companies: Two source-backed target briefs and a saved target list.
-- 4. Build and check your first page: A reviewed page and a claim/source check.
-- 5. Save the skill and build page two: A reusable skill, second reviewed page and Part1 checkpoint.
+- 1. See Metadata's working examples: See the actual page, email and gift examples.
+- 2. Set up your company: COMPANY.md, saved setup and local rules.
+- 3. Choose two target companies: Two target briefs and TARGETS.md.
+- 4. Build and check your first page: First HTML page and PAGE-REVIEW.md.
+- 5. Save the skill. Build page two.: SKILL.md, second page and completed file check.
 
-## Chapter 1: What you will build
+## Chapter 1: See Metadata's working examples
 
-See the working play and its four build steps.
+See the actual page, email and gift examples.
 
 
-### This is how I built Metadata’s GTM motion
+### Build your own Agentic GTM
+
+Reference: p1-cover. Main workshop.
+
+Part 1. Build two account pages and save the instructions.
+
+
+### This is how I built Metadata's GTM motion
 
 Reference: p1-results. Main workshop.
 
-I am Gil, CEO of Metadata. I built this workflow for our marketing team. Today you start with the prepared project and build for your company.
+Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open agentic-gtm-workshop in local Codex or Claude Code.
+
+
+### I'm Gil. I run Metadata.
+
+Reference: p1-about. Main workshop.
+
+Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies.
+
+
+### The workflow I run at Metadata
+
+Reference: p1-v5-tree. Main workshop.
+
+Your agent researches buyers and prepares work. The local program checks the recipient, performs an approved action and records the provider result.
 
 
 ### A real page, email and gift
@@ -92,46 +113,23 @@ Reference: p1-real-outputs. Main workshop.
 Metadata built a page for Zuora, sent an email to Forum One and sent a gift invitation to Datarails. These are different examples.
 
 
-### What your workflow does
-
-Reference: p1-v5-tree. Main workshop.
-
-Your agent researches buyers and prepares work. The local program checks the recipient, performs an approved action and records the provider result.
-
-
-### The working project is already prepared
-
-Reference: p1-twenty-files. Main workshop.
-
-The source has 20 files. You receive an empty portable version. Supply your company facts and accounts; keep the saved records in one project.
-
-
-### The four steps I used
-
-Reference: p1-build-journey. Main workshop.
-
-I built skills, connected their decisions, chose target accounts and tested ten. You start with prepared code and adapt those four steps to your company.
-
-
-### Today you build two pages and save the job
+### Build these files for your own company
 
 Reference: p1-finish. Main workshop.
 
-Each person builds for their own company. Finish with two account pages, a reusable page skill and a saved project you can continue after class.
+Finish with a company brief, two target briefs, two reviewed pages and saved page-building instructions.
 
 
-## Chapter 2: Start your company project
+## Chapter 2: Set up your company
 
-Company brief, paused instructions and verified local setup.
+COMPANY.md, saved setup and local rules.
 
 
-### Clone the project. Paste one prompt.
+### Open the cloned folder. Build your company brief.
 
 Reference: p1-install. Main workshop.
 
-First, run this command in Codex, Claude Code or your terminal:
-git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
-Then open agentic-gtm-workshop as your local project. All later exercises use this same folder.
+Use the project you cloned on slide 2. Open START-HERE.html, add your website and copy the full startup prompt.
 
 Time: 12 minutes. Difficulty: Easy.
 
@@ -139,10 +137,10 @@ Tools: Local Codex or Claude Code; file and web access. No API credits..
 
 Do this:
 
-1. Clone the workshop. git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
-2. Open agentic-gtm-workshop. Select the cloned folder in Codex or Claude Code. No GitHub account is needed.
-3. Copy the full startup prompt. Open START-HERE.html. Add your website and paste its prompt into your local agent.
-4. Review your company brief. The agent saves COMPANY.md, prepares setup and stops.
+1. Open agentic-gtm-workshop in local Codex or Claude Code.
+2. Open START-HERE.html in your browser.
+3. Add your website. Copy the full prompt into your local agent.
+4. Read COMPANY.md. Keep using this project.
 
 Copy the complete prompt from prompts.html#p1-install. Paste it into the same local Codex or Claude Code project.
 
@@ -166,34 +164,19 @@ Show the output and success check. Stop. Next: review your company brief.
 
 You should have:
 
-- COMPANY.md, SETUP.md, AUTHORITY.md, AGENTS.md and saved interpreter receipt.
+- COMPANY.md, SETUP.md, AUTHORITY.md and AGENTS.md.
 
 Check before continuing:
 
-- Company brief exists before bootstrap.
-- Compatible Python path/version is actually verified.
-- Outreach and spending remain paused.
-- Agent stops after setup and names the next step.
+- Setup found a supported Python version.
+- Sending and spending are paused.
+- The agent stops and names the next task.
 
 If blocked: If web access is blocked, paste your official website text. If Python is missing, use the launcher's named official installer, then rerun this same step.
 
 Next: review your company brief.
 
-### Six terms used in these exercises
-
-Reference: p1-glossary. Main workshop.
-
-Use these words to name a file, decision or observed result.
-
-
-### Part 1 needs no API keys
-
-Reference: p1-private-inputs. Main workshop.
-
-You can finish the pages with your website and local agent. Add keys only when you connect a channel. Your own credentials stay in private local files.
-
-
-### Review what your agent learned about your company
+### Check your company facts, buyers and offer
 
 Reference: p1-company. Main workshop.
 
@@ -234,7 +217,7 @@ If blocked: Paste text from your official product and proof pages. Codex saves t
 
 Next: review the operating instructions.
 
-### Your project starts with outreach paused
+### Check the saved rules. Keep sending paused.
 
 Reference: p1-authority. Main workshop.
 
@@ -246,9 +229,9 @@ Tools: Prepared bootstrap and your saved company brief. No API..
 
 Do this:
 
-1. Open the two instruction files. Read the company facts and paused authority.
-2. Repair a missing file. Rerun bootstrap. It preserves existing files.
-3. Keep the project paused. No sender or paid channel is needed yet.
+1. Open AUTHORITY.md and AGENTS.md. Your local rules and sending limits.
+2. Confirm sending and spending are paused.
+3. Ask your agent to repair either missing file. Keep the existing company brief.
 
 Copy the complete prompt from prompts.html#p1-authority. Paste it into the same local Codex or Claude Code project.
 
@@ -277,7 +260,7 @@ Next: research the first target company.
 
 ## Chapter 3: Choose two target companies
 
-Two source-backed target briefs and a saved target list.
+Two target briefs and TARGETS.md.
 
 
 ### Research your first target company
@@ -369,7 +352,7 @@ The page gives Zuora campaign ideas. It shows the offer and a clear next step. Y
 
 ## Chapter 4: Build and check your first page
 
-A reviewed page and a claim/source check.
+First HTML page and PAGE-REVIEW.md.
 
 
 ### Build the page for your first target
@@ -458,12 +441,12 @@ If blocked: If the agent cannot set a true phone viewport, record that check as 
 
 Next: save the checked page method as a skill.
 
-## Chapter 5: Save the skill and build page two
+## Chapter 5: Save the skill. Build page two.
 
-A reusable skill, second reviewed page and Part1 checkpoint.
+SKILL.md, second page and completed file check.
 
 
-### STEP 1: save the page method as a skill
+### Save your page-building instructions as a skill
 
 Reference: p1-save-skill. Main workshop.
 
@@ -475,9 +458,9 @@ Tools: Reviewed first page and source notes. No API credits..
 
 Do this:
 
-1. Copy the skill prompt. Use the reviewed page and source notes.
-2. Read the saved SKILL.md. Check the required inputs and success checks.
-3. Keep the prompt and result together. The next run should use the same method.
+1. Copy the skill prompt. Use your checked page and source notes.
+2. Read the saved SKILL.md. It must say what to read, build and check.
+3. Use these instructions for the next page.
 
 Copy the complete prompt from prompts.html#p1-save-skill. Paste it into the same local Codex or Claude Code project.
 
@@ -544,7 +527,7 @@ If blocked: If the second website blocks access, use its saved official-source t
 
 Next: check the Part 1 files after the break.
 
-### Coffee. Your agent has the notes.
+### Save your pages. Take five minutes.
 
 Reference: p1-break. Main workshop.
 
@@ -553,14 +536,7 @@ Save both pages. Leave the project open. Return in five minutes.
 Follow the presenter. Keep your files open.
 
 
-### A page file is one useful result
-
-Reference: p1-file-vs-live. Main workshop.
-
-A local page, a published page and a verified form submission are different results. Keep the label that your evidence supports.
-
-
-### Check your Part 1 files. Repair any missing setup.
+### Check the files. Fix anything missing.
 
 Reference: p1-checkpoint. Main workshop.
 
@@ -572,9 +548,9 @@ Tools: Your generated files and actual browser results. No new credits..
 
 Do this:
 
-1. Run the checkpoint prompt. Codex opens each required file.
-2. Repair the first missing check. Preserve the working pages.
-3. Save your next task. Bring this same project to Part 2.
+1. Copy the checkpoint prompt. Your agent opens each required file.
+2. Fix the first failed check. Keep both pages and the saved skill.
+3. Read PROGRESS.md. Check the result and your next task.
 
 Copy the complete prompt from prompts.html#p1-checkpoint. Paste it into the same local Codex or Claude Code project.
 
@@ -601,7 +577,7 @@ If blocked: Share the failed file or error with the repair prompt. Continue from
 
 Next: finish the first remaining issue with individual help.
 
-### Finish your pages. Fix the first blocker.
+### Fix your first unfinished task
 
 Reference: p1-help. Main workshop.
 
@@ -613,6 +589,9 @@ Tools: Codex and your workshop project..
 
 Do this:
 
+1. Open PROGRESS.md. Find the first unfinished check.
+2. Copy that task's repair prompt from prompts.html.
+3. Add your error. Rerun the check. Save the result.
 
 Copy the complete prompt from prompts.html#p1-help. Paste it into the same local Codex or Claude Code project.
 
@@ -636,13 +615,13 @@ If blocked: Save the unresolved error and named missing setup. Do not reset the 
 
 Next: prepare the single email connection before Part 2.
 
-### Before Part 2: prepare one email channel
+### Register for Parts 2 and 3. Prepare your email.
 
-Reference: p1-before-part2. Main workshop.
+Reference: p1-before-part2. Optional extension.
 
-Complete Google authorization and email validation before class. Ask your Workspace admin early if needed. Social, gifting, ads and hosting are optional later.
+After class, follow PREWORK.md for the next workshop. Keep using the same project.
 
-Time: 0 minutes. Difficulty: Setup.
+Optional after class. Difficulty: Setup.
 
 Tools: Google sender/calendar and ZeroBounce for the live email test. Finder optional..
 

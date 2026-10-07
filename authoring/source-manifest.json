@@ -45,13 +45,13 @@
     },
     {
       "path": "CHAPTERS.md",
-      "sha256": "6875516b9a9e7ae7c82c2c9afe2a1aed30ebc23f3b44724d02687a969222e477",
-      "bytes": 2187
+      "sha256": "6e3e2e79314f21c0c56957c44233ae1775d5d33d8f50cddaaf3eb3118f87f566",
+      "bytes": 2190
     },
     {
       "path": "Complete-Presentation.pdf",
-      "sha256": "f406fa58f356e41c02b60a946e617fe9c8e18686048937c6401b41b83a262c18",
-      "bytes": 3601523
+      "sha256": "772a3f023d9dc68f84af0627c4d66bdce6fdcd070aed495cc7aa789bbc87d4cc",
+      "bytes": 3601584
     },
     {
       "path": "GIFT-GATE-HELPER.md",
@@ -90,8 +90,8 @@
     },
     {
       "path": "Part-1-Presentation.pdf",
-      "sha256": "d7639c8bc92a3c16c9a3683cba36d4722760171d18bd08c1c40be70632099294",
-      "bytes": 3280414
+      "sha256": "5cd030ef7d1e7339d1d63af4c4312d0b454112f02b5a546ae37b9c7e48cadb58",
+      "bytes": 3280465
     },
     {
       "path": "Part-2-Presentation.pdf",
@@ -105,13 +105,13 @@
     },
     {
       "path": "Participant-Booklet.pdf",
-      "sha256": "75aa74e98a66d6fe7bf6074c94090e8e3a7db39f05846953696328f40365fd47",
-      "bytes": 3211638
+      "sha256": "bf5e66a3bcca9d605b76ad5cf053869fac7bc13c7a4af0cddf8768e4081a60b3",
+      "bytes": 3211134
     },
     {
       "path": "README.md",
-      "sha256": "9cb1a017955e6c19e9b7f0d8fe76825fa155e9b94f7433d314490211ae6eb1f8",
-      "bytes": 5408
+      "sha256": "6b1a08866d7d41bea4a047c27526a71a635ba7b440cbc3e482a67bbe2834975e",
+      "bytes": 5451
     },
     {
       "path": "SECURITY.md",
@@ -125,8 +125,8 @@
     },
     {
       "path": "START-HERE.html",
-      "sha256": "200c809b89699564d45a340056c20831e92610967f9665c63732cabc9fb08dce",
-      "bytes": 13621
+      "sha256": "c386046fb93a1cbd1e89f5e981471e5c783ac4f68d0a5b8b338df57b9bae8dfc",
+      "bytes": 13529
     },
     {
       "path": "START-HERE.md",
@@ -230,17 +230,17 @@
     },
     {
       "path": "authoring/build_booklet.py",
-      "sha256": "2b01a2a8f709da33a03b9741dcdb2224884f675f645223eb04723a7b4a8a5a57",
-      "bytes": 8106
+      "sha256": "f33f7ec5aafa41ba62e1bf2f2241fc96d7e30c1f8261d210f59d55ea50b3ad92",
+      "bytes": 8128
     },
     {
       "path": "authoring/build_materials.py",
-      "sha256": "a27fc93e6a2068bb09eeab516cfb4eaf5dcf2cbc94af4189cb754c13964ef275",
-      "bytes": 42113
+      "sha256": "c9fcaff53745fb8717956b9929ed5043dd1e50dda9243e03400b14ff7e34eaef",
+      "bytes": 48366
     },
     {
       "path": "authoring/pdf-manifest.json",
-      "sha256": "df9e3a85bcfc5ad3c9d33097902d6a7e0dc16091a9867f71becf453918ceff79",
+      "sha256": "267e9283150336e784ca8743ae225c3a5844c9cfa10736ea42a6830d3ba2d24d",
       "bytes": 666
     },
     {
@@ -370,23 +370,23 @@
     },
     {
       "path": "course/BOOKLET.md",
-      "sha256": "56a64ce14ffec1a5710c0fbef203e79656bf3d961ae6ef0ba932a3a3db2a880f",
-      "bytes": 115401
+      "sha256": "769fa8e6eaffc56b4be9f41533859d0260ca44a577a91a51235f90bef126f54d",
+      "bytes": 114176
     },
     {
       "path": "course/CHAPTERS.md",
-      "sha256": "6875516b9a9e7ae7c82c2c9afe2a1aed30ebc23f3b44724d02687a969222e477",
-      "bytes": 2187
+      "sha256": "6e3e2e79314f21c0c56957c44233ae1775d5d33d8f50cddaaf3eb3118f87f566",
+      "bytes": 2190
     },
     {
       "path": "course/course.json",
-      "sha256": "9d53036d292a6a36be0a4eed843be887b096cae916caa76697d5d81bf7afcdd7",
-      "bytes": 280079
+      "sha256": "f48c2305b931d05702d0743c203850bc2e96300dbce039d75fce5dd11ffca2cc",
+      "bytes": 270126
     },
     {
       "path": "prompts.html",
-      "sha256": "15fbb98bd2f19d51e797a7f9c044eb1ad2de57f70893b6624e1836f0ce09d076",
-      "bytes": 173632
+      "sha256": "2944dfeef1cad96c690230338194e2ba394b4bb927e9ac46e4d0009f9d0bc43b",
+      "bytes": 172412
     },
     {
       "path": "sources/V5-WORKSHOP-SOURCES.md",

@@ -21,6 +21,8 @@ pdfmetrics.registerFontFamily('Rubik',normal='Rubik',bold='RubikBold',italic='Ru
 BLACK=HexColor('#111827');ORANGE=HexColor('#ea580c');GREEN=HexColor('#1a7a69');CREAM=HexColor('#f8f7f5');GRAY=HexColor('#4b5563');LINE=HexColor('#d1d5db')
 W,H=1280,720
 CHECKS=[]
+CURRENT_SECTION=1
+PART_ONE_SECTIONS=['Examples','Your company','Target companies','First page','Saved skill']
 
 def plain(s):
  if isinstance(s,list):s='; '.join(plain(x) for x in s)
@@ -50,6 +52,10 @@ def header(c,title,num,part,source=''):
  pic(c,R/'assets/metadata-icon.jpeg',54,H-62,30,30)
  paragraph(c,'Metadata',95,H-35,200,18,font='RubikBold')
  paragraph(c,'Part '+str(part),1100,H-37,120,16,color=GRAY)
+ if part==1:
+  for i,label in enumerate(PART_ONE_SECTIONS,1):
+   x=56+(i-1)*239
+   paragraph(c,str(i)+'. '+label,x,650,225,12,color=ORANGE if i==CURRENT_SECTION else GRAY,font='RubikBold' if i==CURRENT_SECTION else 'Rubik')
  paragraph(c,title,56,620,1168,40 if len(title)<65 else 35,font='RubikBold')
  line(c,56,58,1168)
  paragraph(c,source,56,42,1060,10,color=GRAY)
@@ -102,6 +108,69 @@ def metrics(c,s):
  paragraph(c,'Metadata company-wide dashboard, September 30. Since August 17. These counts do not establish engine attribution.',66,230,1100,22,color=GRAY)
  paragraph(c,'Engine pilot, September 16: 10 emails matched Gmail Sent. 10 repeat attempts blocked.',66,168,1100,23,font='RubikMedium')
  paragraph(c,'Gil Allouche, CEO of Metadata. You will build this workflow for your company.',66,117,1100,23)
+
+def part_one_example(c,s):
+ vd=s.get('visual_data',{});ident=s['id']
+ if ident=='p1-results':
+  for i,(value,label) in enumerate([('93','Demo requests'),('64','Booked demos'),('34','Completed demos')]):
+   x=66+i*403
+   paragraph(c,value,x,518,350,82,color=ORANGE,font='RubikBold')
+   paragraph(c,label,x,408,350,27,font='RubikMedium')
+  paragraph(c,'Company totals since August 17, measured September 30, 2026. This workflow\'s share is unverified.',66,345,1125,18,color=GRAY)
+  paragraph(c,'Engine test: 10 emails confirmed in Gmail Sent. 10 repeat sends blocked.',66,291,1125,24,font='RubikMedium')
+  paragraph(c,'First instruction. Run this in Codex, Claude Code or your terminal.',66,230,1125,22,font='RubikBold',color=ORANGE)
+  c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(LINE);c.roundRect(56,139,1168,62,8,fill=1,stroke=1)
+  paragraph(c,'git clone https://github.com/f-o-x11/agentic-gtm-workshop.git',76,183,1128,25,font='RubikMedium')
+  paragraph(c,'Open agentic-gtm-workshop in local Codex or Claude Code.',66,112,1125,21)
+  c.linkURL('https://github.com/f-o-x11/agentic-gtm-workshop',(56,139,1224,201),relative=0)
+  return True
+ if ident=='p1-about':
+  paragraph(c,'Gil Allouche',56,504,530,58,font='RubikBold')
+  paragraph(c,'CEO, Metadata.io',56,418,530,30,color=ORANGE,font='RubikMedium')
+  paragraph(c,'I built the workflow our marketing team uses.',56,346,530,30)
+  paragraph(c,'I use Codex to run it.',56,244,530,30)
+  paragraph(c,'Today, build two pages for your target companies.',56,193,530,28,font='RubikMedium')
+  pic(c,R/'assets/actual-zuora-page.png',645,185,565,333)
+  paragraph(c,'Metadata\'s actual page for Zuora',645,149,565,18,color=GRAY)
+  return True
+ if ident=='p1-v5-tree':
+  node(c,'Read company and buyer facts',56,431,350,76,True)
+  node(c,'Write the page, email or offer',462,431,350,76)
+  node(c,'Check recipient and limits',868,431,350,76)
+  arrow(c,406,468,462,468);arrow(c,812,468,868,468)
+  for x,label,result in [(56,'Email','Read Gmail Sent'),(462,'Gift invitation','Read Loop & Tie status'),(868,'LinkedIn invitation','Read Gojiberry status')]:
+   node(c,label,x,283,350,72,True)
+   arrow(c,1043,431,x+175,355)
+   node(c,result,x,163,350,70)
+   arrow(c,x+175,283,x+175,233)
+  paragraph(c,'Today: create the account page. Save the instructions. Use them for a second company.',56,114,1168,21,font='RubikMedium')
+  return True
+ if ident=='p1-real-outputs':
+  pic(c,R/'assets/actual-zuora-page.png',56,150,695,383)
+  paragraph(c,'Zuora: an account-specific page',56,126,695,20,font='RubikMedium')
+  paragraph(c,'Forum One / Email',804,514,410,25,color=ORANGE,font='RubikBold')
+  paragraph(c,'"May I send you campaign ideas for reaching prospective Forum One clients?"',804,462,410,24)
+  paragraph(c,'Gmail Sent. September 30, 2026.',804,338,410,16,color=GRAY)
+  line(c,804,304,410)
+  paragraph(c,'Datarails / Gift invitation',804,279,410,25,color=ORANGE,font='RubikBold')
+  paragraph(c,'$150 offer. Loop & Tie reported sent.',804,221,410,23)
+  paragraph(c,'September 30, 2026. Redemption and meeting attendance are not shown.',804,155,410,16,color=GRAY)
+  return True
+ if ident=='p1-finish':
+  for i,(label,artifact) in enumerate([('Set up your company','Company brief'),('Choose two companies','Two target briefs'),('Build and check page one','Reviewed HTML page'),('Save the skill. Build page two.','Saved instructions + second page')]):
+   x=56+(i%2)*608;top=511-(i//2)*191
+   node(c,str(i+2)+'. '+label,x,top-86,558,86,i==0)
+   paragraph(c,artifact,x+16,top-112,526,25)
+  paragraph(c,'Use your own company and targets. No paid API needed for Part 1.',56,122,1168,21,color=GRAY)
+  return True
+ if ident=='p1-page-example':
+  pic(c,R/'assets/actual-zuora-page.png',56,134,858,398)
+  for i,label in enumerate(['Name the buyer','Show useful ideas','Give a clear next step']):
+   top=487-i*112
+   paragraph(c,str(i+1),949,top,45,28,color=ORANGE,font='RubikBold')
+   paragraph(c,label,1000,top,225,25,font='RubikMedium')
+  return True
+ return False
 
 def ads(c,s):
  vd=s.get('visual_data',{});rows=vd.get('metrics',[]);primary=vd.get('primary',[])
@@ -197,7 +266,7 @@ def generic(c,s):
    x=56+(i%3)*407;y=333-(i//3)*107;node(c,a,x,y,362,80,i==0)
   return
  if vd.get('required'):
-  paragraph(c,'Required',56,510,560,27,color=ORANGE,font='RubikBold')
+  paragraph(c,'After class' if s['id']=='p1-before-part2' else 'Required',56,510,560,27,color=ORANGE,font='RubikBold')
   y=460
   for t in vd['required']:
    hh=paragraph(c,t,56,y,730,24);y-=hh+16
@@ -256,11 +325,25 @@ def generic(c,s):
     node(c,label,56+i*(width+20),140,width,90,i==0)
 
 def slide(c,s,num,part):
+ global CURRENT_SECTION
+ CURRENT_SECTION=s.get('chapter',1)
+ if part==1 and s['id']=='p1-cover':
+  c.setFillColor(CREAM);c.rect(0,0,W,H,fill=1,stroke=0)
+  pic(c,R/'assets/workshop-cover.png',0,0,W,H)
+  c.setFillColor(ORANGE);c.rect(0,H-8,W,8,fill=1,stroke=0)
+  paragraph(c,'metadata.',56,670,330,25,font='RubikBold')
+  paragraph(c,'Build your own\nAgentic GTM',56,566,395,54,font='RubikBold',leading=62)
+  paragraph(c,'Part 1\nBuild two account pages.\nSave the instructions.',56,331,395,27,leading=38)
+  paragraph(c,'Gil Allouche\nCEO, Metadata',56,177,395,22,font='RubikMedium')
+  paragraph(c,'5 sections / 90 minutes building / 30 minutes help',56,52,800,14,color=GRAY)
+  c.showPage();return
  source='; '.join(plain(x) if not isinstance(x,dict) else x.get('label',x.get('path',str(x))) for x in (s.get('sources') or []))
+ if part==1 and s.get('prompt'):source='Full prompt: prompts.html#'+s['id']
  source=source.replace(str(ROOT),'')
  if len(source)>180:source=source[:177]+'...'
  header(c,s['title'],num,part,source)
- if s.get('type')=='cover':
+ if part==1 and part_one_example(c,s):pass
+ elif s.get('type')=='cover':
   pic(c,R/'assets/workshop-cover.png',620,105,620,445)
   paragraph(c,s.get('body',''),56,490,540,32)
   paragraph(c,'Gil Allouche\nCEO, Metadata',56,290,500,25,font='RubikMedium')
@@ -268,7 +351,7 @@ def slide(c,s,num,part):
   timing='Optional after class' if s.get('route')=='optional' else plain(s.get('timing',''))+' min'
   paragraph(c,timing+'   /   '+plain(s.get('difficulty',''))+'   /   '+', '.join(s.get('tools',[])),56,507,1168,17,color=ORANGE,font='RubikMedium')
   steps=s.get('steps',[]);y=451
-  clone_first=s.get('id')=='p1-install'
+  clone_first=False
   if clone_first:
    c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(LINE);c.roundRect(56,419,1168,70,8,fill=1,stroke=1)
    paragraph(c,'git clone https://github.com/f-o-x11/agentic-gtm-workshop.git',76,469,1128,25,font='RubikMedium')
@@ -322,6 +405,20 @@ def prompt_slide(c,s,num,part):
  return 1
 
 def chapter_slide(c,ch,num,part):
+ global CURRENT_SECTION
+ CURRENT_SECTION=ch['number']
+ if part==1:
+  header(c,'Section '+str(ch['number'])+' of 5',num,part)
+  paragraph(c,ch['title'],56,503,1160,48,font='RubikBold')
+  tasks={2:['Open your cloned project.','Paste the startup prompt.','Review the company brief.'],3:['Read both target websites.','Save facts with their sources.','Save your two-company list.'],4:['Create your first HTML page.','Check every claim against its source.','Open it on desktop and phone.'],5:['Save the page instructions as a skill.','Use it for the second company.','Check both pages and saved files.']}[ch['number']]
+  for i,task in enumerate(tasks):
+   paragraph(c,str(i+1),56,392-i*69,50,29,color=ORANGE,font='RubikBold')
+   paragraph(c,task,114,392-i*69,1095,28)
+  paragraph(c,ch['outcome'],56,172,1160,21,color=GRAY)
+  timing=str(ch['guided_minutes'])+' minutes'
+  if ch['help_minutes']:timing+=' + '+str(ch['help_minutes'])+' minutes for individual help'
+  paragraph(c,timing,56,108,1160,21,font='RubikMedium',color=ORANGE)
+  c.showPage();return
  header(c,'Chapter '+str(ch['number'])+' of 5',num,part)
  paragraph(c,ch['title'],56,490,1160,56,font='RubikBold')
  paragraph(c,ch['outcome'],56,328,1120,30)
@@ -361,6 +458,7 @@ for name in ['Normal','BodyText']:
  ST[name].fontName='Rubik';ST[name].fontSize=10.8;ST[name].leading=15.3;ST[name].textColor=BLACK;ST[name].spaceAfter=7
 for name,size,col in [('Title',29,BLACK),('Heading1',22,BLACK),('Heading2',16,ORANGE),('Heading3',12,BLACK)]:
  ST[name].fontName='RubikBold';ST[name].fontSize=size;ST[name].leading=size*1.2;ST[name].textColor=col;ST[name].spaceBefore=12;ST[name].spaceAfter=10
+ ST[name].keepWithNext=True
 ST.add(ParagraphStyle('CodeWrap',fontName='Rubik',fontSize=10.4,leading=14.1,textColor=BLACK,backColor=HexColor('#f1f1ee'),borderPadding=8,spaceBefore=4,spaceAfter=10))
 
 def rich(s):

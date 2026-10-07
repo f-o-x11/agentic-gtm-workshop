@@ -1,13 +1,13 @@
 {
   "title": "Build your own Agentic GTM workflow",
   "subtitle": "Three two-hour workshops. Start with the prepared project. Build for your company.",
-  "version": "public-clone-interactive-build",
+  "version": "part-one-example-led-five-sections",
   "source_note": "Henry independently completed Part 1 with Claude Code for Datadog and Okta. His feedback drives this edition. Start with the prepared project, supply company context, then run one step at a time. Gil's four steps remain: skills, execution flow, target accounts, ten-account test. Each session has 90 guided minutes including a five-minute break and 30 minutes of individual help. Live outreach needs the attendee's own sender, current records, paid email validation and exact approval. Social, gifts, advertising and unattended operation are optional extensions. Private production records and credentials are excluded. Company-wide outcomes are separate from engine proof.",
   "parts": [
     {
       "id": "part-1",
       "part": 1,
-      "title": "Start the prepared project. Build two account pages.",
+      "title": "Build two account pages and save the skill.",
       "minutes": 120,
       "guided_minutes": 90,
       "help_minutes": 30,
@@ -26,9 +26,41 @@
       ],
       "slides": [
         {
+          "id": "p1-cover",
+          "part": 1,
+          "title": "Build your own Agentic GTM",
+          "type": "cover",
+          "timing": 0,
+          "minutes": 0,
+          "difficulty": "Watch",
+          "visual_type": "cover",
+          "visual_data": {
+            "image": "assets/workshop-cover.png"
+          },
+          "body": "Part 1. Build two account pages and save the instructions.",
+          "steps": [],
+          "prompt": "",
+          "tools": [
+            "Dated Metadata results. No credits."
+          ],
+          "expected": [],
+          "check": [],
+          "fallback": "",
+          "repair_prompt": "",
+          "sources": [],
+          "notes": "Use the exact same illustration as the participant booklet cover.",
+          "build_step": 0,
+          "prompt_label": "",
+          "route": "main",
+          "next_id": "",
+          "next_action": "",
+          "chapter": 1,
+          "chapter_title": "See Metadata's working examples"
+        },
+        {
           "id": "p1-results",
           "part": 1,
-          "title": "This is how I built Metadata’s GTM motion",
+          "title": "This is how I built Metadata's GTM motion",
           "type": "show",
           "timing": 3,
           "minutes": 3,
@@ -50,7 +82,7 @@
               }
             ],
             "date": "September 30, 2026",
-            "scope": "Company activity since August 17. These totals are not all attributed to the engine.",
+            "scope": "Company totals since August 17, measured September 30, 2026. This workflow's share is unverified.",
             "secondary": [
               {
                 "value": "10",
@@ -66,9 +98,10 @@
               }
             ],
             "secondary_scope": "September 16 engine pilot. This proves sending, not ten demos.",
-            "image": "assets/actual-outcomes.png"
+            "image": "assets/actual-outcomes.png",
+            "first_instruction": "git clone https://github.com/f-o-x11/agentic-gtm-workshop.git"
           },
-          "body": "I am Gil, CEO of Metadata. I built this workflow for our marketing team. Today you start with the prepared project and build for your company.",
+          "body": "Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open agentic-gtm-workshop in local Codex or Claude Code.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -90,48 +123,32 @@
               "scope": "Different dates, populations and outcomes."
             }
           ],
-          "notes": "Open with results. Give your role in one sentence. Do not attribute all company demos or pipeline to this engine.",
+          "notes": "Slide 2. Show dated company totals and the separate ten-email test. Make the clone command the first attendee instruction. Assume the cloned project is available for every subsequent task.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
           "next_id": "",
           "next_action": "",
           "chapter": 1,
-          "chapter_title": "What you will build"
+          "chapter_title": "See Metadata's working examples"
         },
         {
-          "id": "p1-real-outputs",
+          "id": "p1-about",
           "part": 1,
-          "title": "A real page, email and gift",
+          "title": "I'm Gil. I run Metadata.",
           "type": "show",
-          "timing": 0,
-          "minutes": 0,
+          "timing": 2,
+          "minutes": 2,
           "difficulty": "Watch",
-          "visual_type": "screenshot",
+          "visual_type": "example",
           "visual_data": {
-            "image": "assets/actual-zuora-page.png",
-            "caption": "Real Metadata page for Zuora. Historical screenshot.",
-            "callouts": [
-              "A real target company",
-              "Campaign ideas for that company",
-              "A clear next step"
-            ],
-            "side_examples": [
-              {
-                "label": "Forum One",
-                "text": "“May I send you campaign ideas for reaching prospective Forum One clients?”"
-              },
-              {
-                "label": "Datarails",
-                "text": "A $150 gift invitation. Provider stage: sent on September 30."
-              }
-            ]
+            "image": "assets/actual-zuora-page.png"
           },
-          "body": "Metadata built a page for Zuora, sent an email to Forum One and sent a gift invitation to Datarails. These are different examples.",
+          "body": "Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies.",
           "steps": [],
           "prompt": "",
           "tools": [
-            "Codex and your workshop project."
+            "Dated Metadata results. No credits."
           ],
           "expected": [],
           "check": [],
@@ -139,25 +156,25 @@
           "repair_prompt": "",
           "sources": [
             {
-              "label": "Redacted September 30 email and gift records; Zuora page",
+              "label": "September 30 company dashboard and September 16 pilot",
               "url": "sources/V5-WORKSHOP-SOURCES.md",
               "date": "October 5, 2026",
-              "scope": "Different real accounts. No combined customer journey."
+              "scope": "Different dates, populations and outcomes."
             }
           ],
-          "notes": "Lead with the visible page. These examples are not one funnel. The gift expiry in the historical record is not an attendee setting. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "Keep the introduction short. Point to the real Zuora page. No unsupported biography or engine attribution.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
           "next_id": "",
           "next_action": "",
           "chapter": 1,
-          "chapter_title": "What you will build"
+          "chapter_title": "See Metadata's working examples"
         },
         {
           "id": "p1-v5-tree",
           "part": 1,
-          "title": "What your workflow does",
+          "title": "The workflow I run at Metadata",
           "type": "show",
           "timing": 3,
           "minutes": 3,
@@ -251,179 +268,44 @@
               "scope": "Selection and writing belong to Codex. Each channel runs independently."
             }
           ],
-          "notes": "This is within the first three main screens. Trace one email. Show a held gift does not stop an eligible email. The terminal command cannot write a fresh message by itself.",
+          "notes": "Trace the actual preparation, checks and channel readback. Today attendees build the account page and its reusable instructions. Do not imply every channel is taught in Part 1.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
           "next_id": "",
           "next_action": "",
           "chapter": 1,
-          "chapter_title": "What you will build"
+          "chapter_title": "See Metadata's working examples"
         },
         {
-          "id": "p1-twenty-files",
+          "id": "p1-real-outputs",
           "part": 1,
-          "title": "The working project is already prepared",
-          "type": "show",
-          "timing": 2,
-          "minutes": 2,
-          "difficulty": "Watch",
-          "visual_type": "file_map",
-          "visual_data": {
-            "groups": [
-              {
-                "name": "Project instructions and command",
-                "count": 3,
-                "files": [
-                  "README.md",
-                  "AGENTS.md",
-                  "gtm.py"
-                ]
-              },
-              {
-                "name": "Configuration",
-                "count": 2,
-                "files": [
-                  "policy.json",
-                  "schema.sql"
-                ]
-              },
-              {
-                "name": "Saved records",
-                "count": 1,
-                "files": [
-                  "gtm.sqlite"
-                ]
-              },
-              {
-                "name": "Core workflow",
-                "count": 7,
-                "files": [
-                  "database.py",
-                  "scheduler.py",
-                  "checks.py",
-                  "validation.py",
-                  "http_client.py",
-                  "research.py",
-                  "assets.py"
-                ]
-              },
-              {
-                "name": "Channels",
-                "count": 4,
-                "files": [
-                  "email.py",
-                  "gifts.py",
-                  "social.py",
-                  "meetings.py"
-                ]
-              },
-              {
-                "name": "Import, checks and migration receipt",
-                "count": 3,
-                "files": [
-                  "import_v4.py",
-                  "focused_checks.py",
-                  "migration_receipt.json"
-                ]
-              }
-            ],
-            "total": 20,
-            "caption": "Verified source inventory on October 5. The attendee kit also contains teaching and setup files.",
-            "actual_instruction": "“Keep exactly 20 project files.”"
-          },
-          "body": "The source has 20 files. You receive an empty portable version. Supply your company facts and accounts; keep the saved records in one project.",
-          "steps": [],
-          "prompt": "",
-          "tools": [
-            "Codex and your workshop project."
-          ],
-          "expected": [],
-          "check": [],
-          "fallback": "",
-          "repair_prompt": "",
-          "sources": [
-            {
-              "label": "v5/README.md and complete 20-file inventory",
-              "url": "sources/V5-WORKSHOP-SOURCES.md",
-              "date": "October 5, 2026",
-              "scope": "Production file count, including one database. External callable skill is outside those 20 files."
-            }
-          ],
-          "notes": "Do not say the attendee ZIP has exactly 20 files. Do not repeat 2.7 million unless its old denominator is independently verified. No speed benchmark is implied.",
-          "build_step": 0,
-          "prompt_label": "",
-          "route": "main",
-          "next_id": "",
-          "next_action": "",
-          "chapter": 1,
-          "chapter_title": "What you will build"
-        },
-        {
-          "id": "p1-build-journey",
-          "part": 1,
-          "title": "The four steps I used",
+          "title": "A real page, email and gift",
           "type": "show",
           "timing": 4,
           "minutes": 4,
           "difficulty": "Watch",
-          "visual_type": "timeline",
+          "visual_type": "screenshot",
           "visual_data": {
-            "stages": [
-              {
-                "label": "STEP 1",
-                "title": "The skills",
-                "date": "September 15",
-                "output": "Tested instructions for each job"
-              },
-              {
-                "label": "STEP 2",
-                "title": "Execution flow",
-                "date": "September 15",
-                "output": "Rules for the next action"
-              },
-              {
-                "label": "STEP 3",
-                "title": "Target accounts",
-                "date": "September 16",
-                "output": "Companies and people to approach"
-              },
-              {
-                "label": "STEP 4",
-                "title": "Test ten accounts",
-                "date": "September 16",
-                "output": "Exact sends and provider readback"
-              }
+            "image": "assets/actual-zuora-page.png",
+            "caption": "Real Metadata page for Zuora. Historical screenshot.",
+            "callouts": [
+              "A real target company",
+              "Campaign ideas for that company",
+              "A clear next step"
             ],
-            "history": [
+            "side_examples": [
               {
-                "date": "August 7",
-                "label": "Company foundation"
+                "label": "Forum One",
+                "text": "“May I send you campaign ideas for reaching prospective Forum One clients?”"
               },
               {
-                "date": "August 10",
-                "label": "Claude Code v1/v2"
-              },
-              {
-                "date": "September 9–13",
-                "label": "Codex v3"
-              },
-              {
-                "date": "September 14",
-                "label": "Kimi handoff and consolidation"
-              },
-              {
-                "date": "September 24",
-                "label": "Remote operation"
-              },
-              {
-                "date": "October 4–5",
-                "label": "Local v5 simplification"
+                "label": "Datarails",
+                "text": "A $150 gift invitation. Provider stage: sent on September 30."
               }
-            ],
-            "actual_prompt": "Actual current command: $v5-orchestrator. Teaching prompts below are adapted for your company."
+            ]
           },
-          "body": "I built skills, connected their decisions, chose target accounts and tested ten. You start with prepared code and adapt those four steps to your company.",
+          "body": "Metadata built a page for Zuora, sent an email to Forum One and sent a gift invitation to Datarails. These are different examples.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -435,25 +317,25 @@
           "repair_prompt": "",
           "sources": [
             {
-              "label": "Dated history and October 5 v5 records",
+              "label": "Redacted September 30 email and gift records; Zuora page",
               "url": "sources/V5-WORKSHOP-SOURCES.md",
               "date": "October 5, 2026",
-              "scope": "Generation labels, not Git releases. Two earlier full chats were not recovered."
+              "scope": "Different real accounts. No combined customer journey."
             }
           ],
-          "notes": "End the build history at minute 12. Show dates without inventing quotes. The Kimi handoff was recovered verbatim; missing early conversations remain missing.",
+          "notes": "Lead with the visible page. These examples are not one funnel. The gift expiry in the historical record is not an attendee setting. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
           "next_id": "",
           "next_action": "",
           "chapter": 1,
-          "chapter_title": "What you will build"
+          "chapter_title": "See Metadata's working examples"
         },
         {
           "id": "p1-finish",
           "part": 1,
-          "title": "Today you build two pages and save the job",
+          "title": "Build these files for your own company",
           "type": "show",
           "timing": 0,
           "minutes": 0,
@@ -469,7 +351,7 @@
             ],
             "caption": "A skill is saved instructions for a repeatable job."
           },
-          "body": "Each person builds for their own company. Finish with two account pages, a reusable page skill and a saved project you can continue after class.",
+          "body": "Finish with a company brief, two target briefs, two reviewed pages and saved page-building instructions.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -498,12 +380,12 @@
           "next_id": "",
           "next_action": "",
           "chapter": 1,
-          "chapter_title": "What you will build"
+          "chapter_title": "See Metadata's working examples"
         },
         {
           "id": "p1-install",
           "part": 1,
-          "title": "Clone the project. Paste one prompt.",
+          "title": "Open the cloned folder. Build your company brief.",
           "type": "exercise",
           "timing": 12,
           "minutes": 12,
@@ -511,31 +393,31 @@
           "visual_type": "exercise",
           "visual_data": {
             "stages": [
-              "Clone the project",
-              "Open agentic-gtm-workshop",
+              "Open the repo",
+              "Add your website",
               "Paste the prompt",
-              "Review COMPANY.md"
+              "Review the brief"
             ],
             "artifact": "company-motion/COMPANY.md + SETUP.md",
             "caption": "One clone. One local project for all three workshops."
           },
-          "body": "First, run this command in Codex, Claude Code or your terminal:\ngit clone https://github.com/f-o-x11/agentic-gtm-workshop.git\nThen open agentic-gtm-workshop as your local project. All later exercises use this same folder.",
+          "body": "Use the project you cloned on slide 2. Open START-HERE.html, add your website and copy the full startup prompt.",
           "steps": [
             {
-              "title": "Clone the workshop.",
-              "detail": "git clone https://github.com/f-o-x11/agentic-gtm-workshop.git"
+              "title": "Open agentic-gtm-workshop in local Codex or Claude Code.",
+              "detail": ""
             },
             {
-              "title": "Open agentic-gtm-workshop.",
-              "detail": "Select the cloned folder in Codex or Claude Code. No GitHub account is needed."
+              "title": "Open START-HERE.html in your browser.",
+              "detail": ""
             },
             {
-              "title": "Copy the full startup prompt.",
-              "detail": "Open START-HERE.html. Add your website and paste its prompt into your local agent."
+              "title": "Add your website. Copy the full prompt into your local agent.",
+              "detail": ""
             },
             {
-              "title": "Review your company brief.",
-              "detail": "The agent saves COMPANY.md, prepares setup and stops."
+              "title": "Read COMPANY.md. Keep using this project.",
+              "detail": ""
             }
           ],
           "prompt": "Help me build my company's GTM workflow one step at a time.\nWebsite: [YOUR_COMPANY_WEBSITE]\nBuyer segment: [BUYER_SEGMENT]\nOffer: [COLD_OFFER]\nTargets: [TARGET_1_DOMAIN], [TARGET_2_DOMAIN]\nI have cloned agentic-gtm-workshop and opened it as this local project. Read README.md, AGENTS.md and START-HERE.md. If an input is blank, ask only for what official sources cannot supply. Suggest real targets for my confirmation if needed.\nUse this workshop folder as my local project. Keep runtime in code/ and outputs in company-motion/. Run commands from code/.\nRead my official website and save company-motion/COMPANY.md with sourced facts, the segment, offer, proof and actual next-step link. Ask only for missing facts. If the site blocks access, use official text I paste.\nAfter company-motion/COMPANY.md exists, run from code/:\npython3 -B gtm.py bootstrap --company-brief ../company-motion/COMPANY.md\nUse its saved verified Python executable for later commands and standalone scripts.\nIf Python needs installation, name the official installer and stop there. Do not install Homebrew.\nRead company-motion/AUTHORITY.md and company-motion/AGENTS.md. Keep outreach and spending paused.\nSave both target domains and the actual bootstrap result in company-motion/SETUP.md. Append the completed step, actual file paths, checks and next task to company-motion/PROGRESS.md. Do not run later exercises.\nShow the output and success check. Stop. Next: review your company brief.",
@@ -543,13 +425,12 @@
             "Local Codex or Claude Code; file and web access. No API credits."
           ],
           "expected": [
-            "COMPANY.md, SETUP.md, AUTHORITY.md, AGENTS.md and saved interpreter receipt."
+            "COMPANY.md, SETUP.md, AUTHORITY.md and AGENTS.md."
           ],
           "check": [
-            "Company brief exists before bootstrap.",
-            "Compatible Python path/version is actually verified.",
-            "Outreach and spending remain paused.",
-            "Agent stops after setup and names the next step."
+            "Setup found a supported Python version.",
+            "Sending and spending are paused.",
+            "The agent stops and names the next task."
           ],
           "fallback": "If web access is blocked, paste your official website text. If Python is missing, use the launcher's named official installer, then rerun this same step.",
           "repair_prompt": "Fix exercise p1-install in this same saved project.\nExpected artifact: company-motion/COMPANY.md, company-motion/SETUP.md, company-motion/AUTHORITY.md, company-motion/AGENTS.md and saved interpreter receipt.\nSuccess check: Company brief exists before bootstrap. Compatible Python path/version is actually verified. Outreach and spending remain paused. Agent stops after setup and names the next step.\nRead the website/paste source and actual setup error. Create company-motion/COMPANY.md before bootstrap. If Python is missing, give the official installer and stop. If already installed, rerun bootstrap through the verified launcher, save company-motion/SETUP.md and confirm the missing files. Do not run later exercises.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: review your company brief.\nActual error: [paste the error without credentials]",
@@ -561,128 +442,19 @@
               "scope": "Attendee setup is an added portable wrapper."
             }
           ],
-          "notes": "Show the exact clone command first. Everyone then works inside their own cloned folder. Standard workshop prompts stop after one exercise. BUILD-MY-GTM.md is an owner-requested full build mode; it keeps existing authority checks.",
+          "notes": "The command was shown on slide 2. Use the same cloned folder. Explain only the next task. The complete tested prompt stays unchanged in the copy helper.",
           "build_step": 0,
           "prompt_label": "Workshop prompt adapted to your company",
           "route": "main",
           "next_id": "p1-company",
           "next_action": "review your company brief",
           "chapter": 2,
-          "chapter_title": "Start your company project"
-        },
-        {
-          "id": "p1-glossary",
-          "part": 1,
-          "title": "Six terms used in these exercises",
-          "type": "show",
-          "timing": 0,
-          "minutes": 0,
-          "difficulty": "Watch",
-          "visual_type": "rows",
-          "visual_data": {
-            "rows": [
-              {
-                "job": "Skill",
-                "stage": "Saved instructions for one repeatable job."
-              },
-              {
-                "job": "Target account",
-                "stage": "A company you want to sell to."
-              },
-              {
-                "job": "Execution flow",
-                "stage": "The order of jobs and the next-action rules."
-              },
-              {
-                "job": "Self-test / canary",
-                "stage": "One approved email sent to your own sender."
-              },
-              {
-                "job": "Provider receipt",
-                "stage": "The service's actual ID and result for an action."
-              },
-              {
-                "job": "Hold",
-                "stage": "Keep the action stopped until a missing check passes."
-              }
-            ]
-          },
-          "body": "Use these words to name a file, decision or observed result.",
-          "steps": [],
-          "prompt": "",
-          "tools": [
-            "Codex and your workshop project."
-          ],
-          "expected": [],
-          "check": [],
-          "fallback": "",
-          "repair_prompt": "",
-          "sources": [
-            {
-              "label": "v5 engine/assets.py publication and browser limits",
-              "url": "sources/V5-WORKSHOP-SOURCES.md",
-              "date": "October 5, 2026",
-              "scope": "Do not label local creation as live publication."
-            }
-          ],
-          "notes": "Reference only. Explain a term when it first appears, then continue the task.",
-          "build_step": 0,
-          "prompt_label": "",
-          "route": "reference",
-          "next_id": "",
-          "next_action": "",
-          "chapter": 2,
-          "chapter_title": "Start your company project"
-        },
-        {
-          "id": "p1-private-inputs",
-          "part": 1,
-          "title": "Part 1 needs no API keys",
-          "type": "show",
-          "timing": 0,
-          "minutes": 0,
-          "difficulty": "Watch",
-          "visual_type": "connections",
-          "visual_data": {
-            "nodes": [
-              "Private key paths",
-              "Private configuration",
-              "Your recipient inputs",
-              "Private working database"
-            ],
-            "caption": "Keep config and keys outside code and company-motion. Private directories: 0700. Credential/config files: 0600. Verify actual paths and modes."
-          },
-          "body": "You can finish the pages with your website and local agent. Add keys only when you connect a channel. Your own credentials stay in private local files.",
-          "steps": [],
-          "prompt": "",
-          "tools": [
-            "API-CONNECTIONS.md and the blank private configuration example."
-          ],
-          "expected": [],
-          "check": [],
-          "fallback": "",
-          "repair_prompt": "",
-          "sources": [
-            {
-              "label": "API guide and portable HTTP client",
-              "url": "sources/V5-WORKSHOP-SOURCES.md",
-              "date": "October 5, 2026",
-              "scope": "No production credentials are distributed."
-            }
-          ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
-          "build_step": 0,
-          "prompt_label": "",
-          "route": "main",
-          "next_id": "",
-          "next_action": "",
-          "chapter": 2,
-          "chapter_title": "Start your company project"
+          "chapter_title": "Set up your company"
         },
         {
           "id": "p1-company",
           "part": 1,
-          "title": "Review what your agent learned about your company",
+          "title": "Check your company facts, buyers and offer",
           "type": "exercise",
           "timing": 8,
           "minutes": 8,
@@ -747,12 +519,12 @@
           "next_id": "p1-authority",
           "next_action": "review the operating instructions",
           "chapter": 2,
-          "chapter_title": "Start your company project"
+          "chapter_title": "Set up your company"
         },
         {
           "id": "p1-authority",
           "part": 1,
-          "title": "Your project starts with outreach paused",
+          "title": "Check the saved rules. Keep sending paused.",
           "type": "exercise",
           "timing": 4,
           "minutes": 4,
@@ -769,16 +541,16 @@
           "body": "Setup creates the operating instructions for you. Read the company facts and paused authority. Sending permissions are added in Part 2.",
           "steps": [
             {
-              "title": "Open the two instruction files.",
-              "detail": "Read the company facts and paused authority."
+              "title": "Open AUTHORITY.md and AGENTS.md.",
+              "detail": "Your local rules and sending limits."
             },
             {
-              "title": "Repair a missing file.",
-              "detail": "Rerun bootstrap. It preserves existing files."
+              "title": "Confirm sending and spending are paused.",
+              "detail": ""
             },
             {
-              "title": "Keep the project paused.",
-              "detail": "No sender or paid channel is needed yet."
+              "title": "Ask your agent to repair either missing file.",
+              "detail": "Keep the existing company brief."
             }
           ],
           "prompt": "Open company-motion/AUTHORITY.md and company-motion/AGENTS.md.\nIf either is missing, rerun:\npython3 -B gtm.py bootstrap --company-brief ../company-motion/COMPANY.md\nPreserve my existing facts, instructions and history.\nShow the company name, one-step-at-a-time rule, and paused outreach and spending rules.\nIf either file conflicts with my company brief, show the conflict for my correction. Do not grant a sender or live channel yet.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: research the first target company.",
@@ -809,7 +581,7 @@
           "next_id": "p1-one-source",
           "next_action": "research the first target company",
           "chapter": 2,
-          "chapter_title": "Start your company project"
+          "chapter_title": "Set up your company"
         },
         {
           "id": "p1-one-source",
@@ -1132,7 +904,7 @@
         {
           "id": "p1-save-skill",
           "part": 1,
-          "title": "STEP 1: save the page method as a skill",
+          "title": "Save your page-building instructions as a skill",
           "type": "exercise",
           "timing": 6,
           "minutes": 6,
@@ -1152,15 +924,15 @@
           "steps": [
             {
               "title": "Copy the skill prompt.",
-              "detail": "Use the reviewed page and source notes."
+              "detail": "Use your checked page and source notes."
             },
             {
               "title": "Read the saved SKILL.md.",
-              "detail": "Check the required inputs and success checks."
+              "detail": "It must say what to read, build and check."
             },
             {
-              "title": "Keep the prompt and result together.",
-              "detail": "The next run should use the same method."
+              "title": "Use these instructions for the next page.",
+              "detail": ""
             }
           ],
           "prompt": "Create company-motion/skills/account-page/SKILL.md from the method that passed review.\nInclude the required company and target facts, standalone HTML output, source ledger, missing-proof rule, real next-step link and measured desktop/phone checks.\nUse the reviewed first page as the example. Make the instructions usable in a fresh local agent session.\nRequire each factual claim to have exact source support. Keep unsupported facts out.\nShow the complete saved skill.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: use that skill for the second target.",
@@ -1191,7 +963,7 @@
           "next_id": "p1-repeat",
           "next_action": "use that skill for the second target",
           "chapter": 5,
-          "chapter_title": "Save the skill and build page two"
+          "chapter_title": "Save the skill. Build page two."
         },
         {
           "id": "p1-repeat",
@@ -1259,19 +1031,19 @@
           "next_id": "p1-checkpoint",
           "next_action": "check the Part 1 files after the break",
           "chapter": 5,
-          "chapter_title": "Save the skill and build page two"
+          "chapter_title": "Save the skill. Build page two."
         },
         {
           "id": "p1-break",
           "part": 1,
-          "title": "Coffee. Your agent has the notes.",
+          "title": "Save your pages. Take five minutes.",
           "type": "break",
           "timing": 5,
           "minutes": 5,
           "difficulty": "Pause",
           "visual_type": "coffee",
           "visual_data": {
-            "caption": "Please do not make coffee your next automation dependency."
+            "caption": "Your agent can wait. Coffee cannot."
           },
           "body": "Save both pages. Leave the project open. Return in five minutes.",
           "steps": [],
@@ -1298,58 +1070,13 @@
           "next_id": "",
           "next_action": "",
           "chapter": 5,
-          "chapter_title": "Save the skill and build page two"
-        },
-        {
-          "id": "p1-file-vs-live",
-          "part": 1,
-          "title": "A page file is one useful result",
-          "type": "show",
-          "timing": 0,
-          "minutes": 0,
-          "difficulty": "Watch",
-          "visual_type": "status_ladder",
-          "visual_data": {
-            "stages": [
-              "HTML created",
-              "Browser reviewed",
-              "Published URL verified",
-              "Form submission verified"
-            ],
-            "caption": "Today’s required result: reviewed local pages. Publication follows in Part 3."
-          },
-          "body": "A local page, a published page and a verified form submission are different results. Keep the label that your evidence supports.",
-          "steps": [],
-          "prompt": "",
-          "tools": [
-            "Codex and your workshop project."
-          ],
-          "expected": [],
-          "check": [],
-          "fallback": "",
-          "repair_prompt": "",
-          "sources": [
-            {
-              "label": "v5 engine/assets.py publication and browser limits",
-              "url": "sources/V5-WORKSHOP-SOURCES.md",
-              "date": "October 5, 2026",
-              "scope": "Do not label local creation as live publication."
-            }
-          ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
-          "build_step": 0,
-          "prompt_label": "",
-          "route": "main",
-          "next_id": "",
-          "next_action": "",
-          "chapter": 5,
-          "chapter_title": "Save the skill and build page two"
+          "chapter_title": "Save the skill. Build page two."
         },
         {
           "id": "p1-checkpoint",
           "part": 1,
-          "title": "Check your Part 1 files. Repair any missing setup.",
-          "type": "checkpoint",
+          "title": "Check the files. Fix anything missing.",
+          "type": "exercise",
           "timing": 5,
           "minutes": 5,
           "difficulty": "Easy",
@@ -1367,16 +1094,16 @@
           "body": "Your agent opens the required files. If setup skipped the instructions, bootstrap repairs them in the same project without losing your pages.",
           "steps": [
             {
-              "title": "Run the checkpoint prompt.",
-              "detail": "Codex opens each required file."
+              "title": "Copy the checkpoint prompt.",
+              "detail": "Your agent opens each required file."
             },
             {
-              "title": "Repair the first missing check.",
-              "detail": "Preserve the working pages."
+              "title": "Fix the first failed check.",
+              "detail": "Keep both pages and the saved skill."
             },
             {
-              "title": "Save your next task.",
-              "detail": "Bring this same project to Part 2."
+              "title": "Read PROGRESS.md.",
+              "detail": "Check the result and your next task."
             }
           ],
           "prompt": "Open our company brief, setup receipt, company-motion/AUTHORITY.md, company-motion/AGENTS.md, target list, two target briefs, two pages, page review, saved skill and skill test.\nIf company-motion/AUTHORITY.md or company-motion/AGENTS.md is missing, rerun bootstrap with the existing company brief. Preserve all working outputs and history.\nAppend actual paths and passed or missing checks to company-motion/PROGRESS.md.\nKeep created, reviewed and published separate. Repair the first available local issue and rerun its check.\nName one exact next action for each remaining gap.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: finish the first remaining issue with individual help.",
@@ -1408,20 +1135,33 @@
           "next_id": "p1-help",
           "next_action": "finish the first remaining issue with individual help",
           "chapter": 5,
-          "chapter_title": "Save the skill and build page two"
+          "chapter_title": "Save the skill. Build page two."
         },
         {
           "id": "p1-help",
           "part": 1,
-          "title": "Finish your pages. Fix the first blocker.",
-          "type": "help",
+          "title": "Fix your first unfinished task",
+          "type": "exercise",
           "timing": 30,
           "minutes": 30,
           "difficulty": "Help",
           "visual_type": "help",
           "visual_data": {},
           "body": "Work individually. Open the repair prompt for the failed task. Gil helps with errors and unclear results.",
-          "steps": [],
+          "steps": [
+            {
+              "title": "Open PROGRESS.md. Find the first unfinished check.",
+              "detail": ""
+            },
+            {
+              "title": "Copy that task's repair prompt from prompts.html.",
+              "detail": ""
+            },
+            {
+              "title": "Add your error. Rerun the check. Save the result.",
+              "detail": ""
+            }
+          ],
           "prompt": "Read company-motion/PROGRESS.md and find the first unfinished Part 1 check.\nRepair that local cause in this same project. Preserve working pages, source notes and the saved skill.\nRerun its success check and update company-motion/PROGRESS.md.\nIf only phone review is missing, show the exact manual device-mode or phone check instead of inventing a pass.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: prepare the single email connection before Part 2.",
           "tools": [
             "Codex and your workshop project."
@@ -1449,12 +1189,12 @@
           "next_id": "p1-before-part2",
           "next_action": "prepare the single email connection before Part 2",
           "chapter": 5,
-          "chapter_title": "Save the skill and build page two"
+          "chapter_title": "Save the skill. Build page two."
         },
         {
           "id": "p1-before-part2",
           "part": 1,
-          "title": "Before Part 2: prepare one email channel",
+          "title": "Register for Parts 2 and 3. Prepare your email.",
           "type": "reference",
           "timing": 0,
           "minutes": 0,
@@ -1462,11 +1202,10 @@
           "visual_type": "connections",
           "visual_data": {
             "required": [
-              "Own Google sender and primary calendar",
-              "Completed Google authorization",
-              "Current customer, deal and opt-out exclusions",
-              "Eleven exact validated addresses",
-              "Permitted recipient-company countries"
+              "Register using the QR code.",
+              "Open PREWORK.md in your cloned project.",
+              "Connect your own Google email and calendar.",
+              "Bring customer and opt-out exclusions."
             ],
             "optional": [
               "A paid finder only when current contact details are missing"
@@ -1494,7 +1233,7 @@
             ],
             "caption": "Send this setup request early. If authorization is blocked, prepare messages and label live sending incomplete."
           },
-          "body": "Complete Google authorization and email validation before class. Ask your Workspace admin early if needed. Social, gifting, ads and hosting are optional later.",
+          "body": "After class, follow PREWORK.md for the next workshop. Keep using the same project.",
           "steps": [],
           "prompt": "Read PREWORK.md, API-CONNECTIONS.md and SETUP-SEQUENCE.md for the single email channel.\nPrepare my own sender, primary calendar, permitted countries and current customer/deal/opt-out exclusions.\nFollow the Google Cloud sign-in guide. It must initialize this fresh email configuration from code/ using python3 -B gtm.py init --config and the actual private path before treating email setup as ready; bootstrap alone is local file setup. Use the project launcher and the actual private client-file path. Record the authenticated sender and calendar; name any Workspace-admin blocker.\nPrepare ten distinct target domains and current buyer contacts plus my own self-test address.\nRead the actual ZeroBounce balance and show the validation cost. Ask for my bounded paid-validation approval before spending credits. Keep original pending request IDs.\nSave company-motion/CONNECTION-CHECK.md with each actual result or blocker. Keep outreach paused.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: open Part 2 and check your email prerequisites.",
           "tools": [
@@ -1543,54 +1282,54 @@
               "qr": "assets/workshop-3-qr.png"
             }
           ],
-          "route": "main",
+          "route": "optional",
           "next_id": "p2-connect",
           "next_action": "open Part 2 and check your email prerequisites",
           "chapter": 5,
-          "chapter_title": "Save the skill and build page two"
+          "chapter_title": "Save the skill. Build page two."
         }
       ],
       "agenda": [
         {
           "id": "p1-results",
           "minutes": 3,
-          "title": "This is how I built Metadata’s GTM motion",
+          "title": "This is how I built Metadata's GTM motion",
           "outcome": "Understand what was observed and what was built."
+        },
+        {
+          "id": "p1-about",
+          "minutes": 2,
+          "title": "I'm Gil. I run Metadata.",
+          "outcome": "Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies."
         },
         {
           "id": "p1-v5-tree",
           "minutes": 3,
-          "title": "What your workflow does",
+          "title": "The workflow I run at Metadata",
           "outcome": "Your agent researches buyers and prepares work. The local program checks the recipient, performs an approved action and records the provider result."
         },
         {
-          "id": "p1-twenty-files",
-          "minutes": 2,
-          "title": "The working project is already prepared",
-          "outcome": "The source has 20 files. You receive an empty portable version. Supply your company facts and accounts; keep the saved records in one project."
-        },
-        {
-          "id": "p1-build-journey",
+          "id": "p1-real-outputs",
           "minutes": 4,
-          "title": "The four steps I used",
-          "outcome": "I built skills, connected their decisions, chose target accounts and tested ten. You start with prepared code and adapt those four steps to your company."
+          "title": "A real page, email and gift",
+          "outcome": "Metadata built a page for Zuora, sent an email to Forum One and sent a gift invitation to Datarails. These are different examples."
         },
         {
           "id": "p1-install",
           "minutes": 12,
-          "title": "START HERE: one folder, one prompt, one step",
-          "outcome": "COMPANY.md, SETUP.md, AUTHORITY.md, AGENTS.md and saved interpreter receipt."
+          "title": "Open the cloned folder. Build your company brief.",
+          "outcome": "COMPANY.md, SETUP.md, AUTHORITY.md and AGENTS.md."
         },
         {
           "id": "p1-company",
           "minutes": 8,
-          "title": "Review what your agent learned about your company",
+          "title": "Check your company facts, buyers and offer",
           "outcome": "company-motion/COMPANY.md with sourced company facts."
         },
         {
           "id": "p1-authority",
           "minutes": 4,
-          "title": "Your project starts with outreach paused",
+          "title": "Check the saved rules. Keep sending paused.",
           "outcome": "Present, readable AUTHORITY.md and AGENTS.md."
         },
         {
@@ -1620,7 +1359,7 @@
         {
           "id": "p1-save-skill",
           "minutes": 6,
-          "title": "STEP 1: save the page method as a skill",
+          "title": "Save your page-building instructions as a skill",
           "outcome": "company-motion/skills/account-page/SKILL.md."
         },
         {
@@ -1632,19 +1371,19 @@
         {
           "id": "p1-break",
           "minutes": 5,
-          "title": "Coffee. Your agent has the notes.",
+          "title": "Save your pages. Take five minutes.",
           "outcome": "Save both pages. Leave the project open. Return in five minutes."
         },
         {
           "id": "p1-checkpoint",
           "minutes": 5,
-          "title": "Check your Part 1 files. Repair any missing setup.",
+          "title": "Check the files. Fix anything missing.",
           "outcome": "PROGRESS.md with actual paths and passed or missing checks."
         },
         {
           "id": "p1-help",
           "minutes": 30,
-          "title": "Finish your pages. Fix the first blocker.",
+          "title": "Fix your first unfinished task",
           "outcome": "One repaired task and updated progress."
         }
       ],
@@ -1652,14 +1391,14 @@
         {
           "number": 1,
           "id": "p1-chapter-1",
-          "title": "What you will build",
-          "outcome": "See the working play and its four build steps.",
+          "title": "See Metadata's working examples",
+          "outcome": "See the actual page, email and gift examples.",
           "slide_ids": [
+            "p1-cover",
             "p1-results",
-            "p1-real-outputs",
+            "p1-about",
             "p1-v5-tree",
-            "p1-twenty-files",
-            "p1-build-journey",
+            "p1-real-outputs",
             "p1-finish"
           ],
           "guided_minutes": 12,
@@ -1668,12 +1407,10 @@
         {
           "number": 2,
           "id": "p1-chapter-2",
-          "title": "Start your company project",
-          "outcome": "Company brief, paused instructions and verified local setup.",
+          "title": "Set up your company",
+          "outcome": "COMPANY.md, saved setup and local rules.",
           "slide_ids": [
             "p1-install",
-            "p1-glossary",
-            "p1-private-inputs",
             "p1-company",
             "p1-authority"
           ],
@@ -1684,7 +1421,7 @@
           "number": 3,
           "id": "p1-chapter-3",
           "title": "Choose two target companies",
-          "outcome": "Two source-backed target briefs and a saved target list.",
+          "outcome": "Two target briefs and TARGETS.md.",
           "slide_ids": [
             "p1-one-source",
             "p1-target-fit",
@@ -1697,7 +1434,7 @@
           "number": 4,
           "id": "p1-chapter-4",
           "title": "Build and check your first page",
-          "outcome": "A reviewed page and a claim/source check.",
+          "outcome": "First HTML page and PAGE-REVIEW.md.",
           "slide_ids": [
             "p1-build-page",
             "p1-page-review"
@@ -1708,13 +1445,12 @@
         {
           "number": 5,
           "id": "p1-chapter-5",
-          "title": "Save the skill and build page two",
-          "outcome": "A reusable skill, second reviewed page and Part1 checkpoint.",
+          "title": "Save the skill. Build page two.",
+          "outcome": "SKILL.md, second page and completed file check.",
           "slide_ids": [
             "p1-save-skill",
             "p1-repeat",
             "p1-break",
-            "p1-file-vs-live",
             "p1-checkpoint",
             "p1-help",
             "p1-before-part2"

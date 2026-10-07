@@ -1,6 +1,6 @@
 {
   "parts": {
-    "part-1": 39,
+    "part-1": 36,
     "part-2": 40,
     "part-3": 43
   },
@@ -12,13 +12,13 @@
     },
     {
       "file": "Complete-Presentation.pdf",
-      "pages": 122,
-      "bytes": 3601523
+      "pages": 119,
+      "bytes": 3601584
     },
     {
       "file": "Part-1-Presentation.pdf",
-      "pages": 39,
-      "bytes": 3280414
+      "pages": 36,
+      "bytes": 3280465
     },
     {
       "file": "Part-2-Presentation.pdf",
@@ -32,8 +32,8 @@
     },
     {
       "file": "Participant-Booklet.pdf",
-      "pages": 54,
-      "bytes": 3211638
+      "pages": 55,
+      "bytes": 3211134
     }
   ]
 }

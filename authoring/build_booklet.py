@@ -21,7 +21,7 @@ for part in d['parts']:
   if s.get('prompt'):
    lines +=[('Optional after class. ' if s.get('route')=='optional' else 'Time: '+str(s.get('minutes',s.get('timing',0)))+' minutes. ')+ 'Difficulty: '+str(s.get('difficulty',''))+'.','', 'Tools: '+ '; '.join(s.get('tools',[]))+'.','', 'Do this:','']
    for i,st in enumerate(s.get('steps',[]),1):
-    lines +=[str(i)+'. '+(st if isinstance(st,str) else st.get('title','')+' '+st.get('detail',''))]
+    lines +=[(str(i)+'. '+(st if isinstance(st,str) else st.get('title','')+' '+st.get('detail',''))).rstrip()]
    lines+=['','Copy the complete prompt from prompts.html#'+s['id']+'. Paste it into the same local Codex or Claude Code project.','', '```text',s['prompt'],'```','', 'You should have:','']
    expected=s.get('expected',[]);expected=[expected] if isinstance(expected,str) else expected
    lines +=['- '+x for x in expected]
@@ -30,7 +30,7 @@ for part in d['parts']:
    lines+=['- '+x for x in checks]
    if s.get('fallback'):lines+=['','If blocked: '+s['fallback']]
   elif s.get('steps'):
-   for i,st in enumerate(s['steps'],1):lines+=[str(i)+'. '+(st if isinstance(st,str) else st.get('title','')+' '+st.get('detail',''))]
+   for i,st in enumerate(s['steps'],1):lines+=[(str(i)+'. '+(st if isinstance(st,str) else st.get('title','')+' '+st.get('detail',''))).rstrip()]
   if s.get('next_action'):lines+=['','Next: '+s['next_action']+'.']
  lines+=['']
 lines += ['# Finish with an honest completion record', '', 'Core local work:', '']

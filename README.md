@@ -20,11 +20,11 @@ Open the cloned folder as your local project in Codex or Claude Code. For a full
 
 ### Part 1
 
-1. What you will build.
-2. Start your company project.
+1. See Metadata's working examples.
+2. Set up your company.
 3. Choose two target companies.
 4. Build and check your first page.
-5. Save the skill and build page two.
+5. Save the skill. Build page two..
 
 ### Part 2
 
@@ -50,7 +50,7 @@ Open the cloned folder as your local project in Codex or Claude Code. For a full
 | BUILD-MY-GTM.md | Ask questions and prepare your company's full supported local workflow. |
 | prompts.html | Full exercise prompts, repair prompts and next steps. |
 | Complete-Presentation.pdf | All three workshops, with chapter bookmarks. |
-| Part-1-Presentation.pdf | Company context, pages and skill reuse. |
+| Part-1-Presentation.pdf | Cover illustration, results and clone on slide 2, then five practical sections. |
 | Part-2-Presentation.pdf | Exact message review and conditional email pilot. |
 | Part-3-Presentation.pdf | Outcomes, repeat operation and optional channels. |
 | Participant-Booklet.pdf | Full prompts, expected files, checks and fallbacks. |
