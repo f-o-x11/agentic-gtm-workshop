@@ -1,0 +1,17 @@
+{
+  "complete": false,
+  "observed_at": "",
+  "source": "",
+  "coverage": [
+    "customers",
+    "open_deals",
+    "suppressions"
+  ],
+  "records": [
+    {
+      "entity_type": "domain",
+      "value": "",
+      "reason": ""
+    }
+  ]
+}

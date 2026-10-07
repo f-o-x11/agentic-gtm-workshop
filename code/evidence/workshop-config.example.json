@@ -1,0 +1,39 @@
+{
+  "company": {
+    "name": "",
+    "website": "",
+    "domain": ""
+  },
+  "policy": {
+    "authority": "",
+    "senders": {},
+    "controlled_test_recipients": [],
+    "daily_email_ceiling": 11,
+    "recipient_company_countries": [],
+    "gift_fulfillment": "off",
+    "linkedin_dispatch": "off",
+    "advertising": {
+      "enabled": false,
+      "max_daily_budget": 0,
+      "max_total_budget": 0,
+      "authorized_campaign_ids": []
+    }
+  },
+  "daily_targets": {
+    "email": 11,
+    "gift": 0,
+    "social": 0
+  },
+  "batch_limits": {
+    "email": 10,
+    "gift": 1,
+    "social": 2
+  },
+  "history_since_epoch": 0,
+  "credential_files": {},
+  "settings": {
+    "booking_sources": [
+      "google_calendar"
+    ]
+  }
+}

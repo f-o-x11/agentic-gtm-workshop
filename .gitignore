@@ -1,0 +1,17 @@
+# Attendee files stay local.
+company-motion/*
+!company-motion/.gitkeep
+*.env
+.env*
+!api-templates/credentials.env.example
+*token*.json
+*credentials*.json
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.tmp/
+# Clean database is included; never commit populated working records.
+code/data/*-journal
+code/data/*-wal
+code/data/*-shm

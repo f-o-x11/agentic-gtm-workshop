@@ -1,0 +1,387 @@
+{
+  "chapters_per_session": 5,
+  "sessions": 3,
+  "runtime_files": 20,
+  "files": [
+    {
+      "path": ".github/workflows/workshop-checks.yml",
+      "sha256": "63789ecfd841b9cbe1edbf9f64f09a6df9b3d78437a01071a9767aec3156a15e",
+      "bytes": 490
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "6a5d419f31ba4f531df56f98bc58b6caaa773f3d754e0063796a863f52a2996e",
+      "bytes": 322
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "4c0c3fd750929383cd926eebc5cdea7632c33268b683ea0621b4a834e047bfc3",
+      "bytes": 2318
+    },
+    {
+      "path": "API-CONNECTIONS.md",
+      "sha256": "81cf8a314ca5221d458450cd9cdb6df61306f67a41bd38f125432f01b3154b79",
+      "bytes": 69683
+    },
+    {
+      "path": "API-STATUS-MATRIX.md",
+      "sha256": "f9d2ed6b26b62214eae12d564422de8d3ebb71ab41693ec9739591dd448d1116",
+      "bytes": 8766
+    },
+    {
+      "path": "API-Setup-Guide.pdf",
+      "sha256": "e8c8f507ca87ad03fff9464f272f105cc83e6c0f219c04ae6a8915095defbee3",
+      "bytes": 3164562
+    },
+    {
+      "path": "CHAPTERS.md",
+      "sha256": "6875516b9a9e7ae7c82c2c9afe2a1aed30ebc23f3b44724d02687a969222e477",
+      "bytes": 2187
+    },
+    {
+      "path": "Complete-Presentation.pdf",
+      "sha256": "17825cfee498afa6ab9af85636de267b19955f95c34e1a33c18f7049d2b12569",
+      "bytes": 3601319
+    },
+    {
+      "path": "GIFT-GATE-HELPER.md",
+      "sha256": "e53f66594525279a912844a8b8fd7b9eed2136f1b2491e7e8b33dba98e6ec93c",
+      "bytes": 4354
+    },
+    {
+      "path": "GLOSSARY.md",
+      "sha256": "d4028ab7654aa3af6c1d53030fcd11bed867b5d31ed0a867272bae7eefb2e871",
+      "bytes": 1355
+    },
+    {
+      "path": "METADATA-PUBLIC-TOOL-SCHEMAS.json",
+      "sha256": "7bac0a4c9a67a2b43fa1df51fe32ca3123804ce60dd13a286019d5d1df8a169b",
+      "bytes": 13466
+    },
+    {
+      "path": "NATIVE-SOURCE-SETUP.md",
+      "sha256": "cbf7527d6aaba66ca127e70e9c1649a7ba1626c7a3fffca37b7d6224a22dadf3",
+      "bytes": 4530
+    },
+    {
+      "path": "PREWORK.md",
+      "sha256": "3552af3bec5810120d987be954553fc351d840c5f2ac48e233850f3fdd059538",
+      "bytes": 3766
+    },
+    {
+      "path": "PROVIDER-CONTRACT-GAPS.md",
+      "sha256": "44d2946f37484908401529f37d4bdc25003239eb4b887f5e85faf688db9c48f5",
+      "bytes": 5563
+    },
+    {
+      "path": "PROVIDER-RECOVERY.md",
+      "sha256": "1ace40d2aa275b0cf3fa7e71132feb58a6e191d9b74a1d4b5687c03c3001add7",
+      "bytes": 5716
+    },
+    {
+      "path": "Part-1-Presentation.pdf",
+      "sha256": "efd6df3051a659c30479319825b89fff0783f61032674450d05bb30987e28803",
+      "bytes": 3280182
+    },
+    {
+      "path": "Part-2-Presentation.pdf",
+      "sha256": "3bc75135330ed655e5fb74054b980c637cab1ec9fbeaa9c8b16d2055eecc3f3c",
+      "bytes": 111684
+    },
+    {
+      "path": "Part-3-Presentation.pdf",
+      "sha256": "bac1119229f0b4eb47f0341bdea65696e3b7562b80ab906bf70c5d81f13e883f",
+      "bytes": 208361
+    },
+    {
+      "path": "Participant-Booklet.pdf",
+      "sha256": "d85306df70f76db99bc40490a969571d1e5ec057240d264d6375c6a8b539e718",
+      "bytes": 3211348
+    },
+    {
+      "path": "README.md",
+      "sha256": "279dd4bf006ab5787b01dfef5a02ff49faea91ccf62577926d962161774dd699",
+      "bytes": 4989
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "037130d37dd5c084bb9f21ff48074d9d78dd80110d4e4dc8b7a505573eea977c",
+      "bytes": 3737
+    },
+    {
+      "path": "SETUP-SEQUENCE.md",
+      "sha256": "968670cc0cfd612db29573a7ccb3913cc29891ebf8ede0d4f23baeabadd3f55c",
+      "bytes": 19403
+    },
+    {
+      "path": "START-HERE.html",
+      "sha256": "c81a0521b4d3fdc3838265b504307ba66e040a0f576dea90264ef073b2383e12",
+      "bytes": 12201
+    },
+    {
+      "path": "START-HERE.md",
+      "sha256": "e7dd9bfba75b40534b9a8eb23e2845af9f7953a665b4227af3037b7d42c56c7b",
+      "bytes": 2267
+    },
+    {
+      "path": "api-guide.json",
+      "sha256": "6d3ce264f748f6fa73307d75f4771c84b0a6397bbcc75148d30bb34f8e16ee24",
+      "bytes": 74698
+    },
+    {
+      "path": "api-templates/credentials.env.example",
+      "sha256": "66edfe177c020db8c0060633d4d6cda7c7c16dad7e18e2847e4f8c86a414470f",
+      "bytes": 922
+    },
+    {
+      "path": "api-templates/exclusions.template.json",
+      "sha256": "84de8758a5b35bb97705c7bf382c398b83098a68ebb808c16427b29a011c4e4a",
+      "bytes": 237
+    },
+    {
+      "path": "api-templates/gift-gate.template.json",
+      "sha256": "3063b5b5736f5cc97877bff1a0fa45a5e8c1ff6bc37c2af730cd5e13f714b447",
+      "bytes": 277
+    },
+    {
+      "path": "api-templates/google-oauth.template.json",
+      "sha256": "996ccf41cb7ead527c664172827feed1e31c0e96e3c0f66ba9c6e0c6191ca7d5",
+      "bytes": 350
+    },
+    {
+      "path": "api-templates/pilot-approval.template.json",
+      "sha256": "a23da0183f2751dec9de220f016f8ce0a9aac5cddc874a5c89972d23b890cc1a",
+      "bytes": 165
+    },
+    {
+      "path": "api-templates/release-scope.template.json",
+      "sha256": "658165158e2318cb2c72b0b1da1c4a222e0934bf4a07dbd1a094355ccb4c4cf4",
+      "bytes": 212
+    },
+    {
+      "path": "api-templates/salesforce-oauth.template.txt",
+      "sha256": "f387a005d59ff8764e2e9fcfbf8f7ad66d8a46a54eef9381210dab6b1cdbafe5",
+      "bytes": 55
+    },
+    {
+      "path": "assets/OFL.txt",
+      "sha256": "472cbe7c25441df63e9c7864b43eb3c0f4b3df950c66a76224e6cfe1eae843fb",
+      "bytes": 4384
+    },
+    {
+      "path": "assets/Rubik-400.ttf",
+      "sha256": "cc6a4222027f8e57ff86a50c5ba88f12326d7223bde9bf6531538633ebad3343",
+      "bytes": 174992
+    },
+    {
+      "path": "assets/Rubik-600.ttf",
+      "sha256": "3af9c8346eeb53fdc9e7f72b31f32228ad04e5c0b96373641701748f02dd58d8",
+      "bytes": 175600
+    },
+    {
+      "path": "assets/Rubik-700.ttf",
+      "sha256": "2d6393d64232ea3e0eeff79165d80df61c0859213abdd638b0ec1e81d21098dc",
+      "bytes": 175628
+    },
+    {
+      "path": "assets/actual-outcomes.png",
+      "sha256": "ac482e2955007390177f952463a61a6f1577fde2ba19afec86dffac56180b3d9",
+      "bytes": 13992
+    },
+    {
+      "path": "assets/actual-zuora-page.png",
+      "sha256": "2fe2e52ee265bacc321e2069f25948d5121b698e51669aeb4580f8c2e5722705",
+      "bytes": 91615
+    },
+    {
+      "path": "assets/gift-message-preview-redacted.png",
+      "sha256": "780e689c79fd05244bc7842cdcd2652a8f79ddbe35c3c9b1410f1cd8b2bdb117",
+      "bytes": 114290
+    },
+    {
+      "path": "assets/metadata-icon.jpeg",
+      "sha256": "0117ef9b2ffad80e479ce2967793e2167a9b445387eb1a561f82d3a4b5a115cf",
+      "bytes": 3157
+    },
+    {
+      "path": "assets/workshop-2-qr.png",
+      "sha256": "e60537cb6bb12613ac511c3e968699ee3bdbb561bd181b586ee74440d321724c",
+      "bytes": 593
+    },
+    {
+      "path": "assets/workshop-3-qr.png",
+      "sha256": "992ac5d03e11b04477a441661a069708f874aaad192bcdc9233bdf23b53d9d33",
+      "bytes": 606
+    },
+    {
+      "path": "assets/workshop-cover.png",
+      "sha256": "19f2210c11524c0d84f2b656fc5c4cfc712d8afc1727035eba406729a35b6e08",
+      "bytes": 2157562
+    },
+    {
+      "path": "authoring/build_booklet.py",
+      "sha256": "6d7327a3a65a7886189e459d4421381f1eb5398911fd5103c2ae5833c040708f",
+      "bytes": 7354
+    },
+    {
+      "path": "authoring/build_materials.py",
+      "sha256": "d0ba554273742fcbf2245c7d77bc3c358f12ca35a0167e6c255ac955f9dfe6f7",
+      "bytes": 39374
+    },
+    {
+      "path": "authoring/pdf-manifest.json",
+      "sha256": "2ad50ac74651eb7dd60650e83b697f35ef9a66153adea53a670e09c903b89254",
+      "bytes": 666
+    },
+    {
+      "path": "authoring/requirements.txt",
+      "sha256": "a5d39fdd4c6239aae52a5162499c057273aaef66e79480815088d02b09f5de9c",
+      "bytes": 61
+    },
+    {
+      "path": "build_guide.py",
+      "sha256": "a17e6bfbf47e700279a23fa0bb8dc909a5bf47a51ad9aac1eef3775e881d3b4b",
+      "bytes": 9524
+    },
+    {
+      "path": "checks/release_check.py",
+      "sha256": "0e002f7bfb870d46b7143b3f88e0382126f80a2787998a7ffdb3ff0f19d79bdb",
+      "bytes": 3923
+    },
+    {
+      "path": "checks/startup_checks.py",
+      "sha256": "fe3a917bf90a64c6403b0bb2f48288c2192837f48ba955bb02df60821a1c189f",
+      "bytes": 21535
+    },
+    {
+      "path": "code/AGENTS.md",
+      "sha256": "ca3f01b61188b7f849b0a86526754a29d64f86d31d29c02b790778c62a31da5e",
+      "bytes": 6343
+    },
+    {
+      "path": "code/README.md",
+      "sha256": "22da1f5c43a10c4d3f089d62e906abc2d17f0448e49ea37570490b5b6997aabc",
+      "bytes": 27914
+    },
+    {
+      "path": "code/checks/focused_checks.py",
+      "sha256": "020457ed0736efa0aaa8e92526bba5d3ee65f056989480df0bbe1a9f7b30170d",
+      "bytes": 47638
+    },
+    {
+      "path": "code/config/policy.json",
+      "sha256": "4bcf1f928528d0c0e87b7d23661359fd86f7c6868b20550a32c58719395540b2",
+      "bytes": 82
+    },
+    {
+      "path": "code/config/schema.sql",
+      "sha256": "758c8dc060cab861e0e417d75eeae49a23223e7cd20d04fe159937ad9238540c",
+      "bytes": 2716
+    },
+    {
+      "path": "code/data/gtm.sqlite",
+      "sha256": "c75e0d949ba784c44f16707a400e21f500869691bcfff17692c6ad9394b9a374",
+      "bytes": 159744
+    },
+    {
+      "path": "code/engine/assets.py",
+      "sha256": "1bbfa005598981a9025f7edf294d5f529be7c508cd48b2235c2c992741cea0b4",
+      "bytes": 19927
+    },
+    {
+      "path": "code/engine/channels/email.py",
+      "sha256": "668bc8d625598529c9070c6580621b0b14aea4da72d384bc69129f560752a6c7",
+      "bytes": 22256
+    },
+    {
+      "path": "code/engine/channels/gifts.py",
+      "sha256": "be2c444c586032a78be3559bf3923bc1e503f85544960242815885a11e5bcf0f",
+      "bytes": 10294
+    },
+    {
+      "path": "code/engine/channels/meetings.py",
+      "sha256": "4587dacf8b5729ae05620bd4653d5bf264cf7ef1460a4825c95ebb4ccb8d6aad",
+      "bytes": 26659
+    },
+    {
+      "path": "code/engine/channels/social.py",
+      "sha256": "86db7265aed68ac977be2947f776999e6e167c1bc29d61a065c5b47a6a5263aa",
+      "bytes": 22027
+    },
+    {
+      "path": "code/engine/checks.py",
+      "sha256": "cf47a8fc02412e9871b38b90a8429d41ec06a7bc678e07f1f2ab04f850f2a47e",
+      "bytes": 26454
+    },
+    {
+      "path": "code/engine/database.py",
+      "sha256": "e44d819791ebb074b0374b8a6423a41eb0aaebb6af81cd238ec37c16dd12ceef",
+      "bytes": 15905
+    },
+    {
+      "path": "code/engine/http_client.py",
+      "sha256": "8b3e4e45f0e13105370c2d4b2de821f9e1eb6b0ff27e9910b111bbcb9b4e1aba",
+      "bytes": 7669
+    },
+    {
+      "path": "code/engine/research.py",
+      "sha256": "e9d845607692d288a9b789a7055ce995d3e47d1975f6ee9ab3961aac1661c002",
+      "bytes": 28365
+    },
+    {
+      "path": "code/engine/scheduler.py",
+      "sha256": "903fb12f1514a77da37b2acc2787011c6ca6f344a8719f327df855340feb6bc8",
+      "bytes": 27684
+    },
+    {
+      "path": "code/engine/validation.py",
+      "sha256": "9b0d694e5fe1b1326d91ef3d407dfebcbc0007c3cd634d4cee10baa3327ac108",
+      "bytes": 17553
+    },
+    {
+      "path": "code/evidence/workshop-config.example.json",
+      "sha256": "746a1ddfabb5d434c01f12b42e4330bc5b6fb5ffb28990f828f1b58137f36ae9",
+      "bytes": 727
+    },
+    {
+      "path": "code/gtm.py",
+      "sha256": "3bdd2e15b4c1f12b1c6b4a4e59446a1bc90f0e3922833360a6fafb916e620008",
+      "bytes": 20779
+    },
+    {
+      "path": "code/tools/setup.py",
+      "sha256": "6d752c542805e7354a5bbc37212ad44f73e531d01dc3b91954401fbf0abf0a71",
+      "bytes": 36140
+    },
+    {
+      "path": "company-motion/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "course/BOOKLET.md",
+      "sha256": "29788849edf5f84311d29b30bfb3074dee6b9bf4428cd42daee9ab6445467e1f",
+      "bytes": 115643
+    },
+    {
+      "path": "course/CHAPTERS.md",
+      "sha256": "6875516b9a9e7ae7c82c2c9afe2a1aed30ebc23f3b44724d02687a969222e477",
+      "bytes": 2187
+    },
+    {
+      "path": "course/course.json",
+      "sha256": "6f4978cdef6512a43dfb7211bf92c2537dd01a656760a64387849312132ecacb",
+      "bytes": 280954
+    },
+    {
+      "path": "prompts.html",
+      "sha256": "18440a5b60047fc19bf03450b519b2a714516395c5d8250ad894e67334bf7a18",
+      "bytes": 174538
+    },
+    {
+      "path": "sources/V5-WORKSHOP-SOURCES.md",
+      "sha256": "260e3219bce08b6c866bd98647a0c2afa9c85ee059d84f3f6464fed9a19b886e",
+      "bytes": 3765
+    }
+  ]
+}

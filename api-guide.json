@@ -1,0 +1,1317 @@
+{
+  "title": "Connect your own tools",
+  "version": "v5 workshop",
+  "reviewed_at": "2026-10-06",
+  "summary": "Build two local pages first. For live email, add your own Google mailbox and exact work-email validation. Gifts, LinkedIn, publishing and ads are optional extensions.",
+  "source_note": "Provider capabilities were read from all relevant v5 adapters. Portable changes are explicitly labeled. No credentials or production data were copied.",
+  "parts": [
+    {
+      "part": 1,
+      "name": "Build your foundation",
+      "connections": [
+        "An AI coding agent with file and web access",
+        "Verified Python 3.10+ selected by the startup launcher; official installer if missing",
+        "Your own company website",
+        "Browser or local HTML preview"
+      ],
+      "paid_apis": []
+    },
+    {
+      "part": 2,
+      "name": "Run your ten-account email pilot",
+      "connections": [
+        "Own Google OAuth mailbox and calendar",
+        "Complete current exclusions snapshot",
+        "Fresh work-email validation",
+        "Current employer evidence; one research provider optional"
+      ],
+      "paid_apis": [
+        "ZeroBounce or a current supported validation receipt",
+        "One finder only if you need new people/emails"
+      ]
+    },
+    {
+      "part": 3,
+      "name": "Operate the core workflow; optional extra channels",
+      "connections": [
+        "Same project, outcomes and owned connections from Part 2",
+        "Optional: Gojiberry for LinkedIn, funded Loop & Tie for gifts, owned Netlify site for publishing",
+        "Optional: Calendly/CRM/forms/Metadata only for the extension you use"
+      ],
+      "paid_apis": [
+        "No new paid API for the main lane; chosen channel costs apply only when connected"
+      ]
+    }
+  ],
+  "providers": [
+    {
+      "id": "google",
+      "name": "Google: Gmail, Calendar and optional Sheets",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Required for the live email path",
+      "status": "Supported in portable package",
+      "secret_type": "Desktop OAuth token JSON, or an existing delegated Workspace service-account JSON",
+      "env": [
+        "V5_GOOGLE_FILE",
+        "V5_GOOGLE_SERVICE_ACCOUNT_FILE"
+      ],
+      "settings": [
+        "credential_files.google",
+        "credential_files[google:YOUR_EMAIL] for each signed-in mailbox",
+        "policy.senders",
+        "history_since_epoch",
+        "settings.google_calendars.mailboxes",
+        "settings.google_calendars.since",
+        "settings.revenue"
+      ],
+      "enables": "Send from your own approved mailbox, read the exact Sent message, read replies and exclude existing calendar meetings. Optional Sheets access reads your customer list.",
+      "does_not_enable": "A Google API key does not unlock private email. A downloaded OAuth client file alone is not a signed-in mailbox. This code reads calendars; it does not create appointments.",
+      "minimum": "One Google account with Gmail and Calendar for the first pilot. Each personal OAuth sender signs in separately. Existing Workspace delegation needs an administrator. No purchased Google API credits are required by this code.",
+      "steps": [
+        "Open Google Cloud Console and create your own workshop project.",
+        "Use APIs & Services, Library. Enable Gmail API and Google Calendar API. Enable Google Sheets API when reading a customer or revenue Sheet.",
+        "Use Google Auth platform, Branding. If not configured, choose Get Started. Enter app name, support email, audience and contact email, then complete the setup.",
+        "For an External app in Testing, use Audience, Test users, Add users. Add your own authorized mailbox.",
+        "Use Google Auth platform, Clients, Create Client. Select Desktop app, give it a name and create it. Download its JSON into your private credentials folder.",
+        "Run python3 -B gtm.py setup-google --client-file /absolute/private/google-desktop-client.json. Complete consent in your browser with the exact authorized sender.",
+        "The helper saves the signed-in credential privately and writes only its path back to your private config. Later configure retains the connection.",
+        "Inspect connected_mailbox and outreach_sent:0. Configure actual calendar, history and optional Sheet sources before releasing an email."
+      ],
+      "proof": "Gmail /profile returns your configured mailbox. A primary-calendar read succeeds. History pagination finishes for your configured baseline. A later authorized send counts only after an exact Sent match.",
+      "wait": "Google consent or administrator approval can delay setup. Workspace delegation can take up to 24 hours. External OAuth apps in Testing may issue seven-day refresh tokens. Reauthorize when revoked or expired.",
+      "fallback": "Finish company context, accounts, page and exact message preparation. Mark email sending blocked until your mailbox and calendar reads work.",
+      "schema": {
+        "type": "authorized_user",
+        "email": "",
+        "client_id": "",
+        "client_secret": "",
+        "refresh_token": "",
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.modify",
+          "https://www.googleapis.com/auth/gmail.send",
+          "https://www.googleapis.com/auth/calendar.readonly",
+          "https://www.googleapis.com/auth/spreadsheets.readonly"
+        ]
+      },
+      "source": [
+        {
+          "label": "Google desktop OAuth",
+          "url": "https://developers.google.com/identity/protocols/oauth2/native-app"
+        },
+        {
+          "label": "Google OAuth token expiration",
+          "url": "https://developers.google.com/identity/protocols/oauth2#expiration"
+        },
+        {
+          "label": "Google delegation",
+          "url": "https://developers.google.com/workspace/guides/create-credentials"
+        },
+        {
+          "label": "Google project creation",
+          "url": "https://developers.google.com/workspace/guides/create-project"
+        },
+        {
+          "label": "Google API enabling",
+          "url": "https://developers.google.com/workspace/guides/enable-apis"
+        },
+        {
+          "label": "Google OAuth screen and test users",
+          "url": "https://developers.google.com/workspace/guides/configure-oauth-consent"
+        }
+      ],
+      "code": [
+        "tools/setup.py:setup_google,configure",
+        "engine/channels/email.py:delegated_token,Mailbox",
+        "engine/channels/meetings.py:calendars"
+      ],
+      "notes": [
+        "The downloaded Desktop client JSON and the resulting authorized_user JSON are different files.",
+        "Never paste the refresh token into a workshop prompt or PDF.",
+        "The Desktop helper currently requests all four scopes, including Sheets readonly. Sheets API is only needed when you use a sheet.",
+        "If a Google API returns disabled or permission denied, enable that exact API or fix its scope. A blocked company website is a different issue.",
+        "Repeat the consent helper for each authorized sender. It saves a mailbox-specific credential_files entry. Each credential can access only its own signed-in mailbox.",
+        "The sender cap is not the release approval. approve-pilot pins one exact self email and ten exact prospect emails across ten distinct companies. The prospect actions stay locked until the exact self Sent receipt exists.",
+        "Dispatch the exact original pinned self-test key with run --action-key ACTUAL_CONTROLLED_ACTION_KEY --limit 1, then reconcile that same key. A limit alone is global; the selector excludes unrelated approved grants and creates no new authority.",
+        "Google OAuth and delegated service-account files stay private at mode 0600 outside code/ and company-motion/. Runtime consumption checks the private path as well as configuration. Do not copy a service-account JSON into the downloaded runtime."
+      ]
+    },
+    {
+      "id": "exclusions",
+      "name": "Your current customer, deal and opt-out list",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Required before any live outreach",
+      "status": "Current snapshot supported; strict complete-native mode supported for repeated operation",
+      "secret_type": "No API key for a current private owner-reviewed snapshot",
+      "env": [],
+      "settings": [
+        "No config field for snapshot path; import --kind exclusions --file PRIVATE_JSON",
+        "settings.exclusion_mode: snapshot or native",
+        "settings.native_exclusions",
+        "settings.revenue",
+        "settings.history_sources",
+        "settings.booking_sources",
+        "history_since_epoch"
+      ],
+      "enables": "Remove customers, open deals, opt-outs and existing relationships. Snapshot mode uses a current owner-reviewed export. Native mode reads actual maintained customer, CRM, history and booking sources each cycle.",
+      "does_not_enable": "A blank export, partial range, stale source or unknown customer status cannot establish company-wide coverage. Native mode needs complete positive current receipts and does not fall back to a snapshot when its sources fail.",
+      "minimum": "For the classroom pilot: one complete current owner-reviewed export. For unattended native mode: a maintained complete customer Sheet, at least one CRM inventory, full mailbox history, every actual booking source and their required permissions.",
+      "steps": [
+        "Export customers, open deals, opt-outs and active relationships from your own systems.",
+        "Resolve company domains and email addresses. Keep a reason for each exclusion.",
+        "Save the private snapshot JSON with complete:true, the real observed_at, a source description and all three coverage names.",
+        "Run python3 -B gtm.py import --kind exclusions --file /absolute/private/exclusions.json. Refresh the actual export when its source is older than 65 minutes.",
+        "Read the connection result. Resolve missing or ambiguous domains before selecting recipients.",
+        "For native mode, connect the complete maintained customer Sheet and at least one actual Salesforce or HubSpot source. Use the native setup below.",
+        "Set settings.exclusion_mode:native and settings.native_exclusions to revenue plus the actual CRM sources. Keep history_since_epoch:0 for full mailbox history. Include any actual Instantly or Gojiberry history you rely on.",
+        "Run refresh and inspect each complete positive customer, deal, suppression, history and booking receipt. Resolve unknown status, missing domains, partial pagination or unsupported sources.",
+        "Keep snapshot mode for a manual pilot when the company cannot provide that complete native coverage. Refresh the real owner export before another live release."
+      ],
+      "proof": "Snapshot mode checks actual timestamp, declared source coverage and bytes. Native mode binds fresh complete customer/CRM/history/booking inventories to the selected accounts. Any failed or unresolved required source holds affected outreach.",
+      "wait": "Export timing and owner review depend on your systems. Live outreach waits for complete current coverage.",
+      "fallback": "Build assets and messages. Keep sending paused until you have a complete current list.",
+      "schema": {
+        "complete": false,
+        "observed_at": "",
+        "source": "",
+        "coverage": [
+          "customers",
+          "open_deals",
+          "suppressions"
+        ],
+        "records": [
+          {
+            "entity_type": "domain",
+            "value": "",
+            "reason": ""
+          }
+        ]
+      },
+      "source": [],
+      "code": [
+        "tools/setup.py:snapshot,import_records,refresh_portable",
+        "engine/validation.py:account_domains"
+      ],
+      "notes": [
+        "The shipped template deliberately starts complete:false.",
+        "Only the owner can confirm a complete source scope.",
+        "The package remembers the imported private file path and rereads its bytes and real timestamp each cycle. The timestamp must describe the underlying source read.",
+        "Native mode is a portable workshop addition with local tests. An actual native source connection remains an attendee test.",
+        "A complete maintained source is required. A header-only or filtered range cannot honestly cover all company customers.",
+        "Do not update a source timestamp to hide old data. Read the actual maintained systems."
+      ]
+    },
+    {
+      "id": "zerobounce",
+      "name": "ZeroBounce",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Required for fresh validation on the email path",
+      "status": "Balance reads, exact-address validation and stale-complete renewal supported",
+      "secret_type": "API key text",
+      "env": [
+        "V5_ZEROBOUNCE_FILE",
+        "V5_ZEROBOUNCE_TOKEN"
+      ],
+      "settings": [
+        "credential_files.zerobounce",
+        "person.email_verification or zb_status/zb_checked_at"
+      ],
+      "enables": "Check the exact work email. Store its returned status and actual checked time.",
+      "does_not_enable": "Validation does not prove current employment, permission to send, absence of a deal, or delivery.",
+      "minimum": "An active credit balance for the distinct addresses you validate. Budget at least 11 lookups for ten prospects and one controlled check, plus replacements. Provider rules determine actual billing.",
+      "steps": [
+        "Create or use your own ZeroBounce account.",
+        "Copy the API key from your account into a private text file.",
+        "Add its path under credential_files.zerobounce.",
+        "Run python3 -B gtm.py research --operation zerobounce-balance. Read actual credits_remaining before validating addresses.",
+        "Check your credit balance with the provider's read-only balance endpoint.",
+        "Validate one exact address. Save the native response with its checked time.",
+        "Proceed only when the address matches and the status is valid. Review catch-all, invalid and unknown results."
+      ],
+      "proof": "Returned address matches the requested email and status is valid. The package requires validation evidence no older than seven days.",
+      "wait": "The official validator reports one to 30 seconds per address. Unknown results remain unqualified in this package.",
+      "fallback": "Use your own current provider validation receipt with the exact email, provider, valid status and checked_at. Never invent a valid result.",
+      "schema": {
+        "email": "",
+        "status": "valid",
+        "provider": "zerobounce",
+        "checked_at": ""
+      },
+      "source": [
+        {
+          "label": "ZeroBounce validation",
+          "url": "https://zerobounce.net/docs/email-validation-api-quickstart/v2-validate-emails"
+        },
+        {
+          "label": "ZeroBounce credit balance API",
+          "url": "https://www.zerobounce.net/docs/email-validation-api-quickstart/v2-credit-balance"
+        }
+      ],
+      "code": [
+        "engine/research.py:validate_email",
+        "engine/validation.py:person_issues",
+        "engine/research.py:validation_balance"
+      ],
+      "notes": [
+        "The adapter sends the key in the API-required query. It excludes that key from the saved payload.",
+        "No automatic replay follows an uncertain validation request.",
+        "An exact valid receipt must be current within seven days. The same operation reuses a fresh receipt and renews a known completed stale lookup without erasing prior receipts.",
+        "A prior uncertain lookup cannot renew or replay. Resolve that original attempt first.",
+        "Never type valid into a person record as a substitute for the actual validation result."
+      ]
+    },
+    {
+      "id": "sixtyfour",
+      "name": "Sixtyfour",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional research choice",
+      "status": "Search and professional email discovery supported",
+      "secret_type": "API key text",
+      "env": [
+        "V5_SIXTYFOUR_FILE",
+        "V5_SIXTYFOUR_TOKEN"
+      ],
+      "settings": [
+        "credential_files.sixtyfour"
+      ],
+      "enables": "Find companies or people with bounded filters. Find a professional email for a sourced person.",
+      "does_not_enable": "The local adapter does not expose Sixtyfour's full intelligence, phone, monitor or workflow APIs. Its email lookup has verify_emails:false, so separate validation is required.",
+      "minimum": "The reviewed pricing lists 64 free credits. A ten-result search plus ten professional email discoveries costs up to six credits under the adapter's reservations: 1 + 5. This excludes other lookups, validation and unused results.",
+      "steps": [
+        "Create your own Sixtyfour organization.",
+        "Open Settings, API Keys and create a key with an expiration.",
+        "Save it privately. Set credential_files.sixtyfour.",
+        "Set your own monthly allowance and explicitly enable paid research.",
+        "Search with mode company or people, page_size equal to max_results, output_shape raw and simple_filters.",
+        "Inspect each identity. Use PROFESSIONAL email discovery only for a sourced person, then validate the exact work email."
+      ],
+      "proof": "The native response has the requested entity or exact work-email candidate. Record source and retrieval time. Research output remains a candidate until identity checks pass.",
+      "wait": "Some provider jobs can return pending. Preserve the request and handle. An unsupported or missing native read handle needs reconciliation, not another paid submission.",
+      "fallback": "Use ten known target companies and current official company/person sources. If credits run out, finish the verified subset and report the count.",
+      "schema": {
+        "mode": "people",
+        "page_size": 10,
+        "max_results": 10,
+        "output_shape": "raw",
+        "simple_filters": {}
+      },
+      "source": [
+        {
+          "label": "Sixtyfour API keys",
+          "url": "https://docs.sixtyfour.ai/get-api-key"
+        },
+        {
+          "label": "Sixtyfour credit costs",
+          "url": "https://docs.sixtyfour.ai/guides/credits-and-pricing"
+        },
+        {
+          "label": "Sixtyfour filter search",
+          "url": "https://docs.sixtyfour.ai/api-reference/search/filter-search"
+        },
+        {
+          "label": "Sixtyfour email discovery",
+          "url": "https://docs.sixtyfour.ai/api-reference/endpoint/find-email"
+        }
+      ],
+      "code": [
+        "engine/research.py:sixtyfour"
+      ],
+      "notes": [
+        "The source engine's 15,000-credit ceiling belongs to Metadata. Set your own allowance.",
+        "Credits found in the account do not grant authority to spend them.",
+        "Paid research is paused by default. Use research-on --sixtyfour-credits with your own ceiling. This enables research only, not outreach."
+      ]
+    },
+    {
+      "id": "exa",
+      "name": "Exa",
+      "parts": [
+        1,
+        2,
+        3
+      ],
+      "priority": "Optional official-source research",
+      "status": "Search supported in portable package; original source had credential plumbing only",
+      "secret_type": "API key text",
+      "env": [
+        "V5_EXA_FILE",
+        "V5_EXA_TOKEN"
+      ],
+      "settings": [
+        "credential_files.exa"
+      ],
+      "enables": "Find current web sources for a company, product or buying signal. Read linked official sources to support the message.",
+      "does_not_enable": "Search snippets do not verify employment or email delivery. Exa does not send outreach.",
+      "minimum": "One account with search access and enough available usage for the searches you select. Confirm your dashboard's live allowance. No paid Exa account is required for Part 1 when your agent already has web access.",
+      "steps": [
+        "Create an Exa API key in your own dashboard.",
+        "Save the key privately and set credential_files.exa.",
+        "Enable only the research you intend to pay for.",
+        "Run one narrow company or official-domain query.",
+        "Read the source page. Save the URL, observed_at and the claim it supports."
+      ],
+      "proof": "A source URL answers the intended question, and the page's content supports the recorded claim. A search response alone is only discovery.",
+      "wait": "The API may apply rate limits. Respect the returned wait. Do not repeat an uncertain paid request.",
+      "fallback": "Read the company's official website with the agent's web tool and save exact source evidence.",
+      "schema": {
+        "query": "",
+        "numResults": 3
+      },
+      "source": [
+        {
+          "label": "Exa search contract",
+          "url": "https://exa.ai/docs/reference/search"
+        },
+        {
+          "label": "Exa pricing",
+          "url": "https://exa.ai/pricing"
+        }
+      ],
+      "code": [
+        "engine/research.py:exa",
+        "tools/setup.py:research"
+      ],
+      "notes": [
+        "Run research --operation exa --input PRIVATE_JSON after research-on. The exact input needs a nonempty query and numResults from 1 to 10.",
+        "The portable package adds this search call. It does not claim that the source engine already had it.",
+        "Paid research is paused by default. Use research-on --sixtyfour-credits with your own ceiling. This enables research only, not outreach."
+      ]
+    },
+    {
+      "id": "apify",
+      "name": "Apify",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional profile and public-signal source",
+      "status": "Five allowlisted actors supported",
+      "secret_type": "API token text",
+      "env": [
+        "V5_APIFY_FILE",
+        "V5_APIFY_TOKEN"
+      ],
+      "settings": [
+        "credential_files.apify",
+        "settings.radar"
+      ],
+      "enables": "Read public LinkedIn person/company data and recent public comments using the selected actor. Save the accepted run ID and read its dataset.",
+      "does_not_enable": "A scraped comment is not buying intent or authorization. This adapter does not post, invite or message on LinkedIn.",
+      "minimum": "Enough account usage for one selected actor run. Check that actor's current price and input schema. Actor fees and platform usage vary, so the guide does not promise a fixed dollar allowance.",
+      "steps": [
+        "Create or use your own Apify account.",
+        "Copy your token from Console, Integrations, into a private file.",
+        "Choose one allowlisted actor. Read its current input schema and price.",
+        "Use one known profile or a narrow tracked-profile/keyword scan. Launch once.",
+        "Save run.id. Poll that same run until SUCCEEDED.",
+        "Read the full default dataset. Bind each accepted comment to its native post and author before researching the person."
+      ],
+      "proof": "The saved run ID matches the completed run. Its dataset is fully read. An accepted signal has the native comment, post, profile and actual comment time.",
+      "wait": "Actor runs are asynchronous. The source adapter requests a 1,800-second actor timeout. Keep the same run ID while waiting; that timeout is not a promised completion time.",
+      "fallback": "Use a current public post/comment URL and the exact text you can read. Mark signal acquisition manual. Do not simulate an actor result.",
+      "schema": {
+        "allowed_actors": [
+          "harvestapi~linkedin-profile-scraper",
+          "harvestapi~linkedin-company",
+          "pipelinelabs~leads-finder-with-emails-apollo-lusha-zoominfo",
+          "harvestapi~linkedin-profile-posts",
+          "harvestapi~linkedin-post-search"
+        ]
+      },
+      "source": [
+        {
+          "label": "Apify API authentication and runs",
+          "url": "https://docs.apify.com/api/v2"
+        },
+        {
+          "label": "Run and retrieve data",
+          "url": "https://help.apify.com/en/articles/3224035-run-actor-task-and-retrieve-data-via-api"
+        }
+      ],
+      "code": [
+        "engine/research.py:apify_start,apify_read,Signals"
+      ],
+      "notes": [
+        "The adapter rejects comments older than 24 hours for its Radar path.",
+        "Relevance and current identity are still separate checks.",
+        "Paid research is paused by default. Use research-on --sixtyfour-credits with your own ceiling. This enables research only, not outreach."
+      ]
+    },
+    {
+      "id": "triguna",
+      "name": "Triguna",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional identity lookup",
+      "status": "Person and company lookup supported",
+      "secret_type": "API key text",
+      "env": [
+        "V5_TRIGUNA_FILE",
+        "V5_TRIGUNA_TOKEN"
+      ],
+      "settings": [
+        "credential_files.triguna"
+      ],
+      "enables": "Read a person profile or company record from an exact existing native identifier.",
+      "does_not_enable": "There is no people-search method in this adapter. You need the LinkedIn URL or identifier first.",
+      "minimum": "The reviewed official site lists five signup credits and one credit per answered lookup. Ten person lookups plus ten company lookups need up to 20 credits. Confirm balance before using this option.",
+      "steps": [
+        "Get your own key from the Triguna app.",
+        "Save it privately and set credential_files.triguna.",
+        "Use the exact profile_id or company_id from a source.",
+        "Read the returned identity and current experience. Keep data-source and fetched-time evidence.",
+        "Map the actual employer, role and profile into the workshop's current-identity fields."
+      ],
+      "proof": "The returned person matches the profile, employer and role you selected. Source age is inspected. A lookup does not automatically mark current employment confirmed.",
+      "wait": "Follow provider restrictions and Retry-After. A failed or uncertain paid lookup is not automatically replayed.",
+      "fallback": "Use current official person/company sources or another supported identity source.",
+      "schema": {
+        "profile_id": "",
+        "include_network_details": false,
+        "use_cache": false
+      },
+      "source": [
+        {
+          "label": "Triguna official API and pricing overview",
+          "url": "https://triguna.ai/"
+        }
+      ],
+      "code": [
+        "engine/research.py:profile,company"
+      ],
+      "notes": [
+        "Some official documentation pages were unavailable to the review browser. Exact request names here come from local code.",
+        "Titles can be nested in positions. Do not infer the latest role from the first company label.",
+        "Paid research is paused by default. Use research-on --sixtyfour-credits with your own ceiling. This enables research only, not outreach."
+      ]
+    },
+    {
+      "id": "moltsets",
+      "name": "MoltSets",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional people and work-email source",
+      "status": "Three tools supported",
+      "secret_type": "API key text",
+      "env": [
+        "V5_MOLTSETS_FILE",
+        "V5_MOLTSETS_TOKEN"
+      ],
+      "settings": [
+        "credential_files.moltsets"
+      ],
+      "enables": "Search people, look up a business email from LinkedIn, or look up a mobile number.",
+      "does_not_enable": "The workshop needs no mobile number. The adapter exposes only search_people, linkedin_to_business_email and linkedin_to_mobile_phone. A risk score is not the package's fresh valid email verdict.",
+      "minimum": "Use available free search access or your own paid plan. The reviewed FAQ lists paid plans from $27/month and separate phone-token subscriptions. Check current entitlement before calling; phone lookup is optional.",
+      "steps": [
+        "Create a key under API Keys in your own MoltSets app.",
+        "Save it privately and set credential_files.moltsets.",
+        "Use exact title and company_domain filters for a people search.",
+        "Read status, source date, employer and work email. Not_found is a valid empty result.",
+        "Save current identity evidence and validate the exact email separately."
+      ],
+      "proof": "The response status is ok or not_found. A found record matches the intended employer and role. The HTTP client supplies the required User-Agent header.",
+      "wait": "Observe account fair-use and provider rate limits. A not_found response does not justify repeated paid calls.",
+      "fallback": "Use your already sourced people and official employer pages.",
+      "schema": {
+        "operation": "search_people",
+        "inputs": {
+          "company_domain": "",
+          "title": "",
+          "limit": 10,
+          "offset": 0
+        }
+      },
+      "source": [
+        {
+          "label": "MoltSets API setup",
+          "url": "https://support.moltsets.com/en/articles/14743482-moltsets-quick-start-guide"
+        },
+        {
+          "label": "MoltSets people-search contract",
+          "url": "https://developer.moltsets.com/api-reference/search/search-for-people"
+        },
+        {
+          "label": "MoltSets account and token plans",
+          "url": "https://moltsets.com/faq/"
+        }
+      ],
+      "code": [
+        "engine/research.py:moltsets"
+      ],
+      "notes": [
+        "The local API uses a Bearer key. A Claude MCP connector's OAuth credentials are a separate connection.",
+        "Paid research is paused by default. Use research-on --sixtyfour-credits with your own ceiling. This enables research only, not outreach."
+      ]
+    },
+    {
+      "id": "rocketreach",
+      "name": "RocketReach",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional contact lookup",
+      "status": "Exact profile lookup and same-handle status check supported",
+      "secret_type": "API key text",
+      "env": [
+        "V5_ROCKETREACH_FILE",
+        "V5_ROCKETREACH_TOKEN"
+      ],
+      "settings": [
+        "credential_files.rocketreach"
+      ],
+      "enables": "Look up a known LinkedIn profile and read the status of that same native person handle.",
+      "does_not_enable": "The adapter does not expose a full search workflow. It does not send mail or validate your sender.",
+      "minimum": "An account with API lookup entitlement and sufficient credits. The current public API documentation could not be read in this review, so no plan or price is promised.",
+      "steps": [
+        "Obtain an API key from your own API-enabled RocketReach account.",
+        "Save it privately and set credential_files.rocketreach.",
+        "Look up the exact sourced LinkedIn URL once.",
+        "Save the returned native id. If pending, check that same id.",
+        "Use the result only when status is complete and the returned profile matches."
+      ],
+      "proof": "A complete result has the same LinkedIn URL. The package records the native lookup handle and response.",
+      "wait": "Pending is an expected provider state. Recheck the original handle, never launch a duplicate lookup.",
+      "fallback": "Use another supported finder or already verified work email.",
+      "schema": {
+        "linkedin_url": ""
+      },
+      "source": [
+        {
+          "label": "RocketReach API entry point",
+          "url": "https://rocketreach.co/api"
+        }
+      ],
+      "code": [
+        "engine/research.py:rocketreach"
+      ],
+      "notes": [
+        "API entry point was unavailable to the browser on 2026-10-05. Setup details beyond the local contract remain unverified.",
+        "Paid research is paused by default. Use research-on --sixtyfour-credits with your own ceiling. This enables research only, not outreach."
+      ]
+    },
+    {
+      "id": "instantly",
+      "name": "Instantly",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional existing-history and email-finder source",
+      "status": "Selected enrichment and optional complete history reads supported",
+      "secret_type": "API v2 key text",
+      "env": [
+        "V5_INSTANTLY_FILE",
+        "V5_INSTANTLY_TOKEN"
+      ],
+      "settings": [
+        "credential_files.instantly",
+        "settings.history_sources.instantly"
+      ],
+      "enables": "Read past Instantly emails to avoid duplicate outreach. Use an available Instantly-funded finder from its actual provider registry.",
+      "does_not_enable": "This adapter does not send through Instantly. A key does not make the portable setup read its history or make an unavailable finder usable. Select only a live funded provider from its registry.",
+      "minimum": "Your own workspace with API v2 scopes for email history, provider registry and billing/enrichment reads. Paid finder calls require available workspace credits at the registry's actual cost.",
+      "steps": [
+        "Create a scoped API v2 key in your own workspace.",
+        "Save it privately and set credential_files.instantly.",
+        "Set settings.history_sources.instantly:true only when this is an actual company outreach source. Native exclusion mode requires complete coverage of all relied-on history.",
+        "Read the complete email inventory with pagination.",
+        "For enrichment, inspect the provider registry and plan details first. Pick one available instantly_key-funded action.",
+        "Supply sourced name fields, exact profile and domain. Keep the result and validate the exact work email."
+      ],
+      "proof": "History pagination finishes. A finder reports the actual available credit balance and action cost. Missing required sourced input returns projection_omitted, not a guessed name.",
+      "wait": "Provider jobs can be pending. v5 retains unknown outcomes and account restrictions. Read-only history is subject to provider rate limits.",
+      "fallback": "Use Gmail history only if it fully covers your actual outreach. Otherwise export the missing past activity and keep affected recipients held.",
+      "schema": {
+        "allowed_finders": [
+          "bettercontact",
+          "contactout",
+          "findymail",
+          "icypeas",
+          "leadmagic",
+          "prospeo",
+          "wiza"
+        ]
+      },
+      "source": [
+        {
+          "label": "Instantly API introduction",
+          "url": "https://developer.instantly.ai/"
+        },
+        {
+          "label": "Instantly API documentation index",
+          "url": "https://developer.instantly.ai/llms.txt"
+        }
+      ],
+      "code": [
+        "engine/research.py:instantly_registry,instantly_email",
+        "engine/channels/email.py:Replies.instantly"
+      ],
+      "notes": [
+        "Connecting Google to Instantly is not the same as connecting the workshop's own Gmail adapter.",
+        "Paid research is paused by default. Use research-on --sixtyfour-credits with your own ceiling. This enables research only, not outreach."
+      ]
+    },
+    {
+      "id": "calendly",
+      "name": "Calendly",
+      "parts": [
+        3
+      ],
+      "priority": "Optional when your company uses it",
+      "status": "Booking and cancellation reads supported",
+      "secret_type": "Personal access token text",
+      "env": [
+        "V5_CALENDLY_FILE",
+        "V5_CALENDLY_TOKEN"
+      ],
+      "settings": [
+        "credential_files.calendly",
+        "settings.calendly_identity.email",
+        "settings.calendly_identity.user_uri",
+        "settings.calendly_identity.organization_uri",
+        "settings.calendly_identity.since",
+        "settings.calendly_identity.event_type_uris"
+      ],
+      "enables": "Read exact bookings and cancellations for your selected event types. Exclude booked people and accounts from cold outreach.",
+      "does_not_enable": "The adapter does not create a Calendly event, choose a time, send a scheduling link, or verify attendance. Reading a booking does not establish that a meeting happened.",
+      "minimum": "Calendly read API access is available on all plans in the reviewed official overview. Organization-wide data needs owner/admin scope. No paid scheduling API is used here.",
+      "steps": [
+        "Open Calendly Integrations, API & Webhooks and generate a named personal token.",
+        "Save it privately and set credential_files.calendly.",
+        "Read /users/me. Capture your exact email, user URI and organization URI.",
+        "Read the event-type inventory. Select your actual demo event-type URIs.",
+        "Set a real history baseline since and read scheduled events plus every invitee page.",
+        "Inspect booked and canceled states. Keep attendance unknown."
+      ],
+      "proof": "Authenticated owner matches config. All selected event types exist. Every event and invitee belongs to the expected owner/program and the inventory finishes.",
+      "wait": "New bookings appear only after the recipient schedules. Token permissions and organization role can restrict coverage.",
+      "fallback": "Use your own calendar coverage if it captures all existing booked relationships. Otherwise keep the missing booking source held.",
+      "schema": {
+        "email": "",
+        "user_uri": "",
+        "organization_uri": "",
+        "since": "",
+        "event_type_uris": []
+      },
+      "source": [
+        {
+          "label": "Calendly personal tokens",
+          "url": "https://developer.calendly.com/docs/authentication/how-to-authenticate-with-personal-access-tokens"
+        },
+        {
+          "label": "Calendly plan and role access",
+          "url": "https://calendly.com/help/calendly-api-overview"
+        }
+      ],
+      "code": [
+        "engine/channels/meetings.py:calendly"
+      ],
+      "notes": [
+        "Entering the token without owner and event-type settings is incomplete."
+      ]
+    },
+    {
+      "id": "hubspot",
+      "name": "HubSpot",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional when your company uses it",
+      "status": "Open deals, demo-form submissions and raw meeting-outcome reads supported",
+      "secret_type": "Scoped private-app access token text",
+      "env": [
+        "V5_HUBSPOT_FILE",
+        "V5_HUBSPOT_TOKEN"
+      ],
+      "settings": [
+        "credential_files.hubspot",
+        "settings.hubspot_demo_forms.ids",
+        "settings.hubspot_demo_forms.since",
+        "settings.attendance_since"
+      ],
+      "enables": "Read open deals and associated company domains. Read existing demo-form submissions. Record native meeting outcome rows.",
+      "does_not_enable": "The adapter does not create/update CRM deals or submit forms. Meeting attendance stays unknown because the exact meeting/contact association join is missing.",
+      "minimum": "An account and private app with access to your actual deals, companies, forms and meeting data. Configure read scopes for each used endpoint. Do not buy a higher plan before checking the actual endpoint permission.",
+      "steps": [
+        "Create or use a private app in your own HubSpot account.",
+        "Grant only endpoint scopes needed for deals/companies, forms and optional meeting reads.",
+        "Save the access token privately and set credential_files.hubspot.",
+        "Read pipelines and deals. Join each open deal to its actual company domain.",
+        "For forms, read the form inventory and set only your actual demo form ids and baseline.",
+        "Test a read of each configured source. Repair MISSING_SCOPES from the named endpoint's official documentation."
+      ],
+      "proof": "Full pipeline/deal/company pagination completes. Configured forms appear in native inventory. A submission includes its exact conversionId, email and submittedAt.",
+      "wait": "Native permissions, form access and associated-domain resolution can delay readiness. New form submissions are recipient actions.",
+      "fallback": "Use a current owner-reviewed complete exclusion export. If your website uses another form provider, do not claim HubSpot covers it.",
+      "schema": {
+        "ids": [],
+        "since": ""
+      },
+      "source": [
+        {
+          "label": "HubSpot private apps",
+          "url": "https://developers.hubspot.com/docs/apps/legacy-apps/private-apps/overview"
+        },
+        {
+          "label": "HubSpot forms guide",
+          "url": "https://developers.hubspot.com/docs/api-reference/legacy/marketing/forms/guide"
+        }
+      ],
+      "code": [
+        "engine/channels/meetings.py:forms,hubspot_deals,attendance"
+      ],
+      "notes": [
+        "Local source uses forms v3 inventory and a legacy submissions route. Confirm endpoint access with a read before class.",
+        "An unclassified deal stage is conservatively excluded."
+      ]
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional when your company uses it",
+      "status": "OAuth and open-opportunity reads supported after portable owner config",
+      "secret_type": "Private text file with client_id, client_secret, refresh_token and instance_url",
+      "env": [
+        "V5_SALESFORCE_FILE"
+      ],
+      "settings": [
+        "credential_files.salesforce",
+        "settings.salesforce_owner_email"
+      ],
+      "enables": "Read open opportunities and their exact account websites. Exclude those company domains.",
+      "does_not_enable": "The adapter does not write opportunities or infer pipeline revenue. A CRM connection alone does not prove the engine caused a deal.",
+      "minimum": "A Salesforce user with API access and permission to read Opportunity and Account fields. Use an External Client App or an existing Connected App. New Connected App creation is restricted from Spring 2026.",
+      "steps": [
+        "Have your Salesforce administrator create an External Client App for this private integration.",
+        "Authorize the API and refresh-token scopes for the intended user.",
+        "Save the four required values in a private file. Set credential_files.salesforce and the exact owner email.",
+        "Exchange the refresh token. Verify the returned instance and identity.",
+        "Read all open opportunities and the linked Account.Name and Account.Website fields.",
+        "Resolve missing account domains before relying on the exclusion coverage."
+      ],
+      "proof": "The authenticated instance and owner match config. Native query done:true is reached and returned row count matches totalSize. Unresolved domains remain visible.",
+      "wait": "Administrator approval and OAuth configuration may take longer than the workshop. API entitlement is an account prerequisite.",
+      "fallback": "Use a complete current owner-reviewed export of open deals and customers.",
+      "schema": {
+        "client_id": "",
+        "client_secret": "",
+        "refresh_token": "",
+        "instance_url": ""
+      },
+      "source": [
+        {
+          "label": "Salesforce OAuth and External Client Apps",
+          "url": "https://developer.salesforce.com/docs/platform/api-rest/guide/intro-oauth-and-connected-apps.html"
+        }
+      ],
+      "code": [
+        "engine/channels/meetings.py:_salesforce,_sf_query,salesforce_deals"
+      ],
+      "notes": [
+        "The original source restricted identity to Metadata. The portable copy must match your configured owner."
+      ]
+    },
+    {
+      "id": "revenue",
+      "name": "Your current customer Sheet or revenue Sheet",
+      "parts": [
+        2,
+        3
+      ],
+      "priority": "Optional native customer source",
+      "status": "Customer-domain status format and original revenue schema supported",
+      "secret_type": "The same private Google OAuth credential, with Sheets read scope",
+      "env": [
+        "V5_GOOGLE_FILE"
+      ],
+      "settings": [
+        "settings.revenue.mailbox",
+        "settings.revenue.sheet_id",
+        "settings.revenue.range",
+        "settings.revenue.format: customer_domains for the portable status format"
+      ],
+      "enables": "Read the complete customer Sheet and exclude exact current-customer domains. The original revenue schema also reads positive recognized revenue relationships without proving current-customer status.",
+      "does_not_enable": "A Sheets key alone cannot maintain customer status. Use actual maintained statuses, not guessed revenue. The source revenue layout is specific. A generic CSV or partial range is not automatically a complete customer source.",
+      "minimum": "Read access to your own sheet. Its headers and current-month column must match the adapter contract. No separate Sheets API key.",
+      "steps": [
+        "Use your actual complete maintained customer source and the authorized Google mailbox.",
+        "Enable Sheets API. Grant Sheets readonly through the Google helper and check access to the exact private Sheet.",
+        "For the portable customer format, use exactly name, domain, status as the first row. Each subsequent row must have exactly three fields.",
+        "Use only actual status current_customer or former_customer. Unknown states hold the native inventory. Never label customers from invented or inferred revenue.",
+        "Set mailbox, sheet_id, a canonical all-column range such as your actual customer sheet A:C, and format:customer_domains privately. Row-bounded ranges are held in native mode.",
+        "Run native refresh. Inspect current_customers, rows_read, source identity and unresolved-domain results.",
+        "Use the original revenue schema only when the source actually has Account, Previous ARR, ARR, MRR and one numeric date column for the current month. It remains a revenue relationship source."
+      ],
+      "proof": "The actual configured Sheet returns its complete range, recognized column contract and customer statuses. Exact current_customer domains are excluded. Unknown status or unresolved identity blocks native coverage.",
+      "wait": "Your finance team's current month and domain mapping may be the limiting step.",
+      "fallback": "Use a complete current owner-reviewed customer export with domains. Do not force your company's revenue file into Metadata's schema without an explicit mapping.",
+      "schema": {
+        "mailbox": "",
+        "sheet_id": "",
+        "range": "",
+        "format": "customer_domains",
+        "required_columns": [
+          "name",
+          "domain",
+          "status"
+        ],
+        "allowed_actual_statuses": [
+          "current_customer",
+          "former_customer"
+        ]
+      },
+      "source": [
+        {
+          "label": "Sheets values API",
+          "url": "https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/get"
+        }
+      ],
+      "code": [
+        "engine/channels/meetings.py:customers"
+      ],
+      "notes": [
+        "The config key remains settings.revenue for compatibility, even when format:customer_domains contains customer status rather than revenue.",
+        "The source status Sheet must cover all current company customers. It is not a ten-prospect sample.",
+        "A source receipt proves what was read. The owner must supply a genuinely maintained source and complete range.",
+        "Former status does not remove an existing exclusion automatically. Exclusion removal remains a separate owner review.",
+        "Native mode rejects a nonzero mailbox history boundary and a row-bounded customer range. Do not weaken those checks to make setup pass."
+      ]
+    },
+    {
+      "id": "loop_and_tie",
+      "name": "Loop & Tie",
+      "parts": [
+        3
+      ],
+      "priority": "Required for the gift extension",
+      "status": "Meeting-gated email gift creation and native readback supported",
+      "secret_type": "Bearer access token text",
+      "env": [
+        "V5_LOOP_AND_TIE_FILE",
+        "V5_LOOP_AND_TIE_TOKEN"
+      ],
+      "settings": [
+        "credential_files.loop_and_tie",
+        "settings.loop_and_tie_team",
+        "settings.gift_gate",
+        "policy.gift_fulfillment",
+        "approve-scope action_keys, limits and gift_budget"
+      ],
+      "enables": "Create one exact email-delivered gift and read its native creation/sent state. Require a verified meeting scheduler gate.",
+      "does_not_enable": "A token alone cannot fund a gift, set its meeting gate, provide a native numeric scheduler binding, or prove redemption. This adapter does not send postal mail.",
+      "minimum": "An API-enabled account, owned team, funded collection, required shipping permission and verified scheduler. Check the live collection price and balance. Public docs say to contact Loop & Tie support to register an integration.",
+      "steps": [
+        "Arrange API access with Loop & Tie for your own account.",
+        "Complete the provider's OAuth flow and save the returned bearer token privately. The adapter does not refresh it automatically.",
+        "Read your actual team, schedulers, gift inventory and intended collection.",
+        "Set loop_and_tie_team to your owned team identifier. Verify its balance and permissions.",
+        "Use GIFT-GATE-HELPER.md. Capture the actual authenticated owned scheduler form and current HTTPS provider URL. Extract both IDs and both exact input names from the same numeric form. Save the actual capture time and owned team ID. Import within 65 minutes. The importer verifies the configured team and native scheduler catalogue with your authenticated connection. No invented HTML, IDs, source URLs or timestamps are accepted as teaching evidence.",
+        "Review recipient, collection, native currency, gift value, meeting requirement, expiry and exact copy. Approve one exact action with approve-scope, a gift count and explicit per-gift/total budget.",
+        "Dispatch the original approved gift action with run --action-key ACTUAL_APPROVED_GIFT_ACTION_KEY --limit 1. Reconcile that same key and read the native gift ID/sent event. The selector adds no approval and clears no hold."
+      ],
+      "proof": "Both exact ID fields and the enabled meeting-required control belong to the same edit_scheduler_NUMERIC form. The actual HTTPS capture URL, provider, configured team and capture time are recorded. Authenticated native team/scheduler reads bind the saved receipt. Before creation, capture freshness is rechecked. Exact gift recipient/copy match the saved payload. Only a native sent event counts as sent. Readback does not prove a later scheduler relationship.",
+      "wait": "API access and funding can take time. The owned scheduler capture must be no more than 65 minutes old when imported and sent, and cannot be dated in the future. Recapture the actual current form when stale. Gift email, redemption and meeting booking have separate waits.",
+      "fallback": "Produce the exact gift proposal and preview. Leave gifting blocked until funding, owned gate and native binding are verified.",
+      "schema": {
+        "external_id": "",
+        "numeric_id": null,
+        "name": "",
+        "source": "",
+        "meeting_required": false,
+        "meeting_required_field": "",
+        "external_id_field": "",
+        "form_html_file": "",
+        "capture_url": "",
+        "captured_at": "",
+        "provider": "loop_and_tie",
+        "team_id": ""
+      },
+      "source": [
+        {
+          "label": "Loop & Tie OAuth and integration access",
+          "url": "https://docs.loopandtie.com/reference/oauth-20-api-access"
+        }
+      ],
+      "code": [
+        "engine/channels/gifts.py:catalogue,send,reconcile",
+        "tools/setup.py:import_records gift-gate"
+      ],
+      "notes": [
+        "Gifting can be taught without claiming a paid gift was sent.",
+        "Set meeting_required:true only after reading the actual enabled control in the provider UI. The blank template leaves it false. The importer makes authenticated read-only team and scheduler calls; it does not send a gift.",
+        "If the browser cannot capture the actual form, keep the reviewed gift preview and repair browser access. Do not fill numeric_id from the API external ID.",
+        "The portable package uses an explicit count and lifetime gift budget. It no longer requires full-balance authority. The actual native collection currency must match the grant. Unknown currency stays held.",
+        "Use capture_url from the actual authenticated HTTPS loopandtie.com page or its actual subdomain. provider is loop_and_tie; team_id must match your configured own team. captured_at is the actual capture time, not import time. The source HTML and those fields are bound to the native read receipt.",
+        "meeting_required_field and external_id_field are real input names inside the same exact numeric form. Do not copy a control name from a teaching example or match an external ID elsewhere on the page."
+      ]
+    },
+    {
+      "id": "gojiberry",
+      "name": "Gojiberry",
+      "parts": [
+        3
+      ],
+      "priority": "Required for the LinkedIn extension",
+      "status": "Paused contact preparation and exact contact/message release supported; campaign activation stays in owned UI",
+      "secret_type": "API key text",
+      "env": [
+        "V5_GOJIBERRY_FILE",
+        "V5_GOJIBERRY_TOKEN"
+      ],
+      "settings": [
+        "credential_files.gojiberry",
+        "settings.social_owned",
+        "settings.social_prepared",
+        "settings.social_reply_grants",
+        "policy.linkedin_dispatch"
+      ],
+      "enables": "Prepare inert contacts in an existing owned list. Release only an exact approved contact and read native queued/sent state. Send an individually approved existing-thread message when its native prerequisites pass.",
+      "does_not_enable": "A key does not connect a LinkedIn seat, create a list or activate a whole campaign. The runtime holds campaign activation because it could release unrelated contacts. Queue state does not prove delivery or acceptance.",
+      "minimum": "An API-enabled Gojiberry account with your own connected LinkedIn seat and permitted capacity. Price and safe capacity depend on your account; the code does not promise a universal plan or daily allowance.",
+      "steps": [
+        "Get your own key at Gojiberry Settings, API. Save it privately.",
+        "Connect your own LinkedIn seat in Gojiberry. Create an isolated owned list and inactive invitation-only campaign in the native app.",
+        "Read the actual campaign/list/seat IDs, name and exact steps into settings.social_owned. No automatic message steps are allowed in this invitation exercise.",
+        "Use guarded preparation to create the exact contact in that owned list. The code forces paused and readyForCampaign:false. Bind actual person/profile evidence.",
+        "Inspect all lists and contacts in the isolated campaign. After explicit owner review, activate only that isolated campaign in the provider UI while prepared contacts stay paused. The runtime never activates the whole campaign.",
+        "Prepare and review the exact contact action. Approve its action key with approve-scope and an explicit social count.",
+        "Release only the original exact paused-contact key with run --action-key ACTUAL_APPROVED_SOCIAL_ACTION_KEY --limit 1. Reconcile that same key and read actual campaignStatus. Keep queued separate from sent, invitation accepted and message delivered.",
+        "A new message requires native invitation acceptance and its exact isolated step, or an individually authorized existing-thread message."
+      ],
+      "proof": "Owned seat, campaign steps, list, contact identity and exact message match. Native queued contact means queued. A matching provider sent event or deliveredAt/backend message evidence is needed for sent.",
+      "wait": "Native queue and recipient waits are separate. For an ambiguous provisioning request, inspect the original attempt and owned provider list/contact before any new write. An exact outreach action uses reconcile; uncertain provisioning has no CLI reconciliation command.",
+      "fallback": "Write the exact LinkedIn invitation/message and source evidence. Mark it prepared. Leave release held until owned resources and native readiness exist.",
+      "schema": {
+        "sender": {
+          "campaign_id": "",
+          "list_id": "",
+          "seat_id": "",
+          "name": "",
+          "steps": []
+        }
+      },
+      "source": [
+        {
+          "label": "Gojiberry API/MCP setup",
+          "url": "https://help.gojiberry.ai/en/articles/14540015-using-the-gojiberry-mcp-server"
+        }
+      ],
+      "code": [
+        "engine/channels/social.py:provision,send,send_existing_thread,reconcile"
+      ],
+      "notes": [
+        "A paused contact from a manual campaign cannot be adopted as workshop-owned prepared work without its exact ownership record.",
+        "The adapter has no browser fallback.",
+        "Automatic list creation and whole-campaign activation are deliberately held. The owner creates and reviews those resources in the native UI.",
+        "Generic reconcile handles prepared outreach actions, not ambiguous contact provisioning. For an unknown preparation result, read the existing owned list and contact in Gojiberry. Preserve the original provider request ID when available. Do not repeat create_contact or fabricate a new contact ID."
+      ]
+    },
+    {
+      "id": "metadata",
+      "name": "Metadata",
+      "parts": [
+        3
+      ],
+      "priority": "Optional creative and advertising extension",
+      "status": "Creative, audience/draft/read/pause supported; launch/restart currently held",
+      "secret_type": "Account-scoped Metadata API token text",
+      "env": [
+        "V5_METADATA_FILE",
+        "V5_METADATA_TOKEN"
+      ],
+      "settings": [
+        "credential_files.metadata",
+        "settings.metadata_account_id",
+        "policy.advertising.enabled",
+        "policy.advertising.max_daily_budget",
+        "policy.advertising.max_total_budget",
+        "policy.advertising.authorized_campaign_ids"
+      ],
+      "enables": "Read the owned Metadata account, integrations and campaign status. Generate brand kit and creative. The portable extension can prepare audiences, offers, budgets and campaign drafts, plus exact native pause with separate advertising authority.",
+      "does_not_enable": "A token does not connect your ad accounts, fund spending or prove a running campaign. Launch and restart are held until existing campaign budget and native readiness contracts are verified. The original v5 source had creative only.",
+      "minimum": "Your own Metadata account and token with read and creative permissions. The connection must return the exact configured account. No additional ad-platform key is needed for the local creative-only exercise.",
+      "steps": [
+        "Sign in to your Metadata account. Open Settings, API Keys and create a named scoped token.",
+        "Save it privately. Set credential_files.metadata and your exact metadata_account_id.",
+        "Read get_account_details. Check account ownership before generation.",
+        "Use your own company domain. Generate/read the brand kit with force_regenerate:false.",
+        "Generate one creative with a short headline and specific instructions.",
+        "Inspect the actual image for logo, text, claims and layout. Save its generation receipt and review result.",
+        "For ads, connect your own actual channel accounts in Metadata. Read get_integrations_status and verify the required account permissions and resources.",
+        "Keep the advertising policy disabled until you approve the actual account, audience, copy and budgets. It is separate from the email authority.",
+        "Use ads-review with the exact operation and arguments. Inspect the resulting account and approval_sha256.",
+        "After explicit owner approval, use ads with the same permitted draft or pause operation, input and approved hash. Launch/restart remain held in the shipped adapter.",
+        "Read the named campaign after each write. Keep a queued or pending response separate from actual running status and spend."
+      ],
+      "proof": "Account read matches config. Creative has a completed generation receipt and a separate visual check. Advertising keeps the exact approved operation, native response and later campaign-status evidence. provider_response_pending_review is not a running campaign.",
+      "wait": "A creative response still needs visual review. For an unknown creative or advertising outcome, inspect the original attempt and owned Metadata UI. Campaign and ad name searches are read-only; a missing search result does not prove no object was created. Do not render, upload or create again.",
+      "fallback": "Create the same creative brief and review criteria locally. Mark generation unavailable when your account cannot call the tool.",
+      "schema": {
+        "creative_input": {
+          "operation": "generate_brand_creative",
+          "arguments": {
+            "domain": "",
+            "headline": "",
+            "instructions": "",
+            "platform": "linkedin"
+          }
+        },
+        "private_advertising_policy": {
+          "enabled": false,
+          "max_daily_budget": 0,
+          "max_total_budget": 0,
+          "authorized_campaign_ids": []
+        },
+        "campaign_operation_input": {
+          "campaign_id": null
+        }
+      },
+      "source": [
+        {
+          "label": "Metadata token setup and scopes",
+          "url": "https://metadata.io/developers/authentication"
+        },
+        {
+          "label": "Metadata MCP transport",
+          "url": "https://metadata.io/developers/mcp.html"
+        }
+      ],
+      "code": [
+        "engine/assets.py:account,generate,advertising",
+        "gtm.py:resource,ads-review,ads"
+      ],
+      "notes": [
+        "This API uses the bare Authorization token, without a Bearer prefix.",
+        "Optional campaign extension must display account, audience, ads, offer, exact budget and native readiness before any launch.",
+        "The portable campaign adapter is an addition. It does not establish that the original local v5 source already automated ad activation.",
+        "Each budget group must fit the authorized cap and request native monthly-cap pause. Each channel budget is checked. These argument checks are not an aggregate live-spend meter.",
+        "Read the exact tool schemas in METADATA-PUBLIC-TOOL-SCHEMAS.json before preparing inputs. The CLI input is the tool argument object, not a packet containing operation again.",
+        "Existing native campaigns or queued launches can continue independently. Local email pause does not stop them. Review and use the exact native campaign pause when necessary.",
+        "Campaign draft creation is limited to LinkedIn and Facebook under the captured budget contract. Google, Instagram, Microsoft, Reddit and unrecognized platform fields are held before a provider write. Creative-only generation is a separate operation.",
+        "Campaign draft creation accepts LinkedIn and Facebook channel fields only. Other channel fields remain held until their budget contracts are verified.",
+        "Generic reconcile does not cover creative, ad or audience/budget/offer provisioning attempts. Preserve the original request ID when returned, attempt key, exact operation, account and arguments. Read the existing object or owned Metadata UI before another write. Missing IDs remain missing."
+      ]
+    },
+    {
+      "id": "hosting",
+      "name": "Local landing page and existing form",
+      "parts": [
+        1,
+        3
+      ],
+      "priority": "Optional publishing extension",
+      "status": "Local page build and existing hosted/form reads supported",
+      "secret_type": "No provider key consumed by the original v5 publish method",
+      "env": [],
+      "settings": [
+        "settings.asset_hosts",
+        "settings.form_contract"
+      ],
+      "enables": "Create a local HTML page with the agent. Verify bytes from a recorded owned hosted URL and inspect an existing HubSpot form contract.",
+      "does_not_enable": "Local HTML is not a public deployment. A hosted content hash is not browser or form acceptance. Netlify publishing has its own supported entry below; Vercel and AWS publishing are not wired here.",
+      "minimum": "No hosting account or paid API for a local HTML page. A published page needs your own hosting account. An existing embedded form needs its real portal, form ID and current source URL.",
+      "steps": [
+        "Build and open the local page for your actual company and target account.",
+        "Check company facts, offer, proof and mobile layout.",
+        "Use your own existing form or booking link. Set settings.form_contract only for the supported HubSpot form contract.",
+        "When inspecting an existing hosted asset, use an owned host and a saved exact content hash.",
+        "For publishing a page through the portable runtime, follow the separate Netlify setup below.",
+        "Open the actual page on desktop and mobile. Submit an owner-controlled test form and inspect the native receipt."
+      ],
+      "proof": "Local page opens and displays your actual company context. Published bytes match the expected hash. Browser acceptance and form receipt are checked separately.",
+      "wait": "Hosting account approval, DNS and form setup may extend beyond class. A public URL alone is not proof that the form works.",
+      "fallback": "Keep the local page and exact publish brief. The attendee still leaves Part 1 with a usable page artifact.",
+      "schema": {
+        "asset_hosts": [],
+        "form_contract": {
+          "source_url": "",
+          "portal_id": "",
+          "form_id": ""
+        }
+      },
+      "source": [],
+      "code": [
+        "engine/assets.py:inspect,form_contract,publish_file"
+      ],
+      "notes": [
+        "The original source v5 publish method returns unavailable. The portable workshop package adds a bounded Netlify deployment method.",
+        "The form contract read checks fields and identity. It does not submit a form or establish acceptance."
+      ]
+    },
+    {
+      "id": "netlify",
+      "name": "Netlify: publish one HTML page",
+      "parts": [
+        3
+      ],
+      "priority": "Required only for runtime page publishing",
+      "status": "Supported portable extension; original source had no upload",
+      "secret_type": "Personal access token text",
+      "env": [
+        "V5_NETLIFY_FILE",
+        "V5_NETLIFY_TOKEN"
+      ],
+      "settings": [
+        "credential_files.netlify",
+        "settings.netlify_site_id",
+        "settings.netlify_owner_id"
+      ],
+      "enables": "Publish one reviewed HTML file to your owned workshop site and verify the returned deployment and exact HTTPS bytes.",
+      "does_not_enable": "This uploads index.html for the whole selected site. Use a fresh workshop site. It does not add image files, submit your form, manage DNS or verify desktop/mobile usability.",
+      "minimum": "An owned Netlify project and access token. The current Free plan permits API deployments with a monthly credit limit. Check your account before publishing; deployed traffic also consumes usage.",
+      "steps": [
+        "Create a fresh Netlify workshop project under your own account. Do not select your existing company application.",
+        "In Applications, Personal access tokens, create a named token and save it privately.",
+        "Copy Project ID from Project configuration, General, Project details. Set settings.netlify_site_id and credential_files.netlify.",
+        "Let the agent read /user and /sites/PROJECT_ID. The code requires the site user_id to match the authenticated owner. Team sites that fail this check stay blocked.",
+        "Review the exact standalone HTML file. Keep images embedded or use approved public assets. Generate its SHA-256 with the full Python command in SETUP-SEQUENCE.md, then approve those exact bytes.",
+        "Run resource --operation publish-review --file PRIVATE_PAGE.html. Inspect its actual site, owner and content hash. After approving those exact values, use the returned approval_sha256 with publish.",
+        "Read the same deployment ID until ready, then open its returned HTTPS URL. Run browser and owner-controlled form checks separately."
+      ],
+      "proof": "The owned site matches the authenticated account. The same native deployment is ready and its HTTPS page bytes match the approved SHA-256. Browser and form checks remain false until you perform them.",
+      "wait": "Post-processing is asynchronous. accepted_pending_host means accepted, not verified live. Rerun the same exact file/hash to read the existing deployment. An uncertain submission without a deployment ID must be resolved in Netlify before another upload.",
+      "fallback": "Open the local HTML file and keep the publishing brief. Continue the workshop without claiming a public page.",
+      "schema": {
+        "credential_files": {
+          "netlify": ""
+        },
+        "settings": {
+          "netlify_site_id": "",
+          "netlify_owner_id": ""
+        }
+      },
+      "source": [
+        {
+          "label": "Netlify token, project ID and deployment API",
+          "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+        },
+        {
+          "label": "Netlify plan and credit limits",
+          "url": "https://www.netlify.com/pricing/"
+        }
+      ],
+      "code": [
+        "engine/assets.py:publish_file",
+        "gtm.py:resource"
+      ],
+      "notes": [
+        "There is no automatic replay after an unknown upload result.",
+        "A deployment does not prove that the conversion form reaches your own CRM.",
+        "The approval hash binds site, owner and bytes. A content-only SHA-256 is useful to inspect the file but is not the publish approval hash."
+      ]
+    },
+    {
+      "id": "tavily",
+      "name": "Tavily: optional research alternative, not wired",
+      "parts": [
+        1,
+        2,
+        3
+      ],
+      "priority": "Not required by this package",
+      "status": "No local adapter or CLI operation",
+      "secret_type": "No Tavily key consumed by the shipped runtime",
+      "env": [],
+      "settings": [],
+      "enables": "Nothing inside this runtime. A separate explicitly connected coding-agent tool could use Tavily to find public sources.",
+      "does_not_enable": "Entering a Tavily key in this runtime will not activate research. There is no V5_TAVILY environment or config contract. Do not claim search, enrichment or email validation from a saved key.",
+      "minimum": "No Tavily account or purchase needed for this workshop. Use existing agent web access or the supported Exa path.",
+      "steps": [
+        "Use the supported official-source web path first.",
+        "If you deliberately add a separate Tavily tool, follow its official quickstart and keep its own key private.",
+        "Inspect the actual returned source page and save the supported claim. Do not treat this external tool as a shipped v5 adapter."
+      ],
+      "proof": "Not available from the shipped code. A separate tool needs its own actual search receipt.",
+      "wait": "No shipped provider call runs. Any separate integration has its own account and rate limits.",
+      "fallback": "Read the official company site with the coding agent or use the bounded Exa operation.",
+      "schema": {
+        "local_adapter": false,
+        "local_key_required": false
+      },
+      "source": [
+        {
+          "label": "Tavily official quickstart",
+          "url": "https://docs.tavily.com/documentation/quickstart"
+        }
+      ],
+      "code": [
+        "No Tavily operation in engine/research.py or tools/setup.py"
+      ],
+      "notes": [
+        "Do not buy a second web-search tool to complete the same classroom exercise."
+      ]
+    }
+  ],
+  "capability_labels": {
+    "supported": "A callable local adapter exists. Live outcome still requires the attendee's own connection and verified result.",
+    "partial": "Some reads or preparation work exists, but a required join or execution component is missing.",
+    "not_wired": "No callable local integration performs this outcome. A key cannot fill that gap."
+  },
+  "missing_integrations": [
+    {
+      "name": "Desktop/mobile page and form acceptance",
+      "state": "manual_live_check_required",
+      "effect": "Portable Netlify verifies uploaded HTML bytes. Open the live page and inspect an owner-controlled form receipt separately."
+    },
+    {
+      "name": "Postal direct mail",
+      "state": "not_wired",
+      "effect": "Loop & Tie is email gift delivery. No postal fulfillment provider is implemented."
+    },
+    {
+      "name": "Calendly scheduling writes",
+      "state": "not_wired",
+      "effect": "Bookings can be read. This adapter does not book a meeting."
+    },
+    {
+      "name": "Exact attendance association",
+      "state": "partial",
+      "effect": "HubSpot meeting rows are read; attendee attendance stays unknown without an exact contact/email/start join."
+    },
+    {
+      "name": "Unattended company source coverage",
+      "state": "native_setup_and_live_proof_required",
+      "effect": "Strict native mode now exists. The company must supply complete maintained customer, CRM, full history and booking sources and verify their actual fresh receipts."
+    },
+    {
+      "name": "Ad launch/restart",
+      "state": "deliberate_runtime_hold",
+      "effect": "Audience/draft/creative/read/pause operations remain. Automatic launch/restart waits for verified existing-campaign budget and readiness contracts."
+    }
+  ],
+  "key_storage": {
+    "primary": "evidence/workshop-config.example.json is the blank contract. Copy it to your private folder, fill your own company/settings and private credential paths, then init with that private file.",
+    "env_override": "V5_PROVIDER_TOKEN or V5_PROVIDER_FILE works only when exported into the process. The adapter does not load credentials.env automatically.",
+    "google": "Google private account access uses OAuth JSON, not a normal API key.",
+    "salesforce": "Salesforce requires a four-field private OAuth file, not a single token string.",
+    "never_share": [
+      "Filled keys or OAuth token JSON",
+      "Recipient/customer exports",
+      "Private settings with account IDs or URLs",
+      "Sender or recipient records"
+    ],
+    "agent": "The Python runtime consumes no OpenAI, Anthropic or OpenRouter model key. The separate Codex/Claude coding agent uses its own signed-in account or deployment setup."
+  }
+}

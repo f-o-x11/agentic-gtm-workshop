@@ -1,0 +1,15 @@
+{
+  "authority": "",
+  "purpose": "",
+  "action_keys": [],
+  "limits": {
+    "email": 0,
+    "gift": 0,
+    "social": 0
+  },
+  "gift_budget": {
+    "currency": "",
+    "max_per_gift": 0,
+    "max_total": 0
+  }
+}
