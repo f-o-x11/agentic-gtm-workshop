@@ -82,21 +82,14 @@ See the actual page, email and gift examples.
 
 Reference: p1-cover. Main workshop.
 
-Part 1. Build two account pages and save the instructions.
+Part 1. Build two pages for your target companies.
 
 
 ### This is how I built Metadata's GTM motion
 
 Reference: p1-results. Main workshop.
 
-Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open agentic-gtm-workshop in local Codex or Claude Code.
-
-
-### I'm Gil. I run Metadata.
-
-Reference: p1-about. Main workshop.
-
-Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies.
+Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open the folder in local Codex or Claude Code. Keep the booklet and prompts.html open.
 
 
 ### The workflow I run at Metadata
@@ -104,6 +97,13 @@ Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I 
 Reference: p1-v5-tree. Main workshop.
 
 Your agent researches buyers and prepares work. The local program checks the recipient, performs an approved action and records the provider result.
+
+
+### I'm Gil. I run Metadata.
+
+Reference: p1-about. Main workshop.
+
+Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies.
 
 
 ### A real page, email and gift
@@ -117,7 +117,7 @@ Metadata built a page for Zuora, sent an email to Forum One and sent a gift invi
 
 Reference: p1-finish. Main workshop.
 
-Finish with a company brief, two target briefs, two reviewed pages and saved page-building instructions.
+Use your company and two real targets. Open Participant-Booklet.pdf for instructions and prompts.html to copy each full prompt. No API keys are needed for Part 1.
 
 
 ## Chapter 2: Set up your company

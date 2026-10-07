@@ -50,8 +50,8 @@
     },
     {
       "path": "Complete-Presentation.pdf",
-      "sha256": "772a3f023d9dc68f84af0627c4d66bdce6fdcd070aed495cc7aa789bbc87d4cc",
-      "bytes": 3601584
+      "sha256": "3cc58e425a31e2d64bfe894a7c2df32abfb33701ee6231ef34a894ef583c2e85",
+      "bytes": 3602343
     },
     {
       "path": "GIFT-GATE-HELPER.md",
@@ -75,8 +75,8 @@
     },
     {
       "path": "PREWORK.md",
-      "sha256": "3552af3bec5810120d987be954553fc351d840c5f2ac48e233850f3fdd059538",
-      "bytes": 3766
+      "sha256": "a0f0702d1a2117e8f4436aebaa4a0c62661fba5c449ee31846fe738dc97ea7af",
+      "bytes": 4224
     },
     {
       "path": "PROVIDER-CONTRACT-GAPS.md",
@@ -90,8 +90,8 @@
     },
     {
       "path": "Part-1-Presentation.pdf",
-      "sha256": "5cd030ef7d1e7339d1d63af4c4312d0b454112f02b5a546ae37b9c7e48cadb58",
-      "bytes": 3280465
+      "sha256": "eb1aa33c7fe157fa4dcd2fe7a6477d35071d9491234067385fc35e889aa6b171",
+      "bytes": 3281225
     },
     {
       "path": "Part-2-Presentation.pdf",
@@ -105,13 +105,13 @@
     },
     {
       "path": "Participant-Booklet.pdf",
-      "sha256": "bf5e66a3bcca9d605b76ad5cf053869fac7bc13c7a4af0cddf8768e4081a60b3",
-      "bytes": 3211134
+      "sha256": "50923560f510ea12ae27d53b50b5bbe4e2c0e42f7c629e1d989c92d3d14dcdf9",
+      "bytes": 3211211
     },
     {
       "path": "README.md",
-      "sha256": "6b1a08866d7d41bea4a047c27526a71a635ba7b440cbc3e482a67bbe2834975e",
-      "bytes": 5451
+      "sha256": "ed38635f8417dd589b23ba0aa1bd1d316ae4c3b2b19f7a4a0886551a9d2304fd",
+      "bytes": 5679
     },
     {
       "path": "SECURITY.md",
@@ -125,8 +125,8 @@
     },
     {
       "path": "START-HERE.html",
-      "sha256": "c386046fb93a1cbd1e89f5e981471e5c783ac4f68d0a5b8b338df57b9bae8dfc",
-      "bytes": 13529
+      "sha256": "941f62f867dbf9b3e76ab3007fd7c95595e239c91586f9b7bad282882f79dd77",
+      "bytes": 14003
     },
     {
       "path": "START-HERE.md",
@@ -235,12 +235,12 @@
     },
     {
       "path": "authoring/build_materials.py",
-      "sha256": "c9fcaff53745fb8717956b9929ed5043dd1e50dda9243e03400b14ff7e34eaef",
-      "bytes": 48366
+      "sha256": "9618c5d1964273556d36b83a2c900d3ceb57e529aa14d925d0047606d920dbc9",
+      "bytes": 49375
     },
     {
       "path": "authoring/pdf-manifest.json",
-      "sha256": "267e9283150336e784ca8743ae225c3a5844c9cfa10736ea42a6830d3ba2d24d",
+      "sha256": "359e29f0b087bcb54cb07ac82cdbeac790019b56f39f17d9fbf0d4dbf6929d72",
       "bytes": 666
     },
     {
@@ -370,8 +370,8 @@
     },
     {
       "path": "course/BOOKLET.md",
-      "sha256": "769fa8e6eaffc56b4be9f41533859d0260ca44a577a91a51235f90bef126f54d",
-      "bytes": 114176
+      "sha256": "ecd72dc903b4eca85324090f8b5991771566da2f215812f308a0c0429c62a47b",
+      "bytes": 114256
     },
     {
       "path": "course/CHAPTERS.md",
@@ -380,13 +380,13 @@
     },
     {
       "path": "course/course.json",
-      "sha256": "f48c2305b931d05702d0743c203850bc2e96300dbce039d75fce5dd11ffca2cc",
-      "bytes": 270126
+      "sha256": "4b426b9fc9a0799dec8b34587741e0c0bbfe707dd7bdb9b8cadbeee56a9b0e6e",
+      "bytes": 270430
     },
     {
       "path": "prompts.html",
-      "sha256": "2944dfeef1cad96c690230338194e2ba394b4bb927e9ac46e4d0009f9d0bc43b",
-      "bytes": 172412
+      "sha256": "26f9e1c7deaec995a3ee144e26dc33ca1b048499758c8eb3a51dc95a3279075a",
+      "bytes": 172492
     },
     {
       "path": "sources/V5-WORKSHOP-SOURCES.md",

@@ -1,7 +1,7 @@
 {
   "title": "Build your own Agentic GTM workflow",
   "subtitle": "Three two-hour workshops. Start with the prepared project. Build for your company.",
-  "version": "part-one-example-led-five-sections",
+  "version": "part-one-clear-opening-and-materials",
   "source_note": "Henry independently completed Part 1 with Claude Code for Datadog and Okta. His feedback drives this edition. Start with the prepared project, supply company context, then run one step at a time. Gil's four steps remain: skills, execution flow, target accounts, ten-account test. Each session has 90 guided minutes including a five-minute break and 30 minutes of individual help. Live outreach needs the attendee's own sender, current records, paid email validation and exact approval. Social, gifts, advertising and unattended operation are optional extensions. Private production records and credentials are excluded. Company-wide outcomes are separate from engine proof.",
   "parts": [
     {
@@ -37,7 +37,7 @@
           "visual_data": {
             "image": "assets/workshop-cover.png"
           },
-          "body": "Part 1. Build two account pages and save the instructions.",
+          "body": "Part 1. Build two pages for your target companies.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -48,7 +48,7 @@
           "fallback": "",
           "repair_prompt": "",
           "sources": [],
-          "notes": "Use the exact same illustration as the participant booklet cover.",
+          "notes": "Use the booklet cover illustration. Show one clear outcome. The booklet, full prompts and code are in the same workshop folder.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -101,7 +101,7 @@
             "image": "assets/actual-outcomes.png",
             "first_instruction": "git clone https://github.com/f-o-x11/agentic-gtm-workshop.git"
           },
-          "body": "Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open agentic-gtm-workshop in local Codex or Claude Code.",
+          "body": "Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open the folder in local Codex or Claude Code. Keep the booklet and prompts.html open.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -123,46 +123,7 @@
               "scope": "Different dates, populations and outcomes."
             }
           ],
-          "notes": "Slide 2. Show dated company totals and the separate ten-email test. Make the clone command the first attendee instruction. Assume the cloned project is available for every subsequent task.",
-          "build_step": 0,
-          "prompt_label": "",
-          "route": "main",
-          "next_id": "",
-          "next_action": "",
-          "chapter": 1,
-          "chapter_title": "See Metadata's working examples"
-        },
-        {
-          "id": "p1-about",
-          "part": 1,
-          "title": "I'm Gil. I run Metadata.",
-          "type": "show",
-          "timing": 2,
-          "minutes": 2,
-          "difficulty": "Watch",
-          "visual_type": "example",
-          "visual_data": {
-            "image": "assets/actual-zuora-page.png"
-          },
-          "body": "Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies.",
-          "steps": [],
-          "prompt": "",
-          "tools": [
-            "Dated Metadata results. No credits."
-          ],
-          "expected": [],
-          "check": [],
-          "fallback": "",
-          "repair_prompt": "",
-          "sources": [
-            {
-              "label": "September 30 company dashboard and September 16 pilot",
-              "url": "sources/V5-WORKSHOP-SOURCES.md",
-              "date": "October 5, 2026",
-              "scope": "Different dates, populations and outcomes."
-            }
-          ],
-          "notes": "Keep the introduction short. Point to the real Zuora page. No unsupported biography or engine attribution.",
+          "notes": "Slide 2. Keep dated company totals distinct from the engine test. Run the clone command, then open the local folder, booklet and full-prompt helper. Explain the structure on slide 3 before showing detailed outputs.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -278,6 +239,45 @@
           "chapter_title": "See Metadata's working examples"
         },
         {
+          "id": "p1-about",
+          "part": 1,
+          "title": "I'm Gil. I run Metadata.",
+          "type": "show",
+          "timing": 2,
+          "minutes": 2,
+          "difficulty": "Watch",
+          "visual_type": "example",
+          "visual_data": {
+            "image": "assets/actual-zuora-page.png"
+          },
+          "body": "Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies.",
+          "steps": [],
+          "prompt": "",
+          "tools": [
+            "Dated Metadata results. No credits."
+          ],
+          "expected": [],
+          "check": [],
+          "fallback": "",
+          "repair_prompt": "",
+          "sources": [
+            {
+              "label": "September 30 company dashboard and September 16 pilot",
+              "url": "sources/V5-WORKSHOP-SOURCES.md",
+              "date": "October 5, 2026",
+              "scope": "Different dates, populations and outcomes."
+            }
+          ],
+          "notes": "Keep the introduction short. Point to the real Zuora page. No unsupported biography or engine attribution.",
+          "build_step": 0,
+          "prompt_label": "",
+          "route": "main",
+          "next_id": "",
+          "next_action": "",
+          "chapter": 1,
+          "chapter_title": "See Metadata's working examples"
+        },
+        {
           "id": "p1-real-outputs",
           "part": 1,
           "title": "A real page, email and gift",
@@ -297,7 +297,7 @@
             "side_examples": [
               {
                 "label": "Forum One",
-                "text": "“May I send you campaign ideas for reaching prospective Forum One clients?”"
+                "text": "\u201cMay I send you campaign ideas for reaching prospective Forum One clients?\u201d"
               },
               {
                 "label": "Datarails",
@@ -323,7 +323,7 @@
               "scope": "Different real accounts. No combined customer journey."
             }
           ],
-          "notes": "Lead with the visible page. These examples are not one funnel. The gift expiry in the historical record is not an attendee setting. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "Lead with the visible page. These examples are not one funnel. The gift expiry in the historical record is not an attendee setting. This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -351,7 +351,7 @@
             ],
             "caption": "A skill is saved instructions for a repeatable job."
           },
-          "body": "Finish with a company brief, two target briefs, two reviewed pages and saved page-building instructions.",
+          "body": "Use your company and two real targets. Open Participant-Booklet.pdf for instructions and prompts.html to copy each full prompt. No API keys are needed for Part 1.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -373,7 +373,7 @@
               "scope": "Teaching adaptation. No private recipient records."
             }
           ],
-          "notes": "Everyone follows the same exercise. Each person works on their own company. No group assignment or preference survey. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "Everyone follows the same exercise. Each person works on their own company. No group assignment or preference survey. This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -571,7 +571,7 @@
               "label": "v5 AGENTS.md essential rules and owner switch",
               "url": "sources/V5-WORKSHOP-SOURCES.md",
               "date": "October 5, 2026",
-              "scope": "Attendee authority is separate from Gil’s production consent."
+              "scope": "Attendee authority is separate from Gil\u2019s production consent."
             }
           ],
           "notes": "",
@@ -627,7 +627,7 @@
             "Each target fact has its exact source excerpt and read date.",
             "The page idea is labeled as a suggestion."
           ],
-          "fallback": "Paste the target’s official source text into Codex. Keep the official URL and retrieval date.",
+          "fallback": "Paste the target\u2019s official source text into Codex. Keep the official URL and retrieval date.",
           "repair_prompt": "Fix exercise p1-one-source in this same saved project.\nExpected artifact: One dated target brief.\nSuccess check: Each target fact has its exact source excerpt and read date. The page idea is labeled as a suggestion.\nRead the first target domain in company-motion/SETUP.md. If its official site blocks access, use the official text I paste and label that source. Save the missing target brief with exact excerpts, dates and a separate proposed page idea.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: research the second target and save the target list.\nActual error: [paste the error without credentials]",
           "sources": [
             {
@@ -758,7 +758,7 @@
               "scope": "Historical visual example."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -820,7 +820,7 @@
               "label": "Actual page skill and Zuora output",
               "url": "sources/V5-WORKSHOP-SOURCES.md",
               "date": "October 5, 2026",
-              "scope": "Workshop adaptation creates a page for the attendee’s own target."
+              "scope": "Workshop adaptation creates a page for the attendee\u2019s own target."
             }
           ],
           "notes": "",
@@ -976,13 +976,13 @@
           "visual_type": "before_after",
           "visual_data": {
             "before": [
-              "First target’s source",
-              "First target’s ideas",
+              "First target\u2019s source",
+              "First target\u2019s ideas",
               "First reviewed page"
             ],
             "after": [
-              "Second target’s source",
-              "Second target’s ideas",
+              "Second target\u2019s source",
+              "Second target\u2019s ideas",
               "Second reviewed page"
             ],
             "caption": "The saved method repeats. Buyer-specific facts change."
@@ -1267,7 +1267,7 @@
               "scope": "Read the official event for the confirmed details."
             }
           ],
-          "notes": "Invite attendees to the next sessions through the official Luma links. Do not invent an event date. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "Invite attendees to the next sessions through the official Luma links. Do not invent an event date. This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "Workshop prompt adapted to your company",
           "registrations": [
@@ -1297,16 +1297,16 @@
           "outcome": "Understand what was observed and what was built."
         },
         {
-          "id": "p1-about",
-          "minutes": 2,
-          "title": "I'm Gil. I run Metadata.",
-          "outcome": "Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies."
-        },
-        {
           "id": "p1-v5-tree",
           "minutes": 3,
           "title": "The workflow I run at Metadata",
           "outcome": "Your agent researches buyers and prepares work. The local program checks the recipient, performs an approved action and records the provider result."
+        },
+        {
+          "id": "p1-about",
+          "minutes": 2,
+          "title": "I'm Gil. I run Metadata.",
+          "outcome": "Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies."
         },
         {
           "id": "p1-real-outputs",
@@ -1396,8 +1396,8 @@
           "slide_ids": [
             "p1-cover",
             "p1-results",
-            "p1-about",
             "p1-v5-tree",
+            "p1-about",
             "p1-real-outputs",
             "p1-finish"
           ],
@@ -1640,7 +1640,7 @@
               "scope": "Credential presence alone is not readiness."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -1711,7 +1711,7 @@
             "The writer and sender have distinct tasks.",
             "An empty action list causes preparation, not repeated empty runs."
           ],
-          "fallback": "Use the complete flow prompt and the actual runtime AGENTS.md as reference. Save your company’s operating instructions separately.",
+          "fallback": "Use the complete flow prompt and the actual runtime AGENTS.md as reference. Save your company\u2019s operating instructions separately.",
           "repair_prompt": "Fix exercise p2-flow in this same saved project.\nExpected artifact: company-motion/EXECUTION-FLOW.md and company-motion/AGENTS.md.\nSuccess check: The writer and sender have distinct tasks. An empty action list causes preparation, not repeated empty runs.\nOpen EXECUTION-FLOW.md and company-motion/AGENTS.md. Repair the missing order or next-action rule. Separate the agent's research/writing from gtm.py checks/sending. Trace one actual target without sending.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: test one real excluded company.\nActual error: [paste the error without credentials]",
           "sources": [
             {
@@ -1847,7 +1847,7 @@
               "detail": "Import an existing list or let Codex find suitable companies."
             },
             {
-              "title": "Read each company’s official source.",
+              "title": "Read each company\u2019s official source.",
               "detail": "Save the fit reason and current domain."
             },
             {
@@ -1874,7 +1874,7 @@
               "label": "Actual STEP 3 universe and v5 canonical accounts",
               "url": "sources/V5-WORKSHOP-SOURCES.md",
               "date": "October 5, 2026",
-              "scope": "The user supplies their own universe, not Metadata’s recipient catalog."
+              "scope": "The user supplies their own universe, not Metadata\u2019s recipient catalog."
             }
           ],
           "notes": "",
@@ -1921,7 +1921,7 @@
               "scope": "Instructional clarification."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -1976,7 +1976,7 @@
             "The identity and date match.",
             "Pending paid work keeps its original handle."
           ],
-          "fallback": "Use a current official announcement from the company’s website. Mark paid signal scanning as not connected.",
+          "fallback": "Use a current official announcement from the company\u2019s website. Mark paid signal scanning as not connected.",
           "repair_prompt": "Fix exercise p2-signal in this same saved project.\nExpected artifact: One sourced dated signal and next action.\nSuccess check: The quote exists in the provider source. The identity and date match. Pending paid work keeps its original handle.\nOpen company-motion/SIGNAL.md and the disputed quote/date. Use the actual source and separate inference. Remove invented recency or buying intent. This main-lane step uses official web research and needs no paid API start.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: check the current buyers and exact email addresses.\nActual error: [paste the error without credentials]",
           "sources": [
             {
@@ -2081,7 +2081,7 @@
             "stage": "Sent",
             "caption": "Real excerpt. Recipient, greeting, signature and footer removed."
           },
-          "body": "“May I send you campaign ideas for reaching prospective Forum One clients?” The email names what Forum One sells before making this ask.",
+          "body": "\u201cMay I send you campaign ideas for reaching prospective Forum One clients?\u201d The email names what Forum One sells before making this ask.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -2099,7 +2099,7 @@
               "scope": "Excerpt shortened for display; full redacted excerpt remains in sources."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -2158,7 +2158,7 @@
             "The first email has no link.",
             "Recipient, sender, subject and body are visible."
           ],
-          "fallback": "If evidence is weak, use a simple conditional sentence about the company’s offer. Keep unsupported claims out.",
+          "fallback": "If evidence is weak, use a simple conditional sentence about the company\u2019s offer. Keep unsupported claims out.",
           "repair_prompt": "Fix exercise p2-email in this same saved project.\nExpected artifact: company-motion/EMAIL-PREVIEWS.md and ten exact prospect drafts.\nSuccess check: Each message has one real relevance reason. The first email has no link. Recipient, sender, subject and body are visible.\nOpen the specific prospect preview and source ledger. Repair an unsupported relevance claim, invented promise, missing sender fact or link in the initial email. Keep plain text and HTML matched. If the action was already imported and approved, hold it and use the separate correction procedure rather than changing its grant.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: review all eleven messages and pin exact approval.\nActual error: [paste the error without credentials]",
           "sources": [
             {
@@ -2284,7 +2284,7 @@
               "scope": "Attendee approval applies to their exact actions."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -2510,7 +2510,7 @@
               "scope": "Hard cap and canary separation."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -2715,7 +2715,7 @@
               "Duplicate protection",
               "Unknown outcome holds"
             ],
-            "caption": "The workshop’s manual run permits an immediate bounded test. It does not grant recurring or replacement outreach."
+            "caption": "The workshop\u2019s manual run permits an immediate bounded test. It does not grant recurring or replacement outreach."
           },
           "body": "The workshop's manual test can run outside scheduled hours. It still checks your approved messages, recipients and send limits.",
           "steps": [],
@@ -2735,7 +2735,7 @@
               "scope": "Do not copy force into an attendee schedule."
             }
           ],
-          "notes": "Actual source command. Show only if useful. Never recommend bypassing workshop caps. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "Actual source command. Show only if useful. Never recommend bypassing workshop caps. This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -2800,7 +2800,7 @@
               "scope": "Read the official event for the confirmed details."
             }
           ],
-          "notes": "Invite attendees to the next sessions through the official Luma links. Do not invent an event date. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "Invite attendees to the next sessions through the official Luma links. Do not invent an event date. This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "Workshop prompt adapted to your company",
           "registrations": [
@@ -3090,7 +3090,7 @@
           "steps": [
             {
               "title": "Run the reply read.",
-              "detail": "Use the sender’s actual native thread."
+              "detail": "Use the sender\u2019s actual native thread."
             },
             {
               "title": "Inspect the classification.",
@@ -3186,7 +3186,7 @@
             "Actual booking IDs and state are saved when present.",
             "An empty read and attendance are labeled separately."
           ],
-          "fallback": "Use an existing permitted meeting or a willing external test contact’s invitation. Label a controlled meeting as a test.",
+          "fallback": "Use an existing permitted meeting or a willing external test contact\u2019s invitation. Label a controlled meeting as a test.",
           "repair_prompt": "Fix exercise p3-bookings in this same saved project.\nExpected artifact: company-motion/BOOKINGS.md with actual booking states or a successful empty read.\nSuccess check: Actual booking IDs and state are saved when present. An empty read and attendance are labeled separately.\nRead the actual configured booking source and original ID. Correct a cancelled/rescheduled record while preserving its history. A successful empty read is zero bookings. Fix a failed connection separately; do not invent a meeting or infer attendance.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: inspect your complete working play.\nActual error: [paste the error without credentials]",
           "sources": [
             {
@@ -3502,7 +3502,7 @@
               "label": "Local v5 README and external orchestrator skill",
               "url": "sources/V5-WORKSHOP-SOURCES.md",
               "date": "October 5, 2026",
-              "scope": "Production normal hours are 8am–5pm Eastern. Attendees choose their own approved schedule."
+              "scope": "Production normal hours are 8am\u20135pm Eastern. Attendees choose their own approved schedule."
             }
           ],
           "notes": "",
@@ -3646,7 +3646,7 @@
               "scope": "Original source and explicitly added portable capabilities. Live proof comes from the attendee account."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -3712,7 +3712,7 @@
               "scope": "A checklist is not evidence until its actual results are linked."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "Workshop prompt adapted to your company",
           "route": "main",
@@ -3801,7 +3801,7 @@
               "scope": "No promise of demo quota or full-motion completion without observed evidence."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -3849,7 +3849,7 @@
               "detail": "Check the actual form or next-step link."
             }
           ],
-          "prompt": "Read API-CONNECTIONS.md, SETUP-SEQUENCE.md and the page-publishing guide.\nUse our reviewed standalone HTML and my fresh owned Netlify workshop site.\nThe publisher uploads only index.html to that selected site.\nRun shasum -a 256 followed by the actual reviewed HTML path and read its file SHA-256.\nRun python3 -B gtm.py resource --operation publish-review --file followed by that same actual HTML path.\nRead the returned authenticated owner_id, site_id, file sha256 and approval_sha256.\nThe approval_sha256 binds the site, owner and exact file bytes. It is different from the file SHA-256 alone.\nShow that exact review and intended destination.\nAfter I approve that publication, run python3 -B gtm.py resume.\nRun python3 -B gtm.py resource --operation publish --file followed by the same actual path and --approved-sha256 followed by the returned approval_sha256.\nRun python3 -B gtm.py pause.\nSave the provider deploy ID and actual URL.\nOpen that URL at 1440 × 900 and 390 × 844.\nMatch it to the reviewed content and test its next-step destination.\nFor a form, submit only my authorized controlled details and verify its actual destination record.\nSave company-motion/PUBLISH-RESULT.md.\nIf deployment is pending, keep the original ID and next read in company-motion/WAITS.md.\nRepeat the same known deployment read instead of uploading a replacement.\nA successful upload does not prove a working form.\nUse the saved verified interpreter for standalone scripts. Show the actual result and keep any missing stage visible. Stop. Next: record this optional extension in company-motion/COMPLETION.md.",
+          "prompt": "Read API-CONNECTIONS.md, SETUP-SEQUENCE.md and the page-publishing guide.\nUse our reviewed standalone HTML and my fresh owned Netlify workshop site.\nThe publisher uploads only index.html to that selected site.\nRun shasum -a 256 followed by the actual reviewed HTML path and read its file SHA-256.\nRun python3 -B gtm.py resource --operation publish-review --file followed by that same actual HTML path.\nRead the returned authenticated owner_id, site_id, file sha256 and approval_sha256.\nThe approval_sha256 binds the site, owner and exact file bytes. It is different from the file SHA-256 alone.\nShow that exact review and intended destination.\nAfter I approve that publication, run python3 -B gtm.py resume.\nRun python3 -B gtm.py resource --operation publish --file followed by the same actual path and --approved-sha256 followed by the returned approval_sha256.\nRun python3 -B gtm.py pause.\nSave the provider deploy ID and actual URL.\nOpen that URL at 1440 \u00d7 900 and 390 \u00d7 844.\nMatch it to the reviewed content and test its next-step destination.\nFor a form, submit only my authorized controlled details and verify its actual destination record.\nSave company-motion/PUBLISH-RESULT.md.\nIf deployment is pending, keep the original ID and next read in company-motion/WAITS.md.\nRepeat the same known deployment read instead of uploading a replacement.\nA successful upload does not prove a working form.\nUse the saved verified interpreter for standalone scripts. Show the actual result and keep any missing stage visible. Stop. Next: record this optional extension in company-motion/COMPLETION.md.",
           "tools": [
             "Owned Netlify token, fresh workshop site and reviewed standalone HTML. Browser access for desktop/phone checks."
           ],
@@ -3923,7 +3923,7 @@
               "scope": "No invented LinkedIn conversion result."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise. Optional practical extension. Its setup and provider waits are outside the 90-minute main lane.",
+          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise. Optional practical extension. Its setup and provider waits are outside the 90-minute main lane.",
           "build_step": 0,
           "prompt_label": "",
           "route": "optional",
@@ -4039,7 +4039,7 @@
               "detail": "A message waits for real invitation acceptance."
             }
           ],
-          "prompt": "Read company-motion/SOCIAL-REVIEW.md and the social action schema.\nUse the actual contact_id and saved successful adapter creation receipt from the previous social-provision create_contact operation.\nAn arbitrary contact ID or manually created contact cannot replace that original creation receipt.\nAfter importing its exact action, verify the saved social_prepared record matches that contact ID, original action key and payload.\nA manually created paused contact is not the workshop’s prepared contact and cannot replace this record.\nShow the exact owned seat, invitation-only campaign/list and willing test contact.\nAfter I approve that exact scope, set linkedin_dispatch:\"automatic\", social daily target:1 and social batch limit:1 in my actual private config.\nPreserve my Google credential paths, sender limits and exclusions.\nRun configure with that actual config; execution stays paused.\nWrite company-motion/SOCIAL-ACTION.json with only the exact reviewed action.\nImport it with python3 -B gtm.py import --kind actions --file ../company-motion/SOCIAL-ACTION.json.\nRead the actual returned action key.\nAfter I approve that key and exact stage, write company-motion/SOCIAL-APPROVAL.json.\nUse authority:my actual approval, purpose:\"one invitation-only workshop test\", action_keys:[that key], limits:{email:0,gift:0,social:1}.\nRun python3 -B gtm.py approve-scope --input ../company-motion/SOCIAL-APPROVAL.json.\nRead every list/contact in this dedicated owned campaign.\nAfter I separately approve that exact isolated campaign activation, activate it through the provider UI while every contact remains paused.\nRead its actual active state; local runtime will not activate the campaign.\nRefresh current sources and review the exact action’s checks.\nAfter I approve the exact contact release, run python3 -B gtm.py resume.\nRun python3 -B gtm.py run --limit 1 --action-key ORIGINAL_KEY once.\nReplace ORIGINAL_KEY with this exact imported social action key from its approved scope receipt.\nThe selector must not release an email, gift or different social action from another ready grant.\nRun python3 -B gtm.py pause.\nReconcile the original key and save company-motion/SOCIAL-RESULT.md.\nKeep a verified provider queue labeled queued until its real sent event exists.\nKeep all other contacts paused.\nA later message needs actual acceptance and a new exact supported stage approval.\nSave pending stages and next reads in company-motion/WAITS.md.\nLocal pause does not cancel a provider queue; inspect its actual campaign/contact stop controls.\nUse the saved verified interpreter for standalone scripts. Show the actual result and keep any missing stage visible. Stop. Next: record this optional extension in company-motion/COMPLETION.md.",
+          "prompt": "Read company-motion/SOCIAL-REVIEW.md and the social action schema.\nUse the actual contact_id and saved successful adapter creation receipt from the previous social-provision create_contact operation.\nAn arbitrary contact ID or manually created contact cannot replace that original creation receipt.\nAfter importing its exact action, verify the saved social_prepared record matches that contact ID, original action key and payload.\nA manually created paused contact is not the workshop\u2019s prepared contact and cannot replace this record.\nShow the exact owned seat, invitation-only campaign/list and willing test contact.\nAfter I approve that exact scope, set linkedin_dispatch:\"automatic\", social daily target:1 and social batch limit:1 in my actual private config.\nPreserve my Google credential paths, sender limits and exclusions.\nRun configure with that actual config; execution stays paused.\nWrite company-motion/SOCIAL-ACTION.json with only the exact reviewed action.\nImport it with python3 -B gtm.py import --kind actions --file ../company-motion/SOCIAL-ACTION.json.\nRead the actual returned action key.\nAfter I approve that key and exact stage, write company-motion/SOCIAL-APPROVAL.json.\nUse authority:my actual approval, purpose:\"one invitation-only workshop test\", action_keys:[that key], limits:{email:0,gift:0,social:1}.\nRun python3 -B gtm.py approve-scope --input ../company-motion/SOCIAL-APPROVAL.json.\nRead every list/contact in this dedicated owned campaign.\nAfter I separately approve that exact isolated campaign activation, activate it through the provider UI while every contact remains paused.\nRead its actual active state; local runtime will not activate the campaign.\nRefresh current sources and review the exact action\u2019s checks.\nAfter I approve the exact contact release, run python3 -B gtm.py resume.\nRun python3 -B gtm.py run --limit 1 --action-key ORIGINAL_KEY once.\nReplace ORIGINAL_KEY with this exact imported social action key from its approved scope receipt.\nThe selector must not release an email, gift or different social action from another ready grant.\nRun python3 -B gtm.py pause.\nReconcile the original key and save company-motion/SOCIAL-RESULT.md.\nKeep a verified provider queue labeled queued until its real sent event exists.\nKeep all other contacts paused.\nA later message needs actual acceptance and a new exact supported stage approval.\nSave pending stages and next reads in company-motion/WAITS.md.\nLocal pause does not cancel a provider queue; inspect its actual campaign/contact stop controls.\nUse the saved verified interpreter for standalone scripts. Show the actual result and keep any missing stage visible. Stop. Next: record this optional extension in company-motion/COMPLETION.md.",
           "tools": [
             "Owned Gojiberry seat, isolated provider UI campaign, one paused test contact and exact one-stage approve-scope grant."
           ],
@@ -4115,7 +4115,7 @@
               "scope": "Real message record. Visual recreated for readability, with recipient redacted."
             }
           ],
-          "notes": "The image reconstructs the real sent-message preview for readable display. It is not a native Loop & Tie interface screenshot. This reference screen uses the adjacent lesson’s time. It is not an extra exercise. Optional practical extension. Its setup and provider waits are outside the 90-minute main lane.",
+          "notes": "The image reconstructs the real sent-message preview for readable display. It is not a native Loop & Tie interface screenshot. This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise. Optional practical extension. Its setup and provider waits are outside the 90-minute main lane.",
           "build_step": 0,
           "prompt_label": "",
           "route": "optional",
@@ -4231,7 +4231,7 @@
               "detail": "Created, sent and redeemed differ."
             }
           ],
-          "prompt": "Show company-motion/GIFT-REVIEW.md and its exact recipient payload.\nRead the owned collection’s actual price. Use its explicit currency, or the documented Loop & Tie USD credit contract through the supplied adapter. Keep its pricing source in the review.\nAfter I approve this offer and cost, set gift_fulfillment:\"automatic\", gift daily target:1 and gift batch limit:1 in my actual private config.\nKeep gift_use_full_balance:false; this workshop does not grant the provider’s entire balance.\nPreserve all credential paths, prior limits and exclusions.\nConfigure that actual private file; execution remains paused.\nWrite company-motion/GIFT-ACTION.json with only this exact gift.\nImport with python3 -B gtm.py import --kind actions --file ../company-motion/GIFT-ACTION.json.\nRead its actual returned action key.\nAfter I approve that key and cost, write company-motion/GIFT-APPROVAL.json.\nUse authority:my actual approval, purpose:\"one workshop gift\", action_keys:[that key], limits:{email:0,gift:1,social:0}.\nSet gift_budget.currency to the actual collection currency.\nSet gift_budget.max_per_gift and gift_budget.max_total to my approved actual cost ceiling.\nUse numeric amounts and the actual ISO currency, not a default invented price.\nRun python3 -B gtm.py approve-scope --input ../company-motion/GIFT-APPROVAL.json.\nHold the gift when currency cannot be resolved by the provider contract or differs from the grant.\nRefresh current sources and review all gift checks.\nThe actual meeting-gate form capture must still be within 65 minutes.\nIf stale, re-capture the owned form and reimport only that fresh gift-gate evidence, preserving the original gift action key.\nNever alter the old capture timestamp to make it current.\nRun python3 -B gtm.py resume.\nRun python3 -B gtm.py run --limit 1 --action-key ORIGINAL_KEY once.\nReplace ORIGINAL_KEY with this exact imported gift action key from its approved scope receipt.\nThe selector must not release an email, social action or different gift from another ready grant.\nRun python3 -B gtm.py pause.\nReconcile that original key.\nSave company-motion/GIFT-RESULT.md with the provider gift ID, exact matched fields, actual price/currency, committed budget and stage.\nKeep created_verified, sent and redeemed separate.\nIf creation is uncertain, read the existing commitment rather than creating another gift.\nSave pending stages and next reads in company-motion/WAITS.md.\nUse the saved verified interpreter for standalone scripts. Show the actual result and keep any missing stage visible. Stop. Next: record this optional extension in company-motion/COMPLETION.md.",
+          "prompt": "Show company-motion/GIFT-REVIEW.md and its exact recipient payload.\nRead the owned collection\u2019s actual price. Use its explicit currency, or the documented Loop & Tie USD credit contract through the supplied adapter. Keep its pricing source in the review.\nAfter I approve this offer and cost, set gift_fulfillment:\"automatic\", gift daily target:1 and gift batch limit:1 in my actual private config.\nKeep gift_use_full_balance:false; this workshop does not grant the provider\u2019s entire balance.\nPreserve all credential paths, prior limits and exclusions.\nConfigure that actual private file; execution remains paused.\nWrite company-motion/GIFT-ACTION.json with only this exact gift.\nImport with python3 -B gtm.py import --kind actions --file ../company-motion/GIFT-ACTION.json.\nRead its actual returned action key.\nAfter I approve that key and cost, write company-motion/GIFT-APPROVAL.json.\nUse authority:my actual approval, purpose:\"one workshop gift\", action_keys:[that key], limits:{email:0,gift:1,social:0}.\nSet gift_budget.currency to the actual collection currency.\nSet gift_budget.max_per_gift and gift_budget.max_total to my approved actual cost ceiling.\nUse numeric amounts and the actual ISO currency, not a default invented price.\nRun python3 -B gtm.py approve-scope --input ../company-motion/GIFT-APPROVAL.json.\nHold the gift when currency cannot be resolved by the provider contract or differs from the grant.\nRefresh current sources and review all gift checks.\nThe actual meeting-gate form capture must still be within 65 minutes.\nIf stale, re-capture the owned form and reimport only that fresh gift-gate evidence, preserving the original gift action key.\nNever alter the old capture timestamp to make it current.\nRun python3 -B gtm.py resume.\nRun python3 -B gtm.py run --limit 1 --action-key ORIGINAL_KEY once.\nReplace ORIGINAL_KEY with this exact imported gift action key from its approved scope receipt.\nThe selector must not release an email, social action or different gift from another ready grant.\nRun python3 -B gtm.py pause.\nReconcile that original key.\nSave company-motion/GIFT-RESULT.md with the provider gift ID, exact matched fields, actual price/currency, committed budget and stage.\nKeep created_verified, sent and redeemed separate.\nIf creation is uncertain, read the existing commitment rather than creating another gift.\nSave pending stages and next reads in company-motion/WAITS.md.\nUse the saved verified interpreter for standalone scripts. Show the actual result and keep any missing stage visible. Stop. Next: record this optional extension in company-motion/COMPLETION.md.",
           "tools": [
             "Funded Loop & Tie team and approved one-gift scope. Real collection charge may apply."
           ],
@@ -4274,7 +4274,7 @@
           "difficulty": "Watch",
           "visual_type": "metrics",
           "visual_data": {
-            "period": "August 1–30 versus August 31–September 29, 2026. Complete UTC days.",
+            "period": "August 1\u201330 versus August 31\u2013September 29, 2026. Complete UTC days.",
             "metrics": [
               {
                 "label": "Spend",

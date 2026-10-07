@@ -2,7 +2,14 @@
 
 ## Part 1: pages and a reusable skill
 
-Have Codex or Claude Code signed in and able to open a local folder and public websites. Clone the repository or unpack the participant ZIP. Open the whole workshop folder as your local project.
+Complete this before class:
+
+1. Sign in to local Codex or Claude Code. Use a version that can work with files on your computer.
+2. Run `git clone https://github.com/f-o-x11/agentic-gtm-workshop.git`. If Git is unavailable, [download the ZIP](https://github.com/f-o-x11/agentic-gtm-workshop/archive/refs/heads/main.zip) and unpack it.
+3. Open `agentic-gtm-workshop` as your local project. Confirm the agent can read `START-HERE.md` and your company website.
+4. Keep `Participant-Booklet.pdf` and `prompts.html` open. Copy prompts from the helper into your local agent.
+
+Part 1 needs no API keys. Browser ChatGPT alone cannot work with these local files.
 
 Bring your website, one buyer segment, the offer you can actually make and two target-company domains. A rough answer is enough to start. The agent helps turn it into a sourced company brief.
 

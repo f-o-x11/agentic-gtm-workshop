@@ -121,7 +121,7 @@ def part_one_example(c,s):
   paragraph(c,'First instruction. Run this in Codex, Claude Code or your terminal.',66,230,1125,22,font='RubikBold',color=ORANGE)
   c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(LINE);c.roundRect(56,139,1168,62,8,fill=1,stroke=1)
   paragraph(c,'git clone https://github.com/f-o-x11/agentic-gtm-workshop.git',76,183,1128,25,font='RubikMedium')
-  paragraph(c,'Open agentic-gtm-workshop in local Codex or Claude Code.',66,112,1125,21)
+  paragraph(c,'Open the folder in local Codex or Claude Code. Keep the booklet and prompts.html open.',66,112,1125,21)
   c.linkURL('https://github.com/f-o-x11/agentic-gtm-workshop',(56,139,1224,201),relative=0)
   return True
  if ident=='p1-about':
@@ -161,7 +161,10 @@ def part_one_example(c,s):
    x=56+(i%2)*608;top=511-(i//2)*191
    node(c,str(i+2)+'. '+label,x,top-86,558,86,i==0)
    paragraph(c,artifact,x+16,top-112,526,25)
-  paragraph(c,'Use your own company and targets. No paid API needed for Part 1.',56,122,1168,21,color=GRAY)
+  paragraph(c,'Use your own company and targets. No API keys needed for Part 1.',56,132,1168,21,color=GRAY)
+  paragraph(c,'Open Participant-Booklet.pdf for instructions. Open prompts.html to copy each full prompt.',56,91,1168,17,color=ORANGE,font='RubikMedium')
+  c.linkURL('Participant-Booklet.pdf',(56,63,680,95),relative=1)
+  c.linkURL('prompts.html',(683,63,1224,95),relative=1)
   return True
  if ident=='p1-page-example':
   pic(c,R/'assets/actual-zuora-page.png',56,134,858,398)
@@ -333,9 +336,10 @@ def slide(c,s,num,part):
   c.setFillColor(ORANGE);c.rect(0,H-8,W,8,fill=1,stroke=0)
   paragraph(c,'metadata.',56,670,330,25,font='RubikBold')
   paragraph(c,'Build your own\nAgentic GTM',56,566,395,54,font='RubikBold',leading=62)
-  paragraph(c,'Part 1\nBuild two account pages.\nSave the instructions.',56,331,395,27,leading=38)
+  paragraph(c,'Part 1\nBuild two pages for your\ntarget companies.',56,331,405,27,leading=38)
   paragraph(c,'Gil Allouche\nCEO, Metadata',56,177,395,22,font='RubikMedium')
-  paragraph(c,'5 sections / 90 minutes building / 30 minutes help',56,52,800,14,color=GRAY)
+  paragraph(c,'Booklet, full prompts and starter code included.',56,52,800,16,color=GRAY)
+  c.linkURL('https://github.com/f-o-x11/agentic-gtm-workshop',(56,27,610,55),relative=0)
   c.showPage();return
  source='; '.join(plain(x) if not isinstance(x,dict) else x.get('label',x.get('path',str(x))) for x in (s.get('sources') or []))
  if part==1 and s.get('prompt'):source='Full prompt: prompts.html#'+s['id']
@@ -604,6 +608,8 @@ def starter_html(data):
  body='<p class="eyebrow">Start here</p><h1>Your first result:<br>a company brief.</h1><p class="intro">You already have the starter code. Tell your local agent about your company. It will prepare the project and stop after the first step.</p><ol class="steps"><li><strong>Clone the workshop.</strong><p>Run this in Codex, Claude Code or your terminal.</p><textarea id="clone-command" readonly aria-label="Clone command" style="min-height:70px">git clone https://github.com/f-o-x11/agentic-gtm-workshop.git</textarea><button data-copy-for="clone-command" onclick="copyPrompt(this.dataset.copyFor,this)">Copy clone command</button><p class="copy-status" id="status-clone-command" aria-live="polite"></p></li><li><strong>Open the workshop folder in Claude Code or Codex.</strong><p>Choose <code>agentic-gtm-workshop</code>. It contains <code>START-HERE.html</code>, <code>prompts.html</code> and the <code>code</code> folder. Keep using this same project for all three parts.</p></li><li><strong>Copy the prompt below.</strong><p>Paste it into that local project. The agent reads your website, saves a company brief, prepares the missing setup files and pauses.</p></li></ol><p class="note">Open the folder as a local project. Paste one prompt, review its result and stop before the next exercise.</p><div class="helper"><h2>Use your own company</h2><p class="hint">Your website is enough to start. If you know the other answers, add them now. These fields stay in this page. Do not enter API keys.</p><label for="company-site">Company website</label><input id="company-site" type="url" placeholder="https://your-company.com" autocomplete="url"><details><summary>Optional: buyer, offer and two target companies</summary><label for="buyer">Who do you want to reach?</label><input id="buyer" placeholder="For example: CMOs at B2B software companies"><label for="offer">What can you offer them?</label><input id="offer" placeholder="Use your actual offer, without inventing terms"><div class="field-pair"><div><label for="target-one">First target domain</label><input id="target-one" placeholder="company-one.com"></div><div><label for="target-two">Second target domain</label><input id="target-two" placeholder="company-two.com"></div></div></details><div class="prompt-label"><h3>Full startup prompt</h3><p>Local Claude Code or Codex.</p></div><textarea id="startup-prompt" readonly aria-label="Full startup prompt">'+q+'</textarea><button id="copy-startup" data-copy-for="startup-prompt" onclick="copyPrompt(this.dataset.copyFor,this)">Copy full prompt</button><p class="copy-status" id="status-startup-prompt" aria-live="polite"></p><h3>You should have</h3>'+expected_html(setup.get('expected',''))+'<p class="hint"><strong>Check:</strong> '+html.escape(plain(setup.get('check','')))+'</p><p class="stop">Read the company brief. Then continue to the next exercise.</p><a class="button next-step" href="prompts.html#'+html.escape(setup.get('next_id','p1-company'))+'">'+html.escape(setup.get('next_action','Review your company brief'))+'</a><p class="legend">Python setup is automatic when a supported version exists. If it is missing, the agent gives you the official installer link and pauses. No API account is needed for Part 1.</p></div>'
  js='const sourcePrompt='+json.dumps(prompt).replace('</','<\\/')+';const tokens={"company-site":"[YOUR_COMPANY_WEBSITE]","buyer":"[BUYER_SEGMENT]","offer":"[COLD_OFFER]","target-one":"[TARGET_1_DOMAIN]","target-two":"[TARGET_2_DOMAIN]"};function updateStartup(){let p=sourcePrompt;for(const [id,token] of Object.entries(tokens)){const value=document.getElementById(id).value.trim();if(value)p=p.split(token).join(value);}document.getElementById("startup-prompt").value=p;document.getElementById("copy-startup").textContent="Copy full prompt";document.getElementById("status-startup-prompt").textContent="";}for(const id of Object.keys(tokens))document.getElementById(id).addEventListener("input",updateStartup);'
  builder_prompt='Read BUILD-MY-GTM.md and follow its Build my workflow instructions. Ask me one question at a time, use my answers to adapt this project, and complete all local preparation that does not need another answer. Start with my company website. Keep external actions paused until I review their exact recipients, messages and costs.'
+ resources='<section class="helper" id="class-materials"><h2>Keep these open during class</h2><p><a href="Participant-Booklet.pdf">Participant booklet</a>: instructions and checks. <a href="prompts.html">Full prompts</a>: copy one exercise at a time.</p><p>Before class, sign in to local Codex or Claude Code and check that it can open your workshop folder and read your company website. Part 1 needs no API keys.</p><p><a href="PREWORK.md">Check the short setup list</a>.</p></section>'
+ body=body.replace('<div class="helper"><h2>Use your own company</h2>',resources+'<div class="helper"><h2>Use your own company</h2>')
  body += '<section class="helper" id="build-my-workflow"><h2>Build the full local workflow</h2><p>Use this outside the guided exercises. Your agent asks questions, prepares your project and checks each available connection.</p><textarea id="builder-prompt" readonly aria-label="Build my workflow prompt">'+html.escape(builder_prompt)+'</textarea><button data-copy-for="builder-prompt" onclick="copyPrompt(this.dataset.copyFor,this)">Copy build prompt</button><p class="copy-status" id="status-builder-prompt" aria-live="polite"></p><p><a href="BUILD-MY-GTM.md">Read the full build instructions</a></p></section>'
  doc=page_html('Start your Agentic GTM workshop',body,js)
  (OUT/'START-HERE.html').write_text(doc)

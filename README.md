@@ -8,6 +8,8 @@ git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
 
 Open agentic-gtm-workshop in local Codex or Claude Code. All later exercises use this repository.
 
+Before class, sign in and confirm your local agent can read START-HERE.md and your company website. Keep Participant-Booklet.pdf and prompts.html open. Part 1 needs no API keys. See PREWORK.md for the short setup list.
+
 Build your company brief, two account pages and a reusable skill. Then connect one email channel and operate the same project. Each of the three workshops has five chapters,90 guided minutes and30 minutes for help.
 
 ## Get the entire workshop
@@ -50,7 +52,7 @@ Open the cloned folder as your local project in Codex or Claude Code. For a full
 | BUILD-MY-GTM.md | Ask questions and prepare your company's full supported local workflow. |
 | prompts.html | Full exercise prompts, repair prompts and next steps. |
 | Complete-Presentation.pdf | All three workshops, with chapter bookmarks. |
-| Part-1-Presentation.pdf | Cover illustration, results and clone on slide 2, then five practical sections. |
+| Part-1-Presentation.pdf | Cover, results and clone on slide 2, workflow on slide 3, then five practical sections. |
 | Part-2-Presentation.pdf | Exact message review and conditional email pilot. |
 | Part-3-Presentation.pdf | Outcomes, repeat operation and optional channels. |
 | Participant-Booklet.pdf | Full prompts, expected files, checks and fallbacks. |
