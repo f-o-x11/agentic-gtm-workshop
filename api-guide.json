@@ -927,14 +927,15 @@
         "Complete the provider's OAuth flow and save the returned bearer token privately. The adapter does not refresh it automatically.",
         "Read your actual team, schedulers, gift inventory and intended collection.",
         "Set loop_and_tie_team to your owned team identifier. Verify its balance and permissions.",
-        "Use GIFT-GATE-HELPER.md. Capture the actual authenticated owned scheduler form and current HTTPS provider URL. Extract both IDs and both exact input names from the same numeric form. Save the actual capture time and owned team ID. Import within 65 minutes. The importer verifies the configured team and native scheduler catalogue with your authenticated connection. No invented HTML, IDs, source URLs or timestamps are accepted as teaching evidence.",
+        "Use GIFT-GATE-HELPER.md. Capture the actual signed-in scheduler Edit page and capture time. For scheduler-edit-v1, match its exact URL and POST action, numeric form, form name and meeting URL to the owned native scheduler. Read the visible provider statement that redemption requires a meeting. Import within 65 minutes. Do not invent missing form controls.",
         "Review recipient, collection, native currency, gift value, meeting requirement, expiry and exact copy. Approve one exact action with approve-scope, a gift count and explicit per-gift/total budget.",
         "Dispatch the original approved gift action with run --action-key ACTUAL_APPROVED_GIFT_ACTION_KEY --limit 1. Reconcile that same key and read the native gift ID/sent event. The selector adds no approval and clears no hold."
       ],
-      "proof": "Both exact ID fields and the enabled meeting-required control belong to the same edit_scheduler_NUMERIC form. The actual HTTPS capture URL, provider, configured team and capture time are recorded. Authenticated native team/scheduler reads bind the saved receipt. Before creation, capture freshness is rechecked. Exact gift recipient/copy match the saved payload. Only a native sent event counts as sent. Readback does not prove a later scheduler relationship.",
+      "proof": "The current scheduler-edit-v1 contract binds the exact scheduler Edit URL, same POST form action, numeric form, enabled name and meeting URL inputs, and visible meeting requirement to the authenticated owned native catalogue. The older input-control contract remains supported only when both exact controls exist. Sending rechecks capture freshness, funding and exact approved gift. Only a native sent event counts as sent.",
       "wait": "API access and funding can take time. The owned scheduler capture must be no more than 65 minutes old when imported and sent, and cannot be dated in the future. Recapture the actual current form when stale. Gift email, redemption and meeting booking have separate waits.",
       "fallback": "Produce the exact gift proposal and preview. Leave gifting blocked until funding, owned gate and native binding are verified.",
       "schema": {
+        "ui_contract": "scheduler-edit-v1",
         "external_id": "",
         "numeric_id": null,
         "name": "",
@@ -952,6 +953,14 @@
         {
           "label": "Loop & Tie OAuth and integration access",
           "url": "https://docs.loopandtie.com/reference/oauth-20-api-access"
+        },
+        {
+          "label": "Loop & Tie credit pricing",
+          "url": "https://guides.loopandtie.com/knowledge/what-is-lt-credit"
+        },
+        {
+          "label": "Loop & Tie collection price schema",
+          "url": "https://docs.loopandtie.com/reference/generating-gift-links"
         }
       ],
       "code": [
@@ -960,11 +969,11 @@
       ],
       "notes": [
         "Gifting can be taught without claiming a paid gift was sent.",
-        "Set meeting_required:true only after reading the actual enabled control in the provider UI. The blank template leaves it false. The importer makes authenticated read-only team and scheduler calls; it does not send a gift.",
+        "Set meeting_required:true only after the actual provider page check passes. The blank template leaves it false. Import makes authenticated read-only team and scheduler calls; it sends no gift.",
         "If the browser cannot capture the actual form, keep the reviewed gift preview and repair browser access. Do not fill numeric_id from the API external ID.",
-        "The portable package uses an explicit count and lifetime gift budget. It no longer requires full-balance authority. The actual native collection currency must match the grant. Unknown currency stays held.",
+        "Use a gift count and per-gift/total value ceiling. Loop & Tie credit-priced collections use USD: one credit equals one USD. The adapter uses that documented contract only for native collection records with a finite price; it preserves any explicit provider currency. The resulting currency must match the grant. Other unknown currency stays held.",
         "Use capture_url from the actual authenticated HTTPS loopandtie.com page or its actual subdomain. provider is loop_and_tie; team_id must match your configured own team. captured_at is the actual capture time, not import time. The source HTML and those fields are bound to the native read receipt.",
-        "meeting_required_field and external_id_field are real input names inside the same exact numeric form. Do not copy a control name from a teaching example or match an external ID elsewhere on the page."
+        "Use scheduler-edit-v1 for the current Edit Calendar page. The old meeting_required_field and external_id_field names are needed only when those real controls exist inside the same numeric form. Never invent a missing control or copy a field from an example."
       ]
     },
     {

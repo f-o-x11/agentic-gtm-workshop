@@ -4,6 +4,8 @@ Use this runtime for the attendee's own company and accounts in Codex or Claude 
 
 Start by reading the attendee's actual website and writing `../company-motion/COMPANY.md`. Ask only for the buyer segment and offer if the sources do not answer them. Then run `python3 -B gtm.py bootstrap --company-brief ../company-motion/COMPANY.md`. Show the company brief and setup result, name the next step and stop. Do one requested exercise at a time. Opening the ZIP is not permission to run every exercise.
 
+If the owner explicitly requests the full local build, follow `../BUILD-MY-GTM.md` instead of the single-exercise stop rule. Bootstrap's stop result belongs to classroom mode. In full-build mode, continue local preparation between questions, preserve progress and keep every external-action approval and source check.
+
 After each task, append its actual step, artifact path, check result and next step to `../company-motion/PROGRESS.md`. Keep earlier entries. Record a failed check as failed. Save the initial setup result and the attendee's two target domains in `../company-motion/SETUP.md`.
 
 The launcher checks Python before importing the engine. It saves a verified Python 3.10 or newer executable in `../company-motion/.runtime.json` and reuses that executable on later `python3 -B gtm.py` calls. Use the same saved executable for standalone Python scripts. If no supported interpreter is installed, show the official Python installer link and stop. Do not silently install software or assume Homebrew is available.

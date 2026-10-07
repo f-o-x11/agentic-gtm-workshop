@@ -6,13 +6,29 @@ Use one local project for all three sessions. The starter code is prepared. Your
 
 ## Begin with a useful file
 
-1. Open the workshop folder in Codex or Claude Code. Unpack it first if you received a ZIP.
-2. Open START-HERE.html in your browser and copy its complete prompt into the local agent.
-3. Supply your website. Add your buyer segment, offer and two target domains if known.
-4. Review company-motion/COMPANY.md before continuing.
-5. Open prompts.html for the next exercise. The agent stops after each step.
+1. Run this command in Codex, Claude Code or your terminal:
+
+```bash
+git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
+```
+
+2. Open agentic-gtm-workshop as your local Codex or Claude Code project.
+3. Open START-HERE.html in your browser and copy its complete prompt into the local agent.
+4. Supply your website. Add your buyer segment, offer and two target domains if known.
+5. Review company-motion/COMPANY.md before continuing.
+6. Open prompts.html for the next exercise. The agent stops after each step.
 
 Program commands run inside code/. Your company files live in company-motion/, beside it. Filled credentials and configuration stay in a separate private folder. The startup launcher saves a verified Python 3.10 or newer executable and reuses it. If none exists, use the official installer it names. No Homebrew is required.
+
+## Build the full local workflow with questions
+
+For a build outside the guided class, paste this into the cloned local project:
+
+```text
+Read BUILD-MY-GTM.md and follow its Build my workflow instructions. Ask me one question at a time, use my answers to adapt this project, and complete all local preparation that does not need another answer. Start with my company website. Keep external actions paused until I review their exact recipients, messages and costs.
+```
+
+This mode prepares the supported workflow. A channel becomes working only after its real provider result is checked.
 
 ## What you can finish
 
@@ -44,7 +60,7 @@ Part 3 uses the same core project. Gojiberry, Loop & Tie, Netlify, Calendly, CRM
 ## Before this session
 
 - Install or open local Codex or Claude Code with file and web access.
-- Download and unpack the participant ZIP. Open its extracted workshop folder as the project; run commands from code/.
+- Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open agentic-gtm-workshop as the project; run later commands from code/.
 - Use your website, buyer segment, offer and two real target domains. If unsure, the agent asks only for missing information.
 - Python is checked by the launcher. If no supported Python exists, use its named official installer.
 - No Google Cloud project, research API or paid channel is needed for Part 1.
@@ -109,11 +125,13 @@ Each person builds for their own company. Finish with two account pages, a reusa
 Company brief, paused instructions and verified local setup.
 
 
-### START HERE: one folder, one prompt, one step
+### Clone the project. Paste one prompt.
 
 Reference: p1-install. Main workshop.
 
-Open the workshop folder in Codex or Claude Code. If you received a ZIP, unpack it first. Copy the complete START HERE prompt. Your agent writes the company brief before setup.
+First, run this command in Codex, Claude Code or your terminal:
+git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
+Then open agentic-gtm-workshop as your local project. All later exercises use this same folder.
 
 Time: 12 minutes. Difficulty: Easy.
 
@@ -121,10 +139,10 @@ Tools: Local Codex or Claude Code; file and web access. No API credits..
 
 Do this:
 
-1. Get the workshop folder. Use the cloned repository, or unpack the participant ZIP.
-2. Open the workshop folder. Select it as the local Codex or Claude Code project. Commands run from code/.
-3. Open prompts.html. Copy START HERE. Add your website; fill the optional answers you know.
-4. Paste once and review. The agent writes the company brief, checks Python and stops.
+1. Clone the workshop. git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
+2. Open agentic-gtm-workshop. Select the cloned folder in Codex or Claude Code. No GitHub account is needed.
+3. Copy the full startup prompt. Open START-HERE.html. Add your website and paste its prompt into your local agent.
+4. Review your company brief. The agent saves COMPANY.md, prepares setup and stops.
 
 Copy the complete prompt from prompts.html#p1-install. Paste it into the same local Codex or Claude Code project.
 
@@ -134,7 +152,7 @@ Website: [YOUR_COMPANY_WEBSITE]
 Buyer segment: [BUYER_SEGMENT]
 Offer: [COLD_OFFER]
 Targets: [TARGET_1_DOMAIN], [TARGET_2_DOMAIN]
-Read this package's README.md, AGENTS.md and START-HERE.md. If an input is blank, ask only for what official sources cannot supply. Suggest real targets for my confirmation if needed.
+I have cloned agentic-gtm-workshop and opened it as this local project. Read README.md, AGENTS.md and START-HERE.md. If an input is blank, ask only for what official sources cannot supply. Suggest real targets for my confirmation if needed.
 Use this workshop folder as my local project. Keep runtime in code/ and outputs in company-motion/. Run commands from code/.
 Read my official website and save company-motion/COMPANY.md with sourced facts, the segment, offer, proof and actual next-step link. Ask only for missing facts. If the site blocks access, use official text I paste.
 After company-motion/COMPANY.md exists, run from code/:
@@ -2033,39 +2051,25 @@ Copy the complete prompt from prompts.html#p3-gift-setup. Paste it into the same
 
 ```text
 Read API-CONNECTIONS.md, SETUP-SEQUENCE.md and GIFT-GATE-HELPER.md.
-Use the exact gift-gate template fields.
-Retrieve my owned Loop & Tie team, collection, funding and meeting schedulers through native reads.
-Open my owned Loop & Tie dashboard with my authorized browser sign-in.
-Navigate to the meeting scheduler used by this gift and open its Edit settings form.
-Capture the actual form HTML privately with the browser’s inspected DOM or approved export tool.
-Save that HTML outside code and company-motion with 0600 permissions.
-Record its actual signed-in HTTPS loopandtie.com or real subdomain capture_url and captured_at time.
-Set provider:"loop_and_tie" and the actual configured own team_id.
-The capture must be no more than 65 minutes old and not future-dated.
-If browser DOM export is unavailable, use View Page Source or Save Page only when it contains the actual form fields.
-Keep its owned provider origin and selected scheduler visible in the saved evidence.
-Do not manufacture the form or use a screenshot as an HTML binding.
-If the authenticated form cannot be read, keep the gift held and record that exact blocker.
-Build the documented gift-gate JSON from that HTML and the native scheduler read.
-Set external_id_field to the actual external-ID input name inside the numeric edit_scheduler form.
-Its value must match the scheduler’s actual external_id.
-Set meeting_required_field to the actual meeting-required input name inside that same form.
-Verify its checkbox is checked, or its actual input value is true or 1.
-The Boolean meeting_required:true alone does not prove the provider’s enabled setting.
-Include external_id, numeric_id, name, source, meeting_required:true, both actual input names, form_html_file, capture_url, captured_at, provider and team_id.
-Run python3 -B gtm.py import --kind gift-gate --file followed by that actual private input path.
-The importer also authenticates and compares the owned provider scheduler catalogue.
-Verify the numeric form ID, external scheduler ID, name and meeting_required:true all agree.
-The browser form and authenticated provider scheduler read must identify the same owned meeting gate.
-Re-capture the actual form when older than 65 minutes. Do not change the old capture timestamp.
-Read the actual collection price, currency and funding.
-Use my approved value, expiry and meeting terms.
-The exact gate must require the promised meeting; a generic booking link is insufficient.
-Generate one exact recipient payload and preview in company-motion/GIFT-REVIEW.md.
-Show recipient, collection, value, schedule, expiry, subject, body and meeting requirement.
-Keep funding and recipient contact private.
-Do not create a gift until I approve this exact offer.
-Use the saved verified interpreter for standalone scripts. Show the actual result and keep any missing stage visible. Stop. Next: record this optional extension in company-motion/COMPLETION.md.
+Use my owned Loop & Tie team, actual funded collection and meeting scheduler.
+Open the exact scheduler Edit page in my signed-in browser.
+Save the actual full HTML privately outside this repository, with mode 0600.
+Record its actual HTTPS capture_url and captured_at. Never manufacture or refresh a timestamp.
+For the current Edit Calendar page, use ui_contract:"scheduler-edit-v1".
+Match the exact Edit URL and POST action, numeric edit_scheduler_ID form, scheduler[name] and scheduler[url] to the authenticated native catalogue.
+Read the visible statement that a meeting is required to redeem the gift.
+The older input-control contract applies only if those actual inputs exist. Do not invent them.
+Fill api-templates/gift-gate.template.json from the real capture. Keep the owned team and provider identity.
+Import from code/: python3 -B gtm.py import --kind gift-gate --file ACTUAL_PRIVATE_JSON_PATH
+Replace ACTUAL_PRIVATE_JSON_PATH with that saved file. Capture must be within 65 minutes.
+Show the actual import result. If stale, recapture the real page.
+Read the actual collection price, resolved provider currency, funding and shipping permission.
+Prepare one gift preview in company-motion/GIFT-REVIEW.md.
+Show the exact recipient, collection, value, schedule, expiry, subject, body and meeting requirement.
+Keep credentials, funding details and recipient records private.
+Do not create a gift until I approve its exact recipient, terms and cost.
+Use the saved verified interpreter. Keep every missing stage visible.
+Show the output. Stop. Next: review the gift and approve its exact scope.
 ```
 
 You should have:
@@ -2075,7 +2079,7 @@ You should have:
 Check before continuing:
 
 - Actual team, catalogue and form identify the same owned scheduler.
-- External ID and enabled meeting-required input are inside the same numeric form.
+- Actual scheduler Edit URL, numeric form and visible meeting requirement match its native catalogue.
 - Signed-in capture URL/team match and actual capture is within 65 minutes.
 - Collection cost/currency, value and expiry are truthful.
 
@@ -2104,7 +2108,7 @@ Copy the complete prompt from prompts.html#p3-gift-run. Paste it into the same l
 
 ```text
 Show company-motion/GIFT-REVIEW.md and its exact recipient payload.
-Read the owned collection’s actual price and currency.
+Read the owned collection’s actual price. Use its explicit currency, or the documented Loop & Tie USD credit contract through the supplied adapter. Keep its pricing source in the review.
 After I approve this offer and cost, set gift_fulfillment:"automatic", gift daily target:1 and gift batch limit:1 in my actual private config.
 Keep gift_use_full_balance:false; this workshop does not grant the provider’s entire balance.
 Preserve all credential paths, prior limits and exclusions.
@@ -2118,7 +2122,7 @@ Set gift_budget.currency to the actual collection currency.
 Set gift_budget.max_per_gift and gift_budget.max_total to my approved actual cost ceiling.
 Use numeric amounts and the actual ISO currency, not a default invented price.
 Run python3 -B gtm.py approve-scope --input ../company-motion/GIFT-APPROVAL.json.
-Hold the gift when collection currency is missing or differs from the grant.
+Hold the gift when currency cannot be resolved by the provider contract or differs from the grant.
 Refresh current sources and review all gift checks.
 The actual meeting-gate form capture must still be within 65 minutes.
 If stale, re-capture the owned form and reimport only that fresh gift-gate evidence, preserving the original gift action key.

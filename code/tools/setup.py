@@ -1,13 +1,15 @@
 """Set up the attendee's own project. Inputs and credentials stay outside the code folder."""
 import csv
 import hashlib
+from html.parser import HTMLParser
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import os
 from pathlib import Path
+import re
 import secrets
 import time
-from urllib.parse import parse_qs, urlencode, urlparse
+from urllib.parse import parse_qs, urlencode, urljoin, urlparse
 import webbrowser
 from engine.database import ROOT, Store, digest, encode, now
 from engine.http_client import HttpClient, ProviderError
@@ -214,41 +216,117 @@ def snapshot(store, path, commit=True):
     return receipt
 
 
+def scheduler_edit_binding(html, gate, capture_url):
+    """Bind the observed scheduler edit page without inventing provider inputs."""
+    statement='Your recipient will need to schedule a meeting to redeem their gift.'
+    class Page(HTMLParser):
+        def __init__(self):
+            super().__init__(); self.nodes=[]; self.stack=[]
+        def handle_starttag(self,tag,attrs):
+            node={'tag':tag,'attrs':dict(attrs),'duplicate_attrs':len(attrs)!=len(dict(attrs)),
+                'parent':self.stack[-1] if self.stack else None,'children':[],'order':len(self.nodes)}
+            if node['parent'] is not None: node['parent']['children'].append(node)
+            self.nodes.append(node)
+            if tag not in {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}:
+                self.stack.append(node)
+        def handle_startendtag(self,tag,attrs):
+            self.handle_starttag(tag,attrs)
+            if self.stack and self.stack[-1]['tag']==tag: self.stack.pop()
+        def handle_endtag(self,tag):
+            for index in range(len(self.stack)-1,-1,-1):
+                if self.stack[index]['tag']==tag:
+                    self.stack=self.stack[:index]; break
+        def handle_data(self,text):
+            if self.stack: self.stack[-1]['children'].append(text)
+    page=Page(); page.feed(html); page.close()
+    def ancestors(node):
+        while node is not None:
+            yield node; node=node['parent']
+    def parent_class(node,name):
+        return next((n for n in ancestors(node) if n['tag']=='div' and name in n['attrs'].get('class','').split()),None)
+    def visible(node):
+        for n in ancestors(node):
+            a=n['attrs']; style=a.get('style','').lower(); classes=set(a.get('class','').lower().split())
+            if (n['tag'] in {'head','script','style','template','noscript'} or 'hidden' in a or 'inert' in a
+                    or a.get('aria-hidden','').strip().lower()=='true' or classes & {'hidden','hide','d-none','sr-only','visually-hidden'}
+                    or re.search(r'(?:display\s*:\s*none|visibility\s*:\s*(?:hidden|collapse)|content-visibility\s*:\s*hidden|opacity\s*:\s*0(?:\s|;|$))',style)):
+                return False
+        return True
+    def text(node):
+        return ''.join(child if isinstance(child,str) else text(child) if visible(child) else '' for child in node['children'])
+    url=urlparse(capture_url); route='/schedulers/'+str(gate['external_id'])
+    if (not re.fullmatch(r'[A-Za-z0-9_-]+',str(gate['external_id'])) or url.path!=route+'/edit' or url.query or url.fragment
+            or any(sum(n['tag']==tag for n in page.nodes)!=1 for tag in ('html','head','body'))):
+        raise ValueError('scheduler-edit-v1 needs the complete actual scheduler edit page and exact capture route')
+    forms=[n for n in page.nodes if n['tag']=='form' and re.fullmatch(r'edit_scheduler_[0-9]+',n['attrs'].get('id',''))]
+    if len(forms)!=1 or forms[0]['attrs']['id']!='edit_scheduler_'+str(gate['numeric_id']) or not visible(forms[0]):
+        raise ValueError('scheduler-edit-v1 needs exactly one visible matching numeric edit form')
+    form=forms[0]; a=form['attrs']; action=urlparse(urljoin(capture_url,a.get('action','')))
+    if (a.get('method','').lower()!='post' or a.get('target') not in (None,'','_self') or form['duplicate_attrs']
+            or action.scheme!=url.scheme or action.hostname!=url.hostname or (action.port or 443)!=(url.port or 443)
+            or action.username or action.password or action.path!=route or action.query or action.fragment):
+        raise ValueError('scheduler-edit-v1 POST action must identify the same provider origin and scheduler')
+    for field,key,kind in (('scheduler[name]','name','text'),('scheduler[url]','source','url')):
+        fields=[n for n in page.nodes if n['tag']=='input' and n['attrs'].get('name')==field and next((p for p in ancestors(n) if p['tag']=='form'),None) is form]
+        if (len(fields)!=1 or fields[0]['duplicate_attrs'] or fields[0]['attrs'].get('type','text').lower()!=kind
+                or 'disabled' in fields[0]['attrs'] or any(n['tag']=='fieldset' and 'disabled' in n['attrs'] for n in ancestors(fields[0]))
+                or not visible(fields[0]) or fields[0]['attrs'].get('value')!=gate[key]
+                or fields[0]['attrs'].get('form') not in (None,a['id'])):
+            raise ValueError('scheduler-edit-v1 needs unique enabled same-form scheduler name and URL matching native values')
+    source=urlparse(gate['source'])
+    if source.scheme!='https' or not source.hostname or source.username or source.password:
+        raise ValueError('scheduler-edit-v1 native scheduler source must be its actual HTTPS URL')
+    panel=parent_class(form,'panel'); body=parent_class(form,'panel-body')
+    statements=[n for n in page.nodes if n['tag']=='p' and 'font-paragraph' in n['attrs'].get('class','').split()
+        and visible(n) and ' '.join(text(n).split())==statement and parent_class(n,'panel') is panel
+        and parent_class(n,'panel-title') is not None and parent_class(n,'panel-heading') is not None
+        and body is not None and n['order']<body['order']]
+    if panel is None or body is None or len(statements)!=1:
+        raise ValueError('scheduler-edit-v1 needs the exact visible meeting requirement in this scheduler panel heading')
+    return {'ui_contract':'scheduler-edit-v1','form_action':action.geturl(),'name_field':'scheduler[name]',
+        'source_field':'scheduler[url]','meeting_required_text':statement,'meeting_required_source':'same_panel_visible_provider_statement'}
+
+
 def import_records(store, kind, path):
     if kind=='exclusions': return snapshot(store,path)
     if kind=='gift-gate':
         value=read_json(path); html=private_file(value['form_html_file']).read_text()
         gate={k:value.get(k) for k in ('external_id','numeric_id','name','source')}
-        if (type(gate['numeric_id']) is not int or not all(gate.values()) or value.get('meeting_required') is not True
+        if (type(gate['numeric_id']) is not int or gate['numeric_id']<=0 or not all(isinstance(gate[k],str) and gate[k].strip() for k in ('external_id','name','source')) or value.get('meeting_required') is not True
                 or 'edit_scheduler_'+str(gate['numeric_id']) not in html or gate['external_id'] not in html):
             raise ValueError('Use the actual owned scheduler form HTML with its external ID and numeric edit_scheduler_ID')
         url=urlparse(value.get('capture_url','')); host=url.hostname or ''
         if (url.scheme!='https' or url.port not in (None,443) or not (host=='loopandtie.com' or host.endswith('.loopandtie.com')) or url.username or url.password
                 or value.get('provider')!='loop_and_tie' or value.get('team_id')!=store.setting('loop_and_tie_team') or not fresh(value.get('captured_at'),65*60)):
             raise ValueError('Use fresh authenticated owned Loop & Tie UI capture URL, provider, team and actual capture timestamp')
-        from html.parser import HTMLParser
-        class GateForm(HTMLParser):
-            inside=False; required=False; external=False; forms=0
-            def handle_starttag(self,tag,attrs):
-                attributes=dict(attrs)
-                if tag=='form':
-                    self.inside=attributes.get('id')=='edit_scheduler_'+str(gate['numeric_id'])
-                    if self.inside: self.forms+=1
-                if self.inside and tag=='input' and value.get('external_id_field') and attributes.get('name')==value['external_id_field']:
-                    self.external=attributes.get('value')==gate['external_id']
-                if self.inside and tag=='input' and value.get('meeting_required_field') and attributes.get('name')==value['meeting_required_field']:
-                    self.required=('disabled' not in attributes and ('checked' in attributes if attributes.get('type')=='checkbox' else attributes.get('value') in ('true','1')))
-            def handle_endtag(self,tag):
-                if tag=='form': self.inside=False
-        form=GateForm(); form.feed(html)
-        if form.forms!=1 or not form.required or not form.external: raise ValueError('Exact same numeric form must contain external_id_field with its native value and enabled meeting_required_field')
+        if value.get('ui_contract')=='scheduler-edit-v1':
+            gate.update(scheduler_edit_binding(html,gate,value['capture_url']))
+        elif value.get('ui_contract') in (None,'','input-fields-v1'):
+            class GateForm(HTMLParser):
+                inside=False; required=False; external=False; forms=0
+                def handle_starttag(self,tag,attrs):
+                    attributes=dict(attrs)
+                    if tag=='form':
+                        self.inside=attributes.get('id')=='edit_scheduler_'+str(gate['numeric_id'])
+                        if self.inside: self.forms+=1
+                    if self.inside and tag=='input' and value.get('external_id_field') and attributes.get('name')==value['external_id_field']:
+                        self.external=attributes.get('value')==gate['external_id']
+                    if self.inside and tag=='input' and value.get('meeting_required_field') and attributes.get('name')==value['meeting_required_field']:
+                        self.required=('disabled' not in attributes and ('checked' in attributes if attributes.get('type')=='checkbox' else attributes.get('value') in ('true','1')))
+                def handle_endtag(self,tag):
+                    if tag=='form': self.inside=False
+            form=GateForm(); form.feed(html)
+            if form.forms!=1 or not form.required or not form.external: raise ValueError('Exact same numeric form must contain external_id_field with its native value and enabled meeting_required_field')
+            gate.update({k:value[k] for k in ('meeting_required_field','external_id_field')})
+        else:
+            raise ValueError('Unknown gift scheduler UI contract')
         from engine.channels.gifts import Gifts
         native=Gifts(store).catalogue(); matches=[s for s in native['schedulers'] if s.get('id')==gate['external_id']]
-        if len(matches)!=1 or any(matches[0].get('attributes',{}).get(k)!=gate[v] for k,v in (('external-id','external_id'),('name','name'),('source','source'))):
+        if (str(native.get('team',{}).get('id'))!=store.setting('loop_and_tie_team') or not fresh(native.get('at'),65*60)
+                or len(matches)!=1 or any(matches[0].get('attributes',{}).get(k)!=gate[v] for k,v in (('external-id','external_id'),('name','name'),('source','source')))):
             raise ValueError('Authenticated owned native scheduler differs from captured form')
         gate['form_id']='edit_scheduler_'+str(gate['numeric_id']); gate['meeting_required']=True
-        gate['meeting_required_field']=value['meeting_required_field']
-        gate.update({k:value[k] for k in ('capture_url','captured_at','provider','team_id','external_id_field')})
+        gate.update({k:value[k] for k in ('capture_url','captured_at','provider','team_id')})
         gate['native_catalogue_digest']=digest(native)
         gate['evidence_sha256']=hashlib.sha256(html.encode()).hexdigest(); gate['observed_at']=value['captured_at']
         with store.db:

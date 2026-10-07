@@ -1,16 +1,20 @@
 # Agentic GTM workshop
 
-Build your company brief, two account pages and a reusable skill. Then connect one email channel and operate the same project. Each of the three workshops has five chapters,90 guided minutes and30 minutes for help.
-
-## Get the entire workshop
+First instruction:
 
 ```bash
 git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
 ```
 
+Open agentic-gtm-workshop in local Codex or Claude Code. All later exercises use this repository.
+
+Build your company brief, two account pages and a reusable skill. Then connect one email channel and operate the same project. Each of the three workshops has five chapters,90 guided minutes and30 minutes for help.
+
+## Get the entire workshop
+
 This public repository needs no GitHub account, collaborator invitation or workshop API key. The command retrieves the PDFs, booklet, prompt helpers, editable course, illustrations and 20-file program together. You can also [download the workshop ZIP](https://github.com/f-o-x11/agentic-gtm-workshop/archive/refs/heads/main.zip), then unpack it.
 
-Open the cloned folder as your local project in Codex or Claude Code. Open START-HERE.html, copy its one complete prompt and add your website. The agent writes the company brief, checks setup and stops. If you received a ZIP instead, unpack it before opening the folder.
+Open the cloned folder as your local project in Codex or Claude Code. For a full build outside the guided class, paste: "Read BUILD-MY-GTM.md and follow its Build my workflow instructions. Ask me one question at a time. Start with my company website." Open START-HERE.html, copy its one complete prompt and add your website. The agent writes the company brief, checks setup and stops. If you received a ZIP instead, unpack it before opening the folder.
 
 ## Five chapters per workshop
 
@@ -42,7 +46,8 @@ Open the cloned folder as your local project in Codex or Claude Code. Open START
 
 | File | Use |
 |---|---|
-| START-HERE.html | One complete startup prompt, then stop. |
+| START-HERE.html | Clone command, guided startup and full-workflow builder prompt. |
+| BUILD-MY-GTM.md | Ask questions and prepare your company's full supported local workflow. |
 | prompts.html | Full exercise prompts, repair prompts and next steps. |
 | Complete-Presentation.pdf | All three workshops, with chapter bookmarks. |
 | Part-1-Presentation.pdf | Company context, pages and skill reuse. |

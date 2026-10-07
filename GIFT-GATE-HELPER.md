@@ -1,57 +1,49 @@
-# Let the agent read your actual gift scheduler
+# Check that a meeting is required before gift redemption
 
-You need your own Loop & Tie team, funded collection and configured meeting scheduler. The key connects the API. It does not create the meeting requirement or reveal its private numeric form ID.
+You need your own API-enabled Loop & Tie account, funded collection and meeting scheduler. Open the intended scheduler's Edit page in your signed-in browser. The agent reads that page; it does not change its settings.
 
-Open your owned Loop & Tie account and sign in. Open the edit panel for the exact scheduler you will use. Keep it open while your coding agent reads that actual browser tab. Use the current provider form, not generated HTML or a remembered screenshot.
-
-Copy this prompt:
+Copy this into your local Codex or Claude Code project:
 
 ```text
-Read code/README.md and the gift-gate importer in code/tools/setup.py.
-Use my actual signed-in Loop & Tie browser tab and configured owned team.
-Read the intended scheduler's actual edit form. Save that exact current form HTML in private-workshop/.
-Record the actual current HTTPS provider page URL and actual capture time. Do not invent either.
-Extract numeric_id from its real edit_scheduler_ID form ID.
-Read the external scheduler ID from an input inside that SAME form. Record that exact input name as external_id_field.
-Read the enabled meeting-required input inside that SAME form. Record its exact input name as meeting_required_field.
-Match the external ID, name and source to the actual authenticated native scheduler catalogue for my configured own team.
-Write the private gift-gate JSON with the actual form_html_file, capture_url, captured_at and team_id. Set provider to loop_and_tie.
-Set meeting_required:true only after the actual provider control is enabled.
-Set private-workshop/ to mode 0700 and the actual saved HTML and JSON to mode 0600.
-Show the two IDs, real input names, scheduler name, configured team and capture time. Keep tokens and unrelated recipients out of the output.
-Import the actual gate within 65 minutes of capture. Do not create or send a gift.
-If the tab is unsigned, the form cannot be read or the source is stale, name the missing browser access or capture. Keep my reviewed gift preview.
-Do not fabricate a numeric ID, form, field name, source URL, login proof or timestamp. Do not use an external ID found outside this exact form.
+Read GIFT-GATE-HELPER.md and the gift-gate importer in code/tools/setup.py.
+Read my configured owned team and its native scheduler catalogue.
+Open the exact scheduler's Edit page in my signed-in Loop & Tie browser.
+Save the actual full page HTML privately outside this entire repository, with mode 0600.
+Save its actual HTTPS URL and capture time. Do not edit or manufacture the capture.
+Read numeric_id from the real edit_scheduler_ID form.
+For the current Edit Calendar page, use ui_contract:"scheduler-edit-v1".
+Read external_id from the exact /schedulers/EXTERNAL_ID/edit URL and same-form POST action.
+Match scheduler[name] and scheduler[url] inside that one form to the native scheduler name and source.
+Confirm the page visibly says: Your recipient will need to schedule a meeting to redeem their gift.
+Use the current provider text and controls. Hidden or script text is not proof.
+Fill the private gift-gate JSON from api-templates/gift-gate.template.json.
+Keep provider:"loop_and_tie", the exact owned team, name, source and actual capture metadata.
+Set meeting_required:true only after the actual page check passes.
+Import it from code/: python3 -B gtm.py import --kind gift-gate --file ACTUAL_PRIVATE_JSON_PATH
+Replace ACTUAL_PRIVATE_JSON_PATH with the file you saved. Import within 65 minutes of capture.
+Show the actual import result. Keep tokens and unrelated people private.
+Do not create a gift. If any native page or catalogue check fails, keep the gift held and show that error.
 ```
 
-Run from `code/`:
+The blank [gate template](api-templates/gift-gate.template.json) contains no IDs, capture or approval. Fill these from the actual provider:
 
-```sh
-python3 -B gtm.py import --kind gift-gate --file /absolute/private/gift-gate.json
-```
-
-The private JSON follows [gift-gate.template.json](gift-gate.template.json). It needs these fields:
-
-| Field | Read it from |
+| Field | Source |
 |---|---|
-| `external_id` | Exact external-ID input value inside this numeric form |
-| `numeric_id` | Integer from the actual `edit_scheduler_ID` form ID |
-| `name`, `source` | The matching owned native scheduler catalogue entry |
-| `meeting_required` | `true` only when the actual required control is enabled |
-| `meeting_required_field` | Exact required-control input name inside this form |
-| `external_id_field` | Exact external-ID input name inside this same form |
-| `form_html_file` | Private path to the actual captured form HTML |
-| `capture_url` | Actual current HTTPS `loopandtie.com` page or its real subdomain |
-| `captured_at` | Actual browser capture time, including timezone |
-| `provider` | Literal `loop_and_tie` |
-| `team_id` | Your actual configured own team ID |
+| `ui_contract` | `scheduler-edit-v1` for the current Edit Calendar page |
+| `external_id` | Exact scheduler ID in the Edit URL and matching POST form action |
+| `numeric_id` | Integer in the actual `edit_scheduler_ID` form ID |
+| `name`, `source` | Form name and meeting URL, matched to the owned native catalogue |
+| `meeting_required` | `true` only after the visible provider statement is checked |
+| `form_html_file` | Private path to the actual full HTML capture |
+| `capture_url`, `captured_at` | Actual signed-in HTTPS page and capture time |
+| `provider`, `team_id` | `loop_and_tie` and your configured owned team |
 
-The template leaves IDs, field names, URL and capture time blank. It sets `meeting_required:false`. It is a structure to fill from the provider, not proof of a working gate.
+For a provider form that actually exposes an external-ID input and an enabled meeting-required input, the original contract remains available. Omit `ui_contract` and supply their exact names as `external_id_field` and `meeting_required_field`. Both controls must belong to the same numeric form. Do not invent missing inputs to use this older contract.
 
-Pass check: the import returns `gift_gate_saved:true`. Both the exact external-ID input and enabled required-control input occur inside the same numeric form. The importer performs authenticated read-only team and scheduler catalogue checks, then binds their receipt to the captured HTML and metadata. A capture older than 65 minutes or dated in the future holds. Sending rechecks freshness, owned resources, funding and the exact bounded gift grant.
+Pass check: import returns `gift_gate_saved:true` with zero provider writes. The importer matches the actual form to authenticated owned-team and scheduler reads, and saves a digest of that evidence. Missing, changed, future-dated or stale captures hold. Recapture the real page after 65 minutes; never refresh only its timestamp.
 
-These checks depend on a truthful capture from the actual signed-in browser. They do not authenticate fabricated HTML. Keep the original capture evidence privately. Do not replace a stale timestamp with the current time. Recapture the actual current form.
+This depends on a truthful capture from the signed-in browser. Supplied HTML alone does not authenticate its origin. Keep the original capture private. If browser access is unavailable, finish the gift preview and leave sending paused.
 
-If browser access is unavailable, complete the gift preview. It still gives you the exact recipient, collection, value, copy and expiry to review. Sending stays held until the actual native gate is proved.
+Before creation, review the actual collection price, funded balance, shipping permission, recipient, copy, expiry and meeting terms. Approve an exact gift count plus per-gift and total cost. Loop & Tie credit pricing is USD, according to its [credit contract](https://guides.loopandtie.com/knowledge/what-is-lt-credit). Explicit provider currency is preserved and must match your approval.
 
-Gift creation, email sent, redemption and meeting booking remain separate outcomes. An imported scheduler binding proves none of them.
+A verified gate proves no gift was sent. Gift creation, sent email, redemption and completed meeting remain separate results.

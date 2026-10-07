@@ -2,6 +2,8 @@
 
 Read README.md and START-HERE.md. Use code/ for the supplied program and company-motion/ for this company's files. Run program commands from code/.
 
+When the owner explicitly asks to build their whole local workflow, read BUILD-MY-GTM.md and follow that sequence. This replaces the single-exercise stop rule only for that request. Keep the same authority, source checks and private-data boundaries.
+
 Do the single requested exercise. Show its actual artifact and success check, write them in company-motion/PROGRESS.md, name the next exercise and stop. Do not run every lesson after receiving the package. After restart or context compaction, reread company-motion/PROGRESS.md before choosing the next task.
 
 Use the attendee's actual company and official sources. Ask only for missing facts that affect the output. Create COMPANY.md before running bootstrap. Follow company-motion/AGENTS.md once it exists. Preserve existing company instructions and authority.

@@ -417,6 +417,28 @@ class PortableChecks(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,'Unsupported draft channel|approved daily budget'):
                     client.advertising('create_campaign',arguments,approved_sha256='unused')
             provider.assert_not_called(); self.assertEqual(s.one('SELECT count(*) AS n FROM attempts')['n'],0)
+    def test_loop_tie_credit_price_resolves_documented_usd_without_overriding_currency(self):
+        from engine.channels.gifts import collection_currency
+        native={'data':{'type':'collections','attributes':{'price':'50.00'}}}
+        self.assertEqual(collection_currency(native),'USD')
+        native['data']['attributes']['currency']='EUR'
+        self.assertEqual(collection_currency(native),'EUR')
+        native['data']['attributes'].pop('currency')
+        native['data']['attributes']['currency-code']='GBP'
+        self.assertEqual(collection_currency(native),'GBP')
+        for price in ('NaN','Infinity','-1','invalid',None):
+            self.assertIsNone(collection_currency({'data':{'type':'collections','attributes':{'price':price}}}))
+        self.assertIsNone(collection_currency({'data':{'type':'other','attributes':{'price':'50'}}}))
+    def test_credit_price_still_requires_exact_grant_currency_and_total(self):
+        from decimal import Decimal
+        from engine.channels.gifts import collection_currency
+        s=self.f.store; s.set('portable_attendee',True)
+        action=prepare(s,'gift',self.f.person,{'gift':{}},'Owner')
+        p=self.f.folder/'credit-gift.json'; p.write_text(encode({'authority':'Offline gift','purpose':'one gift','action_keys':[action['action_key']],'limits':{'email':0,'gift':1,'social':0},'gift_budget':{'currency':'USD','max_per_gift':10,'max_total':10}})); approve_release(s,p)
+        currency=collection_currency({'data':{'type':'collections','attributes':{'price':'10.00'}}})
+        self.assertEqual(checks.gift_budget_issues(s,action,Decimal('10'),currency),[])
+        self.assertTrue(checks.gift_budget_issues(s,action,Decimal('11'),currency))
+        self.assertTrue(checks.gift_budget_issues(s,action,Decimal('10'),'EUR'))
     def test_cross_mailbox_owned_controlled_test_is_rejected_before_reservation(self):
         from tools.setup import approve_release
         s=self.f.store; authority=s.setting('policy'); authority.update(senders={'owner@example.org':2,'second@example.org':2},controlled_test_recipients=['owner@example.org','second@example.org']); s.set('policy',authority)
@@ -472,6 +494,119 @@ class PortableChecks(unittest.TestCase):
             provider.return_value.catalogue.assert_not_called(); value['captured_at']=now(); path.write_text(encode(value))
             self.assertTrue(import_records(s,'gift-gate',path)['gift_gate_saved'])
             self.assertEqual(s.setting('gift_gate')['observed_at'],value['captured_at'])
+    def gift_edit_fixture(self):
+        """Synthetic offline contract data, never a provider capture or authority."""
+        self.f.store.set('loop_and_tie_team','owned-team')
+        html=self.f.folder/'scheduler-edit.html'; path=self.f.folder/'scheduler-edit.json'
+        text='Your recipient will need to schedule a meeting to redeem their gift.'
+        paragraph='<p class="font-paragraph">'+text+'</p>'
+        fields='<input name="scheduler[name]" type="text" value="Gate"><input name="scheduler[url]" type="url" value="https://calendly.com/offline/meeting">'
+        form='<form id="edit_scheduler_42" method="post" action="/schedulers/owned-gate">'+fields+'</form>'
+        page='<html><head></head><body><div class="panel"><div class="panel-heading"><div class="panel-title">'+paragraph+'</div></div><div class="panel-body">'+form+'</div></div></body></html>'
+        value={'ui_contract':'scheduler-edit-v1','external_id':'owned-gate','numeric_id':42,'name':'Gate','source':'https://calendly.com/offline/meeting',
+            'meeting_required':True,'form_html_file':str(html),'capture_url':'https://app.loopandtie.com/schedulers/owned-gate/edit',
+            'captured_at':now(),'provider':'loop_and_tie','team_id':'owned-team'}
+        native={'team':{'id':'owned-team'},'schedulers':[{'id':'owned-gate','attributes':{'external-id':'owned-gate','name':'Gate','source':value['source']}}],'at':now()}
+        return html,path,page,value,native,paragraph,form,fields
+    def test_gift_scheduler_edit_contract_saves_exact_evidence_and_native_digest(self):
+        from tools.setup import import_records
+        html,path,page,value,native,_,_,_=self.gift_edit_fixture(); html.write_text(page); path.write_text(encode(value))
+        self.f.store.set('portable_attendee',True); action=prepare(self.f.store,'gift',self.f.person,{'gift':{}},'Owner')
+        approval=self.f.folder/'unchanged-gift-grant.json'; approval.write_text(encode({'authority':'Offline exact funded grant','purpose':'one bounded gift',
+            'action_keys':[action['action_key']],'limits':{'email':0,'gift':1,'social':0},'gift_budget':{'currency':'USD','max_per_gift':50,'max_total':50}}))
+        approve_release(self.f.store,approval)
+        before=self.f.store.rows("SELECT * FROM source_records WHERE source='owner.release'")
+        self.assertEqual(len(before),1)
+        with patch('engine.channels.gifts.Gifts') as provider:
+            provider.return_value.catalogue.return_value=native
+            self.assertTrue(import_records(self.f.store,'gift-gate',path)['gift_gate_saved']); provider.return_value.catalogue.assert_called_once()
+        gate=self.f.store.setting('gift_gate'); self.assertEqual(gate['ui_contract'],'scheduler-edit-v1')
+        self.assertEqual(gate['native_catalogue_digest'],digest(native)); self.assertEqual(gate['evidence_sha256'],hashlib.sha256(page.encode()).hexdigest())
+        self.assertEqual(gate['captured_at'],value['captured_at']); self.assertEqual(gate['form_action'],'https://app.loopandtie.com/schedulers/owned-gate')
+        self.assertEqual(gate['name_field'],'scheduler[name]'); self.assertEqual(gate['source_field'],'scheduler[url]')
+        self.assertNotIn('external_id_field',gate); self.assertNotIn('meeting_required_field',gate)
+        binding=self.f.store.one("SELECT data_json,digest FROM source_records WHERE source='owner.gift_scheduler'")
+        self.assertEqual(digest(json.loads(binding['data_json'])),binding['digest']); self.assertEqual(gate['binding_digest'],binding['digest'])
+        self.assertEqual(before,self.f.store.rows("SELECT * FROM source_records WHERE source='owner.release'")); self.assertEqual(self.f.store.one('SELECT count(*) AS n FROM attempts')['n'],0)
+    def test_gift_scheduler_edit_contract_rejects_swapped_routes_forms_and_fields(self):
+        from tools.setup import import_records
+        html,path,page,value,native,paragraph,form,fields=self.gift_edit_fixture()
+        variants={
+            'other_action':page.replace('action="/schedulers/owned-gate"','action="/schedulers/other-gate"'),
+            'foreign_origin':page.replace('action="/schedulers/owned-gate"','action="https://other.loopandtie.com/schedulers/owned-gate"'),
+            'action_query':page.replace('action="/schedulers/owned-gate"','action="/schedulers/owned-gate?other=1"'),
+            'get_form':page.replace('method="post"','method="get"'),
+            'duplicate_numeric_form':page.replace(form,form+form),
+            'other_numeric_form':page.replace(form,form+form.replace('edit_scheduler_42','edit_scheduler_43')),
+            'changed_name':page.replace('value="Gate"','value="Other"'),
+            'changed_url':page.replace('https://calendly.com/offline/meeting','https://calendly.com/offline/other'),
+            'duplicate_name':page.replace(fields,fields+'<input name="scheduler[name]" value="Gate">'),
+            'duplicate_url':page.replace(fields,fields+'<input name="scheduler[url]" type="url" value="https://calendly.com/offline/meeting">'),
+            'disabled_name':page.replace('name="scheduler[name]"','disabled name="scheduler[name]"'),
+            'disabled_parent':page.replace(fields,'<fieldset disabled>'+fields+'</fieldset>'),
+            'hidden_name':page.replace('type="text"','type="hidden"'),
+            'outside_form':page.replace(fields,'').replace(form.replace(fields,''),fields+form.replace(fields,'')),
+            'foreign_form_attribute':page.replace('name="scheduler[name]"','form="other" name="scheduler[name]"'),
+            'duplicate_action_attribute':page.replace('action="/schedulers/owned-gate"','action="/schedulers/other-gate" action="/schedulers/owned-gate"'),
+            'partial_capture':form+paragraph,
+        }
+        with patch('engine.channels.gifts.Gifts') as provider:
+            provider.return_value.catalogue.return_value=native
+            for label,changed in variants.items():
+                with self.subTest(label=label):
+                    html.write_text(changed); path.write_text(encode(value))
+                    with self.assertRaises(ValueError): import_records(self.f.store,'gift-gate',path)
+            for route in ('/schedulers/other-gate/edit','/schedulers/owned-gate/edit?other=1','/schedulers/owned-gate/edit#other','/other/owned-gate'):
+                with self.subTest(route=route):
+                    html.write_text(page); path.write_text(encode({**value,'capture_url':'https://app.loopandtie.com'+route}))
+                    with self.assertRaises(ValueError): import_records(self.f.store,'gift-gate',path)
+            provider.return_value.catalogue.assert_not_called()
+        self.assertFalse(self.f.store.setting('gift_gate')); self.assertEqual(self.f.store.one('SELECT count(*) AS n FROM attempts')['n'],0)
+    def test_gift_scheduler_edit_contract_rejects_hidden_script_or_other_panel_statement(self):
+        from tools.setup import import_records
+        html,path,page,value,native,paragraph,form,_=self.gift_edit_fixture()
+        variants={
+            'script_only':page.replace(paragraph,'<script>'+paragraph+'</script>'),
+            'hidden_paragraph':page.replace('<p class="font-paragraph">','<p hidden class="font-paragraph">'),
+            'hidden_heading':page.replace('class="panel-heading"','class="panel-heading" aria-hidden="true"'),
+            'style_hidden':page.replace('<p class="font-paragraph">','<p style="display: none" class="font-paragraph">'),
+            'template_only':page.replace(paragraph,'<template>'+paragraph+'</template>'),
+            'other_panel':page.replace(paragraph,'').replace('</body>','<div class="panel"><div class="panel-heading"><div class="panel-title">'+paragraph+'</div></div></div></body>'),
+            'inside_form_only':page.replace(paragraph,'').replace(form,form.replace('</form>',paragraph+'</form>')),
+            'changed_statement':page.replace('will need','will not need'),
+            'duplicate_statement':page.replace(paragraph,paragraph+paragraph),
+        }
+        with patch('engine.channels.gifts.Gifts') as provider:
+            provider.return_value.catalogue.return_value=native
+            for label,changed in variants.items():
+                with self.subTest(label=label):
+                    html.write_text(changed); path.write_text(encode(value))
+                    with self.assertRaises(ValueError): import_records(self.f.store,'gift-gate',path)
+            provider.return_value.catalogue.assert_not_called()
+        self.assertFalse(self.f.store.setting('gift_gate'))
+    def test_gift_scheduler_edit_contract_rejects_stale_unowned_and_changed_native_evidence(self):
+        from tools.setup import import_records
+        html,path,page,value,native,_,_,_=self.gift_edit_fixture(); html.write_text(page)
+        with patch('engine.channels.gifts.Gifts') as provider:
+            provider.return_value.catalogue.return_value=native
+            inputs=[{**value,'captured_at':(datetime.now(timezone.utc)+timedelta(minutes=1)).isoformat()},
+                {**value,'captured_at':(datetime.now(timezone.utc)-timedelta(minutes=66)).isoformat()},
+                {**value,'team_id':'other-team'},{**value,'provider':'other_provider'},
+                {**value,'meeting_required':False},{**value,'ui_contract':'unknown-contract'}]
+            for changed in inputs:
+                with self.subTest(changed=next(k for k in value if value[k]!=changed[k])):
+                    path.write_text(encode(changed))
+                    with self.assertRaises(ValueError): import_records(self.f.store,'gift-gate',path)
+            provider.return_value.catalogue.assert_not_called(); path.write_text(encode(value))
+            variants=[{**native,'team':{'id':'other-team'}},{**native,'at':(datetime.now(timezone.utc)-timedelta(minutes=66)).isoformat()},
+                {**native,'schedulers':[]},{**native,'schedulers':native['schedulers']*2}]
+            for key in ('external-id','name','source'):
+                row=native['schedulers'][0]; variants.append({**native,'schedulers':[{**row,'attributes':{**row['attributes'],key:'changed'}}]})
+            for index,changed in enumerate(variants):
+                with self.subTest(native_variant=index):
+                    provider.return_value.catalogue.return_value=changed
+                    with self.assertRaisesRegex(ValueError,'native scheduler differs'): import_records(self.f.store,'gift-gate',path)
+        self.assertFalse(self.f.store.setting('gift_gate')); self.assertEqual(self.f.store.one("SELECT count(*) AS n FROM source_records WHERE source='owner.gift_scheduler'")['n'],0)
     def test_revoked_pilot_cannot_release_reset_or_replace_its_grant(self):
         from tools.setup import revoke_release
         actions,path=self.pilot(); s=self.f.store; before=s.setting('pilot_approval'); revoke_release(s,'pilot','Wrong approved copy')

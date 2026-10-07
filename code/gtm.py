@@ -89,6 +89,7 @@ Read COMPANY.md before each task. Use my actual offer, buyers and source-backed 
 After restart or context compaction, reread PROGRESS.md before choosing the next task.
 If documents and runtime authority disagree, keep external actions paused and ask the owner to resolve the exact conflict.
 Work on one requested workshop step. Show the output, name the next step and stop.
+If the owner explicitly requests the full local build, follow ../BUILD-MY-GTM.md instead of this single-exercise stop rule. Continue local preparation between questions. Keep all authority, source and private-data checks.
 After each task, append its actual step, artifact path, check result and next step to PROGRESS.md. Keep earlier entries. Record a failed check as failed.
 Do not run the whole ZIP or jump ahead. Each founder or marketer works in their own project.
 Use the Python executable in .runtime.json for standalone scripts. The code/gtm.py launcher also reuses it.

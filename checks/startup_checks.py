@@ -56,6 +56,8 @@ class StartupRepairs(unittest.TestCase):
         self.assertEqual(result['provider_writes'],0); self.assertTrue(result['stop']); self.assertEqual(self.brief.read_bytes(),before)
         authority=self.motion/'AUTHORITY.md'; authority.write_text('My specific existing scope. Do not overwrite.\n')
         self.assertIn('PROGRESS.md',(self.motion/'AGENTS.md').read_text())
+        self.assertIn('explicitly requests the full local build',(self.motion/'AGENTS.md').read_text())
+        self.assertIn('Keep all authority, source and private-data checks',(self.motion/'AGENTS.md').read_text())
         instructions=self.motion/'AGENTS.md'; instructions.write_text('My existing company instructions.\n'); saved=instructions.read_bytes()
         second=gtm.bootstrap_workspace(self.code); self.assertEqual(second['created'],[]); self.assertEqual(instructions.read_bytes(),saved)
         authority.unlink(); third=gtm.bootstrap_workspace(self.code); self.assertEqual(third['created'],['AUTHORITY.md'])

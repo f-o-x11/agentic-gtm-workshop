@@ -1,6 +1,6 @@
 """Loop & Tie meeting-gated gifts with exact native creation and delivery receipts."""
 from datetime import date, datetime, timezone
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 import json
 from urllib.parse import quote, urlparse
 
@@ -12,6 +12,26 @@ def team_base(store):
     if not isinstance(team, str) or not __import__('re').fullmatch(r'[A-Za-z0-9_-]+', team):
         raise ValueError('Your exact owned Loop & Tie team ID is not configured')
     return 'https://api.loopandtie.com/v1/teams/' + quote(team, safe='')
+
+
+def collection_currency(collection):
+    """Resolve this provider's collection price without changing declared currency.
+
+    Loop & Tie's native collection schema omits currency. Its credit contract is
+    1 credit = 1 USD: https://guides.loopandtie.com/knowledge/what-is-lt-credit
+    This fallback applies only to native collection records with a finite price.
+    Send still requires a funded owned team, free shipping and exact USD approval.
+    """
+    data = collection.get('data', {})
+    attrs = data.get('attributes', {})
+    declared = attrs.get('currency') or attrs.get('currency-code')
+    if declared:
+        return declared
+    try:
+        price = Decimal(str(attrs['price']))
+    except (KeyError, ValueError, InvalidOperation):
+        return None
+    return 'USD' if data.get('type') == 'collections' and price.is_finite() and price >= 0 else None
 
 
 class Gifts:
@@ -109,7 +129,7 @@ def send(store, person, payload, action_key, http=None):
         raise ValueError("Actual gift funding or free shipping unavailable")
     from engine.checks import unpack, approved_scope, gift_budget_issues
     draft=unpack(store.one('SELECT * FROM actions WHERE action_key=?',(action_key,)))
-    currency=collection['data']['attributes'].get('currency') or collection['data']['attributes'].get('currency-code')
+    currency=collection_currency(collection)
     if store.setting('portable_attendee',False):
         issues=gift_budget_issues(store,draft,cost,currency)
         if issues: raise ValueError(' '.join(issues))
@@ -118,7 +138,8 @@ def send(store, person, payload, action_key, http=None):
             grant,_=approved_scope(store,draft)
             store.event('gift_budget_reserved',action_key,{'grant_id':grant['grant_id'],'cost':str(cost),'currency':currency},key='gift_cost:'+action_key)
         store.event("gift_preflight", action_key, {"catalogue": catalogue, "collection": collection,
-            "inventory_complete": True, "inventory_count": len(inventory), "inventory_digest": digest(inventory), "gate": gate, "cost": str(cost)})
+            "inventory_complete": True, "inventory_count": len(inventory), "inventory_digest": digest(inventory), "gate": gate, "cost": str(cost),
+            "currency": currency, "pricing_source": "https://guides.loopandtie.com/knowledge/what-is-lt-credit"})
     action = outreach_action(store, "gift", person, payload, action_key, gift["from"])
     try:
         recheck(store, action)
