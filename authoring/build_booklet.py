@@ -9,13 +9,13 @@ glossary=(R/'GLOSSARY.md').read_text().split('\n',2)[-1]
 position=lines.index('## Finish with')
 lines[position:position]=['## Words you may need','',glossary,'']
 lines += ['- '+x for x in p.get('finish',[])]
-lines += ['', 'Your pages stay on your computer. They are unpublished. Publishing is not required to complete Part 1.', '', '[Watch the recorded build and Gil’s rehearsal clips](https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html).', '']
+lines += ['', 'Your pages stay on your computer. They are unpublished. Publishing is not required to complete Part 1.', '', '[Watch the recorded build and Gil’s rehearsal](https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html).', '']
 for ch in p['chapters']:
     lines += ['', '## Section '+str(ch['number'])+': '+ch['title'],'',ch['outcome'],'']
-    if ch.get('opener'):
-        m=ch['opener']
-        lines += ['[Watch: '+m['title']+' ('+m['duration_label']+')](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+m['id']+')', '', m['note'], '']
     for s in [s for s in p['slides'] if s['chapter']==ch['number']]:
+        for m in p.get('media',[]):
+            if m['before_slide']==s['id']:
+                lines += ['[Watch: '+m['title']+' ('+m['duration_label']+')](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+m['id']+')', '', m['note'], '']
         if not s.get('prompt'):continue
         lines += ['', '### '+s['title'],'', 'Reference: '+s['id'],'','Time: '+str(s.get('timing',0))+' minutes. Difficulty: '+s.get('difficulty','')+'.','', 'Tools: '+'; '.join(x.rstrip('.') for x in s.get('tools',[]))+'.','']
         for i,st in enumerate(s.get('steps',[]),1):

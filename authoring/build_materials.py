@@ -500,9 +500,9 @@ def chapter_slide(c,ch,num,part):
  paragraph(c,'Open the next full prompt. Review the result before moving on.',56,128,1160,22,color=GRAY)
  c.showPage()
 
-def media_slide(c,ch,num,part):
+def media_slide(c,m,num,part):
  global CURRENT_SECTION
- CURRENT_SECTION=ch['number'];m=ch['opener']
+ CURRENT_SECTION=m['chapter']
  header(c,m['title'],num,part,m['note'])
  paragraph(c,m['label']+' | '+m['duration_label'],56,536,1168,18,color=GREEN,font='RubikMedium')
  poster=R/m['poster'] if m.get('poster') else None
@@ -533,14 +533,13 @@ def make_decks(data):
     c.bookmarkPage(ch['id']);c.addOutlineEntry('Chapter '+str(current_chapter)+': '+ch['title'],ch['id'],0)
     if current_chapter>1:
      num+=1;CHECKS.clear();chapter_slide(c,ch,num,n)
-     if ch.get('opener'):
-      num+=1;CHECKS.clear();media_slide(c,ch,num,n)
+   for m in part.get('media',[]):
+    if m['before_slide']==s['id']:
+     num+=1;CHECKS.clear();c.bookmarkPage(m['id']);media_slide(c,m,num,n)
    num+=1;c.bookmarkPage(s['id']);c.addOutlineEntry(s['title'],s['id'],1)
    CHECKS.clear();slide(c,s,num,n)
    bad=[x for x in CHECKS if x['bottom']<64 and x['size']>16]
    if bad:raise ValueError('Slide overflow '+s['id']+' '+str(bad))
-   if s['type']=='cover' and ch.get('opener'):
-    num+=1;CHECKS.clear();media_slide(c,ch,num,n)
    if s.get('prompt'):
     num+=1;CHECKS.clear();num+=prompt_slide(c,s,num,n)-1
     bad=[x for x in CHECKS if x['bottom']<64 and x['size']>16]

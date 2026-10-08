@@ -45,7 +45,7 @@ Program commands run from code/. Your company files live in company-motion/. Key
 
 Your pages stay on your computer. They are unpublished. Publishing is not required to complete Part 1.
 
-[Watch the recorded build and Gil’s rehearsal clips](https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html).
+[Watch the recorded build and Gil’s rehearsal](https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html).
 
 
 ## Section 1: See Metadata's working examples
@@ -56,14 +56,14 @@ See the actual page, email and gift examples.
 
 A fictional marketing team. The workshop examples and checks use real files.
 
+[Watch: Watch the full Part 1 build (27:26 at 2×)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-full-walkthrough)
+
+The complete 54:51 recording at 2×, with narration in Gil’s AI voice. Pages are local and unpublished. Includes repairs and final checks. Watch before class or use it when you need help.
+
 
 ## Section 2: Set up your company
 
 COMPANY.md, saved setup and local rules.
-
-[Watch: Budget Flush Day (2:00)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-agency-2)
-
-A fictional marketing team. The workshop examples and checks use real files.
 
 
 ### Open the cloned folder. Build your company brief.
@@ -191,7 +191,7 @@ Next: research the first target company.
 
 Two target briefs and TARGETS.md.
 
-[Watch: The Retreat (3:46)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-agency-3)
+[Watch: Budget Flush Day (2:00)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-agency-2)
 
 A fictional marketing team. The workshop examples and checks use real files.
 
@@ -366,10 +366,6 @@ Next: save the checked page method as a skill.
 
 SKILL.md, second page and completed file check.
 
-[Watch: Save the instructions. Use them again. (0:14)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-recorded-skill)
-
-Gil explains the saved skill prompt. This clip shows the instructions, not an agent execution.
-
 
 ### Save your page-building instructions as a skill
 
@@ -446,6 +442,10 @@ Check before continuing:
 If blocked: If the second website blocks access, use its saved official-source text. Label that source path.
 
 Next: check the Part 1 files after the break.
+[Watch: The Retreat (3:46)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-agency-3)
+
+A fictional marketing team. The workshop examples and checks use real files.
+
 
 ### Check the files. Fix anything missing.
 

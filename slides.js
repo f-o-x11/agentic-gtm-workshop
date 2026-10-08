@@ -22,3 +22,5 @@ zuoraEmailDialog?.addEventListener('close',()=>zuoraEmailOpener?.focus());
 document.querySelectorAll("video").forEach(v=>v.addEventListener("error",()=>{const p=v.nextElementSibling;if(p?.classList.contains("media-caption"))p.classList.add("media-error");}));
 
 document.querySelectorAll("details").forEach(d=>d.addEventListener("toggle",()=>{if(!d.open)d.querySelectorAll("video").forEach(v=>v.pause());}));
+
+document.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click',()=>{const v=document.getElementById(b.dataset.video);if(!v)return;const seek=()=>{v.currentTime=Number(b.dataset.jump);v.play().catch(()=>{});};if(v.readyState>=1)seek();else{v.addEventListener('loadedmetadata',seek,{once:true});v.load();}}));

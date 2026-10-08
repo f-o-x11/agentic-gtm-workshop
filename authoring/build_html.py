@@ -50,10 +50,16 @@ def media_url(url):
  return url[len(prefix):] if args.hosted and url.startswith(prefix) else url
 def video_player(m):
  poster=(' poster="'+E(m['poster'])+'"') if m.get('poster') else ''
- return '<video class="workshop-video" controls playsinline preload="none"'+poster+' aria-label="'+E(m['title'])+'"><source src="'+E(media_url(m['video_url']))+'" type="video/mp4">Your browser cannot play this video.</video><p class="media-caption">'+E(m['note'])+' <a href="'+E(m['source_url'])+'" target="_blank" rel="noopener">Open the source ↗</a></p>'
-def chapter_media(c):
- m=c.get('opener')
- if not m:return
+ video_id='video-'+m.get('id','rehearsal')
+ captions=('<track kind="captions" src="'+E(media_url(m['captions_url']))+'" srclang="en" label="English">') if m.get('captions_url') else ''
+ jumps=('<div class="recording-jumps replay-jumps">'+''.join('<button data-jump="'+str(sec)+'" data-video="'+video_id+'">'+E(label)+'</button>' for sec,label in m['jumps'])+'</div>') if m.get('jumps') else ''
+ return '<video class="workshop-video" id="'+video_id+'" controls playsinline preload="none"'+poster+' aria-label="'+E(m['title'])+'"><source src="'+E(media_url(m['video_url']))+'" type="video/mp4">'+captions+'Your browser cannot play this video.</video>'+jumps+'<p class="media-caption">'+E(m['note'])+' <a href="'+E(m['source_url'])+'" target="_blank" rel="noopener">Source ↗</a></p>'
+
+def insert_media(sid):
+ for m in part.get('media',[]):
+  if m['before_slide']==sid: media_slide(m)
+def media_slide(m):
+ c=part['chapters'][m['chapter']-1]
  add(m['id'],m['title'],c['number'],'<p class="eyebrow">Section '+str(c['number'])+' · '+E(m['label'])+'</p><div class="media-heading"><h1>'+E(m['title'])+'</h1><span class="media-duration">'+E(m['duration_label'])+'</span></div>'+video_player(m),'media-slide')
 def rehearsal_clip():
  m={'title':'Gil opens the first page','video_url':'https://metadata-gtm-workshops.vercel.app/gtm-part1/media/gil-open-first-page.mp4','poster':'','source_url':'https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html#gil-open-first-page','note':'October 7 rehearsal. Gil opens a local Bedtime Magic page for Metadata. The narration begins on the prompt, then switches to the page.'}
@@ -112,10 +118,10 @@ for s in part['slides']:
   current=ch;c=part['chapters'][ch-1]
   tasks={2:['Open your cloned project.','Paste the startup prompt.','Review the company brief.'],3:['Read both target websites.','Save facts with their sources.','Save your two-company list.'],4:['Create your first HTML page.','Check every claim against its source.','Open it on desktop and phone.'],5:['Save the page instructions as a skill.','Use it for the second company.','Check both pages and saved files.']}[ch]
   add(c['id'],c['title'],ch,'<p class="eyebrow">Section '+str(ch)+' of 5</p><h1>'+E(c['title'])+'</h1>'+sequence(tasks)+'<p class="chapter-outcome">'+E(c['outcome'])+'</p><p class="chapter-time">'+str(c['guided_minutes'])+' minutes'+(' + '+str(c['help_minutes'])+' minutes for individual help' if c['help_minutes'] else '')+'</p>','chapter-slide')
-  chapter_media(c)
+ insert_media(s['id'])
  if s['type']=='cover':
   content='<div class="cover-copy"><p class="eyebrow">Part 1</p><h1>Build your own<br><span>Agentic GTM.</span></h1><p>Build two pages for your<br>target companies.</p><p class="byline">Gil Allouche<br>CEO, Metadata.io</p></div>'
-  add(s['id'],s['title'],ch,content,'cover-slide');chapter_media(part['chapters'][0]);continue
+  add(s['id'],s['title'],ch,content,'cover-slide');continue
  heading='<p class="eyebrow">'+('Exercise' if s['prompt'] else 'Section '+str(ch)+' of 5')+'</p><h1>'+E(s['title'])+'</h1>'
  if s['prompt']:
   steps='<ol class="instruction-list">'+''.join('<li><strong>'+rich(x['title'],default_id=s['id'])+'</strong>'+('<p>'+rich(x['detail'],default_id=s['id'])+'</p>' if x.get('detail') else '')+'</li>' for x in s['steps'])+'</ol>'
@@ -137,7 +143,7 @@ for s in part['slides']:
   else:content+='<p class="body">'+rich(s['body'])+'</p>'+visual(s)
   if s.get('expected'):content+='<div class="compact-outcomes">'+listing(s['expected'])+'</div>'
   add(s['id'],s['title'],ch,content,'show-slide '+('tree-slide' if s['id']=='p1-v5-tree' else ''))
-assert len(slides)==len(part['slides'])+len(part['chapters'])-1+sum(bool(s.get('prompt')) for s in part['slides'])+sum(bool(c.get('opener')) for c in part['chapters']), len(slides)
+assert len(slides)==len(part['slides'])+len(part['chapters'])-1+sum(bool(s.get('prompt')) for s in part['slides'])+len(part.get('media',[])), len(slides)
 slide_total=len(slides)
 nav=''.join('<button data-index="'+str(n)+'"><span>'+str(n+1).zfill(2)+'</span>'+E(s['title'])+'</button>' for n,s in enumerate(slides))
 sections=''.join('<section class="slide '+s['kind']+'" id="'+s['id']+'" data-chapter="'+str(s['chapter'])+'" aria-label="Slide '+str(n+1)+' of '+str(slide_total)+': '+E(s['title'])+'"'+(' hidden' if n else '')+'>'+s['html']+'</section>' for n,s in enumerate(slides))
@@ -184,11 +190,10 @@ def markdown(text):
   m=re.match(r'^(#{1,6}) (.*)',line)
   if m:
    close();out.append('<h'+str(len(m[1]))+'>'+inline(m[2],reference)+'</h'+str(len(m[1]))+'>')
-   chapter=re.match(r'Section (\d+):',m[2])
-   if chapter:
-    opener=part['chapters'][int(chapter[1])-1].get('opener')
-    if opener:out.append('<details class="booklet-video"><summary>'+E(opener['label'])+' · '+E(opener['duration_label'])+'</summary>'+video_player(opener)+'</details>')
    continue
+  media=next((m for m in part.get('media',[]) if line.startswith('[Watch: ') and '#'+m['id']+')' in line),None)
+  if media:
+   close();out.append('<details class="booklet-video"><summary>'+E(media['label'])+' · '+E(media['duration_label'])+'</summary>'+video_player(media)+'</details>');continue
   if line.startswith('|'):
    cells=[x.strip() for x in line.strip().strip('|').split('|')]
    if all(re.fullmatch(r'[:\- ]+',x) for x in cells):continue

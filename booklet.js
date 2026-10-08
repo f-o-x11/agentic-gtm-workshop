@@ -5,3 +5,5 @@ window.addEventListener('hashchange',()=>expandPrompt(location.hash.slice(1)));e
 
 // Collapsing a chapter opener stops its audio.
 document.querySelectorAll("details").forEach(d=>d.addEventListener("toggle",()=>{if(!d.open)d.querySelectorAll("video").forEach(v=>v.pause());}));
+
+document.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click',()=>{const v=document.getElementById(b.dataset.video);if(!v)return;const seek=()=>{v.currentTime=Number(b.dataset.jump);v.play().catch(()=>{});};if(v.readyState>=1)seek();else{v.addEventListener('loadedmetadata',seek,{once:true});v.load();}}));

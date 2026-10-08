@@ -1806,17 +1806,7 @@
             "p1-finish"
           ],
           "guided_minutes": 12,
-          "help_minutes": 0,
-          "opener": {
-            "id": "p1-agency-1",
-            "label": "The Agency · Episode 1",
-            "title": "Credit Announcement Day",
-            "duration_label": "2:40",
-            "video_url": "https://metadata.io/videos/the-agency/s1e1.mp4",
-            "poster": "assets/agency-s1e1.jpg",
-            "source_url": "https://metadata.io/the-agency/episode-1",
-            "note": "A fictional marketing team. The workshop examples and checks use real files."
-          }
+          "help_minutes": 0
         },
         {
           "number": 2,
@@ -1829,17 +1819,7 @@
             "p1-authority"
           ],
           "guided_minutes": 24,
-          "help_minutes": 0,
-          "opener": {
-            "id": "p1-agency-2",
-            "label": "The Agency · Episode 2",
-            "title": "Budget Flush Day",
-            "duration_label": "2:00",
-            "video_url": "https://metadata.io/videos/the-agency/s1e2.mp4",
-            "poster": "assets/agency-s1e2.jpg",
-            "source_url": "https://metadata.io/the-agency/episode-2",
-            "note": "A fictional marketing team. The workshop examples and checks use real files."
-          }
+          "help_minutes": 0
         },
         {
           "number": 3,
@@ -1852,17 +1832,7 @@
             "p1-page-example"
           ],
           "guided_minutes": 10,
-          "help_minutes": 0,
-          "opener": {
-            "id": "p1-agency-3",
-            "label": "The Agency · Episode 3",
-            "title": "The Retreat",
-            "duration_label": "3:46",
-            "video_url": "https://metadata.io/videos/the-agency/s1e3.mp4",
-            "poster": "assets/agency-s1e3.jpg",
-            "source_url": "https://metadata.io/the-agency/episode-3",
-            "note": "A fictional marketing team. The workshop examples and checks use real files."
-          }
+          "help_minutes": 0
         },
         {
           "number": 4,
@@ -1874,17 +1844,7 @@
             "p1-page-review"
           ],
           "guided_minutes": 20,
-          "help_minutes": 0,
-          "opener": {
-            "id": "p1-agency-4",
-            "label": "The Agency · Commercial 1",
-            "title": "The Industrialist",
-            "duration_label": "0:35",
-            "video_url": "https://metadata.io/videos/the-agency/ad-industrialist.mp4",
-            "poster": "assets/agency-ad-industrialist.jpg",
-            "source_url": "https://metadata.io/the-agency/ad-the-industrialist",
-            "note": "A fictional marketing team. The workshop examples and checks use real files."
-          }
+          "help_minutes": 0
         },
         {
           "number": 5,
@@ -1903,20 +1863,95 @@
             "p1-before-part2"
           ],
           "guided_minutes": 24,
-          "help_minutes": 20,
-          "opener": {
-            "id": "p1-recorded-skill",
-            "label": "Gil’s recorded rehearsal · October 7",
-            "title": "Save the instructions. Use them again.",
-            "duration_label": "0:14",
-            "video_url": "https://metadata-gtm-workshops.vercel.app/gtm-part1/media/gil-save-the-skill.mp4",
-            "poster": "",
-            "source_url": "https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html#gil-save-the-skill",
-            "note": "Gil explains the saved skill prompt. This clip shows the instructions, not an agent execution."
-          }
+          "help_minutes": 20
         }
       ],
-      "media_minutes": 10
+      "media_minutes": 10,
+      "media": [
+        {
+          "id": "p1-agency-1",
+          "label": "The Agency · Episode 1",
+          "title": "Credit Announcement Day",
+          "duration_label": "2:40",
+          "video_url": "https://metadata.io/videos/the-agency/s1e1.mp4",
+          "poster": "assets/agency-s1e1.jpg",
+          "source_url": "https://metadata.io/the-agency/episode-1",
+          "note": "A fictional marketing team. The workshop examples and checks use real files.",
+          "before_slide": "p1-glossary",
+          "chapter": 1
+        },
+        {
+          "id": "p1-full-walkthrough",
+          "label": "Full recorded build",
+          "title": "Watch the full Part 1 build",
+          "duration_label": "27:26 at 2×",
+          "video_url": "https://metadata-gtm-workshops.vercel.app/gtm-part1/media/part1-walkthrough-narrated-2x.mp4",
+          "poster": "assets/part1-walkthrough-poster.jpg",
+          "captions_url": "https://metadata-gtm-workshops.vercel.app/gtm-part1/media/part1-walkthrough-narrated-2x.vtt",
+          "source_url": "https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html#full-replay",
+          "note": "The complete 54:51 recording at 2×, with narration in Gil’s AI voice. Pages are local and unpublished. Includes repairs and final checks. Watch before class or use it when you need help.",
+          "before_slide": "p1-glossary",
+          "chapter": 1,
+          "jumps": [
+            [
+              336.5,
+              "Company brief"
+            ],
+            [
+              654.5,
+              "First page"
+            ],
+            [
+              1002.5,
+              "Save the skill"
+            ],
+            [
+              1095,
+              "Use the skill"
+            ],
+            [
+              1359.5,
+              "Final checks"
+            ]
+          ]
+        },
+        {
+          "id": "p1-agency-2",
+          "label": "The Agency · Episode 2",
+          "title": "Budget Flush Day",
+          "duration_label": "2:00",
+          "video_url": "https://metadata.io/videos/the-agency/s1e2.mp4",
+          "poster": "assets/agency-s1e2.jpg",
+          "source_url": "https://metadata.io/the-agency/episode-2",
+          "note": "A fictional marketing team. The workshop examples and checks use real files.",
+          "before_slide": "p1-one-source",
+          "chapter": 3
+        },
+        {
+          "id": "p1-agency-3",
+          "label": "The Agency · Episode 3",
+          "title": "The Retreat",
+          "duration_label": "3:46",
+          "video_url": "https://metadata.io/videos/the-agency/s1e3.mp4",
+          "poster": "assets/agency-s1e3.jpg",
+          "source_url": "https://metadata.io/the-agency/episode-3",
+          "note": "A fictional marketing team. The workshop examples and checks use real files.",
+          "before_slide": "p1-break",
+          "chapter": 5
+        },
+        {
+          "id": "p1-agency-4",
+          "label": "The Agency · Commercial 1",
+          "title": "The Industrialist",
+          "duration_label": "0:35",
+          "video_url": "https://metadata.io/videos/the-agency/ad-industrialist.mp4",
+          "poster": "assets/agency-ad-industrialist.jpg",
+          "source_url": "https://metadata.io/the-agency/ad-the-industrialist",
+          "note": "A fictional marketing team. The workshop examples and checks use real files.",
+          "before_slide": "p1-build-page",
+          "chapter": 4
+        }
+      ]
     }
   ],
   "setup": {

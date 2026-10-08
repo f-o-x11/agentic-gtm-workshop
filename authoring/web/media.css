@@ -9,3 +9,5 @@
 .recording-band{background:#eaf1e8;color:var(--ink)}.recording-band p{color:var(--gray)}.recording-band .button{flex-shrink:0}
 @media(max-width:800px){.recording-jumps{grid-template-columns:repeat(2,1fr)}.recording-grid{grid-template-columns:1fr}.media-slide .workshop-video{max-height:none}.recording-proof{grid-template-columns:1fr}.media-heading{align-items:flex-start}.media-heading h1{font-size:34px}}
 @media(max-width:650px){.recordings-main{padding:28px 18px 60px}.recording-card{padding:18px}.recordings-main h1{font-size:37px}.recording-card h2{font-size:24px}.recording-jumps button{font-size:12px}.media-duration{padding:4px 10px}.local-status{display:block}.local-status strong{display:block}.media-caption a{white-space:normal}.recording-meta{margin-bottom:12px}}
+
+.replay-jumps{margin:10px 0;grid-template-columns:repeat(5,minmax(0,1fr))}.replay-jumps button{padding:9px;font-size:13px}.media-slide:has(.replay-jumps) .workshop-video{max-height:calc(100dvh - 355px)}@media(max-width:700px){.replay-jumps{grid-template-columns:repeat(2,1fr)}}

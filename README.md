@@ -57,6 +57,6 @@ Local software checks use fake providers. They do not prove delivery or spending
 
 The current edition keeps the original five-section exercise order and all 12 complete prompts. It includes an early glossary, company fields, tool alternatives and previews for Parts 2 and 3. Confetti appears only after confirmed chapter checks.
 
-Chapter openers use The Agency Episodes 1, 2 and 3, the first commercial, The Industrialist, and Gil's short skill rehearsal. Episodes 4 to 7 and The Grind are reserved for Parts 2 and 3. The two-hour plan includes 90 minutes of steps, ten minutes of videos and twenty minutes of help.
+The Agency Episode 1 precedes the glossary. The complete recorded build follows Episode 1, with all 54:51 of footage shown at twice speed and narration in Gil's AI voice. Episode 2 precedes target research. Episode 3 precedes the break. The Industrialist commercial precedes the first-page exercise. Episodes 4 to 7 and The Grind are reserved for Parts 2 and 3. The two-hour live plan includes 90 minutes of steps, ten minutes of Agency videos and twenty minutes of help. The full 27:26 walkthrough is an optional recording to watch before class or use for help.
 
 Private recording files and attendee portraits are not in this repository or its ZIP. The recorded-build page links to the existing password-protected workshop site. `part1_v10_final` remains the earlier tagged snapshot.
