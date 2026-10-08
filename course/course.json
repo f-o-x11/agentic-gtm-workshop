@@ -226,7 +226,7 @@
         {
           "id": "p1-about",
           "part": 1,
-          "title": "I'm Gil. I run Metadata.",
+          "title": "Hi, I'm Gil.",
           "type": "show",
           "timing": 2,
           "minutes": 2,
@@ -235,27 +235,74 @@
           "visual_data": {
             "portrait": "assets/gil-linkedin.jpg",
             "bio_lines": [
-              "Software engineer turned growth marketer.",
-              "Now building autonomous AI products and writing at Dreaming.press."
-            ],
-            "credentials": [
-              {
-                "value": "$50M",
-                "label": "Raised for Metadata"
-              },
-              {
-                "value": "$15M ARR",
-                "label": "Built from zero"
-              },
-              {
-                "value": "6",
-                "label": "AI marketing patents"
-              }
+              "Running paid campaigns meant repeating the same work across tools. I started Metadata to automate it.",
+              "Today we’ll build the first piece of your own GTM workflow."
             ],
             "bio_source": "https://gilallouche.com/",
-            "photo_source": "https://www.linkedin.com/in/gilallouche/"
+            "photo_source": "https://www.linkedin.com/in/gilallouche/",
+            "background": "Software engineer turned VP of Marketing.",
+            "story_source": "https://gilallouche.com/",
+            "linkedin_url": "https://www.linkedin.com/in/gilallouche/",
+            "linkedin_qr": "assets/gil-linkedin-qr.png",
+            "logos": [
+              {
+                "name": "IBM",
+                "image": "assets/customer-logos/ibm.png",
+                "source": "https://metadata.io/images/customers/ibm.png",
+                "sha256": "2074b25834439c992a7f4b632a230a72ebd942830de133e8a2bb18a99fce20cf"
+              },
+              {
+                "name": "Cisco",
+                "image": "assets/customer-logos/cisco.png",
+                "source": "https://metadata.io/images/customers/cisco.png",
+                "sha256": "3effe4cd33697d457f1d70f879b8cde72bf7da5e45e27624071bd41025ef5af8"
+              },
+              {
+                "name": "Brex",
+                "image": "assets/customer-logos/brex.png",
+                "source": "https://metadata.io/images/customers/brex.png",
+                "sha256": "641d56f45caaebfa8c19917a72aed2553c6dca15b78ac73b0002824472f80752"
+              },
+              {
+                "name": "Notion",
+                "image": "assets/customer-logos/notion.png",
+                "source": "https://metadata.io/images/customers/notion.png",
+                "sha256": "f7a84d651a8c129388769b979e8a6cc42c369f9fc4cba60d3bf3fe144700c1f8"
+              },
+              {
+                "name": "Reddit",
+                "image": "assets/customer-logos/reddit.png",
+                "source": "https://metadata.io/images/customers/reddit.png",
+                "sha256": "2417d645b60c3edfa319dfad1437857648f854bb846ae946c6f059e8bc4002cf"
+              },
+              {
+                "name": "Maxio",
+                "image": "assets/customer-logos/maxio.png",
+                "source": "https://metadata.io/images/customers/maxio.png",
+                "sha256": "8015ee59c9fcaeb42089c1cfd2cf17b77f3a28be731fc563cc02e91d13eab1f9"
+              },
+              {
+                "name": "Vercel",
+                "image": "assets/customer-logos/vercel.png",
+                "source": "https://metadata.io/images/customers/vercel.png",
+                "sha256": "4d6c98bb0db13875ea7633ca51399cc38762dc1af0bc0471148719ce0ff0251a"
+              },
+              {
+                "name": "Checkr",
+                "image": "assets/customer-logos/checkr.png",
+                "source": "https://metadata.io/images/customers/checkr.png",
+                "sha256": "c9ef35b7d58b48ae1792e76eb9ab8cfe0dba47ae0b3681f41d764ce2f8312d6a"
+              },
+              {
+                "name": "Cvent",
+                "image": "assets/customer-logos/cvent.png",
+                "source": "https://metadata.io/images/customers/cvent.png",
+                "sha256": "50a6b1930593449bb63aebbbdc2d4c6abac2dac7ee07e5085957400d49a2672b"
+              }
+            ],
+            "logos_source": "https://metadata.io/"
           },
-          "body": "Software engineer turned growth marketer. Founder and CEO of Metadata.io. I now build autonomous AI products and write at Dreaming.press.",
+          "body": "Software engineer turned VP of Marketing. Running paid campaigns meant repeating the same work across tools. I started Metadata to automate it. Today we’ll build the first piece of your own GTM workflow.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -267,19 +314,22 @@
           "repair_prompt": "",
           "sources": [
             {
-              "label": "Gil Allouche biography",
+              "label": "Founder story and background",
               "url": "https://gilallouche.com/",
-              "date": "October 8, 2026",
-              "scope": "Historical founder accomplishments, not current revenue."
+              "scope": "Published founder story, cross-checked with investor founder profile."
             },
             {
-              "label": "LinkedIn profile photo",
+              "label": "Original homepage logos",
+              "url": "https://metadata.io/",
+              "scope": "Nine unchanged homepage image files. No current-customer claim."
+            },
+            {
+              "label": "LinkedIn profile",
               "url": "https://www.linkedin.com/in/gilallouche/",
-              "date": "October 8, 2026",
-              "scope": "Actual portrait retrieved from profile image."
+              "scope": "Follow link and QR destination."
             }
           ],
-          "notes": "Keep the introduction short. Point to the real Zuora page. No unsupported biography or engine attribution.",
+          "notes": "Keep the introduction to two minutes. Explain the move from software engineering into marketing and why Metadata was started. Invite people to follow on LinkedIn. Logos are featured on our homepage.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",

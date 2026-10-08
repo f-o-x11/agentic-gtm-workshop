@@ -126,16 +126,24 @@ def part_one_example(c,s):
   return True
  if ident=='p1-about':
   vd=s['visual_data']
-  pic(c,R/vd['portrait'],56,164,360,360)
-  paragraph(c,'Gil Allouche',470,513,740,50,font='RubikBold')
-  paragraph(c,'Founder and CEO, Metadata.io',470,440,740,25,color=ORANGE,font='RubikMedium')
-  paragraph(c,'Software engineer turned growth marketer. Now building autonomous AI products.',470,384,710,26)
-  for i,item in enumerate(vd['credentials']):
-   x=470+i*250
-   paragraph(c,item['value'],x,247,235,36,font='RubikBold',color=ORANGE)
-   paragraph(c,item['label'],x,196,235,17,color=GRAY)
-  paragraph(c,'Bio: gilallouche.com  |  Photo: LinkedIn',470,111,730,14,color=GRAY)
-  c.linkURL(vd['bio_source'],(470,88,745,116));c.linkURL(vd['photo_source'],(745,88,1150,116))
+  pic(c,R/vd['portrait'],56,292,235,235)
+  c.linkURL(vd['linkedin_url'],(56,292,291,527))
+  paragraph(c,'Gil Allouche',330,521,655,41,font='RubikBold')
+  paragraph(c,'Founder and CEO, Metadata.io',330,464,655,21,color=ORANGE,font='RubikMedium')
+  paragraph(c,vd['background'],330,422,655,22,font='RubikMedium')
+  y=375
+  for text in vd['bio_lines']:
+   y-=paragraph(c,text,330,y,645,22,color=GRAY)+16
+  paragraph(c,'Follow on LinkedIn',330,234,655,20,font='RubikMedium',color=GREEN)
+  c.linkURL(vd['linkedin_url'],(330,207,690,238))
+  pic(c,R/vd['linkedin_qr'],1050,348,150,150)
+  c.linkURL(vd['linkedin_url'],(1050,348,1200,498))
+  paragraph(c,'Scan to follow',1060,323,180,15,color=GREEN)
+  paragraph(c,'Teams featured on metadata.io',56,183,980,16,color=GRAY)
+  c.linkURL(vd['logos_source'],(56,160,650,184))
+  for i,item in enumerate(vd['logos']):pic(c,R/item['image'],56+i*130,102,112,45)
+  paragraph(c,'My story: gilallouche.com',56,81,800,12,color=GRAY)
+  c.linkURL(vd['story_source'],(56,64,430,84))
   return True
  if ident=='p1-you':
   import os
