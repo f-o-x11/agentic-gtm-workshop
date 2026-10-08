@@ -1,6 +1,6 @@
 # Build your own Agentic GTM: Part 1
 
-Build two pages for your own target companies. Save the instructions so your local agent can do it again.
+Build two unpublished pages for your own target companies. They stay on your computer. Save the instructions so your local agent can do it again.
 
 ## Start here
 
@@ -24,6 +24,7 @@ Open [Participant-Booklet.html](Participant-Booklet.html). Expand the first embe
 | [Part-1-Presentation.pdf](Part-1-Presentation.pdf) | Review or print the slides. |
 | [Participant-Booklet.html](Participant-Booklet.html) | Instructions, checks, embedded prompts and repairs. |
 | [Participant-Booklet.pdf](Participant-Booklet.pdf) | Print the booklet. |
+| [Recordings.html](Recordings.html) | Full recorded replay, timestamp jumps and Gil's Zoom clips. Sign in to the workshop site to watch. |
 | START-HERE.html | Optional helper for filling in the same startup prompt. |
 | API-CONNECTIONS.html | Get and save one key at a time. Part 1 needs no key. |
 | API-CONNECTIONS.md | Short key-saving reference. |
@@ -42,16 +43,20 @@ Use your company website and two target-company domains. The agent asks for miss
 
 Your files go in company-motion/. Commands run from code/. The launcher saves and reuses a supported Python interpreter. If none exists, it gives the official installer. No Homebrew is required.
 
-Part 1 has no paid API requirement and sends nothing. Keys and filled configuration stay in a private folder outside this repository. The included credential templates are blank. The database has 16 empty tables.
+Part 1 has no paid API requirement and sends nothing. Publishing is not required for completion. Keys and filled configuration stay in a private folder outside this repository. The included credential templates are blank. The database has 16 empty tables.
 
 Keep this project for [Part 2](https://luma.com/jd8tm0ij) and [Part 3](https://luma.com/wucyo6fw). Each session includes its own presentation and prompts.
 
 ## Rebuild this edition
 
-Install authoring/requirements.txt in a separate authoring environment. Run authoring/build_booklet.py, then authoring/build_materials.py, then authoring/build_html.py. The course contains only Part 1. A single-session build does not produce a complete-series presentation.
+Install authoring/requirements.txt in a separate authoring environment. Run authoring/build_booklet.py, then authoring/build_materials.py, authoring/build_html.py and authoring/build_recordings.py. The course contains only Part 1. A single-session build does not produce a complete-series presentation.
 
 Local software checks use fake providers. They do not prove delivery or spending. Dated examples and attribution limits are in sources/V5-WORKSHOP-SOURCES.md.
 
 ## Final Part 1 edition
 
-`part1_v10_final` keeps the original five-section exercise order and all 12 complete prompts. It adds an early glossary, company fields, copy and result-check celebrations, tool alternatives and previews for Parts 2 and 3.
+The current edition keeps the original five-section exercise order and all 12 complete prompts. It includes an early glossary, company fields, tool alternatives and previews for Parts 2 and 3. Confetti appears only after confirmed chapter checks.
+
+Chapter openers use The Agency Episodes 1, 2 and 3, the first commercial, The Industrialist, and Gil's short skill rehearsal. Episodes 4 to 7 and The Grind are reserved for Parts 2 and 3. The two-hour plan includes 90 minutes of steps, ten minutes of videos and twenty minutes of help.
+
+Private recording files and attendee portraits are not in this repository or its ZIP. The recorded-build page links to the existing password-protected workshop site. `part1_v10_final` remains the earlier tagged snapshot.

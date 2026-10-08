@@ -10,7 +10,7 @@
       "title": "Build two account pages and save the skill.",
       "minutes": 120,
       "guided_minutes": 90,
-      "help_minutes": 30,
+      "help_minutes": 20,
       "prerequisites": [
         "Install or open local Codex or Claude Code with file and web access.",
         "Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open agentic-gtm-workshop as the project; run later commands from code/.",
@@ -20,7 +20,7 @@
       ],
       "finish": [
         "Your company facts and paused operating instructions.",
-        "Two sourced target briefs and two reviewed pages.",
+        "Two sourced target briefs and two reviewed, unpublished pages.",
         "One saved page skill successfully reused.",
         "A progress record and the exact next setup task."
       ],
@@ -564,7 +564,7 @@
             ],
             "caption": "A skill is saved instructions for a repeatable job."
           },
-          "body": "Use your company and two real targets. Every exercise has its full prompt here and in the booklet. Part 1 needs no API keys.",
+          "body": "Use your company and two real targets. Your pages stay on your computer. They are unpublished. Part 1 needs no API keys.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -572,7 +572,7 @@
           ],
           "expected": [
             "Sourced company brief and operating instructions.",
-            "Two reviewed pages and one reused skill.",
+            "Two reviewed, unpublished pages and one reused skill.",
             "Actual checks and next setup task."
           ],
           "check": [],
@@ -1011,15 +1011,15 @@
             },
             {
               "title": "Open the page your agent creates.",
-              "detail": "Check the company name, offer and button. Then review its claims and layout."
+              "detail": "It stays on your computer. Check the company name, offer and button, then review its claims and layout."
             }
           ],
-          "prompt": "Build a landing page for [TARGET_1_DOMAIN].\nRead company-motion/COMPANY.md and company-motion/targets/[TARGET_1_DOMAIN].md. If either is missing or names the wrong company, stop and name the earlier exercise to complete.\nSave the page as company-motion/pages/[TARGET_1_DOMAIN]/index.html.\nCreate one HTML file that works on desktop and phone. Keep its styles, scripts and required graphics inside it.\nUse our brand, an idea relevant to this company, our actual offer, supported proof and our real next-step link.\nKeep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch. If proof is weak, use supported product facts or omit that block.\nSave claim/source notes beside the page. Open the page in a browser and show it to me.\nIf the browser blocks the local file, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open that preview, then stop it when browser checks are complete.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check every claim and review desktop and phone layouts.",
+          "prompt": "Build a landing page for [TARGET_1_DOMAIN].\nRead company-motion/COMPANY.md and company-motion/targets/[TARGET_1_DOMAIN].md. If either is missing or names the wrong company, stop and name the earlier exercise to complete.\nSave the page as company-motion/pages/[TARGET_1_DOMAIN]/index.html.\nKeep it local and unpublished. Do not deploy or upload it.\nCreate one HTML file that works on desktop and phone. Keep its styles, scripts and required graphics inside it.\nUse our brand, an idea relevant to this company, our actual offer, supported proof and our real next-step link.\nKeep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch. If proof is weak, use supported product facts or omit that block.\nSave claim/source notes beside the page. Open the page in a browser and show it to me.\nIf the browser blocks the local file, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open that preview, then stop it when browser checks are complete.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check every claim and review desktop and phone layouts.",
           "tools": [
             "Codex file/browser access and the two saved briefs. No API credits."
           ],
           "expected": [
-            "A real HTML page and source notes."
+            "A local, unpublished HTML page and source notes."
           ],
           "check": [
             "The page opens.",
@@ -1027,7 +1027,7 @@
             "No unsupported proof appears."
           ],
           "fallback": "If the browser blocks the file URL, use a local HTTP preview. Keep any browser check you could not run marked unverified.",
-          "repair_prompt": "Fix exercise p1-build-page in this same saved project.\nExpected artifact: A real HTML page and source notes.\nSuccess check: The page opens. The seller, target and next step are correct. No unsupported proof appears.\nOpen the actual HTML and its saved company/target briefs. Repair the wrong seller, target, link, standalone dependency or unsupported claim. Use sourced product facts when proof is thin. Reopen the file and keep the source notes.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: check every claim and review desktop and phone layouts.\nActual error: [paste the error without credentials]",
+          "repair_prompt": "Fix exercise p1-build-page in this same saved project.\nExpected artifact: A local, unpublished HTML page and source notes.\nSuccess check: The page opens. The seller, target and next step are correct. No unsupported proof appears.\nOpen the actual HTML and its saved company/target briefs. Repair the wrong seller, target, link, standalone dependency or unsupported claim. Use sourced product facts when proof is thin. Reopen the file and keep the source notes.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: check every claim and review desktop and phone layouts.\nActual error: [paste the error without credentials]",
           "sources": [
             {
               "label": "Actual page skill and Zuora output",
@@ -1215,12 +1215,12 @@
               "detail": "Keep the first page intact."
             }
           ],
-          "prompt": "Use our saved account-page skill to build a landing page for [TARGET_2_DOMAIN].\nRead company-motion/targets/[TARGET_2_DOMAIN].md. If it is missing or names another company, stop and ask me to complete the second-target research exercise.\nSave the page as company-motion/pages/[TARGET_2_DOMAIN]/index.html.\nKeep the first page unchanged.\nRun the skill's full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.\nShow what changed between the two targets. Remove facts or generic copy carried over from the first company.\nSave company-motion/SKILL-TEST.md with both page paths, review evidence and remaining issues.\nIf the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check the Part 1 files after the break.",
+          "prompt": "Use our saved account-page skill to build a landing page for [TARGET_2_DOMAIN].\nRead company-motion/targets/[TARGET_2_DOMAIN].md. If it is missing or names another company, stop and ask me to complete the second-target research exercise.\nSave the page as company-motion/pages/[TARGET_2_DOMAIN]/index.html.\nKeep both pages local and unpublished. Do not deploy or upload them. Keep the first page unchanged.\nRun the skill's full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.\nShow what changed between the two targets. Remove facts or generic copy carried over from the first company.\nSave company-motion/SKILL-TEST.md with both page paths, review evidence and remaining issues.\nIf the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check the Part 1 files after the break.",
           "tools": [
             "Saved account-page skill and second target brief. No paid API required."
           ],
           "expected": [
-            "Second reviewed page and company-motion/SKILL-TEST.md."
+            "Second reviewed, unpublished page and company-motion/SKILL-TEST.md."
           ],
           "check": [
             "Each page addresses its own buyer.",
@@ -1304,22 +1304,22 @@
             ],
             "artifact": "PROGRESS.md"
           },
-          "body": "Your agent opens the required files. If setup skipped the instructions, bootstrap repairs them in the same project without losing your pages.",
+          "body": "Check the local files and browser results. Your pages are unpublished. Publishing is not a Part 1 requirement.",
           "steps": [
             {
               "title": "Copy the checkpoint prompt.",
               "detail": "Your agent opens each required file."
             },
             {
-              "title": "Fix the first failed check.",
-              "detail": "Keep both pages and the saved skill."
+              "title": "Fix a failed local check, if there is one.",
+              "detail": "If every required check passes, Part 1 is complete."
             },
             {
               "title": "Read PROGRESS.md.",
               "detail": "Check the result and your next task."
             }
           ],
-          "prompt": "Open our company brief, setup receipt, company-motion/AUTHORITY.md, company-motion/AGENTS.md, target list, two target briefs, two pages, page review, saved skill and skill test.\nIf company-motion/AUTHORITY.md or company-motion/AGENTS.md is missing, rerun bootstrap with the existing company brief. Preserve all working outputs and history.\nAppend actual paths and passed or missing checks to company-motion/PROGRESS.md.\nKeep created, reviewed and published separate. Repair the first available local issue and rerun its check.\nName one exact next action for each remaining gap.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: finish the first remaining issue with individual help.",
+          "prompt": "Open our company brief, setup receipt, company-motion/AUTHORITY.md, company-motion/AGENTS.md, target list, two target briefs, two pages, page review, saved skill and skill test.\nIf company-motion/AUTHORITY.md or company-motion/AGENTS.md is missing, rerun bootstrap with the existing company brief. Preserve all working outputs and history.\nAppend actual paths and passed or missing local checks to company-motion/PROGRESS.md. Do not claim a browser check you did not run.\nRecord both pages as local and unpublished. Publishing is not required for Part 1. Do not deploy or upload them, and do not mark unpublished as a failed check.\nIf a required local check failed, repair the first available cause and rerun that check. Name the next action for any remaining local gap.\nIf all required local checks pass, mark Part 1 complete and skip repair. Keep future email connections and live actions in a separate Part 2 prework list.\nShow the actual results. Stop. Next: fix a failed local check if one remains; otherwise keep the project for Part 2.",
           "tools": [
             "Your generated files and actual browser results. No new credits."
           ],
@@ -1329,10 +1329,10 @@
           "check": [
             "Required files are actually opened.",
             "Missing authority/instruction files can be repaired in place.",
-            "Created, reviewed and published remain separate labels."
+            "Pages are local and unpublished. Publishing is not a completion check."
           ],
           "fallback": "Share the failed file or error with the repair prompt. Continue from the same project.",
-          "repair_prompt": "Fix exercise p1-checkpoint in this same saved project.\nExpected artifact: company-motion/PROGRESS.md with actual paths and passed or missing checks.\nSuccess check: Required files are actually opened. Missing authority/instruction files can be repaired in place. Created, reviewed and published remain separate labels.\nOpen each required file. Repair missing company-motion/AUTHORITY.md or company-motion/AGENTS.md with bootstrap using the existing company brief. Preserve both pages and the saved skill. Record each actual passed or missing check in company-motion/PROGRESS.md.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: finish the first remaining issue with individual help.\nActual error: [paste the error without credentials]",
+          "repair_prompt": "Read the Part 1 checkpoint in company-motion/PROGRESS.md. If all required local checks pass, say Part 1 is complete and stop. Do not invent a repair task.\nOtherwise open the file or browser result for the first failed local check. Repair only that cause, using the existing company brief and saved interpreter. Preserve both pages, source notes, saved skill and history.\nRecord actual paths and rerun results in company-motion/PROGRESS.md. Keep pages local and unpublished. Publishing and future email setup are not Part 1 completion requirements.\nShow the result and any remaining local gap. Stop.\nActual error: [paste the error without credentials]",
           "sources": [
             {
               "label": "Source-grounded completion standard",
@@ -1346,25 +1346,25 @@
           "prompt_label": "Workshop prompt adapted to your company",
           "route": "main",
           "next_id": "p1-help",
-          "next_action": "finish the first remaining issue with individual help",
+          "next_action": "fix a failed local check if one remains; otherwise keep the project for Part 2",
           "chapter": 5,
           "chapter_title": "Save the skill. Build page two."
         },
         {
           "id": "p1-help",
           "part": 1,
-          "title": "Fix your first unfinished task",
+          "title": "Fix a failed check, if one remains",
           "type": "exercise",
-          "timing": 30,
-          "minutes": 30,
+          "timing": 20,
+          "minutes": 20,
           "difficulty": "Help",
           "visual_type": "help",
           "visual_data": {},
-          "body": "Work individually. Open the repair prompt for the failed task. Gil helps with errors and unclear results.",
+          "body": "If your Part 1 checks pass, you are done. If one failed, open its repair prompt and ask Gil for help.",
           "steps": [
             {
-              "title": "Open PROGRESS.md. Find the first unfinished check.",
-              "detail": ""
+              "title": "Read the Part 1 checkpoint in PROGRESS.md.",
+              "detail": "No failed local check? Skip repair."
             },
             {
               "title": "Copy that task's repair prompt from the embedded prompt.",
@@ -1375,18 +1375,18 @@
               "detail": ""
             }
           ],
-          "prompt": "Read company-motion/PROGRESS.md and find the first unfinished Part 1 check.\nRepair that local cause in this same project. Preserve working pages, source notes and the saved skill.\nRerun its success check and update company-motion/PROGRESS.md.\nIf only phone review is missing, show the exact manual device-mode or phone check instead of inventing a pass.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: prepare the single email connection before Part 2.",
+          "prompt": "Read company-motion/PROGRESS.md and check the required local Part 1 results.\nIf all required checks pass, say Part 1 is complete and stop. Do not invent another task. Unpublished pages and future email setup are not failed Part 1 checks.\nIf a required local check failed, repair its cause in this same project. Preserve working pages, source notes and the saved skill.\nRerun that check and update company-motion/PROGRESS.md with the actual result.\nIf phone review is missing, show the exact manual device-mode or phone check. Do not invent a pass.\nKeep pages local and unpublished. Show the result. Stop. Next: keep this project and complete email prework before Part 2.",
           "tools": [
             "Codex and your workshop project."
           ],
           "expected": [
-            "One repaired task and updated progress."
+            "A repaired local check, or confirmation that Part 1 is complete."
           ],
           "check": [
-            "The previously failed check is rerun."
+            "A failed local check was rerun, or all required local checks already passed."
           ],
           "fallback": "Save the unresolved error and named missing setup. Do not reset the project.",
-          "repair_prompt": "Fix exercise p1-help in this same saved project.\nExpected artifact: One repaired task and updated progress.\nSuccess check: The previously failed check is rerun.\nRead the first unfinished Part 1 entry in company-motion/PROGRESS.md and that exercise's saved prompt. Repair that precise local issue and rerun its check. Leave unsupported facts and unavailable phone review visible.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: prepare the single email connection before Part 2.\nActual error: [paste the error without credentials]",
+          "repair_prompt": "Read company-motion/PROGRESS.md and check the required local Part 1 results.\nIf all required checks pass, say Part 1 is complete and stop. Do not invent another task. Unpublished pages and future email setup are not failed Part 1 checks.\nIf a required local check failed, repair its cause in this same project. Preserve working pages, source notes and the saved skill.\nRerun that check and update company-motion/PROGRESS.md with the actual result.\nIf phone review is missing, show the exact manual device-mode or phone check. Do not invent a pass.\nKeep pages local and unpublished. Show the result. Stop. Next: keep this project and complete email prework before Part 2.\nActual error: [paste the error without credentials]",
           "sources": [
             {
               "label": "Local v5 source snapshot",
@@ -1395,7 +1395,7 @@
               "scope": "Teaching adaptation. No private recipient records."
             }
           ],
-          "notes": "Thirty minutes reserved for individual help. Do not introduce new theory.",
+          "notes": "Twenty minutes for individual help. Ten minutes of the original help buffer are used for chapter videos. No new theory.",
           "build_step": 0,
           "prompt_label": "Workshop prompt adapted to your company",
           "route": "main",
@@ -1696,7 +1696,7 @@
           "id": "p1-results",
           "minutes": 3,
           "title": "This is how I built Metadata's GTM motion",
-          "outcome": "Understand what was observed and what was built."
+          "outcome": "Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open the folder in local Codex or Claude Code. Keep the booklet open. Each prompt is embedded."
         },
         {
           "id": "p1-v5-tree",
@@ -1707,14 +1707,14 @@
         {
           "id": "p1-about",
           "minutes": 2,
-          "title": "I'm Gil. I run Metadata.",
-          "outcome": "Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies."
+          "title": "Hi, I'm Gil.",
+          "outcome": "Software engineer turned VP of Marketing. Running paid campaigns meant repeating the same work across tools. I started Metadata to automate it. Today we’ll build the first piece of your own GTM workflow."
         },
         {
           "id": "p1-real-outputs",
           "minutes": 4,
-          "title": "A real page, email and gift",
-          "outcome": "Metadata built a page for Zuora, sent an email to Forum One and sent a gift invitation to Datarails. These are different examples."
+          "title": "Zuora: the page, the email, the gift",
+          "outcome": "Open the real page. Read the email I sent. See how a gift invitation could look."
         },
         {
           "id": "p1-install",
@@ -1750,7 +1750,7 @@
           "id": "p1-build-page",
           "minutes": 10,
           "title": "Build the page for your first target",
-          "outcome": "A real HTML page and source notes."
+          "outcome": "A local, unpublished HTML page and source notes."
         },
         {
           "id": "p1-page-review",
@@ -1768,7 +1768,7 @@
           "id": "p1-repeat",
           "minutes": 8,
           "title": "Use the skill for your second target",
-          "outcome": "Second reviewed page and company-motion/SKILL-TEST.md."
+          "outcome": "Second reviewed, unpublished page and company-motion/SKILL-TEST.md."
         },
         {
           "id": "p1-break",
@@ -1784,9 +1784,9 @@
         },
         {
           "id": "p1-help",
-          "minutes": 30,
-          "title": "Fix your first unfinished task",
-          "outcome": "One repaired task and updated progress."
+          "minutes": 20,
+          "title": "Fix a failed check, if one remains",
+          "outcome": "A repaired local check, or confirmation that Part 1 is complete."
         }
       ],
       "chapters": [
@@ -1806,7 +1806,17 @@
             "p1-finish"
           ],
           "guided_minutes": 12,
-          "help_minutes": 0
+          "help_minutes": 0,
+          "opener": {
+            "id": "p1-agency-1",
+            "label": "The Agency · Episode 1",
+            "title": "Credit Announcement Day",
+            "duration_label": "2:40",
+            "video_url": "https://metadata.io/videos/the-agency/s1e1.mp4",
+            "poster": "assets/agency-s1e1.jpg",
+            "source_url": "https://metadata.io/the-agency/episode-1",
+            "note": "A fictional marketing team. The workshop examples and checks use real files."
+          }
         },
         {
           "number": 2,
@@ -1819,7 +1829,17 @@
             "p1-authority"
           ],
           "guided_minutes": 24,
-          "help_minutes": 0
+          "help_minutes": 0,
+          "opener": {
+            "id": "p1-agency-2",
+            "label": "The Agency · Episode 2",
+            "title": "Budget Flush Day",
+            "duration_label": "2:00",
+            "video_url": "https://metadata.io/videos/the-agency/s1e2.mp4",
+            "poster": "assets/agency-s1e2.jpg",
+            "source_url": "https://metadata.io/the-agency/episode-2",
+            "note": "A fictional marketing team. The workshop examples and checks use real files."
+          }
         },
         {
           "number": 3,
@@ -1832,7 +1852,17 @@
             "p1-page-example"
           ],
           "guided_minutes": 10,
-          "help_minutes": 0
+          "help_minutes": 0,
+          "opener": {
+            "id": "p1-agency-3",
+            "label": "The Agency · Episode 3",
+            "title": "The Retreat",
+            "duration_label": "3:46",
+            "video_url": "https://metadata.io/videos/the-agency/s1e3.mp4",
+            "poster": "assets/agency-s1e3.jpg",
+            "source_url": "https://metadata.io/the-agency/episode-3",
+            "note": "A fictional marketing team. The workshop examples and checks use real files."
+          }
         },
         {
           "number": 4,
@@ -1844,7 +1874,17 @@
             "p1-page-review"
           ],
           "guided_minutes": 20,
-          "help_minutes": 0
+          "help_minutes": 0,
+          "opener": {
+            "id": "p1-agency-4",
+            "label": "The Agency · Commercial 1",
+            "title": "The Industrialist",
+            "duration_label": "0:35",
+            "video_url": "https://metadata.io/videos/the-agency/ad-industrialist.mp4",
+            "poster": "assets/agency-ad-industrialist.jpg",
+            "source_url": "https://metadata.io/the-agency/ad-the-industrialist",
+            "note": "A fictional marketing team. The workshop examples and checks use real files."
+          }
         },
         {
           "number": 5,
@@ -1863,9 +1903,20 @@
             "p1-before-part2"
           ],
           "guided_minutes": 24,
-          "help_minutes": 30
+          "help_minutes": 20,
+          "opener": {
+            "id": "p1-recorded-skill",
+            "label": "Gil’s recorded rehearsal · October 7",
+            "title": "Save the instructions. Use them again.",
+            "duration_label": "0:14",
+            "video_url": "https://metadata-gtm-workshops.vercel.app/gtm-part1/media/gil-save-the-skill.mp4",
+            "poster": "",
+            "source_url": "https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html#gil-save-the-skill",
+            "note": "Gil explains the saved skill prompt. This clip shows the instructions, not an agent execution."
+          }
         }
-      ]
+      ],
+      "media_minutes": 10
     }
   ],
   "setup": {

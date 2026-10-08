@@ -500,6 +500,28 @@ def chapter_slide(c,ch,num,part):
  paragraph(c,'Open the next full prompt. Review the result before moving on.',56,128,1160,22,color=GRAY)
  c.showPage()
 
+def media_slide(c,ch,num,part):
+ global CURRENT_SECTION
+ CURRENT_SECTION=ch['number'];m=ch['opener']
+ header(c,m['title'],num,part,m['note'])
+ paragraph(c,m['label']+' | '+m['duration_label'],56,536,1168,18,color=GREEN,font='RubikMedium')
+ poster=R/m['poster'] if m.get('poster') else None
+ if poster:
+  compact=poster.with_name(poster.stem+'-pdf.jpg')
+  if compact.exists():poster=compact
+ if poster and poster.exists():
+  pic(c,poster,245,153,790,346)
+ else:
+  node(c,'Reviewed page',92,325,310,95,True)
+  node(c,'Saved skill instructions',485,325,310,95)
+  node(c,'Second target page',878,325,310,95)
+  arrow(c,402,372,485,372);arrow(c,795,372,878,372)
+  paragraph(c,'Gil explains the skill prompt in his recorded rehearsal.',92,258,1096,22,color=GRAY)
+ url='https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+m['id']
+ paragraph(c,'Watch the video in the live slides',56,113,1168,22,color=ORANGE,font='RubikMedium')
+ c.linkURL(url,(56,76,880,127),relative=0)
+ c.showPage()
+
 def make_decks(data):
  counts={}; allpdf=[]
  for part in data['parts']:
@@ -511,10 +533,14 @@ def make_decks(data):
     c.bookmarkPage(ch['id']);c.addOutlineEntry('Chapter '+str(current_chapter)+': '+ch['title'],ch['id'],0)
     if current_chapter>1:
      num+=1;CHECKS.clear();chapter_slide(c,ch,num,n)
+     if ch.get('opener'):
+      num+=1;CHECKS.clear();media_slide(c,ch,num,n)
    num+=1;c.bookmarkPage(s['id']);c.addOutlineEntry(s['title'],s['id'],1)
    CHECKS.clear();slide(c,s,num,n)
    bad=[x for x in CHECKS if x['bottom']<64 and x['size']>16]
    if bad:raise ValueError('Slide overflow '+s['id']+' '+str(bad))
+   if s['type']=='cover' and ch.get('opener'):
+    num+=1;CHECKS.clear();media_slide(c,ch,num,n)
    if s.get('prompt'):
     num+=1;CHECKS.clear();num+=prompt_slide(c,s,num,n)-1
     bad=[x for x in CHECKS if x['bottom']<64 and x['size']>16]

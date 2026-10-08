@@ -10,7 +10,7 @@ REPO=Path(__file__).resolve().parents[1]
 OUT=args.output_dir or REPO
 OUT.mkdir(parents=True,exist_ok=True)
 WEB=REPO/'authoring/web'
-for name in ['site.css','slides.css','slides.js','booklet.js','workshop-helpers.css','workshop-helpers.js']:
+for name in ['site.css','slides.css','slides.js','booklet.js','workshop-helpers.css','workshop-helpers.js','media.css']:
  shutil.copy2(WEB/name,OUT/name)
 if not args.hosted:shutil.copy2(WEB/'audience.js',OUT/'audience.js')
 part=json.loads((REPO/'course/course.json').read_text())['parts'][0]
@@ -45,6 +45,19 @@ def complete(s):
 def prompt_box(s):
  return ('<div class="prompt-frame"><div class="prompt-frame-label"><span>Complete prompt</span><span>Local Codex or Claude Code</span></div><textarea class="full-prompt" id="prompt-'+E(s['id'])+'" readonly '+('data-personalize ' if personalizable(s) else '')+'aria-label="Complete prompt for '+E(s['title'])+'">'+E(s['prompt'])+'</textarea></div>')
 def sequence(items):return '<div class="sequence">'+''.join('<div><span>'+str(n+1)+'</span><strong>'+E(x)+'</strong></div>' for n,x in enumerate(items))+'</div>'
+def media_url(url):
+ prefix='https://metadata-gtm-workshops.vercel.app/gtm-part1/'
+ return url[len(prefix):] if args.hosted and url.startswith(prefix) else url
+def video_player(m):
+ poster=(' poster="'+E(m['poster'])+'"') if m.get('poster') else ''
+ return '<video class="workshop-video" controls playsinline preload="none"'+poster+' aria-label="'+E(m['title'])+'"><source src="'+E(media_url(m['video_url']))+'" type="video/mp4">Your browser cannot play this video.</video><p class="media-caption">'+E(m['note'])+' <a href="'+E(m['source_url'])+'" target="_blank" rel="noopener">Open the source ↗</a></p>'
+def chapter_media(c):
+ m=c.get('opener')
+ if not m:return
+ add(m['id'],m['title'],c['number'],'<p class="eyebrow">Section '+str(c['number'])+' · '+E(m['label'])+'</p><div class="media-heading"><h1>'+E(m['title'])+'</h1><span class="media-duration">'+E(m['duration_label'])+'</span></div>'+video_player(m),'media-slide')
+def rehearsal_clip():
+ m={'title':'Gil opens the first page','video_url':'https://metadata-gtm-workshops.vercel.app/gtm-part1/media/gil-open-first-page.mp4','poster':'','source_url':'https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html#gil-open-first-page','note':'October 7 rehearsal. Gil opens a local Bedtime Magic page for Metadata. The narration begins on the prompt, then switches to the page.'}
+ return '<details class="rehearsal-clip"><summary>Watch Gil open his first page · 0:55</summary>'+video_player(m)+'</details>'
 def registrations():
  return '<div class="registrations">'+''.join('<a href="'+E(x['url'])+'" target="_blank" rel="noopener"><img src="'+E(x['qr'])+'" alt="QR code to register for '+E(x['title'])+'"><div><h3>'+E(x['title'])+'</h3><p>'+('Write and test outbound email.' if n==0 else 'Add channels and repeat the workflow.')+'</p><span>Register on Luma ↗</span></div></a>' for n,x in enumerate(part['slides'][-1]['registrations']))+'</div>'
 
@@ -98,16 +111,18 @@ for s in part['slides']:
  if ch!=current:
   current=ch;c=part['chapters'][ch-1]
   tasks={2:['Open your cloned project.','Paste the startup prompt.','Review the company brief.'],3:['Read both target websites.','Save facts with their sources.','Save your two-company list.'],4:['Create your first HTML page.','Check every claim against its source.','Open it on desktop and phone.'],5:['Save the page instructions as a skill.','Use it for the second company.','Check both pages and saved files.']}[ch]
-  add(c['id'],c['title'],ch,'<p class="eyebrow">Section '+str(ch)+' of 5</p><h1>'+E(c['title'])+'</h1>'+sequence(tasks)+'<p class="chapter-outcome">'+E(c['outcome'])+'</p><p class="chapter-time">'+str(c['guided_minutes'])+' minutes'+(' + 30 minutes for individual help' if c['help_minutes'] else '')+'</p>','chapter-slide')
+  add(c['id'],c['title'],ch,'<p class="eyebrow">Section '+str(ch)+' of 5</p><h1>'+E(c['title'])+'</h1>'+sequence(tasks)+'<p class="chapter-outcome">'+E(c['outcome'])+'</p><p class="chapter-time">'+str(c['guided_minutes'])+' minutes'+(' + '+str(c['help_minutes'])+' minutes for individual help' if c['help_minutes'] else '')+'</p>','chapter-slide')
+  chapter_media(c)
  if s['type']=='cover':
   content='<div class="cover-copy"><p class="eyebrow">Part 1</p><h1>Build your own<br><span>Agentic GTM.</span></h1><p>Build two pages for your<br>target companies.</p><p class="byline">Gil Allouche<br>CEO, Metadata.io</p></div>'
-  add(s['id'],s['title'],ch,content,'cover-slide');continue
+  add(s['id'],s['title'],ch,content,'cover-slide');chapter_media(part['chapters'][0]);continue
  heading='<p class="eyebrow">'+('Exercise' if s['prompt'] else 'Section '+str(ch)+' of 5')+'</p><h1>'+E(s['title'])+'</h1>'
  if s['prompt']:
   steps='<ol class="instruction-list">'+''.join('<li><strong>'+rich(x['title'],default_id=s['id'])+'</strong>'+('<p>'+rich(x['detail'],default_id=s['id'])+'</p>' if x.get('detail') else '')+'</li>' for x in s['steps'])+'</ol>'
   expected='<div class="expected"><strong>You should have</strong>'+listing(s['expected'])+'</div><details class="check"><summary>Open the '+str(len(s['check']))+' checks before moving on</summary>'+listing(s['check'])+'</details>'+complete(s)
   next_button='<div class="exercise-next"><button class="button" data-open-prompt="'+E(s['id'])+'">View and copy the complete prompt</button><span>Copy it here. The next slide also shows it.</span></div>'
   content=heading+'<p class="exercise-meta">'+E(str(s['timing']))+' minutes · '+E(s['difficulty'])+' · '+E(' '.join(s['tools']))+'</p><div class="exercise-grid"><div>'+steps+target_fields('exercise-'+s['id'],s['prompt'] if s['id']!='p1-install' else '')+next_button+'</div><div class="exercise-result">'+visual(s)+expected+'</div></div>'
+  if s['id']=='p1-build-page':content+=rehearsal_clip()
   add(s['id'],s['title'],ch,content,'exercise-slide')
   repair='<label for="repair-'+E(s['id'])+'">Copy this repair prompt into the same local agent.</label><textarea class="repair-prompt" id="repair-'+E(s['id'])+'" readonly>'+E(s.get('repair_prompt',''))+'</textarea><button class="button secondary" data-copy="repair-'+E(s['id'])+'">Copy repair prompt</button>' if s.get('repair_prompt') else ''
   content='<p class="eyebrow">Copy and paste into your local agent</p><h1>'+E(s['title'])+'</h1><div class="prompt-actions"><button class="button" data-copy="prompt-'+E(s['id'])+'">Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div>'+(company_fields('slide-'+s['id']) if '[YOUR_COMPANY_WEBSITE]' in s['prompt'] else target_fields('slide-'+s['id'],s['prompt']))+prompt_box(s)+'<p class="next-action">'+E(s.get('next_action',''))+'</p><details class="fallback"><summary>If you get stuck</summary><p>'+rich(s['fallback'])+'</p>'+repair+'</details>'
@@ -122,11 +137,11 @@ for s in part['slides']:
   else:content+='<p class="body">'+rich(s['body'])+'</p>'+visual(s)
   if s.get('expected'):content+='<div class="compact-outcomes">'+listing(s['expected'])+'</div>'
   add(s['id'],s['title'],ch,content,'show-slide '+('tree-slide' if s['id']=='p1-v5-tree' else ''))
-assert len(slides)==len(part['slides'])+len(part['chapters'])-1+sum(bool(s.get('prompt')) for s in part['slides']), len(slides)
+assert len(slides)==len(part['slides'])+len(part['chapters'])-1+sum(bool(s.get('prompt')) for s in part['slides'])+sum(bool(c.get('opener')) for c in part['chapters']), len(slides)
 slide_total=len(slides)
 nav=''.join('<button data-index="'+str(n)+'"><span>'+str(n+1).zfill(2)+'</span>'+E(s['title'])+'</button>' for n,s in enumerate(slides))
 sections=''.join('<section class="slide '+s['kind']+'" id="'+s['id']+'" data-chapter="'+str(s['chapter'])+'" aria-label="Slide '+str(n+1)+' of '+str(slide_total)+': '+E(s['title'])+'"'+(' hidden' if n else '')+'>'+s['html']+'</section>' for n,s in enumerate(slides))
-OUT.joinpath('Part-1-Presentation.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Agentic GTM | Part 1 live slides</title><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="slides.css"><link rel="stylesheet" href="workshop-helpers.css"><link rel="icon" href="assets/metadata-icon.jpeg"></head><body class="deck"><header class="deck-header"><a class="brand" href="/gtm-part1/">metadata<span>.</span></a><div class="deck-tools"><a href="Participant-Booklet.html" target="_blank" rel="noopener">Participant booklet ↗</a><a href="Part-1-Presentation.pdf" target="_blank" rel="noopener">PDF ↗</a><button id="contents">Contents</button><button id="fullscreen" aria-label="Enter fullscreen">Fullscreen</button></div></header><main id="slides">'''+sections+'''</main><footer class="deck-footer"><div><span id="chapter-label">Section 1 of 5</span><span class="keys">← → to move</span></div><div class="slide-controls"><button id="prev" aria-label="Previous slide">←</button><span id="slide-count" aria-live="polite">1 / '''+str(slide_total)+'''</span><button id="next" aria-label="Next slide">→</button></div></footer><div class="progress"><div id="progress-bar"></div></div><p id="copy-message" role="status" aria-live="polite"></p><dialog id="toc"><div class="toc-head"><h2>Workshop contents</h2><button id="close-contents">Close</button></div><nav aria-label="All slides">'''+nav+'''</nav></dialog><dialog id="prompt-dialog" aria-labelledby="prompt-title"><div class="toc-head"><h2 id="prompt-title">Complete prompt</h2><button data-close-dialog>Back to the slide</button></div><p>Paste this into your local Codex or Claude Code project.</p>'''+company_fields('modal')+target_fields('modal-targets')+'''<textarea id="modal-prompt" class="full-prompt" readonly aria-label="Complete exercise prompt"></textarea><button class="button" data-copy="modal-prompt">Copy the full prompt</button></dialog><p class="workshop-success" id="workshop-success" role="status" aria-live="polite"></p><script src="workshop-helpers.js"></script><script src="slides.js"></script><script src="audience.js"></script></body></html>''')
+OUT.joinpath('Part-1-Presentation.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Agentic GTM | Part 1 live slides</title><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="slides.css"><link rel="stylesheet" href="workshop-helpers.css"><link rel="stylesheet" href="media.css"><link rel="icon" href="assets/metadata-icon.jpeg"></head><body class="deck"><header class="deck-header"><a class="brand" href="/gtm-part1/">metadata<span>.</span></a><div class="deck-tools"><a href="Recordings.html" target="_blank" rel="noopener">Recordings ↗</a><a href="Participant-Booklet.html" target="_blank" rel="noopener">Participant booklet ↗</a><a href="Part-1-Presentation.pdf" target="_blank" rel="noopener">PDF ↗</a><button id="contents">Contents</button><button id="fullscreen" aria-label="Enter fullscreen">Fullscreen</button></div></header><main id="slides">'''+sections+'''</main><footer class="deck-footer"><div><span id="chapter-label">Section 1 of 5</span><span class="keys">← → to move</span></div><div class="slide-controls"><button id="prev" aria-label="Previous slide">←</button><span id="slide-count" aria-live="polite">1 / '''+str(slide_total)+'''</span><button id="next" aria-label="Next slide">→</button></div></footer><div class="progress"><div id="progress-bar"></div></div><p id="copy-message" role="status" aria-live="polite"></p><dialog id="toc"><div class="toc-head"><h2>Workshop contents</h2><button id="close-contents">Close</button></div><nav aria-label="All slides">'''+nav+'''</nav></dialog><dialog id="prompt-dialog" aria-labelledby="prompt-title"><div class="toc-head"><h2 id="prompt-title">Complete prompt</h2><button data-close-dialog>Back to the slide</button></div><p>Paste this into your local Codex or Claude Code project.</p>'''+company_fields('modal')+target_fields('modal-targets')+'''<textarea id="modal-prompt" class="full-prompt" readonly aria-label="Complete exercise prompt"></textarea><button class="button" data-copy="modal-prompt">Copy the full prompt</button></dialog><p class="workshop-success" id="workshop-success" role="status" aria-live="polite"></p><script src="workshop-helpers.js"></script><script src="slides.js"></script><script src="audience.js"></script></body></html>''')
 
 def inline(s,reference=None):
  parts=re.split(r'(\[[^\]]+\]\([^)]+\))',str(s));out=[]
@@ -167,7 +182,13 @@ def markdown(text):
   if in_code:code.append(line);continue
   if not line.strip():close();continue
   m=re.match(r'^(#{1,6}) (.*)',line)
-  if m:close();out.append('<h'+str(len(m[1]))+'>'+inline(m[2],reference)+'</h'+str(len(m[1]))+'>');continue
+  if m:
+   close();out.append('<h'+str(len(m[1]))+'>'+inline(m[2],reference)+'</h'+str(len(m[1]))+'>')
+   chapter=re.match(r'Section (\d+):',m[2])
+   if chapter:
+    opener=part['chapters'][int(chapter[1])-1].get('opener')
+    if opener:out.append('<details class="booklet-video"><summary>'+E(opener['label'])+' · '+E(opener['duration_label'])+'</summary>'+video_player(opener)+'</details>')
+   continue
   if line.startswith('|'):
    cells=[x.strip() for x in line.strip().strip('|').split('|')]
    if all(re.fullmatch(r'[:\- ]+',x) for x in cells):continue
@@ -185,13 +206,13 @@ def markdown(text):
   close();out.append('<p>'+inline(line,reference)+'</p>')
  close();return '\n'.join(out)
 body=markdown((REPO/'course/BOOKLET.md').read_text())+registrations()
-OUT.joinpath('Participant-Booklet.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your Agentic GTM build booklet</title><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="workshop-helpers.css"></head><body><header class="nav"><a class="brand" href="/gtm-part1/">metadata<span>.</span></a><nav class="nav-links"><a href="#booklet-p1-install" data-expand="booklet-p1-install">First prompt</a><a href="Participant-Booklet.pdf" target="_blank" rel="noopener">PDF booklet ↗</a><a href="Part-1-Presentation.html" target="_blank" rel="noopener">Slides ↗</a></nav></header><main class="booklet-main"><p class="eyebrow">Part 1 · Participant booklet</p><p class="booklet-stay">Keep Zoom and this booklet open. Expand each prompt here, copy it, and paste it into your local agent. Close any resource tab when finished to return here.</p>'''+body+'''<p id="booklet-status" role="status" aria-live="polite"></p></main><p class="workshop-success" id="workshop-success" role="status" aria-live="polite"></p><script src="workshop-helpers.js"></script><script src="booklet.js"></script></body></html>''')
+OUT.joinpath('Participant-Booklet.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your Agentic GTM build booklet</title><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="workshop-helpers.css"><link rel="stylesheet" href="media.css"></head><body><header class="nav"><a class="brand" href="/gtm-part1/">metadata<span>.</span></a><nav class="nav-links"><a href="#booklet-p1-install" data-expand="booklet-p1-install">First prompt</a><a href="Participant-Booklet.pdf" target="_blank" rel="noopener">PDF booklet ↗</a><a href="Part-1-Presentation.html" target="_blank" rel="noopener">Slides ↗</a><a href="Recordings.html" target="_blank" rel="noopener">Recordings ↗</a></nav></header><main class="booklet-main"><p class="eyebrow">Part 1 · Participant booklet</p><p class="booklet-stay">Keep Zoom and this booklet open. Expand each prompt here, copy it, and paste it into your local agent. Close any resource tab when finished to return here.</p>'''+body+'''<p id="booklet-status" role="status" aria-live="polite"></p></main><p class="workshop-success" id="workshop-success" role="status" aria-live="polite"></p><script src="workshop-helpers.js"></script><script src="booklet.js"></script></body></html>''')
 if OUT.resolve()!=REPO.resolve() and (REPO/'sources/V5-WORKSHOP-SOURCES.md').exists():
  (OUT/'sources').mkdir(exist_ok=True);shutil.copy2(REPO/'sources/V5-WORKSHOP-SOURCES.md',OUT/'sources/V5-WORKSHOP-SOURCES.md')
 for filename in ['PREWORK','BUILD-MY-GTM']:
  text=(REPO/(filename+'.md')).read_text()
  body=markdown(text)+'<p class=\"return-actions\"><button class=\"button secondary\" onclick=\"window.close();location.href=\'Participant-Booklet.html\'\">Close this tab and return to the booklet</button></p>'
- OUT.joinpath(filename+'.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+E(filename.replace('-',' ').title())+' | Metadata workshop</title><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="workshop-helpers.css"></head><body><header class="nav"><a class="brand" href="/gtm-part1/">metadata<span>.</span></a><nav class="nav-links"><a href="START-HERE.html">First prompt ↗</a><a href="Participant-Booklet.html">Participant booklet ↗</a></nav></header><main class="booklet-main">'+body+'</main></body></html>')
+ OUT.joinpath(filename+'.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+E(filename.replace('-',' ').title())+' | Metadata workshop</title><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="workshop-helpers.css"><link rel="stylesheet" href="media.css"></head><body><header class="nav"><a class="brand" href="/gtm-part1/">metadata<span>.</span></a><nav class="nav-links"><a href="START-HERE.html">First prompt ↗</a><a href="Participant-Booklet.html">Participant booklet ↗</a></nav></header><main class="booklet-main">'+body+'</main></body></html>')
 start=OUT/'START-HERE.html'
 start.write_text(start.read_text().replace('href="PREWORK.md"','href="PREWORK.html"').replace('href="BUILD-MY-GTM.md"','href="BUILD-MY-GTM.html"'))
 helper=OUT/'prompts.html'

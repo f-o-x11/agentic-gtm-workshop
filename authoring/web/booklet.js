@@ -2,3 +2,6 @@ function expandPrompt(id){const el=document.getElementById(id);if(!el?.matches('
 document.querySelectorAll('[data-expand]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();expandPrompt(a.dataset.expand);history.replaceState(null,'','#'+a.dataset.expand);}));
 document.querySelectorAll('[data-copy-code]').forEach(b=>b.addEventListener('click',async()=>{const box=b.closest('.booklet-prompt');const text=box.querySelector('pre').textContent;if(window.GTMWorkshop?.validatePrompt(text,box)===false)return;try{await navigator.clipboard.writeText(text);b.textContent='Copied';document.getElementById('booklet-status').textContent='Copied. Paste into your local Codex or Claude Code project.';setTimeout(()=>b.textContent=box.classList.contains('command')?'Copy command':'Copy the full prompt',2500);}catch{b.textContent='Select and copy the prompt below';if(box.matches('details'))box.open=true;}}));
 window.addEventListener('hashchange',()=>expandPrompt(location.hash.slice(1)));expandPrompt(location.hash.slice(1));
+
+// Collapsing a chapter opener stops its audio.
+document.querySelectorAll("details").forEach(d=>d.addEventListener("toggle",()=>{if(!d.open)d.querySelectorAll("video").forEach(v=>v.pause());}));

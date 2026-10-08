@@ -39,18 +39,31 @@ Program commands run from code/. Your company files live in company-motion/. Key
 ## Finish with
 
 - Your company facts and paused operating instructions.
-- Two sourced target briefs and two reviewed pages.
+- Two sourced target briefs and two reviewed, unpublished pages.
 - One saved page skill successfully reused.
 - A progress record and the exact next setup task.
+
+Your pages stay on your computer. They are unpublished. Publishing is not required to complete Part 1.
+
+[Watch the recorded build and Gil’s rehearsal clips](https://metadata-gtm-workshops.vercel.app/gtm-part1/Recordings.html).
+
 
 ## Section 1: See Metadata's working examples
 
 See the actual page, email and gift examples.
 
+[Watch: Credit Announcement Day (2:40)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-agency-1)
+
+A fictional marketing team. The workshop examples and checks use real files.
+
 
 ## Section 2: Set up your company
 
 COMPANY.md, saved setup and local rules.
+
+[Watch: Budget Flush Day (2:00)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-agency-2)
+
+A fictional marketing team. The workshop examples and checks use real files.
 
 
 ### Open the cloned folder. Build your company brief.
@@ -178,6 +191,10 @@ Next: research the first target company.
 
 Two target briefs and TARGETS.md.
 
+[Watch: The Retreat (3:46)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-agency-3)
+
+A fictional marketing team. The workshop examples and checks use real files.
+
 
 ### Research your first target company
 
@@ -258,6 +275,10 @@ Next: build the first account page.
 
 First HTML page and PAGE-REVIEW.md.
 
+[Watch: The Industrialist (0:35)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-agency-4)
+
+A fictional marketing team. The workshop examples and checks use real files.
+
 
 ### Build the page for your first target
 
@@ -269,7 +290,7 @@ Tools: Codex file/browser access and the two saved briefs. No API credits.
 
 1. Confirm the target domain below. This is Target 1, the company you researched first.
 2. Copy the page prompt. Paste it into the same local agent. The prompt names your target and the exact file to create.
-3. Open the page your agent creates. Check the company name, offer and button. Then review its claims and layout.
+3. Open the page your agent creates. It stays on your computer. Check the company name, offer and button, then review its claims and layout.
 
 Expand the complete prompt below. Copy it into the same local agent project.
 
@@ -277,6 +298,7 @@ Expand the complete prompt below. Copy it into the same local agent project.
 Build a landing page for [TARGET_1_DOMAIN].
 Read company-motion/COMPANY.md and company-motion/targets/[TARGET_1_DOMAIN].md. If either is missing or names the wrong company, stop and name the earlier exercise to complete.
 Save the page as company-motion/pages/[TARGET_1_DOMAIN]/index.html.
+Keep it local and unpublished. Do not deploy or upload it.
 Create one HTML file that works on desktop and phone. Keep its styles, scripts and required graphics inside it.
 Use our brand, an idea relevant to this company, our actual offer, supported proof and our real next-step link.
 Keep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch. If proof is weak, use supported product facts or omit that block.
@@ -287,7 +309,7 @@ Append this step, actual artifact, check and next task to company-motion/PROGRES
 
 You should have:
 
-- A real HTML page and source notes.
+- A local, unpublished HTML page and source notes.
 
 Check before continuing:
 
@@ -344,6 +366,10 @@ Next: save the checked page method as a skill.
 
 SKILL.md, second page and completed file check.
 
+[Watch: Save the instructions. Use them again. (0:14)](https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-recorded-skill)
+
+Gil explains the saved skill prompt. This clip shows the instructions, not an agent execution.
+
 
 ### Save your page-building instructions as a skill
 
@@ -399,7 +425,7 @@ Expand the complete prompt below. Copy it into the same local agent project.
 Use our saved account-page skill to build a landing page for [TARGET_2_DOMAIN].
 Read company-motion/targets/[TARGET_2_DOMAIN].md. If it is missing or names another company, stop and ask me to complete the second-target research exercise.
 Save the page as company-motion/pages/[TARGET_2_DOMAIN]/index.html.
-Keep the first page unchanged.
+Keep both pages local and unpublished. Do not deploy or upload them. Keep the first page unchanged.
 Run the skill's full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.
 Show what changed between the two targets. Remove facts or generic copy carried over from the first company.
 Save company-motion/SKILL-TEST.md with both page paths, review evidence and remaining issues.
@@ -409,7 +435,7 @@ Append this step, actual artifact, check and next task to company-motion/PROGRES
 
 You should have:
 
-- Second reviewed page and company-motion/SKILL-TEST.md.
+- Second reviewed, unpublished page and company-motion/SKILL-TEST.md.
 
 Check before continuing:
 
@@ -430,7 +456,7 @@ Time: 5 minutes. Difficulty: Easy.
 Tools: Your generated files and actual browser results. No new credits.
 
 1. Copy the checkpoint prompt. Your agent opens each required file.
-2. Fix the first failed check. Keep both pages and the saved skill.
+2. Fix a failed local check, if there is one. If every required check passes, Part 1 is complete.
 3. Read PROGRESS.md. Check the result and your next task.
 
 Expand the complete prompt below. Copy it into the same local agent project.
@@ -438,10 +464,11 @@ Expand the complete prompt below. Copy it into the same local agent project.
 ```text
 Open our company brief, setup receipt, company-motion/AUTHORITY.md, company-motion/AGENTS.md, target list, two target briefs, two pages, page review, saved skill and skill test.
 If company-motion/AUTHORITY.md or company-motion/AGENTS.md is missing, rerun bootstrap with the existing company brief. Preserve all working outputs and history.
-Append actual paths and passed or missing checks to company-motion/PROGRESS.md.
-Keep created, reviewed and published separate. Repair the first available local issue and rerun its check.
-Name one exact next action for each remaining gap.
-Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: finish the first remaining issue with individual help.
+Append actual paths and passed or missing local checks to company-motion/PROGRESS.md. Do not claim a browser check you did not run.
+Record both pages as local and unpublished. Publishing is not required for Part 1. Do not deploy or upload them, and do not mark unpublished as a failed check.
+If a required local check failed, repair the first available cause and rerun that check. Name the next action for any remaining local gap.
+If all required local checks pass, mark Part 1 complete and skip repair. Keep future email connections and live actions in a separate Part 2 prework list.
+Show the actual results. Stop. Next: fix a failed local check if one remains; otherwise keep the project for Part 2.
 ```
 
 You should have:
@@ -452,41 +479,42 @@ Check before continuing:
 
 - Required files are actually opened.
 - Missing authority/instruction files can be repaired in place.
-- Created, reviewed and published remain separate labels.
+- Pages are local and unpublished. Publishing is not a completion check.
 
 If blocked: Share the failed file or error with the repair prompt. Continue from the same project.
 
-Next: finish the first remaining issue with individual help.
+Next: fix a failed local check if one remains; otherwise keep the project for Part 2.
 
-### Fix your first unfinished task
+### Fix a failed check, if one remains
 
 Reference: p1-help
 
-Time: 30 minutes. Difficulty: Help.
+Time: 20 minutes. Difficulty: Help.
 
 Tools: Codex and your workshop project.
 
-1. Open PROGRESS.md. Find the first unfinished check.
+1. Read the Part 1 checkpoint in PROGRESS.md. No failed local check? Skip repair.
 2. Copy that task's repair prompt from the embedded prompt.
 3. Add your error. Rerun the check. Save the result.
 
 Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
-Read company-motion/PROGRESS.md and find the first unfinished Part 1 check.
-Repair that local cause in this same project. Preserve working pages, source notes and the saved skill.
-Rerun its success check and update company-motion/PROGRESS.md.
-If only phone review is missing, show the exact manual device-mode or phone check instead of inventing a pass.
-Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: prepare the single email connection before Part 2.
+Read company-motion/PROGRESS.md and check the required local Part 1 results.
+If all required checks pass, say Part 1 is complete and stop. Do not invent another task. Unpublished pages and future email setup are not failed Part 1 checks.
+If a required local check failed, repair its cause in this same project. Preserve working pages, source notes and the saved skill.
+Rerun that check and update company-motion/PROGRESS.md with the actual result.
+If phone review is missing, show the exact manual device-mode or phone check. Do not invent a pass.
+Keep pages local and unpublished. Show the result. Stop. Next: keep this project and complete email prework before Part 2.
 ```
 
 You should have:
 
-- One repaired task and updated progress.
+- A repaired local check, or confirmation that Part 1 is complete.
 
 Check before continuing:
 
-- The previously failed check is rerun.
+- A failed local check was rerun, or all required local checks already passed.
 
 If blocked: Save the unresolved error and named missing setup. Do not reset the project.
 
