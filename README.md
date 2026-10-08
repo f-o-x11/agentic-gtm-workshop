@@ -14,15 +14,16 @@ Use macOS or Linux. On Windows, use Codex or Claude Code inside an installed WSL
 
 Open agentic-gtm-workshop as your local project. If you downloaded the ZIP, unzip it and open that folder instead.
 
-Open Participant-Booklet.pdf and prompts.html. Copy the first full prompt. Replace your website, buyer segment, offer and two target domains, then paste it into your local agent. Read the company brief it creates. Continue with one exercise at a time.
+Open [Participant-Booklet.html](Participant-Booklet.html). Expand the first embedded prompt. Fill in your website, buyer segment, offer and two target domains, then copy it into your local agent. Read the company brief it creates. Continue with one exercise at a time.
 
 ## Keep these open
 
 | File | Use |
 |---|---|
-| Part-1-Presentation.pdf | Follow the live workshop. |
-| Participant-Booklet.pdf | Instructions, checks and repairs for Part 1. |
-| prompts.html | Copy each complete exercise prompt. |
+| [Part-1-Presentation.html](Part-1-Presentation.html) | Follow the live workshop. Prompts are embedded. |
+| [Part-1-Presentation.pdf](Part-1-Presentation.pdf) | Review or print the slides. |
+| [Participant-Booklet.html](Participant-Booklet.html) | Instructions, checks, embedded prompts and repairs. |
+| [Participant-Booklet.pdf](Participant-Booklet.pdf) | Print the booklet. |
 | START-HERE.html | Optional helper for filling in the same startup prompt. |
 | API-CONNECTIONS.html | Get and save one key at a time. Part 1 needs no key. |
 | API-CONNECTIONS.md | Short key-saving reference. |
@@ -47,6 +48,10 @@ Keep this project for [Part 2](https://luma.com/jd8tm0ij) and [Part 3](https://l
 
 ## Rebuild this edition
 
-Install authoring/requirements.txt in a separate authoring environment. Run authoring/build_booklet.py, then authoring/build_materials.py. The course contains only Part 1. A single-session build does not produce a complete-series presentation.
+Install authoring/requirements.txt in a separate authoring environment. Run authoring/build_booklet.py, then authoring/build_materials.py, then authoring/build_html.py. The course contains only Part 1. A single-session build does not produce a complete-series presentation.
 
 Local software checks use fake providers. They do not prove delivery or spending. Dated examples and attribution limits are in sources/V5-WORKSHOP-SOURCES.md.
+
+## Final Part 1 edition
+
+`part1_v10_final` keeps the original five-section exercise order and all 12 complete prompts. It adds an early glossary, company fields, copy and result-check celebrations, tool alternatives and previews for Parts 2 and 3.

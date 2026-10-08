@@ -86,7 +86,7 @@
             "image": "assets/actual-outcomes.png",
             "first_instruction": "git clone https://github.com/f-o-x11/agentic-gtm-workshop.git"
           },
-          "body": "Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open the folder in local Codex or Claude Code. Keep the booklet and prompts.html open.",
+          "body": "Run git clone https://github.com/f-o-x11/agentic-gtm-workshop.git. Open the folder in local Codex or Claude Code. Keep the booklet open. Each prompt is embedded.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -374,6 +374,119 @@
           "chapter_title": "See Metadata's working examples"
         },
         {
+          "id": "p1-glossary",
+          "part": 1,
+          "title": "Words you’ll use today",
+          "type": "show",
+          "timing": 2,
+          "minutes": 2,
+          "difficulty": "Watch",
+          "visual_type": "diagram",
+          "visual_data": {
+            "terms": [
+              {
+                "word": "Coding agent",
+                "meaning": "Codex or Claude Code, working with files on your computer."
+              },
+              {
+                "word": "Company brief",
+                "meaning": "A saved description of your product, buyers, offer and source-backed proof."
+              },
+              {
+                "word": "Skill",
+                "meaning": "A saved set of instructions your agent can reuse, such as building an account page."
+              },
+              {
+                "word": "Execution flow",
+                "meaning": "The order of work and the conditions for continuing or stopping."
+              },
+              {
+                "word": "Runtime",
+                "meaning": "The local program that checks prepared actions and records results."
+              },
+              {
+                "word": "API",
+                "meaning": "A connection that lets a program use a tool, such as Loop & Tie."
+              },
+              {
+                "word": "API key",
+                "meaning": "A private password for that connection."
+              },
+              {
+                "word": "MCP",
+                "meaning": "A connection that lets your agent use an app’s tools from the conversation."
+              },
+              {
+                "word": "OAuth",
+                "meaning": "A browser sign-in that grants specific account access."
+              },
+              {
+                "word": "Authority",
+                "meaning": "The exact actions, recipients and spending you have approved."
+              },
+              {
+                "word": "Exclusion",
+                "meaning": "A company or person the workflow must not contact."
+              },
+              {
+                "word": "Action key",
+                "meaning": "The saved identifier for one exact prepared action."
+              },
+              {
+                "word": "Self-test",
+                "meaning": "One exact email to your own authorized sender."
+              },
+              {
+                "word": "Receipt",
+                "meaning": "A saved response or native record showing what actually happened."
+              },
+              {
+                "word": "Held",
+                "meaning": "Stopped because a required fact, connection or approval is missing."
+              },
+              {
+                "word": "Reconcile",
+                "meaning": "Read the original provider result without sending another copy."
+              },
+              {
+                "word": "Queued",
+                "meaning": "Waiting with the provider. It has not yet been confirmed sent."
+              },
+              {
+                "word": "Booked",
+                "meaning": "A meeting reservation. It does not show attendance."
+              }
+            ],
+            "today": [
+              "Coding agent",
+              "Company brief",
+              "Skill",
+              "Execution flow",
+              "API",
+              "MCP"
+            ]
+          },
+          "body": "",
+          "steps": [],
+          "prompt": "",
+          "tools": [
+            "Reference only. No account or credits needed."
+          ],
+          "expected": [],
+          "check": [],
+          "fallback": "",
+          "repair_prompt": "",
+          "sources": [],
+          "notes": "",
+          "build_step": 0,
+          "prompt_label": "",
+          "route": "main",
+          "next_id": "",
+          "next_action": "",
+          "chapter": 1,
+          "chapter_title": "See Metadata's working examples"
+        },
+        {
           "id": "p1-real-outputs",
           "part": 1,
           "title": "Zuora: the page, the email, the gift",
@@ -451,7 +564,7 @@
             ],
             "caption": "A skill is saved instructions for a repeatable job."
           },
-          "body": "Use your company and two real targets. Open Participant-Booklet.pdf for instructions and prompts.html to copy each full prompt. No API keys are needed for Part 1.",
+          "body": "Use your company and two real targets. Every exercise has its full prompt here and in the booklet. Part 1 needs no API keys.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -501,14 +614,14 @@
             "artifact": "company-motion/COMPANY.md + SETUP.md",
             "caption": "One clone. One local project for all three workshops."
           },
-          "body": "Open the participant booklet and prompts.html. Copy the first full prompt, fill in your company details and paste it into your local agent.",
+          "body": "Open the cloned folder. Add your company details to the prompt below. Copy it into your local Codex or Claude Code project.",
           "steps": [
             {
               "title": "Open agentic-gtm-workshop in local Codex or Claude Code.",
               "detail": ""
             },
             {
-              "title": "Open Participant-Booklet.pdf and prompts.html.",
+              "title": "Open Participant-Booklet.pdf and the embedded prompt.",
               "detail": ""
             },
             {
@@ -1254,7 +1367,7 @@
               "detail": ""
             },
             {
-              "title": "Copy that task's repair prompt from prompts.html.",
+              "title": "Copy that task's repair prompt from the embedded prompt.",
               "detail": ""
             },
             {
@@ -1292,9 +1405,198 @@
           "chapter_title": "Save the skill. Build page two."
         },
         {
+          "id": "p1-tool-options",
+          "part": 1,
+          "title": "Choose tools you already use",
+          "type": "show",
+          "timing": 2,
+          "minutes": 2,
+          "difficulty": "Watch",
+          "visual_type": "diagram",
+          "visual_data": {
+            "tool_options": [
+              {
+                "name": "Enrich company and buyer facts",
+                "choices": [
+                  {
+                    "name": "Sixtyfour",
+                    "url": "https://www.sixtyfour.ai/"
+                  },
+                  {
+                    "name": "RocketReach",
+                    "url": "https://rocketreach.co/api"
+                  },
+                  {
+                    "name": "MoltSets",
+                    "url": "https://moltsets.com/"
+                  },
+                  {
+                    "name": "Triguna",
+                    "url": "https://triguna.ai/"
+                  },
+                  {
+                    "name": "Adyntel",
+                    "url": "https://www.adyntel.com/"
+                  }
+                ],
+                "detail": "People and company data. Adyntel adds advertising activity.",
+                "needs": "Your provider account, API access and lookup credits."
+              },
+              {
+                "name": "Send email",
+                "choices": [
+                  {
+                    "name": "Google directly",
+                    "url": "https://developers.google.com/gmail/api"
+                  },
+                  {
+                    "name": "Instantly.ai",
+                    "url": "https://developer.instantly.ai/"
+                  },
+                  {
+                    "name": "Apollo.io",
+                    "url": "https://docs.apollo.io/reference/apollo-api"
+                  }
+                ],
+                "detail": "An already connected Instantly or Apollo mailbox can avoid a new Google API setup. Company permissions still apply.",
+                "needs": "A connected sender and a plan with API access."
+              },
+              {
+                "name": "Send a gift invitation",
+                "choices": [
+                  {
+                    "name": "Loop & Tie",
+                    "url": "https://docs.loopandtie.com/reference/oauth-20-api-access"
+                  },
+                  {
+                    "name": "Sendoso",
+                    "url": "https://www.sendoso.com/platform/features/mcp"
+                  }
+                ],
+                "detail": "Create gift invitations and read the provider’s result.",
+                "needs": "API or MCP access and your approved gift budget."
+              },
+              {
+                "name": "Run advertising",
+                "choices": [
+                  {
+                    "name": "Metadata.io MCP",
+                    "url": "https://metadata.io/developers"
+                  }
+                ],
+                "detail": "Build audiences, creatives and campaigns. Manage 12 channels through one platform.",
+                "needs": "A Metadata account and connected ad accounts.",
+                "note": "Use supported advertising connections. Account policies still apply."
+              }
+            ]
+          },
+          "body": "No new connection is needed today. These are options for the next sessions.",
+          "steps": [],
+          "prompt": "",
+          "tools": [
+            "Reference only. No account or credits needed."
+          ],
+          "expected": [],
+          "check": [],
+          "fallback": "",
+          "repair_prompt": "",
+          "sources": [],
+          "notes": "",
+          "build_step": 0,
+          "prompt_label": "",
+          "route": "main",
+          "next_id": "",
+          "next_action": "",
+          "chapter": 5,
+          "chapter_title": "Save the skill. Build page two."
+        },
+        {
+          "id": "p1-part2-preview",
+          "part": 1,
+          "title": "Part 2: send your first email pilot",
+          "type": "show",
+          "timing": 2,
+          "minutes": 2,
+          "difficulty": "Watch",
+          "visual_type": "diagram",
+          "visual_data": {
+            "teaser": "email",
+            "steps": [
+              "Choose 10 accounts",
+              "Find and check buyers",
+              "Preview exact emails",
+              "Send one test to yourself",
+              "Run the approved pilot"
+            ],
+            "image": "assets/zuora-email-redacted.png",
+            "outcome": "Leave with a reviewed email workflow and a checked test send.",
+            "url": "https://luma.com/jd8tm0ij"
+          },
+          "body": "Use the pages and company brief you built today.",
+          "steps": [],
+          "prompt": "",
+          "tools": [
+            "Reference only. No account or credits needed."
+          ],
+          "expected": [],
+          "check": [],
+          "fallback": "",
+          "repair_prompt": "",
+          "sources": [],
+          "notes": "",
+          "build_step": 0,
+          "prompt_label": "",
+          "route": "main",
+          "next_id": "",
+          "next_action": "",
+          "chapter": 5,
+          "chapter_title": "Save the skill. Build page two."
+        },
+        {
+          "id": "p1-part3-preview",
+          "part": 1,
+          "title": "Part 3: add gifts, LinkedIn and ads",
+          "type": "show",
+          "timing": 2,
+          "minutes": 2,
+          "difficulty": "Watch",
+          "visual_type": "diagram",
+          "visual_data": {
+            "teaser": "orchestrator",
+            "steps": [
+              "Check replies and bookings",
+              "Stop follow-ups after a reply or booking",
+              "Prepare the next approved action",
+              "Read the provider result",
+              "Repeat within your limits"
+            ],
+            "outcome": "Add gifting, LinkedIn and advertising to the same workflow.",
+            "url": "https://luma.com/wucyo6fw"
+          },
+          "body": "See how one workflow coordinates the channels you choose.",
+          "steps": [],
+          "prompt": "",
+          "tools": [
+            "Reference only. No account or credits needed."
+          ],
+          "expected": [],
+          "check": [],
+          "fallback": "",
+          "repair_prompt": "",
+          "sources": [],
+          "notes": "",
+          "build_step": 0,
+          "prompt_label": "",
+          "route": "main",
+          "next_id": "",
+          "next_action": "",
+          "chapter": 5,
+          "chapter_title": "Save the skill. Build page two."
+        },
+        {
           "id": "p1-before-part2",
           "part": 1,
-          "title": "Register for Parts 2 and 3. Prepare your email.",
+          "title": "Keep building. Join Parts 2 and 3.",
           "type": "reference",
           "timing": 0,
           "minutes": 0,
@@ -1337,7 +1639,7 @@
           "steps": [],
           "prompt": "Read API-CONNECTIONS.html, API-CONNECTIONS.md and SETUP-SEQUENCE.md for the single email channel.\nPrepare my own sender, primary calendar, permitted countries and current customer/deal/opt-out exclusions.\nFollow the Google Cloud sign-in guide. It must initialize this fresh email configuration from code/ using python3 -B gtm.py init --config and the actual private path before treating email setup as ready; bootstrap alone is local file setup. Use the project launcher and the actual private client-file path. Record the authenticated sender and calendar; name any Workspace-admin blocker.\nPrepare ten distinct target domains and current buyer contacts plus my own self-test address.\nRead the actual ZeroBounce balance and show the validation cost. Ask for my bounded paid-validation approval before spending credits. Keep original pending request IDs.\nSave company-motion/CONNECTION-CHECK.md with each actual result or blocker. Keep outreach paused.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: keep this project and prepare your email before Part 2.",
           "tools": [
-            "Google sender/calendar and ZeroBounce for the live email test. Finder optional."
+            "Your saved Part 1 project. Choose later connections before the next session."
           ],
           "expected": [
             "CONNECTION-CHECK.md with ready or blocked email prerequisites."
@@ -1499,6 +1801,7 @@
             "p1-v5-tree",
             "p1-about",
             "p1-you",
+            "p1-glossary",
             "p1-real-outputs",
             "p1-finish"
           ],
@@ -1554,6 +1857,9 @@
             "p1-break",
             "p1-checkpoint",
             "p1-help",
+            "p1-tool-options",
+            "p1-part2-preview",
+            "p1-part3-preview",
             "p1-before-part2"
           ],
           "guided_minutes": 24,
@@ -1609,5 +1915,7 @@
     "next_id": "p1-company",
     "instruction": "Finish only the shown step. Show the actual output and check. Stop, then name the next exercise.",
     "clone_command": "git clone https://github.com/f-o-x11/agentic-gtm-workshop.git"
-  }
+  },
+  "release": "part1_v10_final",
+  "project_folder": "Open the cloned workshop folder in local Codex or Claude Code. Keep the participant booklet open beside Zoom."
 }

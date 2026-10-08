@@ -9,6 +9,7 @@
 | Runtime | The local program that checks prepared actions and records results. |
 | API | A connection that lets a program use a tool, such as Loop & Tie. |
 | API key | A private password for that connection. |
+| MCP | A connection that lets your agent use an app’s tools from the conversation. |
 | OAuth | A browser sign-in that grants specific account access. |
 | Authority | The exact actions, recipients and spending you have approved. |
 | Exclusion | A company or person the workflow must not contact. |

@@ -1,0 +1,496 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your Agentic GTM build booklet</title><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="workshop-helpers.css"></head><body><header class="nav"><a class="brand" href="START-HERE.html">metadata<span>.</span></a><nav class="nav-links"><a href="#booklet-p1-install" data-expand="booklet-p1-install">First prompt</a><a href="Participant-Booklet.pdf" target="_blank" rel="noopener">PDF booklet ↗</a><a href="Part-1-Presentation.html" target="_blank" rel="noopener">Slides ↗</a></nav></header><main class="booklet-main"><p class="eyebrow">Part 1 · Participant booklet</p><p class="booklet-stay">Keep Zoom and this booklet open. Expand each prompt here, copy it, and paste it into your local agent. Close any resource tab when finished to return here.</p><h1>Build your own Agentic GTM: Part 1</h1>
+<p>Use your company website and two target-company domains. No API keys are needed.</p>
+<h2>Start here</h2>
+<div class="booklet-prompt command"><button class="button secondary" data-copy-code>Copy command</button><pre>git clone https://github.com/f-o-x11/agentic-gtm-workshop.git</pre></div>
+<p>Open this folder in local Codex or Claude Code. Keep this booklet open beside Zoom. Expand the first complete prompt here. Add your website, buyer segment, offer and two target domains, then copy it into your local agent. Review the company brief before continuing.</p>
+<p>Program commands run from code/. Your company files live in company-motion/. Keys belong outside this repository.</p>
+<h2>Words you may need</h2>
+<div class="booklet-table"><table>
+<tr><td>Word</td><td>Meaning here</td></tr>
+<tr><td>Coding agent</td><td>Codex or Claude Code, working with files on your computer.</td></tr>
+<tr><td>Company brief</td><td>A saved description of your product, buyers, offer and source-backed proof.</td></tr>
+<tr><td>Skill</td><td>A saved set of instructions your agent can reuse, such as building an account page.</td></tr>
+<tr><td>Execution flow</td><td>The order of work and the conditions for continuing or stopping.</td></tr>
+<tr><td>Runtime</td><td>The local program that checks prepared actions and records results.</td></tr>
+<tr><td>API</td><td>A connection that lets a program use a tool, such as Loop &amp; Tie.</td></tr>
+<tr><td>API key</td><td>A private password for that connection.</td></tr>
+<tr><td>MCP</td><td>A connection that lets your agent use an app’s tools from the conversation.</td></tr>
+<tr><td>OAuth</td><td>A browser sign-in that grants specific account access.</td></tr>
+<tr><td>Authority</td><td>The exact actions, recipients and spending you have approved.</td></tr>
+<tr><td>Exclusion</td><td>A company or person the workflow must not contact.</td></tr>
+<tr><td>Action key</td><td>The saved identifier for one exact prepared action.</td></tr>
+<tr><td>Self-test</td><td>One exact email to your own authorized sender.</td></tr>
+<tr><td>Receipt</td><td>A saved response or native record showing what actually happened.</td></tr>
+<tr><td>Held</td><td>Stopped because a required fact, connection or approval is missing.</td></tr>
+<tr><td>Reconcile</td><td>Read the original provider result without sending another copy.</td></tr>
+<tr><td>Queued</td><td>Waiting with the provider. It has not yet been confirmed sent.</td></tr>
+<tr><td>Booked</td><td>A meeting reservation. It does not show attendance.</td></tr>
+</table></div>
+<h2>Finish with</h2>
+<ul>
+<li>Your company facts and paused operating instructions.</li>
+<li>Two sourced target briefs and two reviewed pages.</li>
+<li>One saved page skill successfully reused.</li>
+<li>A progress record and the exact next setup task.</li>
+</ul>
+<h2>Section 1: See Metadata&#x27;s working examples</h2>
+<p>See the actual page, email and gift examples.</p>
+<h2>Section 2: Set up your company</h2>
+<p>COMPANY.md, saved setup and local rules.</p>
+<h3>Open the cloned folder. Build your company brief.</h3>
+<p>Reference: p1-install</p>
+<p>Time: 12 minutes. Difficulty: Easy.</p>
+<p>Tools: Local Codex or Claude Code; file and web access. No API credits.</p>
+<ol>
+<li>Open agentic-gtm-workshop in local Codex or Claude Code.</li>
+<li>Open <a href="Participant-Booklet.pdf" target="_blank" rel="noopener">Participant-Booklet.pdf</a> and the embedded prompt.</li>
+<li>Copy the full startup prompt. Replace its five inputs. Your website, buyer segment, offer and two target domains.</li>
+<li>Paste into your local agent. Review COMPANY.md when it stops.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-install"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><details class="company-inputs"><summary>Add your company details</summary><p>Fill what you know. Your agent asks for the rest. These fields stay in your browser. Do not enter API keys.</p><div class="company-fields"><label for="booklet-p1-install-website">Company website<input id="booklet-p1-install-website" data-company-field="website" placeholder="https://your-company.com" autocomplete="off"></label><label for="booklet-p1-install-buyer">Buyer segment<input id="booklet-p1-install-buyer" data-company-field="buyer" placeholder="Who you sell to" autocomplete="off"></label><label for="booklet-p1-install-offer">Your offer<input id="booklet-p1-install-offer" data-company-field="offer" placeholder="What you want the buyer to do" autocomplete="off"></label><label for="booklet-p1-install-targetOne">First target domain<input id="booklet-p1-install-targetOne" data-company-field="targetOne" placeholder="first-company.com" autocomplete="off"></label><label for="booklet-p1-install-targetTwo">Second target domain<input id="booklet-p1-install-targetTwo" data-company-field="targetTwo" placeholder="second-company.com" autocomplete="off"></label></div></details><pre data-personalize >Help me build my company&#x27;s GTM workflow one step at a time.
+Website: [YOUR_COMPANY_WEBSITE]
+Buyer segment: [BUYER_SEGMENT]
+Offer: [COLD_OFFER]
+Targets: [TARGET_1_DOMAIN], [TARGET_2_DOMAIN]
+I have cloned agentic-gtm-workshop and opened it as this local project. Read README.md, AGENTS.md and START-HERE.md. If an input is blank, ask only for what official sources cannot supply. Suggest real targets for my confirmation if needed.
+Use this workshop folder as my local project. Keep runtime in code/ and outputs in company-motion/. Run commands from code/.
+Read my official website and save company-motion/COMPANY.md with sourced facts, the segment, offer, proof and actual next-step link. Ask only for missing facts. If the site blocks access, use official text I paste.
+After company-motion/COMPANY.md exists, run from code/:
+python3 -B gtm.py bootstrap --company-brief ../company-motion/COMPANY.md
+Use its saved verified Python executable for later commands and standalone scripts.
+If Python needs installation, name the official installer and stop there. Do not install Homebrew.
+Read company-motion/AUTHORITY.md and company-motion/AGENTS.md. Keep outreach and spending paused.
+Save both target domains and the actual bootstrap result in company-motion/SETUP.md. Append the completed step, actual file paths, checks and next task to company-motion/PROGRESS.md. Do not run later exercises.
+Show the output and success check. Stop. Next: review your company brief.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-install" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-install-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-install in this same saved project.
+Expected artifact: company-motion/COMPANY.md, company-motion/SETUP.md, company-motion/AUTHORITY.md, company-motion/AGENTS.md and saved interpreter receipt.
+Success check: Company brief exists before bootstrap. Compatible Python path/version is actually verified. Outreach and spending remain paused. Agent stops after setup and names the next step.
+Read the website/paste source and actual setup error. Create company-motion/COMPANY.md before bootstrap. If Python is missing, give the official installer and stop. If already installed, rerun bootstrap through the verified launcher, save company-motion/SETUP.md and confirm the missing files. Do not run later exercises.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: review your company brief.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>COMPANY.md, SETUP.md, AUTHORITY.md and AGENTS.md.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Setup found a supported Python version.</li>
+<li>Sending and spending are paused.</li>
+<li>The agent stops and names the next task.</li>
+</ul>
+<p>If blocked: If web access is blocked, paste your official website text. If Python is missing, use the launcher&#x27;s named official installer, then rerun this same step.</p>
+<p>Next: review your company brief.</p>
+<h3>Check your company facts, buyers and offer</h3>
+<p>Reference: p1-company</p>
+<p>Time: 8 minutes. Difficulty: Easy.</p>
+<p>Tools: Codex web access and your official website. No paid API required.</p>
+<ol>
+<li>Read COMPANY.md. Check the buyer, offer and next-step link.</li>
+<li>Open its proof sources. Resolve conflicting numbers or leave them out.</li>
+<li>Confirm the brief. Use it for both account pages.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-company"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Review company-motion/COMPANY.md with me.
+Show the buyer segment, offer, next-step link and the source behind each proof claim.
+If the website has conflicting numbers, show both URLs and exact excerpts. Do not choose a number without support.
+Ask at most two short questions for missing company facts. Keep unsupported claims out of the brief.
+Save my corrections and preserve the source URLs and read dates.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: review the operating instructions.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-company" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-company-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-company in this same saved project.
+Expected artifact: company-motion/COMPANY.md with sourced company facts.
+Success check: Every proof claim has a supporting source. Buyer segment and offer match your answers. Conflicting website numbers are flagged, not silently selected.
+Open the specific disputed claim and its exact official source excerpt. Show conflicting numbers to me. Remove unsupported proof or apply my factual correction; do not invent a replacement.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: review the operating instructions.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>company-motion/COMPANY.md with sourced company facts.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Every proof claim has a supporting source.</li>
+<li>Buyer segment and offer match your answers.</li>
+<li>Conflicting website numbers are flagged, not silently selected.</li>
+</ul>
+<p>If blocked: Paste text from your official product and proof pages. Codex saves the pasted source and labels it owner-provided.</p>
+<p>Next: review the operating instructions.</p>
+<h3>Check the saved rules. Keep sending paused.</h3>
+<p>Reference: p1-authority</p>
+<p>Time: 4 minutes. Difficulty: Easy.</p>
+<p>Tools: Prepared bootstrap and your saved company brief. No API.</p>
+<ol>
+<li>Open AUTHORITY.md and AGENTS.md. Your local rules and sending limits.</li>
+<li>Confirm sending and spending are paused.</li>
+<li>Ask your agent to repair either missing file. Keep the existing company brief.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-authority"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Open company-motion/AUTHORITY.md and company-motion/AGENTS.md.
+If either is missing, rerun:
+python3 -B gtm.py bootstrap --company-brief ../company-motion/COMPANY.md
+Preserve my existing facts, instructions and history.
+Show the company name, one-step-at-a-time rule, and paused outreach and spending rules.
+If either file conflicts with my company brief, show the conflict for my correction. Do not grant a sender or live channel yet.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: research the first target company.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-authority" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-authority-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-authority in this same saved project.
+Expected artifact: Present, readable company-motion/AUTHORITY.md and company-motion/AGENTS.md.
+Success check: Both files exist. No outreach, sender, spend or country authority is invented.
+Check which instruction file is actually missing. From code/, run python3 -B gtm.py bootstrap --company-brief ../company-motion/COMPANY.md. Preserve any existing authority and instructions. Confirm both files now open and outreach remains paused.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: research the first target company.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>Present, readable AUTHORITY.md and AGENTS.md.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Both files exist.</li>
+<li>No outreach, sender, spend or country authority is invented.</li>
+</ul>
+<p>If blocked: Rerun bootstrap with the existing company brief. Preserve the brief and working pages.</p>
+<p>Next: research the first target company.</p>
+<h2>Section 3: Choose two target companies</h2>
+<p>Two target briefs and TARGETS.md.</p>
+<h3>Research your first target company</h3>
+<p>Reference: p1-one-source</p>
+<p>Time: 5 minutes. Difficulty: Easy.</p>
+<p>Tools: Official target-company website. No paid API required.</p>
+<ol>
+<li>Choose the first target website. Use a real company you want to sell to.</li>
+<li>Save three useful facts. Record its product, buyers and a relevant current need.</li>
+<li>Mark unsupported ideas as suggestions. A proposed campaign is not a known business problem.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-one-source"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Use the first target domain saved during setup.
+Read its official website and my company brief.
+Save company-motion/targets/ACTUAL-DOMAIN.md with its product, buyers and facts relevant to our offer. Use the actual domain in the path.
+For each fact, include the source URL, exact supporting text and read date.
+Keep ideas separate from facts. Do not invent revenue, spend, buying intent or a recent launch.
+Show one sourced target fact and the page idea it supports.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: research the second target and save the target list.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-one-source" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-one-source-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-one-source in this same saved project.
+Expected artifact: One dated target brief.
+Success check: Each target fact has its exact source excerpt and read date. The page idea is labeled as a suggestion.
+Read the first target domain in company-motion/SETUP.md. If its official site blocks access, use the official text I paste and label that source. Save the missing target brief with exact excerpts, dates and a separate proposed page idea.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: research the second target and save the target list.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>One dated target brief.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Each target fact has its exact source excerpt and read date.</li>
+<li>The page idea is labeled as a suggestion.</li>
+</ul>
+<p>If blocked: Paste the target’s official source text into Codex. Keep the official URL and retrieval date.</p>
+<p>Next: research the second target and save the target list.</p>
+<h3>Save your two target companies</h3>
+<p>Reference: p1-target-fit</p>
+<p>Time: 5 minutes. Difficulty: Easy.</p>
+<p>Tools: Two real target domains and browser access. No paid API required.</p>
+<ol>
+<li>Read the saved target domains. Use the two companies from setup.</li>
+<li>Research the second company. Save its facts and one supported fit reason.</li>
+<li>Save the two-company list. Keep uncertain fit visible for review.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-target-fit"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Read the two target domains saved during setup.
+Research the second company from its official sources and save its target brief.
+Save company-motion/TARGETS.md with both actual domains, products, buyers and one sourced reason our offer fits each.
+Keep uncertain fit marked for review. This list is page-building input, not permission to contact a person.
+Show both companies plainly, one row each.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: build the first account page.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-target-fit" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-target-fit-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-target-fit in this same saved project.
+Expected artifact: Two reviewed target briefs and company-motion/TARGETS.md.
+Success check: Each company has one supported reason for the page.
+Open both saved target briefs and company-motion/TARGETS.md. Fill only the missing second-target facts from its actual official source. Keep an uncertain fit marked for review; do not choose a fictional company.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: build the first account page.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>Two reviewed target briefs and company-motion/TARGETS.md.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Each company has one supported reason for the page.</li>
+</ul>
+<p>If blocked: Use two named companies you already know, then paste their official product pages.</p>
+<p>Next: build the first account page.</p>
+<h2>Section 4: Build and check your first page</h2>
+<p>First HTML page and PAGE-REVIEW.md.</p>
+<h3>Build the page for your first target</h3>
+<p>Reference: p1-build-page</p>
+<p>Time: 10 minutes. Difficulty: Easy.</p>
+<p>Tools: Codex file/browser access and the two saved briefs. No API credits.</p>
+<ol>
+<li>Copy the page prompt. Codex reads the two saved briefs.</li>
+<li>Open the generated page. View the HTML in your browser.</li>
+<li>Check the headline and offer. They must refer to the correct seller and buyer.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-build-page"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Build company-motion/pages/ACTUAL-DOMAIN/index.html for the first target using our company brief and its target brief.
+Make one standalone responsive HTML file with styles, scripts and required graphics inside it.
+Use our actual brand, one buyer-specific idea, our actual offer, supported proof and our real next-step link.
+Keep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch.
+If proof is weak, use the supported product description or omit that proof block.
+Save claim/source notes beside the page and open the actual file in a browser.
+If the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check every claim and review desktop and phone layouts.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-build-page" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-build-page-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-build-page in this same saved project.
+Expected artifact: A real HTML page and source notes.
+Success check: The page opens. The seller, target and next step are correct. No unsupported proof appears.
+Open the actual HTML and its saved company/target briefs. Repair the wrong seller, target, link, standalone dependency or unsupported claim. Use sourced product facts when proof is thin. Reopen the file and keep the source notes.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: check every claim and review desktop and phone layouts.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>A real HTML page and source notes.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>The page opens.</li>
+<li>The seller, target and next step are correct.</li>
+<li>No unsupported proof appears.</li>
+</ul>
+<p>If blocked: If the browser blocks the file URL, use a local HTTP preview. Keep any browser check you could not run marked unverified.</p>
+<p>Next: check every claim and review desktop and phone layouts.</p>
+<h3>Check every claim. Then check the page layout.</h3>
+<p>Reference: p1-page-review</p>
+<p>Time: 10 minutes. Difficulty: Easy.</p>
+<p>Tools: Browser and generated HTML. No paid API required.</p>
+<ol>
+<li>Read each factual claim. Open its exact source and supporting text.</li>
+<li>Remove unsupported promises. Check demo length, numbers, testimonials and words such as &quot;just launched&quot;.</li>
+<li>Check desktop and phone. Measure the browser viewport, not the Mac window.</li>
+<li>Open the next-step link. Repair failed checks and rerun them.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-page-review"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Review every factual claim in the saved HTML, including headings, buttons, captions and footer.
+Save a claim ledger with the claim, exact source URL and supporting excerpt. Remove or rewrite unsupported demo length, results, testimonials and recency claims. Suggestions must be labeled.
+Check the page in actual browser viewports at 1440 x 900 and 390 x 844. Read window.innerWidth and window.innerHeight before checking overflow; resizing a Mac window alone is not proof of the viewport.
+If the browser cannot reach 390 pixels, record phone review as unverified and give a device-mode or phone check. Do not report false clipping.
+Test the next-step link. Repair failures and rerun them.
+Save company-motion/PAGE-REVIEW.md with the claim ledger, measured viewport sizes, screenshots and unresolved checks.
+If the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: save the checked page method as a skill.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-page-review" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-page-review-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-page-review in this same saved project.
+Expected artifact: Reviewed page plus company-motion/PAGE-REVIEW.md.
+Success check: Every factual claim has exact supporting text or is removed. Measured innerWidth matches the recorded viewport. Phone overflow is measured inside that viewport. Failed checks are rerun after repair.
+Open the failed claim or viewport check. Remove unsupported promises using the exact source. Measure browser innerWidth/innerHeight before overflow. If a real 390px viewport is unavailable, leave phone review unverified and give the manual device-mode or phone check. Rerun repaired checks.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: save the checked page method as a skill.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>Reviewed page plus company-motion/PAGE-REVIEW.md.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Every factual claim has exact supporting text or is removed.</li>
+<li>Measured innerWidth matches the recorded viewport.</li>
+<li>Phone overflow is measured inside that viewport.</li>
+<li>Failed checks are rerun after repair.</li>
+</ul>
+<p>If blocked: If the browser blocks the file URL, use a local HTTP preview. Keep any browser check you could not run marked unverified.</p>
+<p>Next: save the checked page method as a skill.</p>
+<h2>Section 5: Save the skill. Build page two.</h2>
+<p>SKILL.md, second page and completed file check.</p>
+<h3>Save your page-building instructions as a skill</h3>
+<p>Reference: p1-save-skill</p>
+<p>Time: 6 minutes. Difficulty: Easy.</p>
+<p>Tools: Reviewed first page and source notes. No API credits.</p>
+<ol>
+<li>Copy the skill prompt. Use your checked page and source notes.</li>
+<li>Read the saved SKILL.md. It must say what to read, build and check.</li>
+<li>Use these instructions for the next page.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-save-skill"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Create company-motion/skills/account-page/SKILL.md from the method that passed review.
+Include the required company and target facts, standalone HTML output, source ledger, missing-proof rule, real next-step link and measured desktop/phone checks.
+Use the reviewed first page as the example. Make the instructions usable in a fresh local agent session.
+Require each factual claim to have exact source support. Keep unsupported facts out.
+Show the complete saved skill.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: use that skill for the second target.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-save-skill" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-save-skill-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-save-skill in this same saved project.
+Expected artifact: company-motion/skills/account-page/SKILL.md.
+Success check: The skill names inputs, output and checks. A missing source has a defined response.
+Open the saved skill and reviewed first page. Add the missing input, claim-source rule, standalone output path or measured viewport check. Show the complete skill; do not edit the reviewed first page.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: use that skill for the second target.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>company-motion/skills/account-page/SKILL.md.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>The skill names inputs, output and checks.</li>
+<li>A missing source has a defined response.</li>
+</ul>
+<p>If blocked: Use the complete skill prompt with the reviewed page and source notes. Save the skill in company-motion, then inspect it.</p>
+<p>Next: use that skill for the second target.</p>
+<h3>Use the skill for your second target</h3>
+<p>Reference: p1-repeat</p>
+<p>Time: 8 minutes. Difficulty: Easy.</p>
+<p>Tools: Saved account-page skill and second target brief. No paid API required.</p>
+<ol>
+<li>Run the account-page skill. Use the second saved target brief.</li>
+<li>Open both pages. Compare buyer names and ideas.</li>
+<li>Save the repeat result. Keep the first page intact.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-repeat"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Use the saved account-page skill and the second target brief to build the second page.
+Keep the first page unchanged.
+Run the skill&#x27;s full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.
+Show what changed between the two targets. Remove facts or generic copy carried over from the first company.
+Save company-motion/SKILL-TEST.md with both page paths, review evidence and remaining issues.
+If the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check the Part 1 files after the break.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-repeat" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-repeat-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-repeat in this same saved project.
+Expected artifact: Second reviewed page and company-motion/SKILL-TEST.md.
+Success check: Each page addresses its own buyer. The first page remains intact. The saved skill produced both outputs.
+Read the second-target brief and saved skill. Repair its own missing or copied claim without touching the first page. Repeat the claim and measured-layout checks and save company-motion/SKILL-TEST.md.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: check the Part 1 files after the break.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>Second reviewed page and company-motion/SKILL-TEST.md.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Each page addresses its own buyer.</li>
+<li>The first page remains intact.</li>
+<li>The saved skill produced both outputs.</li>
+</ul>
+<p>If blocked: If the second website blocks access, use its saved official-source text. Label that source path.</p>
+<p>Next: check the Part 1 files after the break.</p>
+<h3>Check the files. Fix anything missing.</h3>
+<p>Reference: p1-checkpoint</p>
+<p>Time: 5 minutes. Difficulty: Easy.</p>
+<p>Tools: Your generated files and actual browser results. No new credits.</p>
+<ol>
+<li>Copy the checkpoint prompt. Your agent opens each required file.</li>
+<li>Fix the first failed check. Keep both pages and the saved skill.</li>
+<li>Read PROGRESS.md. Check the result and your next task.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-checkpoint"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Open our company brief, setup receipt, company-motion/AUTHORITY.md, company-motion/AGENTS.md, target list, two target briefs, two pages, page review, saved skill and skill test.
+If company-motion/AUTHORITY.md or company-motion/AGENTS.md is missing, rerun bootstrap with the existing company brief. Preserve all working outputs and history.
+Append actual paths and passed or missing checks to company-motion/PROGRESS.md.
+Keep created, reviewed and published separate. Repair the first available local issue and rerun its check.
+Name one exact next action for each remaining gap.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: finish the first remaining issue with individual help.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-checkpoint" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-checkpoint-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-checkpoint in this same saved project.
+Expected artifact: company-motion/PROGRESS.md with actual paths and passed or missing checks.
+Success check: Required files are actually opened. Missing authority/instruction files can be repaired in place. Created, reviewed and published remain separate labels.
+Open each required file. Repair missing company-motion/AUTHORITY.md or company-motion/AGENTS.md with bootstrap using the existing company brief. Preserve both pages and the saved skill. Record each actual passed or missing check in company-motion/PROGRESS.md.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: finish the first remaining issue with individual help.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>PROGRESS.md with actual paths and passed or missing checks.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Required files are actually opened.</li>
+<li>Missing authority/instruction files can be repaired in place.</li>
+<li>Created, reviewed and published remain separate labels.</li>
+</ul>
+<p>If blocked: Share the failed file or error with the repair prompt. Continue from the same project.</p>
+<p>Next: finish the first remaining issue with individual help.</p>
+<h3>Fix your first unfinished task</h3>
+<p>Reference: p1-help</p>
+<p>Time: 30 minutes. Difficulty: Help.</p>
+<p>Tools: Codex and your workshop project.</p>
+<ol>
+<li>Open PROGRESS.md. Find the first unfinished check.</li>
+<li>Copy that task&#x27;s repair prompt from the embedded prompt.</li>
+<li>Add your error. Rerun the check. Save the result.</li>
+</ol>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-help"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Read company-motion/PROGRESS.md and find the first unfinished Part 1 check.
+Repair that local cause in this same project. Preserve working pages, source notes and the saved skill.
+Rerun its success check and update company-motion/PROGRESS.md.
+If only phone review is missing, show the exact manual device-mode or phone check instead of inventing a pass.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: prepare the single email connection before Part 2.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-help" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-help-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-help in this same saved project.
+Expected artifact: One repaired task and updated progress.
+Success check: The previously failed check is rerun.
+Read the first unfinished Part 1 entry in company-motion/PROGRESS.md and that exercise&#x27;s saved prompt. Repair that precise local issue and rerun its check. Leave unsupported facts and unavailable phone review visible.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: prepare the single email connection before Part 2.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>One repaired task and updated progress.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>The previously failed check is rerun.</li>
+</ul>
+<p>If blocked: Save the unresolved error and named missing setup. Do not reset the project.</p>
+<p>Next: prepare the single email connection before Part 2.</p>
+<h3>Keep building. Join Parts 2 and 3.</h3>
+<p>Reference: p1-before-part2</p>
+<p>Time: 0 minutes. Difficulty: Setup.</p>
+<p>Tools: Your saved Part 1 project. Choose later connections before the next session.</p>
+<p>Expand the complete prompt below. Copy it into the same local agent project.</p>
+<details class="booklet-prompt" id="booklet-p1-before-part2"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Read API-CONNECTIONS.html, API-CONNECTIONS.md and SETUP-SEQUENCE.md for the single email channel.
+Prepare my own sender, primary calendar, permitted countries and current customer/deal/opt-out exclusions.
+Follow the Google Cloud sign-in guide. It must initialize this fresh email configuration from code/ using python3 -B gtm.py init --config and the actual private path before treating email setup as ready; bootstrap alone is local file setup. Use the project launcher and the actual private client-file path. Record the authenticated sender and calendar; name any Workspace-admin blocker.
+Prepare ten distinct target domains and current buyer contacts plus my own self-test address.
+Read the actual ZeroBounce balance and show the validation cost. Ask for my bounded paid-validation approval before spending credits. Keep original pending request IDs.
+Save company-motion/CONNECTION-CHECK.md with each actual result or blocker. Keep outreach paused.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: keep this project and prepare your email before Part 2.</pre></details>
+<button class="result-complete" data-exercise-complete="p1-before-part2" aria-pressed="false">My result matches these checks ✓</button>
+<details class="booklet-prompt repair" id="booklet-p1-before-part2-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-before-part2 in this same saved project.
+Expected artifact: company-motion/CONNECTION-CHECK.md with ready or blocked email prerequisites.
+Success check: Own Google profile and calendar reads succeed. Actual ZeroBounce credits and paid validation scope are known. Current exclusions and permitted countries are ready.
+Read PREWORK.md and the actual blocked email setup. Fresh private email setup needs init --config once, not bootstrap or configure alone. Identify the exact Google/admin, calendar, validation or exclusion blocker. If a paid lookup may have started, read its original request rather than starting another. Keep live outreach paused.
+Use the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: open Part 2 and check your email prerequisites.
+Actual error: [paste the error without credentials]</pre></details>
+<p>You should have:</p>
+<ul>
+<li>CONNECTION-CHECK.md with ready or blocked email prerequisites.</li>
+</ul>
+<p>Check before continuing:</p>
+<ul>
+<li>Own Google profile and calendar reads succeed.</li>
+<li>Actual ZeroBounce credits and paid validation scope are known.</li>
+<li>Current exclusions and permitted countries are ready.</li>
+</ul>
+<p>If blocked: Without sender authorization, Part 2 can prepare messages. It cannot prove live sending.</p>
+<p>Next: keep this project and prepare your email before Part 2.</p>
+<h2>Tools for the next sessions</h2>
+<p>Use the tools you already have. Part 1 needs none of these connections.</p>
+<h3>Enrich company and buyer facts</h3>
+<p><a href="https://www.sixtyfour.ai/" target="_blank" rel="noopener">Sixtyfour</a>, <a href="https://rocketreach.co/api" target="_blank" rel="noopener">RocketReach</a>, <a href="https://moltsets.com/" target="_blank" rel="noopener">MoltSets</a>, <a href="https://triguna.ai/" target="_blank" rel="noopener">Triguna</a>, <a href="https://www.adyntel.com/" target="_blank" rel="noopener">Adyntel</a></p>
+<p>People and company data. Adyntel adds advertising activity.</p>
+<p>Needs: Your provider account, API access and lookup credits.</p>
+<h3>Send email</h3>
+<p><a href="https://developers.google.com/gmail/api" target="_blank" rel="noopener">Google directly</a>, <a href="https://developer.instantly.ai/" target="_blank" rel="noopener">Instantly.ai</a>, <a href="https://docs.apollo.io/reference/apollo-api" target="_blank" rel="noopener">Apollo.io</a></p>
+<p>An already connected Instantly or Apollo mailbox can avoid a new Google API setup. Company permissions still apply.</p>
+<p>Needs: A connected sender and a plan with API access.</p>
+<h3>Send a gift invitation</h3>
+<p><a href="https://docs.loopandtie.com/reference/oauth-20-api-access" target="_blank" rel="noopener">Loop &amp; Tie</a>, <a href="https://www.sendoso.com/platform/features/mcp" target="_blank" rel="noopener">Sendoso</a></p>
+<p>Create gift invitations and read the provider’s result.</p>
+<p>Needs: API or MCP access and your approved gift budget.</p>
+<h3>Run advertising</h3>
+<p><a href="https://metadata.io/developers" target="_blank" rel="noopener">Metadata.io MCP</a></p>
+<p>Build audiences, creatives and campaigns. Manage 12 channels through one platform.</p>
+<p>Needs: A Metadata account and connected ad accounts.</p>
+<p>The supplied sending adapters use Gmail and Loop &amp; Tie. Other providers need their own connection. Company permissions and account policies still apply.</p>
+<h1>Keep your project</h1>
+<p>Save your brief, target list, reviewed pages, skill and PROGRESS.md. Your files are the starting point for the next workshop.</p>
+<p>Part 2: choose ten accounts, check buyer data, preview your emails, then send and verify one approved self-test.</p>
+<p>Part 3: check replies and bookings, add gift and LinkedIn actions, connect advertising, then repeat within your limits.</p>
+<p><a href="https://luma.com/jd8tm0ij" target="_blank" rel="noopener">Register for Part 2</a>. <a href="https://luma.com/wucyo6fw" target="_blank" rel="noopener">Register for Part 3</a>.</p><div class="registrations"><a href="https://luma.com/jd8tm0ij" target="_blank" rel="noopener"><img src="assets/workshop-2-qr.png" alt="QR code to register for Workshop 2"><div><h3>Workshop 2</h3><p>Write and test outbound email.</p><span>Register on Luma ↗</span></div></a><a href="https://luma.com/wucyo6fw" target="_blank" rel="noopener"><img src="assets/workshop-3-qr.png" alt="QR code to register for Workshop 3"><div><h3>Workshop 3</h3><p>Add channels and repeat the workflow.</p><span>Register on Luma ↗</span></div></a></div><p id="booklet-status" role="status" aria-live="polite"></p></main><p class="workshop-success" id="workshop-success" role="status" aria-live="polite"></p><script src="workshop-helpers.js"></script><script src="booklet.js"></script></body></html>

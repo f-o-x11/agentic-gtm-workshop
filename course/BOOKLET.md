@@ -8,9 +8,33 @@ Use your company website and two target-company domains. No API keys are needed.
 git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
 ```
 
-Open this folder in local Codex or Claude Code. Open the participant booklet and prompts.html. Copy the first complete prompt, replace your website, buyer segment, offer and two target domains, then paste it into your local agent. Review the company brief before continuing.
+Open this folder in local Codex or Claude Code. Keep this booklet open beside Zoom. Expand the first complete prompt here. Add your website, buyer segment, offer and two target domains, then copy it into your local agent. Review the company brief before continuing.
 
 Program commands run from code/. Your company files live in company-motion/. Keys belong outside this repository.
+
+## Words you may need
+
+| Word | Meaning here |
+|---|---|
+| Coding agent | Codex or Claude Code, working with files on your computer. |
+| Company brief | A saved description of your product, buyers, offer and source-backed proof. |
+| Skill | A saved set of instructions your agent can reuse, such as building an account page. |
+| Execution flow | The order of work and the conditions for continuing or stopping. |
+| Runtime | The local program that checks prepared actions and records results. |
+| API | A connection that lets a program use a tool, such as Loop & Tie. |
+| API key | A private password for that connection. |
+| MCP | A connection that lets your agent use an app’s tools from the conversation. |
+| OAuth | A browser sign-in that grants specific account access. |
+| Authority | The exact actions, recipients and spending you have approved. |
+| Exclusion | A company or person the workflow must not contact. |
+| Action key | The saved identifier for one exact prepared action. |
+| Self-test | One exact email to your own authorized sender. |
+| Receipt | A saved response or native record showing what actually happened. |
+| Held | Stopped because a required fact, connection or approval is missing. |
+| Reconcile | Read the original provider result without sending another copy. |
+| Queued | Waiting with the provider. It has not yet been confirmed sent. |
+| Booked | A meeting reservation. It does not show attendance. |
+
 
 ## Finish with
 
@@ -35,14 +59,14 @@ Reference: p1-install
 
 Time: 12 minutes. Difficulty: Easy.
 
-Tools: Local Codex or Claude Code; file and web access. No API credits..
+Tools: Local Codex or Claude Code; file and web access. No API credits.
 
 1. Open agentic-gtm-workshop in local Codex or Claude Code.
-2. Open Participant-Booklet.pdf and prompts.html.
+2. Open Participant-Booklet.pdf and the embedded prompt.
 3. Copy the full startup prompt. Replace its five inputs. Your website, buyer segment, offer and two target domains.
 4. Paste into your local agent. Review COMPANY.md when it stops.
 
-Copy the complete prompt from prompts.html#p1-install.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Help me build my company's GTM workflow one step at a time.
@@ -82,13 +106,13 @@ Reference: p1-company
 
 Time: 8 minutes. Difficulty: Easy.
 
-Tools: Codex web access and your official website. No paid API required..
+Tools: Codex web access and your official website. No paid API required.
 
 1. Read COMPANY.md. Check the buyer, offer and next-step link.
 2. Open its proof sources. Resolve conflicting numbers or leave them out.
 3. Confirm the brief. Use it for both account pages.
 
-Copy the complete prompt from prompts.html#p1-company.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Review company-motion/COMPANY.md with me.
@@ -119,13 +143,13 @@ Reference: p1-authority
 
 Time: 4 minutes. Difficulty: Easy.
 
-Tools: Prepared bootstrap and your saved company brief. No API..
+Tools: Prepared bootstrap and your saved company brief. No API.
 
 1. Open AUTHORITY.md and AGENTS.md. Your local rules and sending limits.
 2. Confirm sending and spending are paused.
 3. Ask your agent to repair either missing file. Keep the existing company brief.
 
-Copy the complete prompt from prompts.html#p1-authority.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Open company-motion/AUTHORITY.md and company-motion/AGENTS.md.
@@ -161,13 +185,13 @@ Reference: p1-one-source
 
 Time: 5 minutes. Difficulty: Easy.
 
-Tools: Official target-company website. No paid API required..
+Tools: Official target-company website. No paid API required.
 
 1. Choose the first target website. Use a real company you want to sell to.
 2. Save three useful facts. Record its product, buyers and a relevant current need.
 3. Mark unsupported ideas as suggestions. A proposed campaign is not a known business problem.
 
-Copy the complete prompt from prompts.html#p1-one-source.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Use the first target domain saved during setup.
@@ -198,13 +222,13 @@ Reference: p1-target-fit
 
 Time: 5 minutes. Difficulty: Easy.
 
-Tools: Two real target domains and browser access. No paid API required..
+Tools: Two real target domains and browser access. No paid API required.
 
 1. Read the saved target domains. Use the two companies from setup.
 2. Research the second company. Save its facts and one supported fit reason.
 3. Save the two-company list. Keep uncertain fit visible for review.
 
-Copy the complete prompt from prompts.html#p1-target-fit.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Read the two target domains saved during setup.
@@ -238,13 +262,13 @@ Reference: p1-build-page
 
 Time: 10 minutes. Difficulty: Easy.
 
-Tools: Codex file/browser access and the two saved briefs. No API credits..
+Tools: Codex file/browser access and the two saved briefs. No API credits.
 
 1. Copy the page prompt. Codex reads the two saved briefs.
 2. Open the generated page. View the HTML in your browser.
 3. Check the headline and offer. They must refer to the correct seller and buyer.
 
-Copy the complete prompt from prompts.html#p1-build-page.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Build company-motion/pages/ACTUAL-DOMAIN/index.html for the first target using our company brief and its target brief.
@@ -277,14 +301,14 @@ Reference: p1-page-review
 
 Time: 10 minutes. Difficulty: Easy.
 
-Tools: Browser and generated HTML. No paid API required..
+Tools: Browser and generated HTML. No paid API required.
 
 1. Read each factual claim. Open its exact source and supporting text.
 2. Remove unsupported promises. Check demo length, numbers, testimonials and words such as "just launched".
 3. Check desktop and phone. Measure the browser viewport, not the Mac window.
 4. Open the next-step link. Repair failed checks and rerun them.
 
-Copy the complete prompt from prompts.html#p1-page-review.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Review every factual claim in the saved HTML, including headings, buttons, captions and footer.
@@ -323,13 +347,13 @@ Reference: p1-save-skill
 
 Time: 6 minutes. Difficulty: Easy.
 
-Tools: Reviewed first page and source notes. No API credits..
+Tools: Reviewed first page and source notes. No API credits.
 
 1. Copy the skill prompt. Use your checked page and source notes.
 2. Read the saved SKILL.md. It must say what to read, build and check.
 3. Use these instructions for the next page.
 
-Copy the complete prompt from prompts.html#p1-save-skill.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Create company-motion/skills/account-page/SKILL.md from the method that passed review.
@@ -359,13 +383,13 @@ Reference: p1-repeat
 
 Time: 8 minutes. Difficulty: Easy.
 
-Tools: Saved account-page skill and second target brief. No paid API required..
+Tools: Saved account-page skill and second target brief. No paid API required.
 
 1. Run the account-page skill. Use the second saved target brief.
 2. Open both pages. Compare buyer names and ideas.
 3. Save the repeat result. Keep the first page intact.
 
-Copy the complete prompt from prompts.html#p1-repeat.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Use the saved account-page skill and the second target brief to build the second page.
@@ -397,13 +421,13 @@ Reference: p1-checkpoint
 
 Time: 5 minutes. Difficulty: Easy.
 
-Tools: Your generated files and actual browser results. No new credits..
+Tools: Your generated files and actual browser results. No new credits.
 
 1. Copy the checkpoint prompt. Your agent opens each required file.
 2. Fix the first failed check. Keep both pages and the saved skill.
 3. Read PROGRESS.md. Check the result and your next task.
 
-Copy the complete prompt from prompts.html#p1-checkpoint.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Open our company brief, setup receipt, company-motion/AUTHORITY.md, company-motion/AGENTS.md, target list, two target briefs, two pages, page review, saved skill and skill test.
@@ -434,13 +458,13 @@ Reference: p1-help
 
 Time: 30 minutes. Difficulty: Help.
 
-Tools: Codex and your workshop project..
+Tools: Codex and your workshop project.
 
 1. Open PROGRESS.md. Find the first unfinished check.
-2. Copy that task's repair prompt from prompts.html.
+2. Copy that task's repair prompt from the embedded prompt.
 3. Add your error. Rerun the check. Save the result.
 
-Copy the complete prompt from prompts.html#p1-help.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Read company-motion/PROGRESS.md and find the first unfinished Part 1 check.
@@ -462,16 +486,16 @@ If blocked: Save the unresolved error and named missing setup. Do not reset the 
 
 Next: prepare the single email connection before Part 2.
 
-### Register for Parts 2 and 3. Prepare your email.
+### Keep building. Join Parts 2 and 3.
 
 Reference: p1-before-part2
 
 Time: 0 minutes. Difficulty: Setup.
 
-Tools: Google sender/calendar and ZeroBounce for the live email test. Finder optional..
+Tools: Your saved Part 1 project. Choose later connections before the next session.
 
 
-Copy the complete prompt from prompts.html#p1-before-part2.
+Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
 Read API-CONNECTIONS.html, API-CONNECTIONS.md and SETUP-SEQUENCE.md for the single email channel.
@@ -497,30 +521,51 @@ If blocked: Without sender authorization, Part 2 can prepare messages. It cannot
 
 Next: keep this project and prepare your email before Part 2.
 
+## Tools for the next sessions
+
+Use the tools you already have. Part 1 needs none of these connections.
+
+### Enrich company and buyer facts
+
+[Sixtyfour](https://www.sixtyfour.ai/), [RocketReach](https://rocketreach.co/api), [MoltSets](https://moltsets.com/), [Triguna](https://triguna.ai/), [Adyntel](https://www.adyntel.com/)
+
+People and company data. Adyntel adds advertising activity.
+
+Needs: Your provider account, API access and lookup credits.
+
+### Send email
+
+[Google directly](https://developers.google.com/gmail/api), [Instantly.ai](https://developer.instantly.ai/), [Apollo.io](https://docs.apollo.io/reference/apollo-api)
+
+An already connected Instantly or Apollo mailbox can avoid a new Google API setup. Company permissions still apply.
+
+Needs: A connected sender and a plan with API access.
+
+### Send a gift invitation
+
+[Loop & Tie](https://docs.loopandtie.com/reference/oauth-20-api-access), [Sendoso](https://www.sendoso.com/platform/features/mcp)
+
+Create gift invitations and read the provider’s result.
+
+Needs: API or MCP access and your approved gift budget.
+
+### Run advertising
+
+[Metadata.io MCP](https://metadata.io/developers)
+
+Build audiences, creatives and campaigns. Manage 12 channels through one platform.
+
+Needs: A Metadata account and connected ad accounts.
+
+The supplied sending adapters use Gmail and Loop & Tie. Other providers need their own connection. Company permissions and account policies still apply.
+
+
 # Keep your project
 
 Save your brief, target list, reviewed pages, skill and PROGRESS.md. Your files are the starting point for the next workshop.
 
+Part 2: choose ten accounts, check buyer data, preview your emails, then send and verify one approved self-test.
+
+Part 3: check replies and bookings, add gift and LinkedIn actions, connect advertising, then repeat within your limits.
+
 [Register for Part 2](https://luma.com/jd8tm0ij). [Register for Part 3](https://luma.com/wucyo6fw).
-
-# Words you may need
-
-| Word | Meaning here |
-|---|---|
-| Coding agent | Codex or Claude Code, working with files on your computer. |
-| Company brief | A saved description of your product, buyers, offer and source-backed proof. |
-| Skill | A saved set of instructions your agent can reuse, such as building an account page. |
-| Execution flow | The order of work and the conditions for continuing or stopping. |
-| Runtime | The local program that checks prepared actions and records results. |
-| API | A connection that lets a program use a tool, such as Loop & Tie. |
-| API key | A private password for that connection. |
-| OAuth | A browser sign-in that grants specific account access. |
-| Authority | The exact actions, recipients and spending you have approved. |
-| Exclusion | A company or person the workflow must not contact. |
-| Action key | The saved identifier for one exact prepared action. |
-| Self-test | One exact email to your own authorized sender. |
-| Receipt | A saved response or native record showing what actually happened. |
-| Held | Stopped because a required fact, connection or approval is missing. |
-| Reconcile | Read the original provider result without sending another copy. |
-| Queued | Waiting with the provider. It has not yet been confirmed sent. |
-| Booked | A meeting reservation. It does not show attendance. |

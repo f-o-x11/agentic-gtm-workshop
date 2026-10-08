@@ -44,6 +44,11 @@
       "bytes": 30004
     },
     {
+      "path": "BUILD-MY-GTM.html",
+      "sha256": "329b0c197c8dd8ef368d3e5f0a949f8cd47120967a3acbfc8aeaa8af0b38fbc4",
+      "bytes": 1454
+    },
+    {
       "path": "BUILD-MY-GTM.md",
       "sha256": "50ffcc1eae0d0b32b246b1b479ce8e07093bb649baa983427be0d4ebf3099d03",
       "bytes": 700
@@ -60,8 +65,8 @@
     },
     {
       "path": "GLOSSARY.md",
-      "sha256": "d4028ab7654aa3af6c1d53030fcd11bed867b5d31ed0a867272bae7eefb2e871",
-      "bytes": 1355
+      "sha256": "fa73f9014aa711aca4d02d14254a1e6c836d557c0d91e0f3e1c8d565965c97ef",
+      "bytes": 1443
     },
     {
       "path": "METADATA-PUBLIC-TOOL-SCHEMAS.json",
@@ -72,6 +77,11 @@
       "path": "NATIVE-SOURCE-SETUP.md",
       "sha256": "cbf7527d6aaba66ca127e70e9c1649a7ba1626c7a3fffca37b7d6224a22dadf3",
       "bytes": 4530
+    },
+    {
+      "path": "PREWORK.html",
+      "sha256": "2bf4d679b785fd44a8be0848a323fd6f7fdd3e7067af8103a5661e8824b773dc",
+      "bytes": 2081
     },
     {
       "path": "PREWORK.md",
@@ -89,19 +99,34 @@
       "bytes": 5716
     },
     {
+      "path": "Part-1-Presentation.html",
+      "sha256": "75d60979503fb43ecbead00d57895f7fccd5c71a57cdc000deb84a7e23e253ce",
+      "bytes": 84432
+    },
+    {
       "path": "Part-1-Presentation.pdf",
-      "sha256": "36eb5757c5fb2f7af50cb81b4eca07110c44be3b3403dbe2a33ee2606c2da51a",
-      "bytes": 3309299
+      "sha256": "3e75744eec3836573aebb259f60446fd53eecea010e69d2ddae3cfe9a998f040",
+      "bytes": 4217284
+    },
+    {
+      "path": "Participant-Booklet.html",
+      "sha256": "69a4b55cb8bd956428d6aeb5e86322205de78887fcf394af5e08b7cfe9f52de5",
+      "bytes": 48344
     },
     {
       "path": "Participant-Booklet.pdf",
-      "sha256": "fcf70cae2c823a6d4e493384bfb9c8a1b15db140e3d368333dacaaccb6d75b64",
-      "bytes": 3110051
+      "sha256": "85671dd95d6f27ce76f20867af28956a13f329e051c67c704c3a100f05744af8",
+      "bytes": 3109960
     },
     {
       "path": "README.md",
-      "sha256": "6599d06e10bf31a00b29b83ff54dd79275423ada4cff8cd527023a54e68e70fa",
-      "bytes": 2697
+      "sha256": "1ba88f811c9b9f36cee9dc4697dfd1333daf2b79446a01f132310d66bb35df3a",
+      "bytes": 3186
+    },
+    {
+      "path": "RELEASE.md",
+      "sha256": "2528302a9fbe4fe2792fa93e2ae15b80094d22be8ba3b5b55db7965414fb69b8",
+      "bytes": 602
     },
     {
       "path": "SECURITY.md",
@@ -115,13 +140,13 @@
     },
     {
       "path": "START-HERE.html",
-      "sha256": "2c24a81616be8a4a29ae49f2c38c8ffbdecef22ff587e630398561c693b88e16",
-      "bytes": 14146
+      "sha256": "34738dd5c1027017a42a9007b41664e7b467147ab4abc7982def0d124466103e",
+      "bytes": 14192
     },
     {
       "path": "START-HERE.md",
-      "sha256": "f162a5f02aee54991eadec559d0f390c1dc57a8f5bf8ac14bdbacb6c1333e932",
-      "bytes": 2991
+      "sha256": "204d19fc2ee93879cef03c631cc5983553449f71628551cbd7c3332e6302dc03",
+      "bytes": 3025
     },
     {
       "path": "api-guide.json",
@@ -194,9 +219,59 @@
       "bytes": 91615
     },
     {
+      "path": "assets/customer-logos/brex.png",
+      "sha256": "641d56f45caaebfa8c19917a72aed2553c6dca15b78ac73b0002824472f80752",
+      "bytes": 12605
+    },
+    {
+      "path": "assets/customer-logos/checkr.png",
+      "sha256": "c9ef35b7d58b48ae1792e76eb9ab8cfe0dba47ae0b3681f41d764ce2f8312d6a",
+      "bytes": 8840
+    },
+    {
+      "path": "assets/customer-logos/cisco.png",
+      "sha256": "3effe4cd33697d457f1d70f879b8cde72bf7da5e45e27624071bd41025ef5af8",
+      "bytes": 18736
+    },
+    {
+      "path": "assets/customer-logos/cvent.png",
+      "sha256": "50a6b1930593449bb63aebbbdc2d4c6abac2dac7ee07e5085957400d49a2672b",
+      "bytes": 12923
+    },
+    {
+      "path": "assets/customer-logos/ibm.png",
+      "sha256": "2074b25834439c992a7f4b632a230a72ebd942830de133e8a2bb18a99fce20cf",
+      "bytes": 11088
+    },
+    {
+      "path": "assets/customer-logos/maxio.png",
+      "sha256": "8015ee59c9fcaeb42089c1cfd2cf17b77f3a28be731fc563cc02e91d13eab1f9",
+      "bytes": 17258
+    },
+    {
+      "path": "assets/customer-logos/notion.png",
+      "sha256": "f7a84d651a8c129388769b979e8a6cc42c369f9fc4cba60d3bf3fe144700c1f8",
+      "bytes": 25361
+    },
+    {
+      "path": "assets/customer-logos/reddit.png",
+      "sha256": "2417d645b60c3edfa319dfad1437857648f854bb846ae946c6f059e8bc4002cf",
+      "bytes": 29614
+    },
+    {
+      "path": "assets/customer-logos/vercel.png",
+      "sha256": "4d6c98bb0db13875ea7633ca51399cc38762dc1af0bc0471148719ce0ff0251a",
+      "bytes": 14535
+    },
+    {
       "path": "assets/gift-message-preview-redacted.png",
       "sha256": "780e689c79fd05244bc7842cdcd2652a8f79ddbe35c3c9b1410f1cd8b2bdb117",
       "bytes": 114290
+    },
+    {
+      "path": "assets/gil-linkedin-qr.png",
+      "sha256": "8b36c107c79e22b98a321aa6fdc169fd60635b337b1cd6ccd0a4b4f4f5835758",
+      "bytes": 2175
     },
     {
       "path": "assets/gil-linkedin.jpg",
@@ -224,24 +299,84 @@
       "bytes": 2157562
     },
     {
+      "path": "assets/zuora-email-redacted.png",
+      "sha256": "9d7f6a6df1fde63a2994935934cbe9cebb1f1fbd25fab44e43179214a912c391",
+      "bytes": 31656
+    },
+    {
+      "path": "assets/zuora-live-full.png",
+      "sha256": "58ad626820bfbc637bffdd986c7cfa0233338502cadc36fe30407d4888284724",
+      "bytes": 544280
+    },
+    {
+      "path": "audience.js",
+      "sha256": "5925384187c88b5caa98a557cb3194244b7d20e577fc573a0532be7e6d8dfc7c",
+      "bytes": 386
+    },
+    {
       "path": "authoring/build_booklet.py",
-      "sha256": "1d8abf161bfd7d874ed5b7f9fa11a387af0f1e053c5a9cb26475a48e338781f5",
-      "bytes": 2620
+      "sha256": "f1fead0949157cff22414b9b8e75ed59ef3e613136164abdd16322b6fac4064c",
+      "bytes": 3534
+    },
+    {
+      "path": "authoring/build_html.py",
+      "sha256": "4074f94677c4243892ea9e671dbe9d2decbc3aa51ed912128f197b842654cb11",
+      "bytes": 26604
     },
     {
       "path": "authoring/build_materials.py",
-      "sha256": "ae88a94d821a22e05c0ead2b521ed6af2ce974d2ba9bf2e63ebafe6d27dedaef",
-      "bytes": 51690
+      "sha256": "745aed9143a9d9be0baa03487246927524f362642764b3b51ad5884198ba7535",
+      "bytes": 55030
     },
     {
       "path": "authoring/pdf-manifest.json",
-      "sha256": "a8b1eb9339bdb3030590d533caad99bcddf0bace24bba81b5bbbdc68e8d73d15",
-      "bytes": 338
+      "sha256": "f079c03ee96a7b618448b77aa8c7888def065cc8f155feaa1e118ed0b2c5a4ff",
+      "bytes": 371
     },
     {
       "path": "authoring/requirements.txt",
       "sha256": "a5d39fdd4c6239aae52a5162499c057273aaef66e79480815088d02b09f5de9c",
       "bytes": 61
+    },
+    {
+      "path": "authoring/web/audience.js",
+      "sha256": "5925384187c88b5caa98a557cb3194244b7d20e577fc573a0532be7e6d8dfc7c",
+      "bytes": 386
+    },
+    {
+      "path": "authoring/web/booklet.js",
+      "sha256": "4262f7beb05f6a5862367538da7c379b181d3b1531a76a21e09f14c97404c862",
+      "bytes": 1193
+    },
+    {
+      "path": "authoring/web/site.css",
+      "sha256": "3db3d0bad27d7ab9cd46afba1fa1cebc351da0af65934d6d3835bbc54beb4714",
+      "bytes": 10353
+    },
+    {
+      "path": "authoring/web/slides.css",
+      "sha256": "29f51e9ffc29bd6dd490c9a75823ebd7c89681a33124756ccba11ff29ed29d0a",
+      "bytes": 26959
+    },
+    {
+      "path": "authoring/web/slides.js",
+      "sha256": "dcec387765e8f9d2fccdcea78815c5fbeb2876e89ab41db8412a2987a01c25a1",
+      "bytes": 4612
+    },
+    {
+      "path": "authoring/web/workshop-helpers.css",
+      "sha256": "020c54c8d971c9ae270768fe1a39c027cf93d5dbb62bea42f1dbe801049bce6f",
+      "bytes": 6973
+    },
+    {
+      "path": "authoring/web/workshop-helpers.js",
+      "sha256": "6a2804466c2b8a9cd710a6065be8b22bcceba9de99fc633178db914ce54dabcb",
+      "bytes": 4195
+    },
+    {
+      "path": "booklet.js",
+      "sha256": "4262f7beb05f6a5862367538da7c379b181d3b1531a76a21e09f14c97404c862",
+      "bytes": 1193
     },
     {
       "path": "build_guide.py",
@@ -370,8 +505,8 @@
     },
     {
       "path": "course/BOOKLET.md",
-      "sha256": "09d09690218a31d321d9c64e7b91bb99e86c9c8c64b2c3f99c6162f12e74db24",
-      "bytes": 22629
+      "sha256": "56ed3b0fc508d40d84b07fd5e7c493f8af61953904ffa3087017d40ee014e60e",
+      "bytes": 24619
     },
     {
       "path": "course/CHAPTERS.md",
@@ -380,18 +515,18 @@
     },
     {
       "path": "course/ZUORA-DRAFTS.md",
-      "sha256": "8ae40a45e6757e08e0b1a4910851a81a9493615d51030ffc6b9a53c6c736558b",
-      "bytes": 734
+      "sha256": "c1dc1dc11e96583c0018c82599e22bdfc8458442706c0dd292e9d576e25d581a",
+      "bytes": 908
     },
     {
       "path": "course/course.json",
-      "sha256": "ffc5ff6ef27526379222505dddb9aa2e0291b295af593372efb859ed274aaf7f",
-      "bytes": 79049
+      "sha256": "c62c26987a6d602feb03020f2b11fcb6859334b5bdcb3f842106fd2785191f7e",
+      "bytes": 94127
     },
     {
       "path": "prompts.html",
-      "sha256": "680ad166bbb6619d25f809427030de91d8609fc44f3b12a35e31d79cd0e0ddcb",
-      "bytes": 49521
+      "sha256": "20a8bca27972c8cb214ec54b4c579d770536779ac9f3c94d433355a41417fb5e",
+      "bytes": 50051
     },
     {
       "path": "save-api-key.py",
@@ -399,9 +534,35 @@
       "bytes": 5590
     },
     {
+      "path": "site.css",
+      "sha256": "3db3d0bad27d7ab9cd46afba1fa1cebc351da0af65934d6d3835bbc54beb4714",
+      "bytes": 10353
+    },
+    {
+      "path": "slides.css",
+      "sha256": "29f51e9ffc29bd6dd490c9a75823ebd7c89681a33124756ccba11ff29ed29d0a",
+      "bytes": 26959
+    },
+    {
+      "path": "slides.js",
+      "sha256": "dcec387765e8f9d2fccdcea78815c5fbeb2876e89ab41db8412a2987a01c25a1",
+      "bytes": 4612
+    },
+    {
       "path": "sources/V5-WORKSHOP-SOURCES.md",
-      "sha256": "260e3219bce08b6c866bd98647a0c2afa9c85ee059d84f3f6464fed9a19b886e",
-      "bytes": 3765
+      "sha256": "640c82ea996056698da9da7e0d6c1c8699bc8bed265b189d24bba6e05bc6e25f",
+      "bytes": 4334
+    },
+    {
+      "path": "workshop-helpers.css",
+      "sha256": "020c54c8d971c9ae270768fe1a39c027cf93d5dbb62bea42f1dbe801049bce6f",
+      "bytes": 6973
+    },
+    {
+      "path": "workshop-helpers.js",
+      "sha256": "6a2804466c2b8a9cd710a6065be8b22bcceba9de99fc633178db914ce54dabcb",
+      "bytes": 4195
     }
-  ]
+  ],
+  "release": "part1_v10_final"
 }

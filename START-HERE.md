@@ -6,8 +6,8 @@
 git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
 ```
 
-2. Open agentic-gtm-workshop as your local Claude Code or Codex project. It contains `START-HERE.html`, `prompts.html` and the `code` folder. The agent runs program commands from `code/`.
-3. Open `Participant-Booklet.pdf` and `prompts.html`. Copy the first full prompt. Replace the website, buyer segment, offer and two target domains, then paste it into the local agent.
+2. Open agentic-gtm-workshop as your local Claude Code or Codex project. It contains the participant booklet, live slides and the `code` folder. The agent runs program commands from `code/`.
+3. Open `Participant-Booklet.html`. Expand the first embedded prompt. Replace the website, buyer segment, offer and two target domains, then paste it into the local agent.
 4. Review the saved company brief before the next exercise. Keep the same project for the next session.
 
 You do not need API keys for Part 1. The starter uses an existing supported Python version, or gives you the official installer link.
@@ -36,7 +36,7 @@ Show the output and success check. Stop. Next: review your company brief.
 
 ## Next step
 
-review your company brief. Open `prompts.html#p1-company`.
+review your company brief. Open the embedded prompt in `Participant-Booklet.html#booklet-p1-company`.
 
 ## Build your Part 1 page workflow
 

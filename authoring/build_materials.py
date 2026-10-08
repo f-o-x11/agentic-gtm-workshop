@@ -121,7 +121,7 @@ def part_one_example(c,s):
   paragraph(c,'First instruction. Run this in Codex, Claude Code or your terminal.',66,230,1125,22,font='RubikBold',color=ORANGE)
   c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(LINE);c.roundRect(56,139,1168,62,8,fill=1,stroke=1)
   paragraph(c,'git clone https://github.com/f-o-x11/agentic-gtm-workshop.git',76,183,1128,25,font='RubikMedium')
-  paragraph(c,'Open the folder in local Codex or Claude Code. Keep the booklet and prompts.html open.',66,112,1125,21)
+  paragraph(c,'Open the folder in local Codex or Claude Code. Keep the booklet open. Every exercise prompt is embedded.',66,112,1125,21)
   c.linkURL('https://github.com/f-o-x11/agentic-gtm-workshop',(56,139,1224,201),relative=0)
   return True
  if ident=='p1-about':
@@ -191,13 +191,53 @@ def part_one_example(c,s):
   paragraph(c,'Example layout. No live redemption link.',804,145,400,12,color=GRAY)
   paragraph(c,vd['caption'],56,87,1168,14,color=GRAY)
   return True
+ if ident=='p1-glossary':
+  entries=[x for x in vd['terms'] if x['word'] in vd['today']]
+  for i,item in enumerate(entries):
+   x=56+(i%3)*403;top=521-(i//3)*183
+   c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(LINE);c.roundRect(x,top-153,377,153,9,fill=1,stroke=1)
+   paragraph(c,item['word'],x+19,top-19,340,26,font='RubikBold',color=GREEN)
+   paragraph(c,item['meaning'],x+19,top-66,340,20,color=GRAY)
+  paragraph(c,'The full glossary is near the start of your booklet.',56,117,1168,20,color=GREEN)
+  c.linkURL('https://metadata-gtm-workshops.vercel.app/gtm-part1/Participant-Booklet.html',(56,82,1200,121))
+  return True
+ if ident=='p1-tool-options':
+  for i,t in enumerate(vd['tool_options']):
+   x=56+(i%2)*604;top=526-(i//2)*204
+   c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(LINE);c.roundRect(x,top-186,568,186,9,fill=1,stroke=1)
+   paragraph(c,t['name'],x+17,top-13,533,25,font='RubikBold',color=GREEN)
+   y=top-57;choices=', '.join(item['name'] for item in t['choices']);paragraph(c,choices,x+17,y,533,17,color=ORANGE,font='RubikMedium')
+   paragraph(c,t['detail'],x+17,top-96,533,17,color=GRAY)
+   paragraph(c,'Needs: '+t['needs'],x+17,top-148,533,12,color=GRAY)
+   c.linkURL(t['choices'][0]['url'],(x+17,top-80,x+550,top-47))
+  paragraph(c,'Part 1 needs no new connection. Alternatives require their own setup. Account policies apply.',56,88,1168,15,color=GRAY)
+  return True
+ if vd.get('teaser'):
+  for i,text in enumerate(vd['steps']):
+   top=519-i*66;node(c,str(i+1)+'. '+text,56,top-53,526,53,i==0)
+  if vd['teaser']=='email':
+   pic(c,R/vd['image'],626,262,594,273)
+   paragraph(c,'Actual redacted email. Sent August 16, 2026.',637,236,575,15,color=GRAY)
+  else:
+   node(c,'Read replies and bookings',633,453,579,65,True)
+   arrow(c,922,453,922,417)
+   node(c,'Reply, booking or exclusion? Hold.',633,351,279,65)
+   node(c,'Eligible? Check next action.',933,351,279,65)
+   for i,text in enumerate(['Gift','LinkedIn','Ads']):node(c,text,633+i*195,255,184,62)
+   arrow(c,1072,351,922,317)
+   arrow(c,922,255,922,224)
+   node(c,'Read the result. Save it. Repeat.',633,159,579,65,True)
+  paragraph(c,vd['outcome'],56,140,560 if vd['teaser']=='orchestrator' else 1168,18 if vd['teaser']=='orchestrator' else 21,color=GREEN,font='RubikMedium',leading=22 if vd['teaser']=='orchestrator' else None)
+  paragraph(c,'Register on Luma. QR codes are on the registration slide.',56,85,1168,15,color=ORANGE)
+  c.linkURL(vd['url'],(56,65,900,103))
+  return True
  if ident=='p1-finish':
   for i,(label,artifact) in enumerate([('Set up your company','Company brief'),('Choose two companies','Two target briefs'),('Build and check page one','Reviewed HTML page'),('Save the skill. Build page two.','Saved instructions + second page')]):
    x=56+(i%2)*608;top=511-(i//2)*191
    node(c,str(i+2)+'. '+label,x,top-86,558,86,i==0)
    paragraph(c,artifact,x+16,top-112,526,25)
   paragraph(c,'Use your own company and targets. No API keys needed for Part 1.',56,132,1168,21,color=GRAY)
-  paragraph(c,'Open Participant-Booklet.pdf for instructions. Open prompts.html to copy each full prompt.',56,91,1168,17,color=ORANGE,font='RubikMedium')
+  paragraph(c,'Each exercise has its full prompt here and in the HTML booklet.',56,91,1168,17,color=ORANGE,font='RubikMedium')
   return True
  if ident=='p1-page-example':
   pic(c,R/'assets/actual-zuora-page.png',56,134,858,398)
@@ -376,7 +416,7 @@ def slide(c,s,num,part):
   c.linkURL('https://github.com/f-o-x11/agentic-gtm-workshop',(56,27,610,55),relative=0)
   c.showPage();return
  source='; '.join(plain(x) if not isinstance(x,dict) else x.get('label',x.get('path',str(x))) for x in (s.get('sources') or []))
- if part==1 and s.get('prompt'):source='Full prompt: prompts.html#'+s['id']
+ if part==1 and s.get('prompt'):source='Full prompt embedded in the next slide and participant booklet.'
  source=source.replace(str(ROOT),'')
  if len(source)>180:source=source[:177]+'...'
  header(c,s['title'],num,part,source)
@@ -415,30 +455,21 @@ def slide(c,s,num,part):
     if i<len(seq)-1:arrow(c,x+width,281,x+width+18,281)
   outcome_height=paragraph(c,'You should have: '+plain(s.get('expected','')),56,216,1168,20,font='RubikMedium')
   paragraph(c,'Check: '+plain(s.get('check','')),56,min(145,216-outcome_height-15),1168,17,color=GRAY)
-  if s.get('prompt'):paragraph(c,'Full prompt on the next page and at prompts.html#'+s['id'],56,75,1168,10,color=ORANGE)
+  if s.get('prompt'):paragraph(c,'Copy the complete prompt in the next slide or the HTML booklet.',56,75,1168,10,color=ORANGE)
  else:generic(c,s)
  c.showPage()
 
 def prompt_slide(c,s,num,part):
- txt=plain(s['prompt']);size=21
- while size>17:
+ txt=plain(s['prompt']);size=18
+ while size>11:
   p=Paragraph(escape(txt).replace('\n','<br/>'),ParagraphStyle('measure',fontName='Rubik',fontSize=size,leading=size*1.3))
-  if p.wrap(1155,H)[1]<=400:break
-  size-=1
- p=Paragraph(escape(txt).replace('\n','<br/>'),ParagraphStyle('measure',fontName='Rubik',fontSize=size,leading=size*1.3))
- header(c,'Prompt: '+s['title'],num,part,'Complete copy source: prompts.html#'+s['id'])
- if p.wrap(1155,H)[1]<=400:
-  paragraph(c,txt,62,517,1155,size,font='Rubik',leading=size*1.3)
- else:
-  # A long prompt remains whole in its copy source. Never print a partial prompt.
-  paragraph(c,'Open prompts.html',62,477,1155,49,font='RubikBold',color=ORANGE)
-  paragraph(c,'Find "'+s['title']+'". Click Copy prompt.',62,388,1155,32)
-  paragraph(c,'Paste it into the local Claude Code or Codex project you opened for this workshop.',62,313,1155,28)
-  paragraph(c,'The copy source includes the full instructions. This slide contains no partial prompt.',62,220,1155,22,color=GRAY)
- c.linkURL('https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+s['id']+'-prompt',(62,66,1220,112),relative=0)
- paragraph(c,'Copy full prompt: prompts.html#'+s['id'],62,104,1155,19,color=ORANGE,font='RubikMedium')
- if s.get('next_id'):
-  paragraph(c,'Next: '+s.get('next_action',s['next_id'])+' ('+s['next_id']+')',62,77,1155,14,color=GRAY)
+  if p.wrap(1155,H)[1]<=429:break
+  size-=.5
+ if p.wrap(1155,H)[1]>429:raise ValueError('Complete prompt will not fit: '+s['id'])
+ header(c,'Prompt: '+s['title'],num,part,'The complete prompt is printed here and embedded in the live slides and booklet.')
+ paragraph(c,txt,62,526,1155,size,font='Rubik',leading=size*1.3)
+ c.linkURL('https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+s['id']+'-prompt',(62,65,1220,104),relative=0)
+ paragraph(c,'Open this prompt in the live slides. Use the Copy button.',62,96,1155,16,color=ORANGE,font='RubikMedium')
  c.showPage()
  return 1
 
@@ -549,8 +580,8 @@ def markdown_pdf(src,out,title,include_cover=True):
    _,block_height=block.wrap(492,756)
    if block_height<=730:story.append(KeepTogether([block]))
    else:
-    # The authoritative copy source is always a whole prompt in prompts.html.
-    story.append(Paragraph('Copy the complete prompt from <b>prompts.html</b>. The full text below is a reading reference.',ST['BodyText']))
+    # The authoritative copy source is the complete embedded HTML prompt.
+    story.append(Paragraph('The full prompt is below. The HTML booklet has a Copy button for it.',ST['BodyText']))
     story.append(block)
    i+=1;continue
   if l.startswith('|'):
@@ -609,7 +640,7 @@ def helper_assets():
   if source.resolve()!=target.resolve():shutil.copyfile(source,target)
 
 def page_html(title,body,js=''):
- return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+HELPER_STYLE+'</style></head><body><header><a class="brand" href="START-HERE.html">metadata<span>.</span></a><a href="prompts.html">Workshop prompts</a></header><main>'+body+'<footer>Your company, your local project, your accounts. API keys stay in your private local credentials file.</footer></main><script>'+COPY_JS+js+'</script></body></html>'
+ return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+HELPER_STYLE+'</style></head><body><header><a class="brand" href="START-HERE.html">metadata<span>.</span></a><a href="Participant-Booklet.html">Participant booklet</a></header><main>'+body+'<footer>Your company, your local project, your accounts. API keys stay in your private local credentials file.</footer></main><script>'+COPY_JS+js+'</script></body></html>'
 
 def prompt_html(data):
  helper_assets();content=['<p class="eyebrow">Agentic GTM workshop</p><h1>Your workshop prompts.</h1><p class="intro">Copy into the same local Claude Code or Codex project each time. Read the result, check it, then take the next step.</p><p class="path"><strong>First time here?</strong> <a href="#p1-install">Open the first exercise</a>. The browser is your prompt reader. Your local agent works with the files.</p>']
@@ -651,15 +682,15 @@ def prompt_html(data):
 def starter_html(data):
  setup=next(s for p in data['parts'] for s in p['slides'] if s['id']=='p1-install')
  prompt=setup['prompt'];q=html.escape(prompt)
- body='<p class="eyebrow">Start here</p><h1>Your first result:<br>a company brief.</h1><p class="intro">You already have the starter code. Tell your local agent about your company. It will prepare the project and stop after the first step.</p><ol class="steps"><li><strong>Clone the workshop.</strong><p>Run this in Codex, Claude Code or your terminal.</p><textarea id="clone-command" readonly aria-label="Clone command" style="min-height:70px">git clone https://github.com/f-o-x11/agentic-gtm-workshop.git</textarea><button data-copy-for="clone-command" onclick="copyPrompt(this.dataset.copyFor,this)">Copy clone command</button><p class="copy-status" id="status-clone-command" aria-live="polite"></p></li><li><strong>Open the workshop folder in Claude Code or Codex.</strong><p>Choose <code>agentic-gtm-workshop</code>. It contains <code>START-HERE.html</code>, <code>prompts.html</code> and the <code>code</code> folder. Keep using this same project for the workshop.</p></li><li><strong>Copy the prompt below.</strong><p>Paste it into that local project. The agent reads your website, saves a company brief, prepares the missing setup files and pauses.</p></li></ol><p class="note">Open the folder as a local project. Paste one prompt, review its result and stop before the next exercise.</p><div class="helper"><h2>Use your own company</h2><p class="hint">This helper is optional. During class, copy the first complete prompt from prompts.html and fill in its five inputs. These fields stay in this page. Do not enter API keys.</p><label for="company-site">Company website</label><input id="company-site" type="url" placeholder="https://your-company.com" autocomplete="url"><details><summary>Optional: buyer, offer and two target companies</summary><label for="buyer">Who do you want to reach?</label><input id="buyer" placeholder="For example: CMOs at B2B software companies"><label for="offer">What can you offer them?</label><input id="offer" placeholder="Use your actual offer, without inventing terms"><div class="field-pair"><div><label for="target-one">First target domain</label><input id="target-one" placeholder="company-one.com"></div><div><label for="target-two">Second target domain</label><input id="target-two" placeholder="company-two.com"></div></div></details><div class="prompt-label"><h3>Full startup prompt</h3><p>Local Claude Code or Codex.</p></div><textarea id="startup-prompt" readonly aria-label="Full startup prompt">'+q+'</textarea><button id="copy-startup" data-copy-for="startup-prompt" onclick="copyPrompt(this.dataset.copyFor,this)">Copy full prompt</button><p class="copy-status" id="status-startup-prompt" aria-live="polite"></p><h3>You should have</h3>'+expected_html(setup.get('expected',''))+'<p class="hint"><strong>Check:</strong> '+html.escape(plain(setup.get('check','')))+'</p><p class="stop">Read the company brief. Then continue to the next exercise.</p><a class="button next-step" href="prompts.html#'+html.escape(setup.get('next_id','p1-company'))+'">'+html.escape(setup.get('next_action','Review your company brief'))+'</a><p class="legend">Python setup is automatic when a supported version exists. If it is missing, the agent gives you the official installer link and pauses. No API account is needed for Part 1.</p></div>'
+ body='<p class="eyebrow">Start here</p><h1>Your first result:<br>a company brief.</h1><p class="intro">You already have the starter code. Tell your local agent about your company. It will prepare the project and stop after the first step.</p><ol class="steps"><li><strong>Clone the workshop.</strong><p>Run this in Codex, Claude Code or your terminal.</p><textarea id="clone-command" readonly aria-label="Clone command" style="min-height:70px">git clone https://github.com/f-o-x11/agentic-gtm-workshop.git</textarea><button data-copy-for="clone-command" onclick="copyPrompt(this.dataset.copyFor,this)">Copy clone command</button><p class="copy-status" id="status-clone-command" aria-live="polite"></p></li><li><strong>Open the workshop folder in Claude Code or Codex.</strong><p>Choose <code>agentic-gtm-workshop</code>. It contains the participant booklet, live slides and the <code>code</code> folder. Keep using this same project for the workshop.</p></li><li><strong>Copy the prompt below.</strong><p>Paste it into that local project. The agent reads your website, saves a company brief, prepares the missing setup files and pauses.</p></li></ol><p class="note">Open the folder as a local project. Paste one prompt, review its result and stop before the next exercise.</p><div class="helper"><h2>Use your own company</h2><p class="hint">This helper is optional. During class, use the first embedded prompt in the slides or booklet. Fill in its five inputs. These fields stay in this page. Do not enter API keys.</p><label for="company-site">Company website</label><input id="company-site" type="url" placeholder="https://your-company.com" autocomplete="url"><details><summary>Optional: buyer, offer and two target companies</summary><label for="buyer">Who do you want to reach?</label><input id="buyer" placeholder="For example: CMOs at B2B software companies"><label for="offer">What can you offer them?</label><input id="offer" placeholder="Use your actual offer, without inventing terms"><div class="field-pair"><div><label for="target-one">First target domain</label><input id="target-one" placeholder="company-one.com"></div><div><label for="target-two">Second target domain</label><input id="target-two" placeholder="company-two.com"></div></div></details><div class="prompt-label"><h3>Full startup prompt</h3><p>Local Claude Code or Codex.</p></div><textarea id="startup-prompt" readonly aria-label="Full startup prompt">'+q+'</textarea><button id="copy-startup" data-copy-for="startup-prompt" onclick="copyPrompt(this.dataset.copyFor,this)">Copy full prompt</button><p class="copy-status" id="status-startup-prompt" aria-live="polite"></p><h3>You should have</h3>'+expected_html(setup.get('expected',''))+'<p class="hint"><strong>Check:</strong> '+html.escape(plain(setup.get('check','')))+'</p><p class="stop">Read the company brief. Then continue to the next exercise.</p><a class="button next-step" href="Participant-Booklet.html#booklet-'+html.escape(setup.get('next_id','p1-company'))+'">'+html.escape(setup.get('next_action','Review your company brief'))+'</a><p class="legend">Python setup is automatic when a supported version exists. If it is missing, the agent gives you the official installer link and pauses. No API account is needed for Part 1.</p></div>'
  js='const sourcePrompt='+json.dumps(prompt).replace('</','<\\/')+';const tokens={"company-site":"[YOUR_COMPANY_WEBSITE]","buyer":"[BUYER_SEGMENT]","offer":"[COLD_OFFER]","target-one":"[TARGET_1_DOMAIN]","target-two":"[TARGET_2_DOMAIN]"};function updateStartup(){let p=sourcePrompt;for(const [id,token] of Object.entries(tokens)){const value=document.getElementById(id).value.trim();if(value)p=p.split(token).join(value);}document.getElementById("startup-prompt").value=p;document.getElementById("copy-startup").textContent="Copy full prompt";document.getElementById("status-startup-prompt").textContent="";}for(const id of Object.keys(tokens))document.getElementById(id).addEventListener("input",updateStartup);'
  builder_prompt='Read BUILD-MY-GTM.md and follow its Build my workflow instructions. Ask me one question at a time, use my answers to adapt this project, and complete all local preparation that does not need another answer. Start with my company website. Keep external actions paused until I review their exact recipients, messages and costs.'
- resources='<section class="helper" id="class-materials"><h2>Keep these open during class</h2><p><a href="Participant-Booklet.pdf">Participant booklet</a>: instructions and checks. <a href="prompts.html">Full prompts</a>: copy one exercise at a time.</p><p>Before class, sign in to local Codex or Claude Code and check that it can open your workshop folder and read your company website. Part 1 needs no API keys.</p><p><a href="PREWORK.md">Check the short setup list</a>.</p></section>'
+ resources='<section class="helper" id="class-materials"><h2>Keep these open during class</h2><p><a href="Participant-Booklet.html">Participant booklet</a>: instructions, checks and embedded prompts. <a href="Part-1-Presentation.html">Live slides</a>: follow the presenter.</p><p>Before class, sign in to local Codex or Claude Code and check that it can open your workshop folder and read your company website. Part 1 needs no API keys.</p><p><a href="PREWORK.md">Check the short setup list</a>.</p></section>'
  body=body.replace('<div class="helper"><h2>Use your own company</h2>',resources+'<div class="helper"><h2>Use your own company</h2>')
  body += '<section class="helper" id="build-my-workflow"><h2>Build your Part 1 page workflow</h2><p>Use this outside the guided exercises. Your agent asks questions, prepares your project and checks each available connection.</p><textarea id="builder-prompt" readonly aria-label="Build my workflow prompt">'+html.escape(builder_prompt)+'</textarea><button data-copy-for="builder-prompt" onclick="copyPrompt(this.dataset.copyFor,this)">Copy build prompt</button><p class="copy-status" id="status-builder-prompt" aria-live="polite"></p><p><a href="BUILD-MY-GTM.md">Read the full build instructions</a></p></section>'
  doc=page_html('Optional startup prompt helper',body,js)
  (OUT/'START-HERE.html').write_text(doc)
- md='# Start here\n\n1. Run this command in Codex, Claude Code or your terminal:\n\n```bash\ngit clone https://github.com/f-o-x11/agentic-gtm-workshop.git\n```\n\n2. Open agentic-gtm-workshop as your local Claude Code or Codex project. It contains `START-HERE.html`, `prompts.html` and the `code` folder. The agent runs program commands from `code/`.\n3. Open `Participant-Booklet.pdf` and `prompts.html`. Copy the first full prompt. Replace the website, buyer segment, offer and two target domains, then paste it into the local agent.\n4. Review the saved company brief before the next exercise. Keep the same project for the next session.\n\nYou do not need API keys for Part 1. The starter uses an existing supported Python version, or gives you the official installer link.\n\nThe browser shows prompts. Your local agent works with the files. Never enter API keys in a browser helper.\n\n## Full startup prompt\n\n```text\n'+prompt+'\n```\n\n## Next step\n\n'+setup.get('next_action','Review your company brief')+'. Open `prompts.html#'+setup.get('next_id','p1-company')+'`.\n'
+ md='# Start here\n\n1. Run this command in Codex, Claude Code or your terminal:\n\n```bash\ngit clone https://github.com/f-o-x11/agentic-gtm-workshop.git\n```\n\n2. Open agentic-gtm-workshop as your local Claude Code or Codex project. It contains the participant booklet, live slides and the `code` folder. The agent runs program commands from `code/`.\n3. Open `Participant-Booklet.html`. Expand the first embedded prompt. Replace the website, buyer segment, offer and two target domains, then paste it into the local agent.\n4. Review the saved company brief before the next exercise. Keep the same project for the next session.\n\nYou do not need API keys for Part 1. The starter uses an existing supported Python version, or gives you the official installer link.\n\nThe browser shows prompts. Your local agent works with the files. Never enter API keys in a browser helper.\n\n## Full startup prompt\n\n```text\n'+prompt+'\n```\n\n## Next step\n\n'+setup.get('next_action','Review your company brief')+'. Open the embedded prompt in `Participant-Booklet.html#booklet-'+setup.get('next_id','p1-company')+'`.\n'
  md += '\n## Build your Part 1 page workflow\n\nFor an owner-requested build outside the guided exercises, paste:\n\n```text\n'+builder_prompt+'\n```\n\nFull instructions: BUILD-MY-GTM.md. External actions stay paused until their exact scope is approved.\n'
  (OUT/'START-HERE.md').write_text(md)
 
