@@ -50,6 +50,21 @@ def select_python(root=RUNTIME_ROOT, requested=None, reset=False, candidates=Non
     raise ValueError('Python 3.10 or newer was not found. Install Python from https://www.python.org/downloads/ . Then run this same command again. No files were initialized and no software was installed.')
 
 
+def same_python_runtime(current, selected):
+    """Treat executable aliases as one runtime while honoring a selected venv."""
+    try:
+        same_binary = os.path.samefile(current, selected)
+    except OSError:
+        same_binary = os.path.abspath(current) == os.path.abspath(selected)
+    if not same_binary:
+        return False
+    # Do not resolve the executable symlink: its parent can identify a venv.
+    selected_prefix = Path(os.path.abspath(selected)).parent.parent
+    if (selected_prefix / 'pyvenv.cfg').is_file():
+        return Path(sys.prefix).resolve() == selected_prefix.resolve()
+    return Path(sys.prefix).resolve() == Path(sys.base_prefix).resolve()
+
+
 def launch_runtime():
     startup = len(sys.argv) > 1 and sys.argv[1] == 'bootstrap'
     requested = None
@@ -61,7 +76,7 @@ def launch_runtime():
     selected = select_python(requested=requested, reset=startup and '--reset-python' in sys.argv)
     # Keep a virtual environment's executable path instead of resolving its symlink.
     if (tuple(sys.version_info[:2]) < MINIMUM_PYTHON or
-            os.path.abspath(sys.executable) != os.path.abspath(selected['executable'])):
+            not same_python_runtime(sys.executable, selected['executable'])):
         os.execv(selected['executable'], [selected['executable'], '-B', str(RUNTIME_ROOT / 'gtm.py'), *sys.argv[1:]])
 
 

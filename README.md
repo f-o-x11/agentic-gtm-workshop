@@ -1,91 +1,52 @@
-# Agentic GTM workshop
+# Build your own Agentic GTM: Part 1
 
-First instruction:
+Build two pages for your own target companies. Save the instructions so your local agent can do it again.
+
+## Start here
+
+Run this in local Codex, Claude Code or your terminal:
 
 ```bash
 git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
 ```
 
-Open agentic-gtm-workshop in local Codex or Claude Code. All later exercises use this repository.
+Use macOS or Linux. On Windows, use Codex or Claude Code inside an installed WSL environment. Native Windows has not been verified.
 
-Before class, sign in and confirm your local agent can read START-HERE.md and your company website. Keep Participant-Booklet.pdf and prompts.html open. Part 1 needs no API keys. See PREWORK.md for the short setup list.
+Open agentic-gtm-workshop as your local project. If you downloaded the ZIP, unzip it and open that folder instead.
 
-Build your company brief, two account pages and a reusable skill. Then connect one email channel and operate the same project. Each of the three workshops has five chapters,90 guided minutes and30 minutes for help.
+Open START-HERE.html in your browser. Enter your website. Copy the full startup prompt into your local agent. Read the company brief it creates. Continue with one exercise at a time in prompts.html.
 
-## Get the entire workshop
-
-This public repository needs no GitHub account, collaborator invitation or workshop API key. The command retrieves the PDFs, booklet, prompt helpers, editable course, illustrations and 20-file program together. You can also [download the workshop ZIP](https://github.com/f-o-x11/agentic-gtm-workshop/archive/refs/heads/main.zip), then unpack it.
-
-Open the cloned folder as your local project in Codex or Claude Code. For a full build outside the guided class, paste: "Read BUILD-MY-GTM.md and follow its Build my workflow instructions. Ask me one question at a time. Start with my company website." Open START-HERE.html, copy its one complete prompt and add your website. The agent writes the company brief, checks setup and stops. If you received a ZIP instead, unpack it before opening the folder.
-
-## Five chapters per workshop
-
-### Part 1
-
-1. See Metadata's working examples.
-2. Set up your company.
-3. Choose two target companies.
-4. Build and check your first page.
-5. Save the skill. Build page two..
-
-### Part 2
-
-1. Connect your email account.
-2. Set the rules and choose ten companies.
-3. Find buyers and write the emails.
-4. Review and send your own test.
-5. Run the ten-company pilot.
-
-### Part 3
-
-1. Read replies and bookings.
-2. Check one complete play.
-3. Repeat without duplicating work.
-4. Prepare a schedule when ready.
-5. Record results and choose the next play.
-
-## Files to use
+## Keep these open
 
 | File | Use |
 |---|---|
-| START-HERE.html | Clone command, guided startup and full-workflow builder prompt. |
-| BUILD-MY-GTM.md | Ask questions and prepare your company's full supported local workflow. |
-| prompts.html | Full exercise prompts, repair prompts and next steps. |
-| Complete-Presentation.pdf | All three workshops, with chapter bookmarks. |
-| Part-1-Presentation.pdf | Cover, results and clone on slide 2, workflow on slide 3, then five practical sections. |
-| Part-2-Presentation.pdf | Exact message review and conditional email pilot. |
-| Part-3-Presentation.pdf | Outcomes, repeat operation and optional channels. |
-| Participant-Booklet.pdf | Full prompts, expected files, checks and fallbacks. |
-| API-Setup-Guide.pdf | Required connections by session and optional tools. |
-| CHAPTERS.md | Fifteen chapters, outcomes and time budget. |
-| PREWORK.md | Prepare account access before its session. |
-| GLOSSARY.md | Short definitions. |
-| SECURITY.md | Independent security scan, fixes and publication limits. |
-| code/ | The 20 runtime files. |
-| course/ | Editable slide data and booklet source. |
+| Part-1-Presentation.pdf | Follow the live workshop. |
+| Participant-Booklet.pdf | Instructions, checks and repairs for Part 1. |
+| prompts.html | Copy each complete exercise prompt. |
+| START-HERE.html | Add your website and copy the first prompt. |
+| API-CONNECTIONS.html | Get and save one key at a time. Part 1 needs no key. |
+| API-CONNECTIONS.md | Short key-saving reference. |
+| PREWORK.md | The short setup checklist. |
+| code/ | The prepared local program. Keep its 20 files together. |
 
-## Your files and keys
+## Five sections
 
-Part 1 requires no paid API. Put company files in company-motion/. Your working database is company-motion/gtm.sqlite, which Git ignores. The tracked code/data/gtm.sqlite remains an empty template. Keep filled credentials and configuration in a private folder outside this cloned repository. The program rejects paths and symlinks inside this repository. Never paste keys into HTML helpers or commit recipient files or provider receipts. The supplied template has 16 empty tables; every credential template is blank.
+1. See the working examples.
+2. Set up your company.
+3. Choose two target companies.
+4. Build and check your first page.
+5. Save the skill. Build page two.
 
-Python 3.10 or newer is needed for the local program. The launcher can start from Python 3.9 and selects a verified newer interpreter. If python3 is not installed, the agent finds another installed compatible executable or links the official installer: https://www.python.org/downloads/. No Homebrew is required.
+Use your company website and two target-company domains. The agent asks for missing details. A website block can use official text you paste. Unsupported claims must be removed.
 
-Runtime commands run from code/. Missing interpreter receipt triggers rediscovery. An unusable saved interpreter requires bootstrap --reset-python. Existing company facts, authority and history stay intact during repair.
+Your files go in company-motion/. Commands run from code/. The launcher saves and reuses a supported Python interpreter. If none exists, it gives the official installer. No Homebrew is required.
 
-Part 2 live email needs an owned sender, current exclusions, current employer and valid-email evidence, exact owner approval and Gmail Sent proof. Provider waits can continue after class. Part 3 extra channels are optional. Prepared, queued, sent, delivered, replied and booked are different results.
+Part 1 has no paid API requirement and sends nothing. Keys and filled configuration stay in a private folder outside this repository. The included credential templates are blank. The database has 16 empty tables.
 
-The portable package does not implement automatic replies, meeting-write automation, physical postal fulfillment or advertising launch/restart. Core completion is your local framework and reviewed page play. Do not claim another channel works until its native result is observed.
+Keep this project for [Part 2](https://luma.com/jd8tm0ij) and [Part 3](https://luma.com/wucyo6fw). Each session includes its own presentation and prompts.
 
-## Inspect or rebuild the materials
+## Rebuild this edition
 
-Attendees use the existing PDFs and HTML. Authors can install authoring/requirements.txt in a separate environment, run python3 authoring/build_booklet.py, then python3 authoring/build_materials.py. The build reads only this repository.
+Install authoring/requirements.txt in a separate authoring environment. Run authoring/build_booklet.py, then authoring/build_materials.py. The course contains only Part 1. A single-session build does not produce a complete-series presentation.
 
-Offline runtime checks:
-
-```text
-Run code/checks/focused_checks.py and checks/startup_checks.py with the verified Python executable saved in company-motion/.runtime.json. Show both actual results. Do not contact providers.
-```
-
-The saved interpreter must be Python 3.10 or newer. The test uses temporary fixtures and fake providers. It does not send real email or use paid API credits. Software tests and AI replay do not establish human beginner completion.
-
-Dated teaching examples and attribution limits are in sources/V5-WORKSHOP-SOURCES.md.
+Local software checks use fake providers. They do not prove delivery or spending. Dated examples and attribution limits are in sources/V5-WORKSHOP-SOURCES.md.

@@ -25,7 +25,7 @@ CURRENT_SECTION=1
 PART_ONE_SECTIONS=['Examples','Your company','Target companies','First page','Saved skill']
 
 def plain(s):
- if isinstance(s,list):s='; '.join(plain(x) for x in s)
+ if isinstance(s,list):s='; '.join(plain(x).rstrip('.') for x in s)
  return str('' if s is None else s).replace('\u2014',', ').replace('\u2013','-').replace('\u2011','-').replace('\u00a0',' ')
 
 def paragraph(c,s,x,top,width,size=26,color=BLACK,font='Rubik',leading=None):
@@ -146,15 +146,16 @@ def part_one_example(c,s):
   paragraph(c,'Today: create the account page. Save the instructions. Use them for a second company.',56,114,1168,21,font='RubikMedium')
   return True
  if ident=='p1-real-outputs':
-  pic(c,R/'assets/actual-zuora-page.png',56,150,695,383)
-  paragraph(c,'Zuora: an account-specific page',56,126,695,20,font='RubikMedium')
-  paragraph(c,'Forum One / Email',804,514,410,25,color=ORANGE,font='RubikBold')
-  paragraph(c,'"May I send you campaign ideas for reaching prospective Forum One clients?"',804,462,410,24)
-  paragraph(c,'Gmail Sent. September 30, 2026.',804,338,410,16,color=GRAY)
-  line(c,804,304,410)
-  paragraph(c,'Datarails / Gift invitation',804,279,410,25,color=ORANGE,font='RubikBold')
-  paragraph(c,'$150 offer. Loop & Tie reported sent.',804,221,410,23)
-  paragraph(c,'September 30, 2026. Redemption and meeting attendance are not shown.',804,155,410,16,color=GRAY)
+  pic(c,R/'assets/actual-zuora-page.png',56,164,695,367)
+  paragraph(c,'Zuora / Actual account page',56,135,695,20,font='RubikMedium')
+  examples=vd['side_examples']
+  paragraph(c,'EMAIL DRAFT / Not sent',804,514,410,22,color=ORANGE,font='RubikBold')
+  paragraph(c,examples[0]['text'],804,466,410,21)
+  paragraph(c,'New workshop draft. No send claimed.',804,339,410,15,color=GRAY)
+  line(c,804,303,410)
+  paragraph(c,'GIFT INVITATION DRAFT',804,279,410,22,color=ORANGE,font='RubikBold')
+  paragraph(c,examples[1]['text'],804,233,410,21)
+  paragraph(c,'Not sent. Value, recipient and terms not selected.',804,126,410,15,color=GRAY)
   return True
  if ident=='p1-finish':
   for i,(label,artifact) in enumerate([('Set up your company','Company brief'),('Choose two companies','Two target briefs'),('Build and check page one','Reviewed HTML page'),('Save the skill. Build page two.','Saved instructions + second page')]):
@@ -279,7 +280,8 @@ def generic(c,s):
     paragraph(c,r['title'],854+i*184,510,170,21,font='RubikMedium')
     pic(c,R/'assets'/Path(r['qr']).name,854+i*184,272,162,162)
     c.linkURL(r['url'],(854+i*184,272,1016+i*184,434),relative=0)
-    paragraph(c,r['url'],854+i*184,257,170,13,color=GRAY)
+    paragraph(c,'Register for Part '+str(i+2),854+i*184,257,170,13,color=GRAY)
+    c.linkURL(r['url'],(854+i*184,233,1024+i*184,257),relative=0)
   else:paragraph(c,'Optional',854,510,354,27,color=ORANGE,font='RubikBold');paragraph(c,vd.get('optional',[]),854,450,354,25)
   return
  if vd.get('registrations'):
@@ -386,6 +388,15 @@ def slide(c,s,num,part):
  c.showPage()
 
 def prompt_slide(c,s,num,part):
+ if s['id']=='p1-install':
+  header(c,'Your first prompt: use START-HERE.html',num,part,'START-HERE.html inserts your website into the complete prompt.')
+  for i,text in enumerate(['Open START-HERE.html in your browser.','Enter your company website once.','Click Copy full prompt. Paste it as it is into local Codex or Claude Code.','Read COMPANY.md when the agent stops.']):
+   paragraph(c,str(i+1),62,503-i*84,55,29,color=ORANGE,font='RubikBold')
+   paragraph(c,text,121,503-i*84,1085,27)
+  paragraph(c,'The helper fills the prompt. Your agent asks for missing business details.',62,133,1155,21,color=GRAY)
+  c.linkURL('START-HERE.html',(62,68,1220,116),relative=1)
+  paragraph(c,'Open START-HERE.html',62,104,1155,21,color=ORANGE,font='RubikMedium')
+  c.showPage();return 1
  txt=plain(s['prompt']);size=21
  while size>17:
   p=Paragraph(escape(txt).replace('\n','<br/>'),ParagraphStyle('measure',fontName='Rubik',fontSize=size,leading=size*1.3))
@@ -454,7 +465,10 @@ def make_decks(data):
   c.save();counts[str(part['id'])]=num;allpdf.append(dest)
  writer=PdfWriter()
  for part,p in zip(data['parts'],allpdf):writer.append(str(p),outline_item=part['title'])
- with open(OUT/'Complete-Presentation.pdf','wb') as f:writer.write(f)
+ if len(allpdf)>1:
+  with open(OUT/'Complete-Presentation.pdf','wb') as f:writer.write(f)
+ else:
+  (OUT/'Complete-Presentation.pdf').unlink(missing_ok=True)
  return counts
 
 ST=getSampleStyleSheet()
@@ -467,14 +481,18 @@ ST.add(ParagraphStyle('CodeWrap',fontName='Rubik',fontSize=10.4,leading=14.1,tex
 
 def rich(s):
  s=escape(plain(s))
- s=re.sub(r'\[([^]]+)\]\((https?[^)]+)\)',r'<link href="\2" color="#1a7a69">\1</link>',s)
+ def make_link(match):
+  target=match[2]
+  if re.match(r'^[A-Za-z][A-Za-z0-9+.-]*:',target) and not target.startswith(('https:','http:')):return match[0]
+  return '<link href="'+target+'" color="#1a7a69">'+match[1]+'</link>'
+ s=re.sub(r'\[([^]]+)\]\(([^)]+)\)',make_link,s)
  s=re.sub(r'\*\*([^*]+)\*\*',r'<b>\1</b>',s)
  s=re.sub(r'`([^`]+)`',r'<font name="Courier">\1</font>',s)
  return s
 
 def footer(c,doc):
  c.setFillColor(ORANGE);c.rect(0,doc.pagesize[1]-6,doc.pagesize[0],6,fill=1,stroke=0)
- c.setFillColor(GRAY);c.setFont('Rubik',8);c.drawString(43,24,'Metadata | Agentic GTM v5 workshop | October 2026');c.drawRightString(doc.pagesize[0]-43,24,str(doc.page))
+ c.setFillColor(GRAY);c.setFont('Rubik',8);c.drawString(43,24,'Metadata | Agentic GTM workshop | October 2026');c.drawRightString(doc.pagesize[0]-43,24,str(doc.page))
 
 class ChapterFlow(Flowable):
  def __init__(self,labels):
@@ -487,13 +505,15 @@ class ChapterFlow(Flowable):
    _,hh=p.wrap(bw-14,48);p.drawOn(c,x+7,38-hh/2)
    if i<3:arrow(c,x+bw,38,x+131,38)
 
-def markdown_pdf(src,out,title):
+def markdown_pdf(src,out,title,include_cover=True):
  from reportlab.lib.pagesizes import A4
  doc=SimpleDocTemplate(str(out),pagesize=A4,rightMargin=43,leftMargin=43,topMargin=42,bottomMargin=43,title=title,author='Gil Allouche, Metadata')
  story=[Paragraph(title,ST['Title']),Spacer(1,12)]
- picpath=R/'assets/workshop-cover.png'
- im=Image(str(picpath),width=508,height=285);story.extend([im,Spacer(1,15),Paragraph('Three individual workshops. Your company, your accounts, your results.',ST['BodyText']),PageBreak()])
+ if include_cover:
+  picpath=R/'assets/workshop-cover.png'
+  im=Image(str(picpath),width=508,height=285);story.extend([im,Spacer(1,15),Paragraph('Part 1. Your company, two reviewed pages and a reusable skill.',ST['BodyText']),PageBreak()])
  lines=plain(src).splitlines();i=0
+ if not include_cover and lines and lines[0].lstrip('# ').strip()==title:lines=lines[1:]
  while i<len(lines):
   l=lines[i].strip()
   if not l:i+=1;continue
@@ -516,6 +536,7 @@ def markdown_pdf(src,out,title):
     if not all(re.fullmatch(r'[:\- ]+',x) for x in row):rows.append(row)
     i+=1
    n=max(len(row) for row in rows);widths=[508/n]*n
+   if rows[0]==['Needed','How to get it','Where to save it','What it enables','Check']:widths=[84,108,125,102,89]
    ps=ParagraphStyle('tb',parent=ST['BodyText'],fontSize=8.5,leading=11.5,spaceAfter=0)
    cells=[[Paragraph(rich(x),ps) for x in (row+['']*(n-len(row)))] for row in rows]
    t=Table(cells,colWidths=widths,repeatRows=1,hAlign='LEFT');t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),HexColor('#fff7ed')),('LINEBELOW',(0,0),(-1,0),1,ORANGE),('LINEBELOW',(0,1),(-1,-1),.4,LINE),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),6),('RIGHTPADDING',(0,0),(-1,-1),6),('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6)]));story.extend([t,Spacer(1,10)]);continue
@@ -540,8 +561,8 @@ def markdown_pdf(src,out,title):
 HELPER_STYLE = """
 @font-face{font-family:Rubik;src:url('assets/Rubik-400.ttf')}@font-face{font-family:Rubik;src:url('assets/Rubik-700.ttf');font-weight:700}
 :root{--ink:#132033;--orange:#f05a28;--paper:#fbf9f6;--gray:#536072;--line:#ddd9d4}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;font:18px/1.55 Rubik,Arial,sans-serif;color:var(--ink);background:var(--paper)}
-a{color:#ae3911;text-underline-offset:4px}a:hover{color:#132033}header{position:sticky;top:0;background:rgba(251,249,246,.96);border-bottom:1px solid var(--line);z-index:2;padding:15px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px}header a{text-decoration:none}.brand{font-size:19px;font-weight:700;letter-spacing:-.7px}.brand span{color:var(--orange)}main{max-width:1120px;margin:auto;padding:42px 28px 90px}.eyebrow{color:var(--orange);text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:700}h1{font-size:clamp(40px,5vw,66px);line-height:1.08;letter-spacing:-2px;max-width:920px;margin:17px 0 24px}h2{font-size:31px;line-height:1.2;letter-spacing:-.7px;margin:0 0 15px}h3{font-size:21px;margin:20px 0 10px}.intro{font-size:22px;max-width:750px;color:var(--gray)}.path{padding:14px 0 22px;border-bottom:2px solid var(--ink);font-size:16px;color:var(--gray)}.path strong{color:var(--ink)}.part-title{margin-top:64px}.chapter{padding:34px 0 24px;border-bottom:2px solid var(--orange);margin-top:24px}.toc{display:flex;flex-wrap:wrap;gap:10px 22px;padding:20px 0;margin:24px 0;border-block:1px solid var(--line);font-size:16px}.exercise{padding:42px 0;border-bottom:1px solid var(--line);scroll-margin-top:90px}.meta{font-size:15px;color:var(--gray);margin:10px 0}.expected{margin:16px 0;padding-left:22px}.expected li{margin:5px 0}.prompt-label{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px}.prompt-label p{margin:0;font-size:14px;color:var(--gray)}textarea{display:block;box-sizing:border-box;width:100%;min-height:310px;max-height:650px;resize:vertical;font:16px/1.55 Rubik,Arial,sans-serif;padding:22px;border:1px solid #c9c6c1;background:#fff;color:var(--ink);border-radius:8px;white-space:pre-wrap}textarea:focus,input:focus{outline:3px solid #f3c0a5;outline-offset:2px}button,.button{display:inline-block;margin:15px 12px 10px 0;background:#c34314;color:white;border:0;border-radius:6px;padding:13px 20px;font:700 16px Rubik,Arial,sans-serif;cursor:pointer;text-decoration:none;transition:transform .15s,background .15s;min-height:48px}button:hover,.button:hover{background:#9f2c0b;color:white;transform:translateY(-2px)}button:active{transform:translateY(0)}button:focus-visible,.button:focus-visible{outline:3px solid #132033;outline-offset:3px}.copy-status{font-size:14px;color:#2b6552;min-height:25px}.hint{font-size:15px;color:var(--gray)}.next{margin-top:20px;font-size:17px}.note{border-left:3px solid var(--orange);padding:4px 0 4px 18px;margin:25px 0;color:var(--gray)}.steps{list-style:none;padding:0;counter-reset:step;margin:36px 0}.steps li{position:relative;padding:0 0 23px 53px;counter-increment:step}.steps li:before{content:counter(step);position:absolute;left:0;top:-4px;color:var(--orange);font-size:30px;font-weight:700}.steps strong{display:block;font-size:22px}.steps p{margin:4px 0;max-width:760px;color:var(--gray)}.helper{border-top:1px solid var(--line);padding-top:30px;margin-top:24px}label{display:block;font-size:15px;margin:15px 0 7px}input{width:100%;font:18px Rubik,Arial,sans-serif;min-height:48px;border:1px solid #c9c6c1;border-radius:6px;background:white;padding:12px}details{margin:17px 0}summary{cursor:pointer;font-size:16px;color:var(--gray)}.field-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stop{font-size:18px;font-weight:700;margin-top:26px}.legend{font-size:14px;color:var(--gray)}code{font:14px/1.4 monospace;background:#eeebe7;padding:3px 5px;border-radius:3px}footer{border-top:1px solid var(--line);margin-top:45px;padding-top:20px;font-size:14px;color:var(--gray)}@media(max-width:650px){header{padding:13px 18px}header a{font-size:14px}main{padding:28px 18px 65px}h1{letter-spacing:-1.2px}h2{font-size:27px}.intro{font-size:19px}.field-pair{grid-template-columns:1fr;gap:0}.prompt-label{display:block}textarea{padding:15px;font-size:15px}.exercise{padding:32px 0}.toc{gap:8px 16px}.steps li{padding-left:44px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button,.button{transition:none}}
+*{box-sizing:border-box}html{scroll-behavior:auto;scroll-padding-top:84px}body{margin:0;font:18px/1.55 Rubik,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:#ae3911;text-underline-offset:4px}a:hover{color:#132033}header{position:sticky;top:0;background:rgba(251,249,246,.96);border-bottom:1px solid var(--line);z-index:2;padding:15px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px}header a{text-decoration:none}.brand{font-size:19px;font-weight:700;letter-spacing:-.7px}.brand span{color:var(--orange)}main{max-width:1120px;margin:auto;padding:42px 28px 90px}.eyebrow{color:var(--orange);text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:700}h1{font-size:clamp(40px,5vw,66px);line-height:1.08;letter-spacing:-2px;max-width:920px;margin:17px 0 24px}h2{font-size:31px;line-height:1.2;letter-spacing:-.7px;margin:0 0 15px}h3{font-size:21px;margin:20px 0 10px}.intro{font-size:22px;max-width:750px;color:var(--gray)}.path{padding:14px 0 22px;border-bottom:2px solid var(--ink);font-size:16px;color:var(--gray)}.path strong{color:var(--ink)}.part-title{margin-top:64px;scroll-margin-top:120px}.chapter{scroll-margin-top:120px;padding:34px 0 24px;border-bottom:2px solid var(--orange);margin-top:24px}.toc{display:flex;flex-wrap:wrap;gap:10px 22px;padding:20px 0;margin:24px 0;border-block:1px solid var(--line);font-size:16px}.exercise{padding:42px 0;border-bottom:1px solid var(--line);scroll-margin-top:120px}.meta{font-size:15px;color:var(--gray);margin:10px 0}.expected{margin:16px 0;padding-left:22px}.expected li{margin:5px 0}.prompt-label{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px}.prompt-label p{margin:0;font-size:14px;color:var(--gray)}textarea{display:block;box-sizing:border-box;width:100%;min-height:310px;max-height:650px;resize:vertical;font:16px/1.55 Rubik,Arial,sans-serif;padding:22px;border:1px solid #c9c6c1;background:#fff;color:var(--ink);border-radius:8px;white-space:pre-wrap}textarea:focus,input:focus{outline:3px solid #f3c0a5;outline-offset:2px}button,.button{display:inline-block;margin:15px 12px 10px 0;background:#c34314;color:white;border:0;border-radius:6px;padding:13px 20px;font:700 16px Rubik,Arial,sans-serif;cursor:pointer;text-decoration:none;transition:transform .15s,background .15s;min-height:48px}button:hover,.button:hover{background:#9f2c0b;color:white;transform:translateY(-2px)}button:active{transform:translateY(0)}button:focus-visible,.button:focus-visible{outline:3px solid #132033;outline-offset:3px}.copy-status{font-size:14px;color:#2b6552;min-height:25px}.hint{font-size:15px;color:var(--gray)}.next{margin-top:20px;font-size:17px}.next-step{display:inline-block;min-height:44px;padding:8px 0}.note{border-left:3px solid var(--orange);padding:4px 0 4px 18px;margin:25px 0;color:var(--gray)}.steps{list-style:none;padding:0;counter-reset:step;margin:36px 0}.steps li{position:relative;padding:0 0 23px 53px;counter-increment:step}.steps li:before{content:counter(step);position:absolute;left:0;top:-4px;color:var(--orange);font-size:30px;font-weight:700}.steps strong{display:block;font-size:22px}.steps p{margin:4px 0;max-width:760px;color:var(--gray)}.helper{border-top:1px solid var(--line);padding-top:30px;margin-top:24px}label{display:block;font-size:15px;margin:15px 0 7px}input{width:100%;font:18px Rubik,Arial,sans-serif;min-height:48px;border:1px solid #c9c6c1;border-radius:6px;background:white;padding:12px}details{margin:17px 0}summary{cursor:pointer;font-size:16px;color:var(--gray)}.field-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stop{font-size:18px;font-weight:700;margin-top:26px}.legend{font-size:14px;color:var(--gray)}code{font:14px/1.4 monospace;background:#eeebe7;padding:3px 5px;border-radius:3px}footer{border-top:1px solid var(--line);margin-top:45px;padding-top:20px;font-size:14px;color:var(--gray)}@media(max-width:650px){header{padding:13px 18px}header a{font-size:14px}main{padding:28px 18px 65px}h1{letter-spacing:-1.2px}h2{font-size:27px}.intro{font-size:19px}.field-pair{grid-template-columns:1fr;gap:0}.prompt-label{display:block}textarea{padding:15px;font-size:15px}.exercise{padding:32px 0}.toc{gap:8px 16px}.steps li{padding-left:44px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button,.button{transition:none}}
 """
 COPY_JS = """
 async function copyPrompt(id,button){
@@ -588,8 +609,9 @@ def prompt_html(data):
     content.append('</section>');continue
    ident=html.escape(s['id']);title=html.escape(s['title']);q=html.escape(s['prompt'])
    timing='Optional after class. ' if s.get('route')=='optional' else plain(s.get('timing',''))+' minutes. '
-   meta=timing+plain(s.get('difficulty',''))+'. Tools: '+', '.join(s.get('tools',[]))+'.'
-   content.append('<section class="exercise" id="'+ident+'"><h2>'+title+'</h2><p class="meta">'+html.escape(meta)+'</p><h3>You should have</h3>'+expected_html(s.get('expected',''))+'<p class="hint"><strong>Check:</strong> '+html.escape(plain(s.get('check','')))+'</p><div class="prompt-label"><h3>Full prompt</h3><p>Paste into local Claude Code or Codex.</p></div><textarea id="p-'+ident+'" readonly aria-label="Full prompt for '+title+'">'+q+'</textarea><button data-copy-for="p-'+ident+'" onclick="copyPrompt(this.dataset.copyFor,this)">Copy full prompt</button><p class="copy-status" id="status-p-'+ident+'" aria-live="polite"></p>')
+   meta=timing+plain(s.get('difficulty','')).rstrip('.')+'. Tools: '+', '.join(x.rstrip('.') for x in s.get('tools',[]))+'.'
+   startup_note='<p class="note"><strong>First prompt:</strong> <a href="START-HERE.html">Open START-HERE.html</a>, enter your website once and copy the completed prompt there. Paste it as it is.</p>' if s['id']=='p1-install' else ''
+   content.append('<section class="exercise" id="'+ident+'"><h2>'+title+'</h2>'+startup_note+'<p class="meta">'+html.escape(meta)+'</p><h3>You should have</h3>'+expected_html(s.get('expected',''))+'<p class="hint"><strong>Check:</strong> '+html.escape(plain(s.get('check','')))+'</p><div class="prompt-label"><h3>Full prompt</h3><p>Paste into local Claude Code or Codex.</p></div><textarea id="p-'+ident+'" readonly aria-label="Full prompt for '+title+'">'+q+'</textarea><button data-copy-for="p-'+ident+'" onclick="copyPrompt(this.dataset.copyFor,this)">Copy full prompt</button><p class="copy-status" id="status-p-'+ident+'" aria-live="polite"></p>')
    if s.get('fallback') or s.get('repair_prompt'):
     content.append('<details class="repair"><summary>If you get stuck</summary><p>'+html.escape(plain(s.get('fallback','')))+'</p>')
     if s.get('repair_prompt'):
@@ -605,28 +627,28 @@ def prompt_html(data):
 def starter_html(data):
  setup=next(s for p in data['parts'] for s in p['slides'] if s['id']=='p1-install')
  prompt=setup['prompt'];q=html.escape(prompt)
- body='<p class="eyebrow">Start here</p><h1>Your first result:<br>a company brief.</h1><p class="intro">You already have the starter code. Tell your local agent about your company. It will prepare the project and stop after the first step.</p><ol class="steps"><li><strong>Clone the workshop.</strong><p>Run this in Codex, Claude Code or your terminal.</p><textarea id="clone-command" readonly aria-label="Clone command" style="min-height:70px">git clone https://github.com/f-o-x11/agentic-gtm-workshop.git</textarea><button data-copy-for="clone-command" onclick="copyPrompt(this.dataset.copyFor,this)">Copy clone command</button><p class="copy-status" id="status-clone-command" aria-live="polite"></p></li><li><strong>Open the workshop folder in Claude Code or Codex.</strong><p>Choose <code>agentic-gtm-workshop</code>. It contains <code>START-HERE.html</code>, <code>prompts.html</code> and the <code>code</code> folder. Keep using this same project for all three parts.</p></li><li><strong>Copy the prompt below.</strong><p>Paste it into that local project. The agent reads your website, saves a company brief, prepares the missing setup files and pauses.</p></li></ol><p class="note">Open the folder as a local project. Paste one prompt, review its result and stop before the next exercise.</p><div class="helper"><h2>Use your own company</h2><p class="hint">Your website is enough to start. If you know the other answers, add them now. These fields stay in this page. Do not enter API keys.</p><label for="company-site">Company website</label><input id="company-site" type="url" placeholder="https://your-company.com" autocomplete="url"><details><summary>Optional: buyer, offer and two target companies</summary><label for="buyer">Who do you want to reach?</label><input id="buyer" placeholder="For example: CMOs at B2B software companies"><label for="offer">What can you offer them?</label><input id="offer" placeholder="Use your actual offer, without inventing terms"><div class="field-pair"><div><label for="target-one">First target domain</label><input id="target-one" placeholder="company-one.com"></div><div><label for="target-two">Second target domain</label><input id="target-two" placeholder="company-two.com"></div></div></details><div class="prompt-label"><h3>Full startup prompt</h3><p>Local Claude Code or Codex.</p></div><textarea id="startup-prompt" readonly aria-label="Full startup prompt">'+q+'</textarea><button id="copy-startup" data-copy-for="startup-prompt" onclick="copyPrompt(this.dataset.copyFor,this)">Copy full prompt</button><p class="copy-status" id="status-startup-prompt" aria-live="polite"></p><h3>You should have</h3>'+expected_html(setup.get('expected',''))+'<p class="hint"><strong>Check:</strong> '+html.escape(plain(setup.get('check','')))+'</p><p class="stop">Read the company brief. Then continue to the next exercise.</p><a class="button next-step" href="prompts.html#'+html.escape(setup.get('next_id','p1-company'))+'">'+html.escape(setup.get('next_action','Review your company brief'))+'</a><p class="legend">Python setup is automatic when a supported version exists. If it is missing, the agent gives you the official installer link and pauses. No API account is needed for Part 1.</p></div>'
- js='const sourcePrompt='+json.dumps(prompt).replace('</','<\\/')+';const tokens={"company-site":"[YOUR_COMPANY_WEBSITE]","buyer":"[BUYER_SEGMENT]","offer":"[COLD_OFFER]","target-one":"[TARGET_1_DOMAIN]","target-two":"[TARGET_2_DOMAIN]"};function updateStartup(){let p=sourcePrompt;for(const [id,token] of Object.entries(tokens)){const value=document.getElementById(id).value.trim();if(value)p=p.split(token).join(value);}document.getElementById("startup-prompt").value=p;document.getElementById("copy-startup").textContent="Copy full prompt";document.getElementById("status-startup-prompt").textContent="";}for(const id of Object.keys(tokens))document.getElementById(id).addEventListener("input",updateStartup);'
- builder_prompt='Read BUILD-MY-GTM.md and follow its Build my workflow instructions. Ask me one question at a time, use my answers to adapt this project, and complete all local preparation that does not need another answer. Start with my company website. Keep external actions paused until I review their exact recipients, messages and costs.'
+ body='<p class="eyebrow">Start here</p><h1>Your first result:<br>a company brief.</h1><p class="intro">You already have the starter code. Tell your local agent about your company. It will prepare the project and stop after the first step.</p><ol class="steps"><li><strong>Clone the workshop.</strong><p>Run this in Codex, Claude Code or your terminal.</p><textarea id="clone-command" readonly aria-label="Clone command" style="min-height:70px">git clone https://github.com/f-o-x11/agentic-gtm-workshop.git</textarea><button data-copy-for="clone-command" onclick="copyPrompt(this.dataset.copyFor,this)">Copy clone command</button><p class="copy-status" id="status-clone-command" aria-live="polite"></p></li><li><strong>Open the workshop folder in Claude Code or Codex.</strong><p>Choose <code>agentic-gtm-workshop</code>. It contains <code>START-HERE.html</code>, <code>prompts.html</code> and the <code>code</code> folder. Keep using this same project for this workshop and the next session.</p></li><li><strong>Copy the prompt below.</strong><p>Paste it into that local project. The agent reads your website, saves a company brief, prepares the missing setup files and pauses.</p></li></ol><p class="note">Open the folder as a local project. Paste one prompt, review its result and stop before the next exercise.</p><div class="helper"><h2>Use your own company</h2><p class="hint">Enter your website once. The helper fills the prompt. Your agent asks for missing buyers, offer or targets. This page accepts no API keys.</p><label for="company-site">Company website</label><input id="company-site" type="url" placeholder="https://your-company.com" autocomplete="url"><div class="prompt-label"><h3>Full startup prompt</h3><p>Local Claude Code or Codex.</p></div><textarea id="startup-prompt" readonly aria-label="Full startup prompt">'+q+'</textarea><button id="copy-startup" data-copy-for="startup-prompt" onclick="copyStartup(this)">Copy full prompt</button><p class="copy-status" id="status-startup-prompt" aria-live="polite"></p><h3>You should have</h3>'+expected_html(setup.get('expected',''))+'<p class="hint"><strong>Check:</strong> '+html.escape(plain(setup.get('check','')))+'</p><p class="stop">Read the company brief. Then continue to the next exercise.</p><a class="button next-step" href="prompts.html#'+html.escape(setup.get('next_id','p1-company'))+'">'+html.escape(setup.get('next_action','Review your company brief'))+'</a><p class="legend">Python setup is automatic when a supported version exists. If it is missing, the agent gives you the official installer link and pauses. No API account is needed for Part 1.</p></div>'
+ js='const sourcePrompt='+json.dumps(prompt).replace('</','<\\/')+';function updateStartup(){let value=document.getElementById("company-site").value.trim();if(value&&!value.startsWith("http://")&&!value.startsWith("https://"))value="https://"+value;document.getElementById("startup-prompt").value=value?sourcePrompt.split("[YOUR_COMPANY_WEBSITE]").join(value):sourcePrompt;document.getElementById("copy-startup").textContent="Copy full prompt";document.getElementById("status-startup-prompt").textContent="";}async function copyStartup(button){const input=document.getElementById("company-site");if(!input.value.trim()){document.getElementById("status-startup-prompt").textContent="Enter your company website first.";input.focus();return;}updateStartup();await copyPrompt("startup-prompt",button);}document.getElementById("company-site").addEventListener("input",updateStartup);'
+ builder_prompt='Read BUILD-MY-GTM.md and follow its Build my workflow instructions. Ask me one question at a time, use my answers to adapt this project, and complete the Part 1 page exercises one at a time. Start with my company website. Keep external actions paused until I review their exact recipients, messages and costs.'
  resources='<section class="helper" id="class-materials"><h2>Keep these open during class</h2><p><a href="Participant-Booklet.pdf">Participant booklet</a>: instructions and checks. <a href="prompts.html">Full prompts</a>: copy one exercise at a time.</p><p>Before class, sign in to local Codex or Claude Code and check that it can open your workshop folder and read your company website. Part 1 needs no API keys.</p><p><a href="PREWORK.md">Check the short setup list</a>.</p></section>'
  body=body.replace('<div class="helper"><h2>Use your own company</h2>',resources+'<div class="helper"><h2>Use your own company</h2>')
- body += '<section class="helper" id="build-my-workflow"><h2>Build the full local workflow</h2><p>Use this outside the guided exercises. Your agent asks questions, prepares your project and checks each available connection.</p><textarea id="builder-prompt" readonly aria-label="Build my workflow prompt">'+html.escape(builder_prompt)+'</textarea><button data-copy-for="builder-prompt" onclick="copyPrompt(this.dataset.copyFor,this)">Copy build prompt</button><p class="copy-status" id="status-builder-prompt" aria-live="polite"></p><p><a href="BUILD-MY-GTM.md">Read the full build instructions</a></p></section>'
+ body += '<section class="helper" id="build-my-workflow"><h2>Build your Part 1 page workflow</h2><p>Use this outside the guided exercises. Your agent asks questions, prepares your project and checks each available connection.</p><textarea id="builder-prompt" readonly aria-label="Build my workflow prompt">'+html.escape(builder_prompt)+'</textarea><button data-copy-for="builder-prompt" onclick="copyPrompt(this.dataset.copyFor,this)">Copy build prompt</button><p class="copy-status" id="status-builder-prompt" aria-live="polite"></p><p><a href="BUILD-MY-GTM.md">Read the full build instructions</a></p></section>'
  doc=page_html('Start your Agentic GTM workshop',body,js)
  (OUT/'START-HERE.html').write_text(doc)
- md='# Start here\n\n1. Run this command in Codex, Claude Code or your terminal:\n\n```bash\ngit clone https://github.com/f-o-x11/agentic-gtm-workshop.git\n```\n\n2. Open agentic-gtm-workshop as your local Claude Code or Codex project. It contains `START-HERE.html`, `prompts.html` and the `code` folder. The agent runs program commands from `code/`.\n3. Open `START-HERE.html` in your browser. Add your company website. Copy the full startup prompt and paste it into the local agent.\n4. Review the saved company brief before the next exercise. Keep the same project for all three parts.\n\nYou do not need API keys for Part 1. The starter uses an existing supported Python version, or gives you the official installer link.\n\nThe browser shows prompts. Your local agent works with the files. Never enter API keys in a browser helper.\n\n## Full startup prompt\n\n```text\n'+prompt+'\n```\n\n## Next step\n\n'+setup.get('next_action','Review your company brief')+'. Open `prompts.html#'+setup.get('next_id','p1-company')+'`.\n'
- md += '\n## Build the full local workflow\n\nFor an owner-requested build outside the guided exercises, paste:\n\n```text\n'+builder_prompt+'\n```\n\nFull instructions: BUILD-MY-GTM.md. External actions stay paused until their exact scope is approved.\n'
+ md='# Start here\n\n1. Run this command in Codex, Claude Code or your terminal:\n\n```bash\ngit clone https://github.com/f-o-x11/agentic-gtm-workshop.git\n```\n\n2. Open agentic-gtm-workshop as your local Claude Code or Codex project. It contains `START-HERE.html`, `prompts.html` and the `code` folder. The agent runs program commands from `code/`.\n3. Open `START-HERE.html` in your browser. Add your company website. Copy the full startup prompt and paste it into the local agent.\n4. Review the saved company brief before the next exercise. Keep this project for the next session.\n\nYou do not need API keys for Part 1. The starter uses an existing supported Python version, or gives you the official installer link.\n\nThe browser shows prompts. Your local agent works with the files. Never enter API keys in a browser helper.\n\n## Full startup prompt\n\n```text\n'+prompt+'\n```\n\n## Next step\n\n'+setup.get('next_action','Review your company brief')+'. Open `prompts.html#'+setup.get('next_id','p1-company')+'`.\n'
+ md += '\n## Build your Part 1 page workflow\n\nFor an owner-requested build outside the guided exercises, paste:\n\n```text\n'+builder_prompt+'\n```\n\nFull instructions: BUILD-MY-GTM.md. External actions stay paused until their exact scope is approved.\n'
  (OUT/'START-HERE.md').write_text(md)
 
 if __name__=='__main__':
  data=json.loads((R/'course/course.json').read_text())
  import argparse
  parser=argparse.ArgumentParser();parser.add_argument('--startup-only',action='store_true');parser.add_argument('--preserve-pdf',action='append',default=[]);args=parser.parse_args()
- preserve_names=('Part-2-Presentation.pdf','Part-3-Presentation.pdf','API-Setup-Guide.pdf') if args.startup_only else args.preserve_pdf
+ preserve_names=tuple(name for name in ('Part-2-Presentation.pdf','Part-3-Presentation.pdf','API-Setup-Guide.pdf') if (OUT/name).exists()) if args.startup_only else args.preserve_pdf
  if any(name not in ('Part-1-Presentation.pdf','Part-2-Presentation.pdf','Part-3-Presentation.pdf','API-Setup-Guide.pdf') for name in preserve_names):parser.error('Only unchanged workshop PDFs can be preserved.')
  preserved={name:(OUT/name).read_bytes() for name in preserve_names}
  counts=make_decks(data)
  markdown_pdf((R/'course/BOOKLET.md').read_text(),OUT/'Participant-Booklet.pdf','Build your own Agentic GTM')
- markdown_pdf((R/'API-CONNECTIONS.md').read_text(),OUT/'API-Setup-Guide.pdf','Connect your own tools')
+ markdown_pdf((R/'API-CONNECTIONS.md').read_text(),OUT/'API-Setup-Guide.pdf','Where do I put my API keys?',include_cover=False)
  prompt_html(data)
  starter_html(data)
  for name,blob in preserved.items(): (OUT/name).write_bytes(blob)

@@ -1,39 +1,22 @@
 {
   "parts": {
-    "part-1": 36,
-    "part-2": 40,
-    "part-3": 43
+    "part-1": 35
   },
   "all_pdfs": [
     {
       "file": "API-Setup-Guide.pdf",
-      "pages": 32,
-      "bytes": 3165262
-    },
-    {
-      "file": "Complete-Presentation.pdf",
-      "pages": 119,
-      "bytes": 3602343
+      "pages": 2,
+      "bytes": 30004
     },
     {
       "file": "Part-1-Presentation.pdf",
-      "pages": 36,
-      "bytes": 3281225
-    },
-    {
-      "file": "Part-2-Presentation.pdf",
-      "pages": 40,
-      "bytes": 111684
-    },
-    {
-      "file": "Part-3-Presentation.pdf",
-      "pages": 43,
-      "bytes": 208336
+      "pages": 35,
+      "bytes": 3280261
     },
     {
       "file": "Participant-Booklet.pdf",
-      "pages": 55,
-      "bytes": 3211211
+      "pages": 13,
+      "bytes": 3107426
     }
   ]
 }

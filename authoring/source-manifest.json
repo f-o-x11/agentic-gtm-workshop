@@ -1,6 +1,6 @@
 {
   "chapters_per_session": 5,
-  "sessions": 3,
+  "sessions": 1,
   "runtime_files": 20,
   "files": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "path": ".github/workflows/workshop-checks.yml",
-      "sha256": "63789ecfd841b9cbe1edbf9f64f09a6df9b3d78437a01071a9767aec3156a15e",
-      "bytes": 490
+      "sha256": "53bce67065017984d20dc960aeb03d2ab474853679bcc760ada90b724914a853",
+      "bytes": 540
     },
     {
       "path": ".gitignore",
@@ -20,13 +20,18 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "7e806c995d29bb7147a353d3832540144b0f986146f73fdb0e261a9a75c96082",
+      "sha256": "b74a6aa05573271fe16242025d9df74e75bdf10bcaa859b1e5c8e8000d58e2a7",
       "bytes": 2569
     },
     {
+      "path": "API-CONNECTIONS.html",
+      "sha256": "1bff8d4b8573f1caf4faac9fcbf9be37f2fd7216e51fd291225c96b908beea1d",
+      "bytes": 26750
+    },
+    {
       "path": "API-CONNECTIONS.md",
-      "sha256": "dce6f8909fa2f76310d3f2c7930df3b032fc1063fdc39075edd71ef64ffe6907",
-      "bytes": 70039
+      "sha256": "3caca3259c877440003f2e93d801de0ba0fee8ed00242836876e625a26f3334b",
+      "bytes": 5184
     },
     {
       "path": "API-STATUS-MATRIX.md",
@@ -35,23 +40,18 @@
     },
     {
       "path": "API-Setup-Guide.pdf",
-      "sha256": "d5468c4a45c3468ad5bf5f2c198da598a1bcc41cdae300675cac9c5388eba9f4",
-      "bytes": 3165262
+      "sha256": "035bf36f1dee537924c032ad569d2456086361dd609290adf6fae5ffee59616f",
+      "bytes": 30004
     },
     {
       "path": "BUILD-MY-GTM.md",
-      "sha256": "c38f2d30160dbf089e30abe88841157d0ce0ac25b876cc8cd1bb801fd0bb74eb",
-      "bytes": 5456
+      "sha256": "50ffcc1eae0d0b32b246b1b479ce8e07093bb649baa983427be0d4ebf3099d03",
+      "bytes": 700
     },
     {
       "path": "CHAPTERS.md",
-      "sha256": "6e3e2e79314f21c0c56957c44233ae1775d5d33d8f50cddaaf3eb3118f87f566",
-      "bytes": 2190
-    },
-    {
-      "path": "Complete-Presentation.pdf",
-      "sha256": "3cc58e425a31e2d64bfe894a7c2df32abfb33701ee6231ef34a894ef583c2e85",
-      "bytes": 3602343
+      "sha256": "7917c5a19a530fc31c7e7cd7117980a6b77946e826d287d814221915d82cb459",
+      "bytes": 713
     },
     {
       "path": "GIFT-GATE-HELPER.md",
@@ -75,8 +75,8 @@
     },
     {
       "path": "PREWORK.md",
-      "sha256": "a0f0702d1a2117e8f4436aebaa4a0c62661fba5c449ee31846fe738dc97ea7af",
-      "bytes": 4224
+      "sha256": "1ed8e5b33b85db32b625064a97a545116748cf2a052680ad587c6e51a20bf25e",
+      "bytes": 1073
     },
     {
       "path": "PROVIDER-CONTRACT-GAPS.md",
@@ -90,28 +90,18 @@
     },
     {
       "path": "Part-1-Presentation.pdf",
-      "sha256": "eb1aa33c7fe157fa4dcd2fe7a6477d35071d9491234067385fc35e889aa6b171",
-      "bytes": 3281225
-    },
-    {
-      "path": "Part-2-Presentation.pdf",
-      "sha256": "3bc75135330ed655e5fb74054b980c637cab1ec9fbeaa9c8b16d2055eecc3f3c",
-      "bytes": 111684
-    },
-    {
-      "path": "Part-3-Presentation.pdf",
-      "sha256": "234798a89e2b3588fab615fd2d6ff757c4585e505f30a75bef93cf6c8f300b22",
-      "bytes": 208336
+      "sha256": "ada749275195c913fdf4f7939cfa9ff861dcb20a20172775091af76c075829ff",
+      "bytes": 3280261
     },
     {
       "path": "Participant-Booklet.pdf",
-      "sha256": "50923560f510ea12ae27d53b50b5bbe4e2c0e42f7c629e1d989c92d3d14dcdf9",
-      "bytes": 3211211
+      "sha256": "1cb1ddb9f936b8daaa3f9f29fbf83aa61b2eadb95f834edc7a9c24cffc5720e5",
+      "bytes": 3107426
     },
     {
       "path": "README.md",
-      "sha256": "ed38635f8417dd589b23ba0aa1bd1d316ae4c3b2b19f7a4a0886551a9d2304fd",
-      "bytes": 5679
+      "sha256": "54725b028299cae62870cb9c176823f2d2736cb08db885f410436736ef71a7a1",
+      "bytes": 2632
     },
     {
       "path": "SECURITY.md",
@@ -125,13 +115,13 @@
     },
     {
       "path": "START-HERE.html",
-      "sha256": "941f62f867dbf9b3e76ab3007fd7c95595e239c91586f9b7bad282882f79dd77",
-      "bytes": 14003
+      "sha256": "cf4762f287b6eceaa1ea57ed5d552e16b3f718ad7a2e0cd97ef2cc2101546f5f",
+      "bytes": 13715
     },
     {
       "path": "START-HERE.md",
-      "sha256": "b72c5bf994ae6051ab7b7d8345c9e09d1e7492790d47c44b65d4920641b5db98",
-      "bytes": 2937
+      "sha256": "98b762663dbc8035c8e82908259432ef52f46affc131c001e59e7a1c02e7e685",
+      "bytes": 2948
     },
     {
       "path": "api-guide.json",
@@ -230,18 +220,18 @@
     },
     {
       "path": "authoring/build_booklet.py",
-      "sha256": "f33f7ec5aafa41ba62e1bf2f2241fc96d7e30c1f8261d210f59d55ea50b3ad92",
-      "bytes": 8128
+      "sha256": "9199e0dc98f060f12780cdd715dcda4a68fbf8df79c5784fbbd8ad1b76a9ad2f",
+      "bytes": 2557
     },
     {
       "path": "authoring/build_materials.py",
-      "sha256": "9618c5d1964273556d36b83a2c900d3ceb57e529aa14d925d0047606d920dbc9",
-      "bytes": 49375
+      "sha256": "2a590e5e729c3f9e78105e517facfe1f0bff53009a6775cf346e42af8cf45880",
+      "bytes": 50707
     },
     {
       "path": "authoring/pdf-manifest.json",
-      "sha256": "359e29f0b087bcb54cb07ac82cdbeac790019b56f39f17d9fbf0d4dbf6929d72",
-      "bytes": 666
+      "sha256": "3618d5e9bac59f46436ff3aec8c670ad88857ccc69a8d600921427f3df4b237d",
+      "bytes": 339
     },
     {
       "path": "authoring/requirements.txt",
@@ -252,6 +242,11 @@
       "path": "build_guide.py",
       "sha256": "a17e6bfbf47e700279a23fa0bb8dc909a5bf47a51ad9aac1eef3775e881d3b4b",
       "bytes": 9524
+    },
+    {
+      "path": "checks/key_entry_checks.py",
+      "sha256": "93065db5116b918c8af3c976f1cdbbe03ca303644aca13de1bad819a4f78fa76",
+      "bytes": 7463
     },
     {
       "path": "checks/release_check.py",
@@ -275,8 +270,8 @@
     },
     {
       "path": "code/checks/focused_checks.py",
-      "sha256": "e1c1fe8228b8984447e4b7f372d4d5aa2cc72e4a616e33b8ca40406740a53697",
-      "bytes": 60023
+      "sha256": "9af9dcfaa6e7afb59a682f328fbad92e3af2b2ed13e1518ce5315b6edcee958d",
+      "bytes": 62670
     },
     {
       "path": "code/config/policy.json",
@@ -355,8 +350,8 @@
     },
     {
       "path": "code/gtm.py",
-      "sha256": "96053dadeb9e2545ef939b5c5082d3edbb53fa7cd1feec32a4e5ae20aa8fb432",
-      "bytes": 21001
+      "sha256": "cb762a6931ca50fbd19fab7b0acdad9973c52242e67ca1c618b54ea002b9f3dc",
+      "bytes": 21666
     },
     {
       "path": "code/tools/setup.py",
@@ -370,23 +365,33 @@
     },
     {
       "path": "course/BOOKLET.md",
-      "sha256": "ecd72dc903b4eca85324090f8b5991771566da2f215812f308a0c0429c62a47b",
-      "bytes": 114256
+      "sha256": "393c396408e23fd0800e2d096320136d1ad5e2ed18b22be036098042261614fc",
+      "bytes": 26307
     },
     {
       "path": "course/CHAPTERS.md",
-      "sha256": "6e3e2e79314f21c0c56957c44233ae1775d5d33d8f50cddaaf3eb3118f87f566",
-      "bytes": 2190
+      "sha256": "7917c5a19a530fc31c7e7cd7117980a6b77946e826d287d814221915d82cb459",
+      "bytes": 713
+    },
+    {
+      "path": "course/ZUORA-DRAFTS.md",
+      "sha256": "8ae40a45e6757e08e0b1a4910851a81a9493615d51030ffc6b9a53c6c736558b",
+      "bytes": 734
     },
     {
       "path": "course/course.json",
-      "sha256": "4b426b9fc9a0799dec8b34587741e0c0bbfe707dd7bdb9b8cadbeee56a9b0e6e",
-      "bytes": 270430
+      "sha256": "46877d6668dafffb05de3c300dda8542e76ab2d1a23540a138689ca034e77c67",
+      "bytes": 83409
     },
     {
       "path": "prompts.html",
-      "sha256": "26f9e1c7deaec995a3ee144e26dc33ca1b048499758c8eb3a51dc95a3279075a",
-      "bytes": 172492
+      "sha256": "6c4179e48d2a6c5a9b50fd2ecee6d855926550c5ddd6cb0c91a5e1025c64af1e",
+      "bytes": 54663
+    },
+    {
+      "path": "save-api-key.py",
+      "sha256": "ff883a8d44acc0db2cbf0cc0467dcd652ff8a0e42f4400c5cf68aad76e3115ff",
+      "bytes": 5590
     },
     {
       "path": "sources/V5-WORKSHOP-SOURCES.md",

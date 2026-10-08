@@ -13,3 +13,4 @@ jobs:
       - run: python -B checks/release_check.py
       - run: python -B code/checks/focused_checks.py
       - run: python -B checks/startup_checks.py
+      - run: python -B checks/key_entry_checks.py

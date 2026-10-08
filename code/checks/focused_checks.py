@@ -635,4 +635,34 @@ class PortableChecks(unittest.TestCase):
             self.assertEqual(provider.call_args.args[1]['action_key'],selected); self.assertIsNone(s.one('SELECT idem_key FROM attempts WHERE idem_key=?',(foreign['action_key'],)))
         with self.assertRaisesRegex(ValueError,'existing original'): scheduler.cycle(s,force=True,limit=1,action_keys=['unknown'])
         self.assertEqual(s.one('SELECT count(*) AS n FROM attempts')['n'],1)
+class PythonLauncherChecks(unittest.TestCase):
+    def test_framework_executable_alias_does_not_reexec_forever(self):
+        import gtm
+        with tempfile.TemporaryDirectory() as folder:
+            actual=Path(folder)/'python'; actual.write_text('offline executable fixture')
+            alias=Path(folder)/'framework-alias'; alias.symlink_to(actual)
+            selected={'executable':str(actual),'version':[3,14,0]}
+            with patch.object(gtm,'select_python',return_value=selected),patch.object(gtm.sys,'executable',str(alias)),patch.object(gtm.sys,'version_info',(3,14,0)),patch.object(gtm.sys,'prefix',folder),patch.object(gtm.sys,'base_prefix',folder),patch.object(gtm.os,'execv') as execute:
+                gtm.launch_runtime(); execute.assert_not_called()
+    def test_old_python_still_executes_verified_new_runtime(self):
+        import gtm
+        selected={'executable':sys.executable,'version':[3,14,0]}
+        with patch.object(gtm,'select_python',return_value=selected),patch.object(gtm.sys,'version_info',(3,9,0)),patch.object(gtm.os,'execv') as execute:
+            gtm.launch_runtime(); self.assertEqual(execute.call_args.args[0],selected['executable'])
+    def test_saved_virtual_environment_is_not_replaced_by_its_base_binary(self):
+        import gtm
+        with tempfile.TemporaryDirectory() as folder:
+            env=Path(folder)/'venv'; (env/'bin').mkdir(parents=True); (env/'pyvenv.cfg').write_text('offline venv fixture')
+            selected_path=env/'bin/python'; selected_path.symlink_to(sys.executable)
+            selected={'executable':str(selected_path),'version':list(sys.version_info[:3])}
+            with patch.object(gtm,'select_python',return_value=selected),patch.object(gtm.sys,'prefix',str(Path(folder)/'base')),patch.object(gtm.sys,'base_prefix',str(Path(folder)/'base')),patch.object(gtm.os,'execv') as execute:
+                gtm.launch_runtime(); self.assertEqual(execute.call_args.args[0],str(selected_path))
+            with patch.object(gtm.sys,'prefix',str(env)),patch.object(gtm.sys,'base_prefix',str(Path(folder)/'base')):
+                self.assertTrue(gtm.same_python_runtime(str(selected_path),str(selected_path)))
+    def test_unavailable_identity_probe_falls_back_to_exact_path(self):
+        import gtm
+        with patch.object(gtm.os.path,'samefile',side_effect=OSError('missing fixture')),patch.object(gtm.sys,'prefix','/fixture/base'),patch.object(gtm.sys,'base_prefix','/fixture/base'):
+            self.assertTrue(gtm.same_python_runtime('/fixture/python','/fixture/python'))
+            self.assertFalse(gtm.same_python_runtime('/fixture/python','/fixture/other'))
+
 if __name__ == '__main__': unittest.main(verbosity=2)
