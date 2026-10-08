@@ -60,14 +60,59 @@
     if (status) { status.textContent = label; status.classList.add('visible'); }
     setTimeout(() => { layer.remove(); status?.classList.remove('visible'); }, 2300);
   }
-  document.querySelectorAll('[data-exercise-complete]').forEach(button => {
-    button.addEventListener('click', () => {
-      button.textContent = '✓ I checked this result';
-      button.setAttribute('aria-pressed', 'true');
-      try { localStorage.setItem('gtm-part1-checked-' + button.dataset.exerciseComplete, 'true'); } catch {}
-      celebrate('Result checked. Continue when the presenter is ready.');
+  // Participants confirm their local results. Copying a prompt never confirms a result.
+  const resultButtons = [...document.querySelectorAll('[data-exercise-complete]')];
+  const checkpoints = [...document.querySelectorAll('[data-chapter-checkpoint]')];
+  const savedState = new Map();
+  const checkedKey = id => 'gtm-part1-checked-' + id;
+  const finishedKey = chapter => 'gtm-part1-finished-chapter-' + chapter;
+  function isSaved(key) {
+    try { return localStorage.getItem(key) === 'true'; }
+    catch { return savedState.get(key) === true; }
+  }
+  function save(key, value) {
+    savedState.set(key, value);
+    try { if (value) localStorage.setItem(key, 'true'); else localStorage.removeItem(key); } catch {}
+  }
+  function requiredResults(panel) { return JSON.parse(panel.dataset.requiredExercises); }
+  function updateCompletion() {
+    resultButtons.forEach(button => {
+      const checked = isSaved(checkedKey(button.dataset.exerciseComplete));
+      button.setAttribute('aria-pressed', String(checked));
+      button.textContent = checked ? '✓ I checked this result' : 'My result matches these checks ✓';
     });
+    checkpoints.forEach(panel => {
+      const required = requiredResults(panel);
+      const count = required.filter(id => isSaved(checkedKey(id))).length;
+      const ready = count === required.length;
+      const chapter = panel.dataset.chapterCheckpoint;
+      if (!ready) save(finishedKey(chapter), false);
+      const finished = ready && isSaved(finishedKey(chapter));
+      const button = panel.querySelector('[data-finish-chapter]');
+      button.disabled = !ready || finished;
+      button.textContent = finished ? `Chapter ${chapter} complete ✓` : `Finish chapter ${chapter}`;
+      panel.querySelector('[data-chapter-status]').textContent = finished
+        ? 'All exercise results confirmed. Chapter complete.'
+        : `${count} of ${required.length} exercise results confirmed. Check each result before finishing.`;
+    });
+  }
+  resultButtons.forEach(button => button.addEventListener('click', () => {
+    const key = checkedKey(button.dataset.exerciseComplete);
+    save(key, !isSaved(key));
+    updateCompletion();
+  }));
+  checkpoints.forEach(panel => panel.querySelector('[data-finish-chapter]').addEventListener('click', () => {
+    const chapter = panel.dataset.chapterCheckpoint;
+    const ready = requiredResults(panel).every(id => isSaved(checkedKey(id)));
+    if (!ready || isSaved(finishedKey(chapter))) { updateCompletion(); return; }
+    save(finishedKey(chapter), true);
+    updateCompletion();
+    celebrate(`Chapter ${chapter} complete. All exercise results confirmed.`);
+  }));
+  window.addEventListener('storage', event => {
+    if (event.key?.startsWith('gtm-part1-checked-') || event.key?.startsWith('gtm-part1-finished-chapter-') || event.key === null) updateCompletion();
   });
+  updateCompletion();
   // Native dialogs keep keyboard/Escape behavior. A click on the backdrop closes them.
   document.querySelectorAll('dialog').forEach(dialog => dialog.addEventListener('click', event => {
     const box = dialog.getBoundingClientRect();
@@ -80,5 +125,5 @@
   document.querySelectorAll('[data-close-glossary]').forEach(button => button.addEventListener('click', () => {
     document.getElementById('glossary-dialog').close();
   }));
-  window.GTMWorkshop = { attachPrompt, render, celebrate };
+  window.GTMWorkshop = { attachPrompt, render };
 })();

@@ -15,6 +15,7 @@ for name in ['site.css','slides.css','slides.js','booklet.js','workshop-helpers.
 if not args.hosted:shutil.copy2(WEB/'audience.js',OUT/'audience.js')
 part=json.loads((REPO/'course/course.json').read_text())['parts'][0]
 E=lambda x:html.escape(str(x),quote=True)
+chapter_exercises={c['number']:[s['id'] for s in part['slides'] if s['chapter']==c['number'] and s['type']=='exercise' and s['difficulty']!='Help'] for c in part['chapters']}
 def rich(text,booklet=False,default_id='p1-install'):
  pattern=r'Participant-Booklet\.pdf|prompts\.html(?:#[a-z0-9-]+)?'
  out=[];last=0
@@ -30,7 +31,11 @@ def listing(items):return '<ul>'+''.join('<li>'+rich(i)+'</li>' for i in items)+
 def company_fields(prefix):
  rows=[('website','Company website','https://your-company.com'),('buyer','Buyer segment','Who you sell to'),('offer','Your offer','What you want the buyer to do'),('targetOne','First target domain','first-company.com'),('targetTwo','Second target domain','second-company.com')]
  return '<details class="company-inputs"><summary>Add your company details</summary><p>Fill what you know. Your agent asks for the rest. These fields stay in your browser. Do not enter API keys.</p><div class="company-fields">'+''.join('<label for="'+prefix+'-'+key+'">'+E(label)+'<input id="'+prefix+'-'+key+'" data-company-field="'+key+'" placeholder="'+E(placeholder)+'" autocomplete="off"></label>' for key,label,placeholder in rows)+'</div></details>'
-def complete(s):return '<button class="result-complete" data-exercise-complete="'+E(s['id'])+'" aria-pressed="false">My result matches these checks ✓</button>'
+def complete(s):
+ button='<button class="result-complete" data-exercise-complete="'+E(s['id'])+'" aria-pressed="false">My result matches these checks ✓</button>'
+ required=chapter_exercises[s['chapter']]
+ if not required or s['id']!=required[-1]:return button
+ return button+'<div class="chapter-complete-panel" data-chapter-checkpoint="'+str(s['chapter'])+'" data-required-exercises="'+E(json.dumps(required))+'"><p data-chapter-status role="status">Confirm each exercise’s result checks, then finish this chapter.</p><button class="button secondary" data-finish-chapter disabled>Finish chapter '+str(s['chapter'])+'</button></div>'
 def prompt_box(s):
  return ('<div class="prompt-frame"><div class="prompt-frame-label"><span>Complete prompt</span><span>Local Codex or Claude Code</span></div><textarea class="full-prompt" id="prompt-'+E(s['id'])+'" readonly '+('data-personalize ' if '[YOUR_COMPANY_WEBSITE]' in s['prompt'] else '')+'aria-label="Complete prompt for '+E(s['title'])+'">'+E(s['prompt'])+'</textarea></div>')
 def sequence(items):return '<div class="sequence">'+''.join('<div><span>'+str(n+1)+'</span><strong>'+E(x)+'</strong></div>' for n,x in enumerate(items))+'</div>'

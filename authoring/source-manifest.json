@@ -100,8 +100,8 @@
     },
     {
       "path": "Part-1-Presentation.html",
-      "sha256": "75d60979503fb43ecbead00d57895f7fccd5c71a57cdc000deb84a7e23e253ce",
-      "bytes": 84432
+      "sha256": "9a765ecf905617e1d658a641d614a043460b6e54eab8415ea61c199fa9fea07e",
+      "bytes": 85856
     },
     {
       "path": "Part-1-Presentation.pdf",
@@ -110,8 +110,8 @@
     },
     {
       "path": "Participant-Booklet.html",
-      "sha256": "69a4b55cb8bd956428d6aeb5e86322205de78887fcf394af5e08b7cfe9f52de5",
-      "bytes": 48344
+      "sha256": "812a279153741c35aaa7bcedf3257f6bd45c8a69a163d9f7ff3ba647e4325e3f",
+      "bytes": 49768
     },
     {
       "path": "Participant-Booklet.pdf",
@@ -320,8 +320,8 @@
     },
     {
       "path": "authoring/build_html.py",
-      "sha256": "4074f94677c4243892ea9e671dbe9d2decbc3aa51ed912128f197b842654cb11",
-      "bytes": 26604
+      "sha256": "4377a8bfbec3da0d94631e306bca71699b28de5f89d8835889a7da353f056b5d",
+      "bytes": 27255
     },
     {
       "path": "authoring/build_materials.py",
@@ -345,8 +345,8 @@
     },
     {
       "path": "authoring/web/booklet.js",
-      "sha256": "4262f7beb05f6a5862367538da7c379b181d3b1531a76a21e09f14c97404c862",
-      "bytes": 1193
+      "sha256": "99c2b57e1c42b2f7f450e478c9aa338e0f6c81e9291108a45e7382a79c1f00ba",
+      "bytes": 1113
     },
     {
       "path": "authoring/web/site.css",
@@ -360,23 +360,23 @@
     },
     {
       "path": "authoring/web/slides.js",
-      "sha256": "dcec387765e8f9d2fccdcea78815c5fbeb2876e89ab41db8412a2987a01c25a1",
-      "bytes": 4612
+      "sha256": "67726df2e1f1e6e511a29b3a89d984a63e46a83f0cf90486b12f817ea2dc6eb5",
+      "bytes": 4532
     },
     {
       "path": "authoring/web/workshop-helpers.css",
-      "sha256": "020c54c8d971c9ae270768fe1a39c027cf93d5dbb62bea42f1dbe801049bce6f",
-      "bytes": 6973
+      "sha256": "99c5648eca71971092f636d00178ca0905bfab5aa2b4a39a221313e3d10e9230",
+      "bytes": 7402
     },
     {
       "path": "authoring/web/workshop-helpers.js",
-      "sha256": "6a2804466c2b8a9cd710a6065be8b22bcceba9de99fc633178db914ce54dabcb",
-      "bytes": 4195
+      "sha256": "5bd0ae74e3b699621daf9c482e4e4486307b3c9b85394c940896f3fa30114c3a",
+      "bytes": 6630
     },
     {
       "path": "booklet.js",
-      "sha256": "4262f7beb05f6a5862367538da7c379b181d3b1531a76a21e09f14c97404c862",
-      "bytes": 1193
+      "sha256": "99c2b57e1c42b2f7f450e478c9aa338e0f6c81e9291108a45e7382a79c1f00ba",
+      "bytes": 1113
     },
     {
       "path": "build_guide.py",
@@ -545,8 +545,8 @@
     },
     {
       "path": "slides.js",
-      "sha256": "dcec387765e8f9d2fccdcea78815c5fbeb2876e89ab41db8412a2987a01c25a1",
-      "bytes": 4612
+      "sha256": "67726df2e1f1e6e511a29b3a89d984a63e46a83f0cf90486b12f817ea2dc6eb5",
+      "bytes": 4532
     },
     {
       "path": "sources/V5-WORKSHOP-SOURCES.md",
@@ -555,13 +555,13 @@
     },
     {
       "path": "workshop-helpers.css",
-      "sha256": "020c54c8d971c9ae270768fe1a39c027cf93d5dbb62bea42f1dbe801049bce6f",
-      "bytes": 6973
+      "sha256": "99c5648eca71971092f636d00178ca0905bfab5aa2b4a39a221313e3d10e9230",
+      "bytes": 7402
     },
     {
       "path": "workshop-helpers.js",
-      "sha256": "6a2804466c2b8a9cd710a6065be8b22bcceba9de99fc633178db914ce54dabcb",
-      "bytes": 4195
+      "sha256": "5bd0ae74e3b699621daf9c482e4e4486307b3c9b85394c940896f3fa30114c3a",
+      "bytes": 6630
     }
   ],
   "release": "part1_v10_final"
