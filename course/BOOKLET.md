@@ -187,19 +187,20 @@ Time: 5 minutes. Difficulty: Easy.
 
 Tools: Official target-company website. No paid API required.
 
-1. Choose the first target website. Use a real company you want to sell to.
-2. Save three useful facts. Record its product, buyers and a relevant current need.
-3. Mark unsupported ideas as suggestions. A proposed campaign is not a known business problem.
+1. Enter both target domains below. Use company websites. Your entries carry into the next exercises.
+2. Copy the research prompt. Paste it into your local agent. Use the same Codex or Claude Code project.
+3. Open the target brief your agent saves. Check the company name, facts and source links.
 
 Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
-Use the first target domain saved during setup.
-Read its official website and my company brief.
-Save company-motion/targets/ACTUAL-DOMAIN.md with its product, buyers and facts relevant to our offer. Use the actual domain in the path.
+My two target companies are [TARGET_1_DOMAIN] and [TARGET_2_DOMAIN].
+Save these two domains in company-motion/SETUP.md. If they replace earlier choices, show the change and preserve earlier research.
+Research [TARGET_1_DOMAIN] now. Read its official website and company-motion/COMPANY.md.
+Save company-motion/targets/[TARGET_1_DOMAIN].md with its product, buyers and facts relevant to our offer.
 For each fact, include the source URL, exact supporting text and read date.
-Keep ideas separate from facts. Do not invent revenue, spend, buying intent or a recent launch.
-Show one sourced target fact and the page idea it supports.
+Keep page ideas separate from facts. Do not invent revenue, spend, buying intent or a recent launch.
+Show the saved brief and one page idea supported by a sourced fact. Do not research the second company yet.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: research the second target and save the target list.
 ```
 
@@ -224,16 +225,18 @@ Time: 5 minutes. Difficulty: Easy.
 
 Tools: Two real target domains and browser access. No paid API required.
 
-1. Read the saved target domains. Use the two companies from setup.
-2. Research the second company. Save its facts and one supported fit reason.
-3. Save the two-company list. Keep uncertain fit visible for review.
+1. Confirm both target domains below. Your entries are saved from the previous exercise.
+2. Copy this prompt into the same local agent. It researches Target 2 and saves your two-company list.
+3. Open TARGETS.md. Check both domains and the sourced reason to target each company.
 
 Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
-Read the two target domains saved during setup.
-Research the second company from its official sources and save its target brief.
+My two target companies are [TARGET_1_DOMAIN] and [TARGET_2_DOMAIN].
+Read the saved brief for [TARGET_1_DOMAIN]. If it is missing or names another domain, stop and ask me to rerun the first-target research exercise.
+Research [TARGET_2_DOMAIN] from its official sources. Save company-motion/targets/[TARGET_2_DOMAIN].md with exact source excerpts and read dates.
 Save company-motion/TARGETS.md with both actual domains, products, buyers and one sourced reason our offer fits each.
+Update the selected domains in company-motion/SETUP.md. Preserve earlier research if a domain changed.
 Keep uncertain fit marked for review. This list is page-building input, not permission to contact a person.
 Show both companies plainly, one row each.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: build the first account page.
@@ -264,20 +267,21 @@ Time: 10 minutes. Difficulty: Easy.
 
 Tools: Codex file/browser access and the two saved briefs. No API credits.
 
-1. Copy the page prompt. Codex reads the two saved briefs.
-2. Open the generated page. View the HTML in your browser.
-3. Check the headline and offer. They must refer to the correct seller and buyer.
+1. Confirm the target domain below. This is Target 1, the company you researched first.
+2. Copy the page prompt. Paste it into the same local agent. The prompt names your target and the exact file to create.
+3. Open the page your agent creates. Check the company name, offer and button. Then review its claims and layout.
 
 Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
-Build company-motion/pages/ACTUAL-DOMAIN/index.html for the first target using our company brief and its target brief.
-Make one standalone responsive HTML file with styles, scripts and required graphics inside it.
-Use our actual brand, one buyer-specific idea, our actual offer, supported proof and our real next-step link.
-Keep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch.
-If proof is weak, use the supported product description or omit that proof block.
-Save claim/source notes beside the page and open the actual file in a browser.
-If the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.
+Build a landing page for [TARGET_1_DOMAIN].
+Read company-motion/COMPANY.md and company-motion/targets/[TARGET_1_DOMAIN].md. If either is missing or names the wrong company, stop and name the earlier exercise to complete.
+Save the page as company-motion/pages/[TARGET_1_DOMAIN]/index.html.
+Create one HTML file that works on desktop and phone. Keep its styles, scripts and required graphics inside it.
+Use our brand, an idea relevant to this company, our actual offer, supported proof and our real next-step link.
+Keep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch. If proof is weak, use supported product facts or omit that block.
+Save claim/source notes beside the page. Open the page in a browser and show it to me.
+If the browser blocks the local file, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open that preview, then stop it when browser checks are complete.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check every claim and review desktop and phone layouts.
 ```
 
@@ -392,7 +396,9 @@ Tools: Saved account-page skill and second target brief. No paid API required.
 Expand the complete prompt below. Copy it into the same local agent project.
 
 ```text
-Use the saved account-page skill and the second target brief to build the second page.
+Use our saved account-page skill to build a landing page for [TARGET_2_DOMAIN].
+Read company-motion/targets/[TARGET_2_DOMAIN].md. If it is missing or names another company, stop and ask me to complete the second-target research exercise.
+Save the page as company-motion/pages/[TARGET_2_DOMAIN]/index.html.
 Keep the first page unchanged.
 Run the skill's full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.
 Show what changed between the two targets. Remove facts or generic copy carried over from the first company.

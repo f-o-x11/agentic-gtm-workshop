@@ -7,8 +7,17 @@
   let fields = {};
   try { fields = JSON.parse(localStorage.getItem('gtm-part1-company') || '{}'); } catch {}
   const originals = new WeakMap();
+  function domain(value) {
+    const text = String(value || '').trim();
+    if (!text || /[\s@]/.test(text)) return '';
+    try {
+      const url = new URL(/^https?:\/\//i.test(text) ? text : 'https://' + text);
+      const host = url.hostname.toLowerCase().replace(/^www\./, '');
+      return /^([a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z][a-z0-9-]*$/.test(host) && !url.username && !url.password ? host : '';
+    } catch { return ''; }
+  }
   const render = text => Object.entries(tokens).reduce((out, [key, token]) => {
-    const value = String(fields[key] || '').trim().replace(/[\r\n]+/g, ' ');
+    const value = key.startsWith('target') ? domain(fields[key]) : String(fields[key] || '').trim().replace(/[\r\n]+/g, ' ');
     return value ? out.split(token).join(value) : out;
   }, text);
   function attachPrompt(el, text) {
@@ -17,6 +26,7 @@
     update();
   }
   function update() {
+    document.querySelectorAll('[data-input-error]').forEach(el => { el.hidden = true; el.textContent = ''; });
     document.querySelectorAll('[data-company-field]').forEach(el => {
       if (document.activeElement !== el) el.value = fields[el.dataset.companyField] || '';
     });
@@ -32,9 +42,30 @@
       try { localStorage.setItem('gtm-part1-company', JSON.stringify(fields)); } catch {}
       update();
     });
+    el.addEventListener('blur', () => {
+      const key = el.dataset.companyField;
+      if (!key.startsWith('target')) return;
+      const normalized = domain(el.value);
+      if (!normalized) return;
+      fields[key] = normalized;
+      el.value = normalized;
+      try { localStorage.setItem('gtm-part1-company', JSON.stringify(fields)); } catch {}
+      update();
+    });
   });
   document.querySelectorAll('[data-personalize]').forEach(el => attachPrompt(el,
     el.tagName === 'TEXTAREA' ? el.value : el.textContent));
+  function validatePrompt(text, scope) {
+    const missing = ['targetOne', 'targetTwo'].filter(key => text.includes(tokens[key]));
+    let panel = scope?.querySelector('.target-inputs:not([hidden])');
+    if (!panel && scope?.previousElementSibling?.matches('.target-inputs')) panel = scope.previousElementSibling;
+    if (!missing.length || !panel) return true;
+    const error = panel.querySelector('[data-input-error]');
+    error.textContent = 'Enter a company domain for ' + missing.map(key => key === 'targetOne' ? 'Target 1' : 'Target 2').join(' and ') + ' above, then copy. For example: zuora.com.';
+    error.hidden = false;
+    panel.querySelector('[data-company-field="' + missing[0] + '"]')?.focus();
+    return false;
+  }
   window.addEventListener('storage', event => {
     if (event.key !== 'gtm-part1-company') return;
     try { fields = JSON.parse(event.newValue || '{}'); update(); } catch {}
@@ -125,5 +156,5 @@
   document.querySelectorAll('[data-close-glossary]').forEach(button => button.addEventListener('click', () => {
     document.getElementById('glossary-dialog').close();
   }));
-  window.GTMWorkshop = { attachPrompt, render };
+  window.GTMWorkshop = { attachPrompt, render, validatePrompt };
 })();

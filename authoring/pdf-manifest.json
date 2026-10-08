@@ -1,5 +1,4 @@
 {
-  "release": "part1_v10_final",
   "parts": {
     "part-1": 41
   },
@@ -12,12 +11,12 @@
     {
       "file": "Part-1-Presentation.pdf",
       "pages": 41,
-      "bytes": 4217284
+      "bytes": 4219167
     },
     {
       "file": "Participant-Booklet.pdf",
-      "pages": 14,
-      "bytes": 3109960
+      "pages": 15,
+      "bytes": 3112114
     }
   ]
 }

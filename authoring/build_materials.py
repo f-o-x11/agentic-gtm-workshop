@@ -455,7 +455,10 @@ def slide(c,s,num,part):
     if i<len(seq)-1:arrow(c,x+width,281,x+width+18,281)
   outcome_height=paragraph(c,'You should have: '+plain(s.get('expected','')),56,216,1168,20,font='RubikMedium')
   paragraph(c,'Check: '+plain(s.get('check','')),56,min(145,216-outcome_height-15),1168,17,color=GRAY)
-  if s.get('prompt'):paragraph(c,'Copy the complete prompt in the next slide or the HTML booklet.',56,75,1168,10,color=ORANGE)
+  if s.get('prompt'):
+   has_targets='[TARGET_' in s['prompt'] and s['id']!='p1-install'
+   paragraph(c,'Open the live exercise. Enter target domains in its fields, then copy the prompt.' if has_targets else 'Copy the complete prompt in the next slide or the HTML booklet.',56,85 if has_targets else 75,1168,14 if has_targets else 10,color=ORANGE)
+   if has_targets:c.linkURL('https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+s['id'],(56,64,1220,93),relative=0)
  else:generic(c,s)
  c.showPage()
 
@@ -469,7 +472,7 @@ def prompt_slide(c,s,num,part):
  header(c,'Prompt: '+s['title'],num,part,'The complete prompt is printed here and embedded in the live slides and booklet.')
  paragraph(c,txt,62,526,1155,size,font='Rubik',leading=size*1.3)
  c.linkURL('https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+s['id']+'-prompt',(62,65,1220,104),relative=0)
- paragraph(c,'Open this prompt in the live slides. Use the Copy button.',62,96,1155,16,color=ORANGE,font='RubikMedium')
+ paragraph(c,'Enter target domains in the live fields. Copy the customized prompt.' if '[TARGET_' in s['prompt'] and s['id']!='p1-install' else 'Open this prompt in the live slides. Use the Copy button.',62,96,1155,16,color=ORANGE,font='RubikMedium')
  c.showPage()
  return 1
 
@@ -567,6 +570,8 @@ def markdown_pdf(src,out,title,include_cover=True):
  if include_cover:
   picpath=R/'assets/workshop-cover.png'
   im=Image(str(picpath),width=508,height=285);story.extend([im,Spacer(1,15),Paragraph('Part 1. Your company, two reviewed pages and a reusable skill.',ST['BodyText']),PageBreak()])
+ if out.name=='Participant-Booklet.pdf':
+  story.extend([Paragraph('Use the <link href="https://metadata-gtm-workshops.vercel.app/gtm-part1/Participant-Booklet.html" color="#1a7a69">HTML booklet</link> to enter your target domains and copy prompts with your company names filled in. This PDF is your reading copy.',ST['BodyText']),Spacer(1,10)])
  lines=plain(src).splitlines();i=0
  if not include_cover and lines and lines[0].lstrip('# ').strip()==title:lines=lines[1:]
  while i<len(lines):

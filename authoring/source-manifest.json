@@ -100,23 +100,23 @@
     },
     {
       "path": "Part-1-Presentation.html",
-      "sha256": "9a765ecf905617e1d658a641d614a043460b6e54eab8415ea61c199fa9fea07e",
-      "bytes": 85856
+      "sha256": "26f7072279df1cd6d5e9f2d7c637c436b37f73791407d9afd116b09260917c86",
+      "bytes": 93280
     },
     {
       "path": "Part-1-Presentation.pdf",
-      "sha256": "3e75744eec3836573aebb259f60446fd53eecea010e69d2ddae3cfe9a998f040",
-      "bytes": 4217284
+      "sha256": "fd70cd05d8fe77b80000918fd3949880b5f4a056be2c8cd3c4f1bbcb40aad5bf",
+      "bytes": 4219167
     },
     {
       "path": "Participant-Booklet.html",
-      "sha256": "812a279153741c35aaa7bcedf3257f6bd45c8a69a163d9f7ff3ba647e4325e3f",
-      "bytes": 49768
+      "sha256": "ebaeebaa5d25450e3f346efbc97b7a26f04dddf04c8d6f0b02ed92241d58d28f",
+      "bytes": 53708
     },
     {
       "path": "Participant-Booklet.pdf",
-      "sha256": "85671dd95d6f27ce76f20867af28956a13f329e051c67c704c3a100f05744af8",
-      "bytes": 3109960
+      "sha256": "47f9d36fa094b3061f9eed80fb712b754875bd3db458c3853084accb2663cca4",
+      "bytes": 3112114
     },
     {
       "path": "README.md",
@@ -320,18 +320,18 @@
     },
     {
       "path": "authoring/build_html.py",
-      "sha256": "4377a8bfbec3da0d94631e306bca71699b28de5f89d8835889a7da353f056b5d",
-      "bytes": 27255
+      "sha256": "a814464e5c998b5033f3f4a6d53e14c10bc063f732ef7586c2c7e06fa276b74c",
+      "bytes": 28712
     },
     {
       "path": "authoring/build_materials.py",
-      "sha256": "745aed9143a9d9be0baa03487246927524f362642764b3b51ad5884198ba7535",
-      "bytes": 55030
+      "sha256": "5b520022b6f6e09b4101e6e6fa7a0742f644d5578363a708736ff6ad8fd02b20",
+      "bytes": 55872
     },
     {
       "path": "authoring/pdf-manifest.json",
-      "sha256": "f079c03ee96a7b618448b77aa8c7888def065cc8f155feaa1e118ed0b2c5a4ff",
-      "bytes": 371
+      "sha256": "a6adf3d0cd9af6529f21d44d0e7faef7a2655296dc3dd36390f525eb4a8b8fad",
+      "bytes": 338
     },
     {
       "path": "authoring/requirements.txt",
@@ -345,8 +345,8 @@
     },
     {
       "path": "authoring/web/booklet.js",
-      "sha256": "99c2b57e1c42b2f7f450e478c9aa338e0f6c81e9291108a45e7382a79c1f00ba",
-      "bytes": 1113
+      "sha256": "3042677fb6f2028d51871804a78ff7ec7b0cd11591cab2a38ff96d0d0309e070",
+      "bytes": 1176
     },
     {
       "path": "authoring/web/site.css",
@@ -360,23 +360,23 @@
     },
     {
       "path": "authoring/web/slides.js",
-      "sha256": "67726df2e1f1e6e511a29b3a89d984a63e46a83f0cf90486b12f817ea2dc6eb5",
-      "bytes": 4532
+      "sha256": "dd47283ae26b0d1e4ff46e086550dd8b648e426a6def9f6993e829f26095d4a1",
+      "bytes": 5333
     },
     {
       "path": "authoring/web/workshop-helpers.css",
-      "sha256": "99c5648eca71971092f636d00178ca0905bfab5aa2b4a39a221313e3d10e9230",
-      "bytes": 7402
+      "sha256": "0fd3a101cbeef299b091694a55626838f6525dbbc08f196ef7cf2faf48886af5",
+      "bytes": 8117
     },
     {
       "path": "authoring/web/workshop-helpers.js",
-      "sha256": "5bd0ae74e3b699621daf9c482e4e4486307b3c9b85394c940896f3fa30114c3a",
-      "bytes": 6630
+      "sha256": "8bcd66272a62d7b70487400c8c6116c739c42d60a05b63edacd11144f5c4819a",
+      "bytes": 8357
     },
     {
       "path": "booklet.js",
-      "sha256": "99c2b57e1c42b2f7f450e478c9aa338e0f6c81e9291108a45e7382a79c1f00ba",
-      "bytes": 1113
+      "sha256": "3042677fb6f2028d51871804a78ff7ec7b0cd11591cab2a38ff96d0d0309e070",
+      "bytes": 1176
     },
     {
       "path": "build_guide.py",
@@ -505,8 +505,8 @@
     },
     {
       "path": "course/BOOKLET.md",
-      "sha256": "56ed3b0fc508d40d84b07fd5e7c493f8af61953904ffa3087017d40ee014e60e",
-      "bytes": 24619
+      "sha256": "f93cb9b84ee5555fb6758a7dc3f31fa9282af9be7c7c624a49324c3f3d50e4aa",
+      "bytes": 25766
     },
     {
       "path": "course/CHAPTERS.md",
@@ -520,13 +520,13 @@
     },
     {
       "path": "course/course.json",
-      "sha256": "c62c26987a6d602feb03020f2b11fcb6859334b5bdcb3f842106fd2785191f7e",
-      "bytes": 94127
+      "sha256": "d4db9f29c983d29e8b22dd804233dc22a3b716b4aeeb67ee04311204af81caab",
+      "bytes": 95219
     },
     {
       "path": "prompts.html",
-      "sha256": "20a8bca27972c8cb214ec54b4c579d770536779ac9f3c94d433355a41417fb5e",
-      "bytes": 50051
+      "sha256": "fe2a48be64d6afd525f4c8676fa8136c0b4887aef0cc970ab65a227a24a6dbbd",
+      "bytes": 51847
     },
     {
       "path": "save-api-key.py",
@@ -545,8 +545,8 @@
     },
     {
       "path": "slides.js",
-      "sha256": "67726df2e1f1e6e511a29b3a89d984a63e46a83f0cf90486b12f817ea2dc6eb5",
-      "bytes": 4532
+      "sha256": "dd47283ae26b0d1e4ff46e086550dd8b648e426a6def9f6993e829f26095d4a1",
+      "bytes": 5333
     },
     {
       "path": "sources/V5-WORKSHOP-SOURCES.md",
@@ -555,13 +555,13 @@
     },
     {
       "path": "workshop-helpers.css",
-      "sha256": "99c5648eca71971092f636d00178ca0905bfab5aa2b4a39a221313e3d10e9230",
-      "bytes": 7402
+      "sha256": "0fd3a101cbeef299b091694a55626838f6525dbbc08f196ef7cf2faf48886af5",
+      "bytes": 8117
     },
     {
       "path": "workshop-helpers.js",
-      "sha256": "5bd0ae74e3b699621daf9c482e4e4486307b3c9b85394c940896f3fa30114c3a",
-      "bytes": 6630
+      "sha256": "8bcd66272a62d7b70487400c8c6116c739c42d60a05b63edacd11144f5c4819a",
+      "bytes": 8357
     }
   ],
   "release": "part1_v10_final"

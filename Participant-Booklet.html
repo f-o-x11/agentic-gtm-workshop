@@ -159,17 +159,18 @@ Actual error: [paste the error without credentials]</pre></details>
 <p>Time: 5 minutes. Difficulty: Easy.</p>
 <p>Tools: Official target-company website. No paid API required.</p>
 <ol>
-<li>Choose the first target website. Use a real company you want to sell to.</li>
-<li>Save three useful facts. Record its product, buyers and a relevant current need.</li>
-<li>Mark unsupported ideas as suggestions. A proposed campaign is not a known business problem.</li>
+<li>Enter both target domains below. Use company websites. Your entries carry into the next exercises.</li>
+<li>Copy the research prompt. Paste it into your local agent. Use the same Codex or Claude Code project.</li>
+<li>Open the target brief your agent saves. Check the company name, facts and source links.</li>
 </ol>
 <p>Expand the complete prompt below. Copy it into the same local agent project.</p>
-<details class="booklet-prompt" id="booklet-p1-one-source"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Use the first target domain saved during setup.
-Read its official website and my company brief.
-Save company-motion/targets/ACTUAL-DOMAIN.md with its product, buyers and facts relevant to our offer. Use the actual domain in the path.
+<div class="company-inputs target-inputs"><p class="target-input-title">Enter your two target companies</p><div class="company-fields"><label data-target-row="targetOne" for="booklet-p1-one-source-targetOne">Target 1 domain<input id="booklet-p1-one-source-targetOne" data-company-field="targetOne" placeholder="e.g. zuora.com" autocomplete="off" spellcheck="false"></label><label data-target-row="targetTwo" for="booklet-p1-one-source-targetTwo">Target 2 domain<input id="booklet-p1-one-source-targetTwo" data-company-field="targetTwo" placeholder="e.g. okta.com" autocomplete="off" spellcheck="false"></label></div><p class="target-input-hint">Use company websites. These domains fill the research and page prompts below.</p><p class="target-input-error" data-input-error role="alert" hidden></p></div><details class="booklet-prompt" id="booklet-p1-one-source"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre data-personalize >My two target companies are [TARGET_1_DOMAIN] and [TARGET_2_DOMAIN].
+Save these two domains in company-motion/SETUP.md. If they replace earlier choices, show the change and preserve earlier research.
+Research [TARGET_1_DOMAIN] now. Read its official website and company-motion/COMPANY.md.
+Save company-motion/targets/[TARGET_1_DOMAIN].md with its product, buyers and facts relevant to our offer.
 For each fact, include the source URL, exact supporting text and read date.
-Keep ideas separate from facts. Do not invent revenue, spend, buying intent or a recent launch.
-Show one sourced target fact and the page idea it supports.
+Keep page ideas separate from facts. Do not invent revenue, spend, buying intent or a recent launch.
+Show the saved brief and one page idea supported by a sourced fact. Do not research the second company yet.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: research the second target and save the target list.</pre></details>
 <button class="result-complete" data-exercise-complete="p1-one-source" aria-pressed="false">My result matches these checks ✓</button>
 <details class="booklet-prompt repair" id="booklet-p1-one-source-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-one-source in this same saved project.
@@ -194,14 +195,16 @@ Actual error: [paste the error without credentials]</pre></details>
 <p>Time: 5 minutes. Difficulty: Easy.</p>
 <p>Tools: Two real target domains and browser access. No paid API required.</p>
 <ol>
-<li>Read the saved target domains. Use the two companies from setup.</li>
-<li>Research the second company. Save its facts and one supported fit reason.</li>
-<li>Save the two-company list. Keep uncertain fit visible for review.</li>
+<li>Confirm both target domains below. Your entries are saved from the previous exercise.</li>
+<li>Copy this prompt into the same local agent. It researches Target 2 and saves your two-company list.</li>
+<li>Open TARGETS.md. Check both domains and the sourced reason to target each company.</li>
 </ol>
 <p>Expand the complete prompt below. Copy it into the same local agent project.</p>
-<details class="booklet-prompt" id="booklet-p1-target-fit"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Read the two target domains saved during setup.
-Research the second company from its official sources and save its target brief.
+<div class="company-inputs target-inputs"><p class="target-input-title">Enter your two target companies</p><div class="company-fields"><label data-target-row="targetOne" for="booklet-p1-target-fit-targetOne">Target 1 domain<input id="booklet-p1-target-fit-targetOne" data-company-field="targetOne" placeholder="e.g. zuora.com" autocomplete="off" spellcheck="false"></label><label data-target-row="targetTwo" for="booklet-p1-target-fit-targetTwo">Target 2 domain<input id="booklet-p1-target-fit-targetTwo" data-company-field="targetTwo" placeholder="e.g. okta.com" autocomplete="off" spellcheck="false"></label></div><p class="target-input-hint">Use company websites. These domains fill the research and page prompts below.</p><p class="target-input-error" data-input-error role="alert" hidden></p></div><details class="booklet-prompt" id="booklet-p1-target-fit"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre data-personalize >My two target companies are [TARGET_1_DOMAIN] and [TARGET_2_DOMAIN].
+Read the saved brief for [TARGET_1_DOMAIN]. If it is missing or names another domain, stop and ask me to rerun the first-target research exercise.
+Research [TARGET_2_DOMAIN] from its official sources. Save company-motion/targets/[TARGET_2_DOMAIN].md with exact source excerpts and read dates.
 Save company-motion/TARGETS.md with both actual domains, products, buyers and one sourced reason our offer fits each.
+Update the selected domains in company-motion/SETUP.md. Preserve earlier research if a domain changed.
 Keep uncertain fit marked for review. This list is page-building input, not permission to contact a person.
 Show both companies plainly, one row each.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: build the first account page.</pre></details>
@@ -229,18 +232,19 @@ Actual error: [paste the error without credentials]</pre></details>
 <p>Time: 10 minutes. Difficulty: Easy.</p>
 <p>Tools: Codex file/browser access and the two saved briefs. No API credits.</p>
 <ol>
-<li>Copy the page prompt. Codex reads the two saved briefs.</li>
-<li>Open the generated page. View the HTML in your browser.</li>
-<li>Check the headline and offer. They must refer to the correct seller and buyer.</li>
+<li>Confirm the target domain below. This is Target 1, the company you researched first.</li>
+<li>Copy the page prompt. Paste it into the same local agent. The prompt names your target and the exact file to create.</li>
+<li>Open the page your agent creates. Check the company name, offer and button. Then review its claims and layout.</li>
 </ol>
 <p>Expand the complete prompt below. Copy it into the same local agent project.</p>
-<details class="booklet-prompt" id="booklet-p1-build-page"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Build company-motion/pages/ACTUAL-DOMAIN/index.html for the first target using our company brief and its target brief.
-Make one standalone responsive HTML file with styles, scripts and required graphics inside it.
-Use our actual brand, one buyer-specific idea, our actual offer, supported proof and our real next-step link.
-Keep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch.
-If proof is weak, use the supported product description or omit that proof block.
-Save claim/source notes beside the page and open the actual file in a browser.
-If the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.
+<div class="company-inputs target-inputs"><p class="target-input-title">Confirm the company for this page</p><div class="company-fields"><label data-target-row="targetOne" for="booklet-p1-build-page-targetOne">Target 1 domain<input id="booklet-p1-build-page-targetOne" data-company-field="targetOne" placeholder="e.g. zuora.com" autocomplete="off" spellcheck="false"></label></div><p class="target-input-hint">Saved from your target research. This domain fills the page prompt below.</p><p class="target-input-error" data-input-error role="alert" hidden></p></div><details class="booklet-prompt" id="booklet-p1-build-page"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre data-personalize >Build a landing page for [TARGET_1_DOMAIN].
+Read company-motion/COMPANY.md and company-motion/targets/[TARGET_1_DOMAIN].md. If either is missing or names the wrong company, stop and name the earlier exercise to complete.
+Save the page as company-motion/pages/[TARGET_1_DOMAIN]/index.html.
+Create one HTML file that works on desktop and phone. Keep its styles, scripts and required graphics inside it.
+Use our brand, an idea relevant to this company, our actual offer, supported proof and our real next-step link.
+Keep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch. If proof is weak, use supported product facts or omit that block.
+Save claim/source notes beside the page. Open the page in a browser and show it to me.
+If the browser blocks the local file, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open that preview, then stop it when browser checks are complete.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check every claim and review desktop and phone layouts.</pre></details>
 <button class="result-complete" data-exercise-complete="p1-build-page" aria-pressed="false">My result matches these checks ✓</button>
 <details class="booklet-prompt repair" id="booklet-p1-build-page-repair"><summary>If you get stuck: copy the repair prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy repair prompt</button></div><pre>Fix exercise p1-build-page in this same saved project.
@@ -346,7 +350,9 @@ Actual error: [paste the error without credentials]</pre></details>
 <li>Save the repeat result. Keep the first page intact.</li>
 </ol>
 <p>Expand the complete prompt below. Copy it into the same local agent project.</p>
-<details class="booklet-prompt" id="booklet-p1-repeat"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre >Use the saved account-page skill and the second target brief to build the second page.
+<div class="company-inputs target-inputs"><p class="target-input-title">Confirm the company for this page</p><div class="company-fields"><label data-target-row="targetTwo" for="booklet-p1-repeat-targetTwo">Target 2 domain<input id="booklet-p1-repeat-targetTwo" data-company-field="targetTwo" placeholder="e.g. okta.com" autocomplete="off" spellcheck="false"></label></div><p class="target-input-hint">Saved from your target research. This domain fills the page prompt below.</p><p class="target-input-error" data-input-error role="alert" hidden></p></div><details class="booklet-prompt" id="booklet-p1-repeat"><summary>Open the complete prompt</summary><div class="prompt-actions"><button class="button secondary" data-copy-code>Copy the full prompt</button><span>Paste into local Codex or Claude Code.</span></div><pre data-personalize >Use our saved account-page skill to build a landing page for [TARGET_2_DOMAIN].
+Read company-motion/targets/[TARGET_2_DOMAIN].md. If it is missing or names another company, stop and ask me to complete the second-target research exercise.
+Save the page as company-motion/pages/[TARGET_2_DOMAIN]/index.html.
 Keep the first page unchanged.
 Run the skill&#x27;s full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.
 Show what changed between the two targets. Remove facts or generic copy carried over from the first company.

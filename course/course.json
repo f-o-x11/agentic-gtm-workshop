@@ -814,22 +814,22 @@
             ],
             "caption": "Keep the source next to the fact."
           },
-          "body": "Your agent reads the target website. Keep one useful fact and its source beside the page idea it supports.",
+          "body": "Enter the two companies you want to sell to. Research the first one now.",
           "steps": [
             {
-              "title": "Choose the first target website.",
-              "detail": "Use a real company you want to sell to."
+              "title": "Enter both target domains below.",
+              "detail": "Use company websites. Your entries carry into the next exercises."
             },
             {
-              "title": "Save three useful facts.",
-              "detail": "Record its product, buyers and a relevant current need."
+              "title": "Copy the research prompt. Paste it into your local agent.",
+              "detail": "Use the same Codex or Claude Code project."
             },
             {
-              "title": "Mark unsupported ideas as suggestions.",
-              "detail": "A proposed campaign is not a known business problem."
+              "title": "Open the target brief your agent saves.",
+              "detail": "Check the company name, facts and source links."
             }
           ],
-          "prompt": "Use the first target domain saved during setup.\nRead its official website and my company brief.\nSave company-motion/targets/ACTUAL-DOMAIN.md with its product, buyers and facts relevant to our offer. Use the actual domain in the path.\nFor each fact, include the source URL, exact supporting text and read date.\nKeep ideas separate from facts. Do not invent revenue, spend, buying intent or a recent launch.\nShow one sourced target fact and the page idea it supports.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: research the second target and save the target list.",
+          "prompt": "My two target companies are [TARGET_1_DOMAIN] and [TARGET_2_DOMAIN].\nSave these two domains in company-motion/SETUP.md. If they replace earlier choices, show the change and preserve earlier research.\nResearch [TARGET_1_DOMAIN] now. Read its official website and company-motion/COMPANY.md.\nSave company-motion/targets/[TARGET_1_DOMAIN].md with its product, buyers and facts relevant to our offer.\nFor each fact, include the source URL, exact supporting text and read date.\nKeep page ideas separate from facts. Do not invent revenue, spend, buying intent or a recent launch.\nShow the saved brief and one page idea supported by a sourced fact. Do not research the second company yet.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: research the second target and save the target list.",
           "tools": [
             "Official target-company website. No paid API required."
           ],
@@ -894,19 +894,19 @@
           "body": "These are companies you want to sell to. Save their domains and one sourced reason your offer fits each company.",
           "steps": [
             {
-              "title": "Read the saved target domains.",
-              "detail": "Use the two companies from setup."
+              "title": "Confirm both target domains below.",
+              "detail": "Your entries are saved from the previous exercise."
             },
             {
-              "title": "Research the second company.",
-              "detail": "Save its facts and one supported fit reason."
+              "title": "Copy this prompt into the same local agent.",
+              "detail": "It researches Target 2 and saves your two-company list."
             },
             {
-              "title": "Save the two-company list.",
-              "detail": "Keep uncertain fit visible for review."
+              "title": "Open TARGETS.md.",
+              "detail": "Check both domains and the sourced reason to target each company."
             }
           ],
-          "prompt": "Read the two target domains saved during setup.\nResearch the second company from its official sources and save its target brief.\nSave company-motion/TARGETS.md with both actual domains, products, buyers and one sourced reason our offer fits each.\nKeep uncertain fit marked for review. This list is page-building input, not permission to contact a person.\nShow both companies plainly, one row each.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: build the first account page.",
+          "prompt": "My two target companies are [TARGET_1_DOMAIN] and [TARGET_2_DOMAIN].\nRead the saved brief for [TARGET_1_DOMAIN]. If it is missing or names another domain, stop and ask me to rerun the first-target research exercise.\nResearch [TARGET_2_DOMAIN] from its official sources. Save company-motion/targets/[TARGET_2_DOMAIN].md with exact source excerpts and read dates.\nSave company-motion/TARGETS.md with both actual domains, products, buyers and one sourced reason our offer fits each.\nUpdate the selected domains in company-motion/SETUP.md. Preserve earlier research if a domain changed.\nKeep uncertain fit marked for review. This list is page-building input, not permission to contact a person.\nShow both companies plainly, one row each.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: build the first account page.",
           "tools": [
             "Two real target domains and browser access. No paid API required."
           ],
@@ -999,22 +999,22 @@
             "artifact": "A real browser page",
             "image": "assets/actual-zuora-page.png"
           },
-          "body": "Use the first target's facts, your offer and supported proof. The page should make one relevant next step clear.",
+          "body": "Build a landing page for Target 1 using your saved company facts and target research.",
           "steps": [
             {
-              "title": "Copy the page prompt.",
-              "detail": "Codex reads the two saved briefs."
+              "title": "Confirm the target domain below.",
+              "detail": "This is Target 1, the company you researched first."
             },
             {
-              "title": "Open the generated page.",
-              "detail": "View the HTML in your browser."
+              "title": "Copy the page prompt. Paste it into the same local agent.",
+              "detail": "The prompt names your target and the exact file to create."
             },
             {
-              "title": "Check the headline and offer.",
-              "detail": "They must refer to the correct seller and buyer."
+              "title": "Open the page your agent creates.",
+              "detail": "Check the company name, offer and button. Then review its claims and layout."
             }
           ],
-          "prompt": "Build company-motion/pages/ACTUAL-DOMAIN/index.html for the first target using our company brief and its target brief.\nMake one standalone responsive HTML file with styles, scripts and required graphics inside it.\nUse our actual brand, one buyer-specific idea, our actual offer, supported proof and our real next-step link.\nKeep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch.\nIf proof is weak, use the supported product description or omit that proof block.\nSave claim/source notes beside the page and open the actual file in a browser.\nIf the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check every claim and review desktop and phone layouts.",
+          "prompt": "Build a landing page for [TARGET_1_DOMAIN].\nRead company-motion/COMPANY.md and company-motion/targets/[TARGET_1_DOMAIN].md. If either is missing or names the wrong company, stop and name the earlier exercise to complete.\nSave the page as company-motion/pages/[TARGET_1_DOMAIN]/index.html.\nCreate one HTML file that works on desktop and phone. Keep its styles, scripts and required graphics inside it.\nUse our brand, an idea relevant to this company, our actual offer, supported proof and our real next-step link.\nKeep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch. If proof is weak, use supported product facts or omit that block.\nSave claim/source notes beside the page. Open the page in a browser and show it to me.\nIf the browser blocks the local file, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open that preview, then stop it when browser checks are complete.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check every claim and review desktop and phone layouts.",
           "tools": [
             "Codex file/browser access and the two saved briefs. No API credits."
           ],
@@ -1215,7 +1215,7 @@
               "detail": "Keep the first page intact."
             }
           ],
-          "prompt": "Use the saved account-page skill and the second target brief to build the second page.\nKeep the first page unchanged.\nRun the skill's full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.\nShow what changed between the two targets. Remove facts or generic copy carried over from the first company.\nSave company-motion/SKILL-TEST.md with both page paths, review evidence and remaining issues.\nIf the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check the Part 1 files after the break.",
+          "prompt": "Use our saved account-page skill to build a landing page for [TARGET_2_DOMAIN].\nRead company-motion/targets/[TARGET_2_DOMAIN].md. If it is missing or names another company, stop and ask me to complete the second-target research exercise.\nSave the page as company-motion/pages/[TARGET_2_DOMAIN]/index.html.\nKeep the first page unchanged.\nRun the skill's full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.\nShow what changed between the two targets. Remove facts or generic copy carried over from the first company.\nSave company-motion/SKILL-TEST.md with both page paths, review evidence and remaining issues.\nIf the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.\nAppend this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check the Part 1 files after the break.",
           "tools": [
             "Saved account-page skill and second target brief. No paid API required."
           ],
