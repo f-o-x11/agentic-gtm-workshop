@@ -83,21 +83,6 @@
             ],
             "date": "September 30, 2026",
             "scope": "Company totals since August 17, measured September 30, 2026. This workflow's share is unverified.",
-            "secondary": [
-              {
-                "value": "10",
-                "label": "Approved emails"
-              },
-              {
-                "value": "10",
-                "label": "Exact Gmail Sent matches"
-              },
-              {
-                "value": "10",
-                "label": "Repeat attempts blocked"
-              }
-            ],
-            "secondary_scope": "September 16 engine pilot. This proves sending, not ten demos.",
             "image": "assets/actual-outcomes.png",
             "first_instruction": "git clone https://github.com/f-o-x11/agentic-gtm-workshop.git"
           },
@@ -248,9 +233,29 @@
           "difficulty": "Watch",
           "visual_type": "example",
           "visual_data": {
-            "image": "assets/actual-zuora-page.png"
+            "portrait": "assets/gil-linkedin.jpg",
+            "bio_lines": [
+              "Software engineer turned growth marketer.",
+              "Now building autonomous AI products and writing at Dreaming.press."
+            ],
+            "credentials": [
+              {
+                "value": "$50M",
+                "label": "Raised for Metadata"
+              },
+              {
+                "value": "$15M ARR",
+                "label": "Built from zero"
+              },
+              {
+                "value": "6",
+                "label": "AI marketing patents"
+              }
+            ],
+            "bio_source": "https://gilallouche.com/",
+            "photo_source": "https://www.linkedin.com/in/gilallouche/"
           },
-          "body": "Gil Allouche. CEO, Metadata.io. I built the workflow our marketing team uses. I use Codex to run it. Today, build two pages for your target companies.",
+          "body": "Software engineer turned growth marketer. Founder and CEO of Metadata.io. I now build autonomous AI products and write at Dreaming.press.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -262,10 +267,16 @@
           "repair_prompt": "",
           "sources": [
             {
-              "label": "September 30 company dashboard and September 16 pilot",
-              "url": "sources/V5-WORKSHOP-SOURCES.md",
-              "date": "October 5, 2026",
-              "scope": "Different dates, populations and outcomes."
+              "label": "Gil Allouche biography",
+              "url": "https://gilallouche.com/",
+              "date": "October 8, 2026",
+              "scope": "Historical founder accomplishments, not current revenue."
+            },
+            {
+              "label": "LinkedIn profile photo",
+              "url": "https://www.linkedin.com/in/gilallouche/",
+              "date": "October 8, 2026",
+              "scope": "Actual portrait retrieved from profile image."
             }
           ],
           "notes": "Keep the introduction short. Point to the real Zuora page. No unsupported biography or engine attribution.",
@@ -274,6 +285,41 @@
           "route": "main",
           "next_id": "",
           "next_action": "",
+          "chapter": 1,
+          "chapter_title": "See Metadata's working examples"
+        },
+        {
+          "body": "",
+          "prompt": "",
+          "fallback": "",
+          "repair_prompt": "",
+          "notes": "",
+          "prompt_label": "",
+          "next_id": "",
+          "next_action": "",
+          "id": "p1-you",
+          "part": 1,
+          "title": "You",
+          "type": "audience",
+          "timing": 0,
+          "minutes": 0,
+          "difficulty": "Watch",
+          "visual_type": "audience",
+          "visual_data": {},
+          "steps": [],
+          "tools": [],
+          "expected": [],
+          "check": [],
+          "sources": [
+            {
+              "label": "Workshop registrants",
+              "url": "https://luma.com/agentic-gtm",
+              "date": "October 8, 2026",
+              "scope": "Professional profiles appear only in the password-protected edition."
+            }
+          ],
+          "build_step": 0,
+          "route": "main",
           "chapter": 1,
           "chapter_title": "See Metadata's working examples"
         },
@@ -374,7 +420,7 @@
               "scope": "Teaching adaptation. No private recipient records."
             }
           ],
-          "notes": "Everyone follows the same exercise. Each person works on their own company. No group assignment or preference survey. This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
+          "notes": "Everyone follows the same exercise. Each person works on their own company. No group assignment or preference survey. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -572,7 +618,7 @@
               "label": "v5 AGENTS.md essential rules and owner switch",
               "url": "sources/V5-WORKSHOP-SOURCES.md",
               "date": "October 5, 2026",
-              "scope": "Attendee authority is separate from Gil\u2019s production consent."
+              "scope": "Attendee authority is separate from Gil’s production consent."
             }
           ],
           "notes": "",
@@ -628,7 +674,7 @@
             "Each target fact has its exact source excerpt and read date.",
             "The page idea is labeled as a suggestion."
           ],
-          "fallback": "Paste the target\u2019s official source text into Codex. Keep the official URL and retrieval date.",
+          "fallback": "Paste the target’s official source text into Codex. Keep the official URL and retrieval date.",
           "repair_prompt": "Fix exercise p1-one-source in this same saved project.\nExpected artifact: One dated target brief.\nSuccess check: Each target fact has its exact source excerpt and read date. The page idea is labeled as a suggestion.\nRead the first target domain in company-motion/SETUP.md. If its official site blocks access, use the official text I paste and label that source. Save the missing target brief with exact excerpts, dates and a separate proposed page idea.\nUse the saved verified interpreter for commands. Preserve completed files and earlier progress. Rerun the failed check and append its actual result and next task to company-motion/PROGRESS.md. Show the result. Stop. Next: research the second target and save the target list.\nActual error: [paste the error without credentials]",
           "sources": [
             {
@@ -759,7 +805,7 @@
               "scope": "Historical visual example."
             }
           ],
-          "notes": "This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
+          "notes": "This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
@@ -821,7 +867,7 @@
               "label": "Actual page skill and Zuora output",
               "url": "sources/V5-WORKSHOP-SOURCES.md",
               "date": "October 5, 2026",
-              "scope": "Workshop adaptation creates a page for the attendee\u2019s own target."
+              "scope": "Workshop adaptation creates a page for the attendee’s own target."
             }
           ],
           "notes": "",
@@ -977,13 +1023,13 @@
           "visual_type": "before_after",
           "visual_data": {
             "before": [
-              "First target\u2019s source",
-              "First target\u2019s ideas",
+              "First target’s source",
+              "First target’s ideas",
               "First reviewed page"
             ],
             "after": [
-              "Second target\u2019s source",
-              "Second target\u2019s ideas",
+              "Second target’s source",
+              "Second target’s ideas",
               "Second reviewed page"
             ],
             "caption": "The saved method repeats. Buyer-specific facts change."
@@ -1268,7 +1314,7 @@
               "scope": "Read the official event for the confirmed details."
             }
           ],
-          "notes": "Invite attendees to the next sessions through the official Luma links. Do not invent an event date. This reference screen uses the adjacent lesson\u2019s time. It is not an extra exercise.",
+          "notes": "Invite attendees to the next sessions through the official Luma links. Do not invent an event date. This reference screen uses the adjacent lesson’s time. It is not an extra exercise.",
           "build_step": 0,
           "prompt_label": "Workshop prompt adapted to your company",
           "registrations": [
@@ -1399,6 +1445,7 @@
             "p1-results",
             "p1-v5-tree",
             "p1-about",
+            "p1-you",
             "p1-real-outputs",
             "p1-finish"
           ],

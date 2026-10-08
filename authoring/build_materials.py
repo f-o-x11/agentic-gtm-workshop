@@ -30,6 +30,7 @@ def plain(s):
 
 def paragraph(c,s,x,top,width,size=26,color=BLACK,font='Rubik',leading=None):
  s=escape(plain(s)).replace('\n','<br/>')
+ s=re.sub(r'Participant-Booklet\.pdf|prompts\.html(?:#[a-z0-9-]+)?',lambda m:'<link href="'+('https://metadata-gtm-workshops.vercel.app/gtm-part1/Participant-Booklet.pdf' if m[0]=='Participant-Booklet.pdf' else 'https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+(m[0].split('#')[-1] if '#' in m[0] else 'p1-install')+'-prompt')+'">'+m[0]+'</link>',s)
  p=Paragraph(s,ParagraphStyle('p',fontName=font,fontSize=size,leading=leading or size*1.3,textColor=color,spaceAfter=0))
  _,hh=p.wrap(width,H)
  p.drawOn(c,x,top-hh)
@@ -117,7 +118,6 @@ def part_one_example(c,s):
    paragraph(c,value,x,518,350,82,color=ORANGE,font='RubikBold')
    paragraph(c,label,x,408,350,27,font='RubikMedium')
   paragraph(c,'Company totals since August 17, measured September 30, 2026. This workflow\'s share is unverified.',66,345,1125,18,color=GRAY)
-  paragraph(c,'Engine test: 10 emails confirmed in Gmail Sent. 10 repeat sends blocked.',66,291,1125,24,font='RubikMedium')
   paragraph(c,'First instruction. Run this in Codex, Claude Code or your terminal.',66,230,1125,22,font='RubikBold',color=ORANGE)
   c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(LINE);c.roundRect(56,139,1168,62,8,fill=1,stroke=1)
   paragraph(c,'git clone https://github.com/f-o-x11/agentic-gtm-workshop.git',76,183,1128,25,font='RubikMedium')
@@ -125,13 +125,27 @@ def part_one_example(c,s):
   c.linkURL('https://github.com/f-o-x11/agentic-gtm-workshop',(56,139,1224,201),relative=0)
   return True
  if ident=='p1-about':
-  paragraph(c,'Gil Allouche',56,504,530,58,font='RubikBold')
-  paragraph(c,'CEO, Metadata.io',56,418,530,30,color=ORANGE,font='RubikMedium')
-  paragraph(c,'I built the workflow our marketing team uses.',56,346,530,30)
-  paragraph(c,'I use Codex to run it.',56,244,530,30)
-  paragraph(c,'Today, build two pages for your target companies.',56,193,530,28,font='RubikMedium')
-  pic(c,R/'assets/actual-zuora-page.png',645,185,565,333)
-  paragraph(c,'Metadata\'s actual page for Zuora',645,149,565,18,color=GRAY)
+  vd=s['visual_data']
+  pic(c,R/vd['portrait'],56,164,360,360)
+  paragraph(c,'Gil Allouche',470,513,740,50,font='RubikBold')
+  paragraph(c,'Founder and CEO, Metadata.io',470,440,740,25,color=ORANGE,font='RubikMedium')
+  paragraph(c,'Software engineer turned growth marketer. Now building autonomous AI products.',470,384,710,26)
+  for i,item in enumerate(vd['credentials']):
+   x=470+i*250
+   paragraph(c,item['value'],x,247,235,36,font='RubikBold',color=ORANGE)
+   paragraph(c,item['label'],x,196,235,17,color=GRAY)
+  paragraph(c,'Bio: gilallouche.com  |  Photo: LinkedIn',470,111,730,14,color=GRAY)
+  c.linkURL(vd['bio_source'],(470,88,745,116));c.linkURL(vd['photo_source'],(745,88,1150,116))
+  return True
+ if ident=='p1-you':
+  import os
+  mosaic=os.environ.get('WORKSHOP_AUDIENCE_MOSAIC')
+  if mosaic and Path(mosaic).exists():pic(c,Path(mosaic),140,104,1000,480)
+  else:
+   c.setFillColor(HexColor('#ff743d'))
+   p=c.beginPath();p.moveTo(640,140);p.curveTo(370,300,350,535,490,535);p.curveTo(575,535,620,480,640,445);p.curveTo(660,480,705,535,790,535);p.curveTo(930,535,910,300,640,140);c.drawPath(p,fill=1,stroke=0)
+  paragraph(c,'Open the live slide to see each person’s profile.',390,88,800,14,color=GREEN)
+  c.linkURL('https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#p1-you',(140,68,1140,584),relative=0)
   return True
  if ident=='p1-v5-tree':
   node(c,'Read company and buyer facts',56,431,350,76,True)
@@ -164,8 +178,6 @@ def part_one_example(c,s):
    paragraph(c,artifact,x+16,top-112,526,25)
   paragraph(c,'Use your own company and targets. No API keys needed for Part 1.',56,132,1168,21,color=GRAY)
   paragraph(c,'Open Participant-Booklet.pdf for instructions. Open prompts.html to copy each full prompt.',56,91,1168,17,color=ORANGE,font='RubikMedium')
-  c.linkURL('Participant-Booklet.pdf',(56,63,680,95),relative=1)
-  c.linkURL('prompts.html',(683,63,1224,95),relative=1)
   return True
  if ident=='p1-page-example':
   pic(c,R/'assets/actual-zuora-page.png',56,134,858,398)
@@ -403,7 +415,7 @@ def prompt_slide(c,s,num,part):
   paragraph(c,'Find "'+s['title']+'". Click Copy prompt.',62,388,1155,32)
   paragraph(c,'Paste it into the local Claude Code or Codex project you opened for this workshop.',62,313,1155,28)
   paragraph(c,'The copy source includes the full instructions. This slide contains no partial prompt.',62,220,1155,22,color=GRAY)
- c.linkURL('prompts.html#'+s['id'],(62,66,1220,112),relative=1)
+ c.linkURL('https://metadata-gtm-workshops.vercel.app/gtm-part1/Part-1-Presentation.html#'+s['id']+'-prompt',(62,66,1220,112),relative=0)
  paragraph(c,'Copy full prompt: prompts.html#'+s['id'],62,104,1155,19,color=ORANGE,font='RubikMedium')
  if s.get('next_id'):
   paragraph(c,'Next: '+s.get('next_action',s['next_id'])+' ('+s['next_id']+')',62,77,1155,14,color=GRAY)
@@ -479,6 +491,7 @@ def rich(s):
  s=re.sub(r'\[([^]]+)\]\(([^)]+)\)',make_link,s)
  s=re.sub(r'\*\*([^*]+)\*\*',r'<b>\1</b>',s)
  s=re.sub(r'`([^`]+)`',r'<font name="Courier">\1</font>',s)
+ s=re.sub(r'Participant-Booklet\.pdf|prompts\.html(?:#[a-z0-9-]+)?',lambda m:'<link href="'+('https://metadata-gtm-workshops.vercel.app/gtm-part1/Participant-Booklet.pdf' if m[0]=='Participant-Booklet.pdf' else 'https://metadata-gtm-workshops.vercel.app/gtm-part1/Participant-Booklet.html#booklet-'+(m[0].split('#')[-1] if '#' in m[0] else 'p1-install'))+'">'+m[0]+'</link>',s)
  return s
 
 def footer(c,doc):

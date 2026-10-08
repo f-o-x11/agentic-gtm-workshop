@@ -90,13 +90,13 @@
     },
     {
       "path": "Part-1-Presentation.pdf",
-      "sha256": "1e3da6a96bd92cc7866d6de47efc1bfb5e4e140779c2631628a766192d53465e",
-      "bytes": 3281987
+      "sha256": "36eb5757c5fb2f7af50cb81b4eca07110c44be3b3403dbe2a33ee2606c2da51a",
+      "bytes": 3309299
     },
     {
       "path": "Participant-Booklet.pdf",
-      "sha256": "248dcc06b2ec13cdf138990ccdf0630cfe223552d8caab2791956c510803a94b",
-      "bytes": 3105352
+      "sha256": "fcf70cae2c823a6d4e493384bfb9c8a1b15db140e3d368333dacaaccb6d75b64",
+      "bytes": 3110051
     },
     {
       "path": "README.md",
@@ -199,6 +199,11 @@
       "bytes": 114290
     },
     {
+      "path": "assets/gil-linkedin.jpg",
+      "sha256": "47f7ab6b88a249f5825439d10c361e96b8be9a98ad9b5075b3b86a1f12b27e0d",
+      "bytes": 7939
+    },
+    {
       "path": "assets/metadata-icon.jpeg",
       "sha256": "0117ef9b2ffad80e479ce2967793e2167a9b445387eb1a561f82d3a4b5a115cf",
       "bytes": 3157
@@ -225,12 +230,12 @@
     },
     {
       "path": "authoring/build_materials.py",
-      "sha256": "186f8a065e0cd56f8762f51b54207ecda8dc023e1c0b4b5d1a854e9350ea799a",
-      "bytes": 50263
+      "sha256": "ae88a94d821a22e05c0ead2b521ed6af2ce974d2ba9bf2e63ebafe6d27dedaef",
+      "bytes": 51690
     },
     {
       "path": "authoring/pdf-manifest.json",
-      "sha256": "4496ff031c0e2ac87b2d4abf67a2e13ef34e6b49bae08221561cffb21d8036a5",
+      "sha256": "a8b1eb9339bdb3030590d533caad99bcddf0bace24bba81b5bbbdc68e8d73d15",
       "bytes": 338
     },
     {
@@ -380,13 +385,13 @@
     },
     {
       "path": "course/course.json",
-      "sha256": "f191f902726bf28b6c7cda39c68e04ef750c05638286541579039176c02e3c3a",
-      "bytes": 77613
+      "sha256": "ffc5ff6ef27526379222505dddb9aa2e0291b295af593372efb859ed274aaf7f",
+      "bytes": 79049
     },
     {
       "path": "prompts.html",
-      "sha256": "fcfe8bba2273a50286fcb6ddc2600b2759d8c632d9558b8de685ed09536277bf",
-      "bytes": 49385
+      "sha256": "680ad166bbb6619d25f809427030de91d8609fc44f3b12a35e31d79cd0e0ddcb",
+      "bytes": 49521
     },
     {
       "path": "save-api-key.py",
