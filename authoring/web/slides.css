@@ -54,7 +54,7 @@
 .zuora-gift{display:flex;gap:19px;align-items:center;border:1px solid #d9dfd1;border-radius:10px;background:#eaf0e4;padding:16px 20px}
 .gift-box{flex:0 0 68px}.gift-box svg{width:68px;display:block;filter:drop-shadow(0 6px 6px #a5592319)}
 .gift-mock-label{font-size:10px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;color:var(--teal)}
-.zuora-gift h2{font-size:19px;margin:5px 0 7px}.zuora-gift p{font-size:13px;line-height:1.45;margin:0 0 9px;max-width:370px}
+.zuora-gift h2{font-size:19px;font-weight:600;letter-spacing:0;line-height:1.35;margin:5px 0 7px;overflow-wrap:break-word}.zuora-gift p{font-size:13px;line-height:1.45;margin:0 0 9px;max-width:370px}
 .gift-mock-cta{display:inline-block;font-size:11px;font-weight:600;color:#fff;background:var(--teal);padding:6px 11px;border-radius:5px}
 .zuora-gift small{display:block;font-size:10px;color:var(--gray);margin-top:7px}
 #zuora-email-dialog{max-width:800px;width:92vw}#zuora-email-dialog h3{font-size:24px;margin:18px 0}.zuora-full-email{font:16px/1.6 Rubik,Arial;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink);background:#fff;padding:20px;border:1px solid var(--line);border-radius:8px}
@@ -67,3 +67,5 @@
 @media(min-width:651px){.zuora-gift{padding:12px 18px;min-height:112px}.zuora-gift h2{font-size:18px;margin:4px 0 5px}.zuora-gift p{margin:0 0 4px}.zuora-gift small{margin-top:3px}.gift-box svg{width:58px}.gift-box{flex-basis:58px}}
 
 @media(prefers-reduced-motion:reduce){[data-scroll-toggle]{display:none}}
+
+.zuora-gift>div:last-child{min-width:0}

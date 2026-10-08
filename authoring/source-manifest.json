@@ -350,13 +350,13 @@
     },
     {
       "path": "authoring/web/site.css",
-      "sha256": "3db3d0bad27d7ab9cd46afba1fa1cebc351da0af65934d6d3835bbc54beb4714",
-      "bytes": 10353
+      "sha256": "7d24a404347ed45d6b47d66da87064e820f7d9ed27f9678e61a5ad72098744d6",
+      "bytes": 10399
     },
     {
       "path": "authoring/web/slides.css",
-      "sha256": "29f51e9ffc29bd6dd490c9a75823ebd7c89681a33124756ccba11ff29ed29d0a",
-      "bytes": 26959
+      "sha256": "02ad9c9caa8df5b26d2f851302d5dc01cc16e1711ab6c70f1e61a7a029cb06c9",
+      "bytes": 27075
     },
     {
       "path": "authoring/web/slides.js",
@@ -535,13 +535,13 @@
     },
     {
       "path": "site.css",
-      "sha256": "3db3d0bad27d7ab9cd46afba1fa1cebc351da0af65934d6d3835bbc54beb4714",
-      "bytes": 10353
+      "sha256": "7d24a404347ed45d6b47d66da87064e820f7d9ed27f9678e61a5ad72098744d6",
+      "bytes": 10399
     },
     {
       "path": "slides.css",
-      "sha256": "29f51e9ffc29bd6dd490c9a75823ebd7c89681a33124756ccba11ff29ed29d0a",
-      "bytes": 26959
+      "sha256": "02ad9c9caa8df5b26d2f851302d5dc01cc16e1711ab6c70f1e61a7a029cb06c9",
+      "bytes": 27075
     },
     {
       "path": "slides.js",
