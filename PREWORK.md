@@ -8,7 +8,7 @@
 
 Use macOS or Linux. On Windows, use Codex or Claude Code inside an installed WSL environment. Native Windows has not been verified.
 
-Open START-HERE.html. Copy one complete prompt. Your first result is company-motion/COMPANY.md.
+Open Participant-Booklet.pdf and prompts.html. Copy the first complete prompt and replace its five inputs. Your first result is company-motion/COMPANY.md.
 
 No API keys, sender setup or paid data tool are needed for Part 1. A missing Python interpreter is handled by the startup check with the official installer. No Homebrew is needed.
 

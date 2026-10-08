@@ -14,7 +14,7 @@ Use macOS or Linux. On Windows, use Codex or Claude Code inside an installed WSL
 
 Open agentic-gtm-workshop as your local project. If you downloaded the ZIP, unzip it and open that folder instead.
 
-Open START-HERE.html in your browser. Enter your website. Copy the full startup prompt into your local agent. Read the company brief it creates. Continue with one exercise at a time in prompts.html.
+Open Participant-Booklet.pdf and prompts.html. Copy the first full prompt. Replace your website, buyer segment, offer and two target domains, then paste it into your local agent. Read the company brief it creates. Continue with one exercise at a time.
 
 ## Keep these open
 
@@ -23,7 +23,7 @@ Open START-HERE.html in your browser. Enter your website. Copy the full startup 
 | Part-1-Presentation.pdf | Follow the live workshop. |
 | Participant-Booklet.pdf | Instructions, checks and repairs for Part 1. |
 | prompts.html | Copy each complete exercise prompt. |
-| START-HERE.html | Add your website and copy the first prompt. |
+| START-HERE.html | Optional helper for filling in the same startup prompt. |
 | API-CONNECTIONS.html | Get and save one key at a time. Part 1 needs no key. |
 | API-CONNECTIONS.md | Short key-saving reference. |
 | PREWORK.md | The short setup checklist. |

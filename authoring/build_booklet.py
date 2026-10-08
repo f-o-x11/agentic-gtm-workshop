@@ -4,7 +4,7 @@ R=Path(__file__).resolve().parents[1]
 d=json.loads((R/'course/course.json').read_text())
 assert len(d['parts'])==1 and d['parts'][0]['part']==1
 p=d['parts'][0]
-lines=['# Build your own Agentic GTM: Part 1','','Use your company website and two target-company domains. No API keys are needed.','','## Start here','','```bash','git clone https://github.com/f-o-x11/agentic-gtm-workshop.git','```','','Open this folder in local Codex or Claude Code. Open START-HERE.html. Add your website and copy its full prompt. Review the company brief before continuing. Keep prompts.html open to copy each complete exercise.','', 'Program commands run from code/. Your company files live in company-motion/. Keys belong outside this repository.','', '## Finish with','']
+lines=['# Build your own Agentic GTM: Part 1','','Use your company website and two target-company domains. No API keys are needed.','','## Start here','','```bash','git clone https://github.com/f-o-x11/agentic-gtm-workshop.git','```','','Open this folder in local Codex or Claude Code. Open the participant booklet and prompts.html. Copy the first complete prompt, replace your website, buyer segment, offer and two target domains, then paste it into your local agent. Review the company brief before continuing.','', 'Program commands run from code/. Your company files live in company-motion/. Keys belong outside this repository.','', '## Finish with','']
 lines += ['- '+x for x in p.get('finish',[])]
 for ch in p['chapters']:
     lines += ['', '## Section '+str(ch['number'])+': '+ch['title'],'',ch['outcome'],'']

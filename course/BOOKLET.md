@@ -8,7 +8,7 @@ Use your company website and two target-company domains. No API keys are needed.
 git clone https://github.com/f-o-x11/agentic-gtm-workshop.git
 ```
 
-Open this folder in local Codex or Claude Code. Open START-HERE.html. Add your website and copy its full prompt. Review the company brief before continuing. Keep prompts.html open to copy each complete exercise.
+Open this folder in local Codex or Claude Code. Open the participant booklet and prompts.html. Copy the first complete prompt, replace your website, buyer segment, offer and two target domains, then paste it into your local agent. Review the company brief before continuing.
 
 Program commands run from code/. Your company files live in company-motion/. Keys belong outside this repository.
 
@@ -21,7 +21,7 @@ Program commands run from code/. Your company files live in company-motion/. Key
 
 ## Section 1: See Metadata's working examples
 
-See one real Zuora page and two clearly labeled message drafts.
+See the actual page, email and gift examples.
 
 
 ## Section 2: Set up your company
@@ -29,7 +29,7 @@ See one real Zuora page and two clearly labeled message drafts.
 COMPANY.md, saved setup and local rules.
 
 
-### Open START-HERE. Add your website once.
+### Open the cloned folder. Build your company brief.
 
 Reference: p1-install
 
@@ -37,17 +37,20 @@ Time: 12 minutes. Difficulty: Easy.
 
 Tools: Local Codex or Claude Code; file and web access. No API credits..
 
-1. Open your cloned folder in local Codex or Claude Code.
-2. Open START-HERE.html in your browser.
-3. Enter your website once. Copy the prompt as it is.
-4. Paste it into your local agent. Open COMPANY.md.
+1. Open agentic-gtm-workshop in local Codex or Claude Code.
+2. Open Participant-Booklet.pdf and prompts.html.
+3. Copy the full startup prompt. Replace its five inputs. Your website, buyer segment, offer and two target domains.
+4. Paste into your local agent. Review COMPANY.md when it stops.
 
 Copy the complete prompt from prompts.html#p1-install.
 
 ```text
 Help me build my company's GTM workflow one step at a time.
 Website: [YOUR_COMPANY_WEBSITE]
-I have cloned agentic-gtm-workshop and opened it as this local project. Read README.md, AGENTS.md and START-HERE.md. If my website is missing or a placeholder remains, ask for the actual URL first. Ask only for the buyer segment, offer or target domains that official sources cannot supply. Suggest real targets for my confirmation if needed.
+Buyer segment: [BUYER_SEGMENT]
+Offer: [COLD_OFFER]
+Targets: [TARGET_1_DOMAIN], [TARGET_2_DOMAIN]
+I have cloned agentic-gtm-workshop and opened it as this local project. Read README.md, AGENTS.md and START-HERE.md. If an input is blank, ask only for what official sources cannot supply. Suggest real targets for my confirmation if needed.
 Use this workshop folder as my local project. Keep runtime in code/ and outputs in company-motion/. Run commands from code/.
 Read my official website and save company-motion/COMPANY.md with sourced facts, the segment, offer, proof and actual next-step link. Ask only for missing facts. If the site blocks access, use official text I paste.
 After company-motion/COMPANY.md exists, run from code/:
@@ -55,7 +58,7 @@ python3 -B gtm.py bootstrap --company-brief ../company-motion/COMPANY.md
 Use its saved verified Python executable for later commands and standalone scripts.
 If Python needs installation, name the official installer and stop there. Do not install Homebrew.
 Read company-motion/AUTHORITY.md and company-motion/AGENTS.md. Keep outreach and spending paused.
-Save the confirmed target domains, if selected, and the actual bootstrap result in company-motion/SETUP.md. Append the completed step, actual file paths, checks and next task to company-motion/PROGRESS.md. Do not run later exercises.
+Save both target domains and the actual bootstrap result in company-motion/SETUP.md. Append the completed step, actual file paths, checks and next task to company-motion/PROGRESS.md. Do not run later exercises.
 Show the output and success check. Stop. Next: review your company brief.
 ```
 
@@ -167,8 +170,6 @@ Tools: Official target-company website. No paid API required..
 Copy the complete prompt from prompts.html#p1-one-source.
 
 ```text
-Before writing a target brief, open the supplied domain and confirm that it is the company I selected. If it is parked, for sale, redirected to an unrelated company or ambiguous, show the problem and ask me to confirm the correct domain. Do not silently substitute another company or use that page as buyer evidence.
-
 Use the first target domain saved during setup.
 Read its official website and my company brief.
 Save company-motion/targets/ACTUAL-DOMAIN.md with its product, buyers and facts relevant to our offer. Use the actual domain in the path.
@@ -186,7 +187,6 @@ Check before continuing:
 
 - Each target fact has its exact source excerpt and read date.
 - The page idea is labeled as a suggestion.
-- The opened domain belongs to the selected company. Any correction was confirmed by the owner.
 
 If blocked: Paste the target’s official source text into Codex. Keep the official URL and retrieval date.
 
@@ -207,12 +207,10 @@ Tools: Two real target domains and browser access. No paid API required..
 Copy the complete prompt from prompts.html#p1-target-fit.
 
 ```text
-Before writing a target brief, open the supplied domain and confirm that it is the company I selected. If it is parked, for sale, redirected to an unrelated company or ambiguous, show the problem and ask me to confirm the correct domain. Do not silently substitute another company or use that page as buyer evidence.
-
 Read the two target domains saved during setup.
 Research the second company from its official sources and save its target brief.
 Save company-motion/TARGETS.md with both actual domains, products, buyers and one sourced reason our offer fits each.
-Keep uncertain fit marked for review. Company fit supports a page idea, not eligibility for a gift or demo incentive. Use company and public professional facts, not private personal traits. This list is page-building input, not permission to contact a person.
+Keep uncertain fit marked for review. This list is page-building input, not permission to contact a person.
 Show both companies plainly, one row each.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: build the first account page.
 ```
@@ -224,7 +222,6 @@ You should have:
 Check before continuing:
 
 - Each company has one supported reason for the page.
-- The opened domain belongs to the selected company. Any correction was confirmed by the owner.
 
 If blocked: Use two named companies you already know, then paste their official product pages.
 
@@ -250,16 +247,14 @@ Tools: Codex file/browser access and the two saved briefs. No API credits..
 Copy the complete prompt from prompts.html#p1-build-page.
 
 ```text
-For browser review, use a local HTTP preview bound to 127.0.0.1. Serve only a dedicated folder containing this page and its required public assets, never the whole workshop or private files. Open the exact HTTP URL in the browser and view the page. If this browser cannot reach the preview, name the actual limitation and offer an existing app preview or manual browser check. A local preview is supported; do not call localhost prohibited. Keep source and claim checks separate from the browser check. After visual review, stop the preview process you started. If the attendee still needs it for review, record its actual process ID and exact cleanup command in company-motion/PAGE-REVIEW.md. Do not stop another application's server.
-
 Build company-motion/pages/ACTUAL-DOMAIN/index.html for the first target using our company brief and its target brief.
 Make one standalone responsive HTML file with styles, scripts and required graphics inside it.
 Use our actual brand, one buyer-specific idea, our actual offer, supported proof and our real next-step link.
 Keep suggestions distinct from facts. Do not invent a testimonial, logo, demo length, result or recent launch.
 If proof is weak, use the supported product description or omit that proof block.
 Save claim/source notes beside the page and open the actual file in a browser.
+If the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check every claim and review desktop and phone layouts.
-Use an unused port. If it is occupied, choose another port and report the exact URL. Never reuse an unrelated server. Record whether the phone check used device emulation, a real phone or a resized window. A resized window alone is a narrow-layout check, not proof of mobile-device behavior.
 ```
 
 You should have:
@@ -271,9 +266,8 @@ Check before continuing:
 - The page opens.
 - The seller, target and next step are correct.
 - No unsupported proof appears.
-- The exact account page opens in the local HTTP preview and is visually checked.
 
-If blocked: If browsing fails, use the saved official-source text. If preview is unavailable, open the generated file from its path. If the preview tool cannot reach localhost, open the same HTTP URL in your own browser and save the actual manual result.
+If blocked: If the browser blocks the file URL, use a local HTTP preview. Keep any browser check you could not run marked unverified.
 
 Next: check every claim and review desktop and phone layouts.
 
@@ -293,16 +287,14 @@ Tools: Browser and generated HTML. No paid API required..
 Copy the complete prompt from prompts.html#p1-page-review.
 
 ```text
-For browser review, use a local HTTP preview bound to 127.0.0.1. Serve only a dedicated folder containing this page and its required public assets, never the whole workshop or private files. Open the exact HTTP URL in the browser and view the page. If this browser cannot reach the preview, name the actual limitation and offer an existing app preview or manual browser check. A local preview is supported; do not call localhost prohibited. Keep source and claim checks separate from the browser check. After visual review, stop the preview process you started. If the attendee still needs it for review, record its actual process ID and exact cleanup command in company-motion/PAGE-REVIEW.md. Do not stop another application's server.
-
 Review every factual claim in the saved HTML, including headings, buttons, captions and footer.
 Save a claim ledger with the claim, exact source URL and supporting excerpt. Remove or rewrite unsupported demo length, results, testimonials and recency claims. Suggestions must be labeled.
 Check the page in actual browser viewports at 1440 x 900 and 390 x 844. Read window.innerWidth and window.innerHeight before checking overflow; resizing a Mac window alone is not proof of the viewport.
 If the browser cannot reach 390 pixels, record phone review as unverified and give a device-mode or phone check. Do not report false clipping.
 Test the next-step link. Repair failures and rerun them.
 Save company-motion/PAGE-REVIEW.md with the claim ledger, measured viewport sizes, screenshots and unresolved checks.
+If the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: save the checked page method as a skill.
-Use an unused port. If it is occupied, choose another port and report the exact URL. Never reuse an unrelated server. Record whether the phone check used device emulation, a real phone or a resized window. A resized window alone is a narrow-layout check, not proof of mobile-device behavior.
 ```
 
 You should have:
@@ -315,9 +307,8 @@ Check before continuing:
 - Measured innerWidth matches the recorded viewport.
 - Phone overflow is measured inside that viewport.
 - Failed checks are rerun after repair.
-- The exact account page opens in the local HTTP preview and is visually checked.
 
-If blocked: If the agent cannot set a true phone viewport, record that check as unverified and use your browser's device mode or your phone. Do not label a Mac window-size limit as clipped page content. If the preview tool cannot reach localhost, open the same HTTP URL in your own browser and save the actual manual result.
+If blocked: If the browser blocks the file URL, use a local HTTP preview. Keep any browser check you could not run marked unverified.
 
 Next: save the checked page method as a skill.
 
@@ -336,16 +327,16 @@ Tools: Reviewed first page and source notes. No API credits..
 
 1. Copy the skill prompt. Use your checked page and source notes.
 2. Read the saved SKILL.md. It must say what to read, build and check.
-3. Keep company-motion/skills/account-page/SKILL.md. The next prompt reads this file by its path.
+3. Use these instructions for the next page.
 
 Copy the complete prompt from prompts.html#p1-save-skill.
 
 ```text
 Create company-motion/skills/account-page/SKILL.md from the method that passed review.
-Include the required company and target facts, standalone HTML output, source ledger, missing-proof rule, real next-step link and measured desktop/phone checks. Start the file with simple frontmatter: name: account-page and a one-line description. Use sections Inputs, Steps, Output and Checks. Read the saved file and check those fields and headings with local file tools or the Python standard library. No global validator, plugin installation or PyYAML package is needed.
+Include the required company and target facts, standalone HTML output, source ledger, missing-proof rule, real next-step link and measured desktop/phone checks.
 Use the reviewed first page as the example. Make the instructions usable in a fresh local agent session.
 Require each factual claim to have exact source support. Keep unsupported facts out.
-Show the complete saved skill. Tell me that the next prompt reads company-motion/skills/account-page/SKILL.md directly. No slash command or skill installation is needed.
+Show the complete saved skill.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: use that skill for the second target.
 ```
 
@@ -357,8 +348,6 @@ Check before continuing:
 
 - The skill names inputs, output and checks.
 - A missing source has a defined response.
-- The saved skill can be read by its exact file path.
-- Frontmatter name/description and Inputs, Steps, Output and Checks are present without an extra installation.
 
 If blocked: Use the complete skill prompt with the reviewed page and source notes. Save the skill in company-motion, then inspect it.
 
@@ -372,22 +361,20 @@ Time: 8 minutes. Difficulty: Easy.
 
 Tools: Saved account-page skill and second target brief. No paid API required..
 
-1. Copy the next prompt. It reads the saved SKILL.md file.
-2. Open both pages. Compare the fact, headline and campaign idea.
-3. Save the result. Keep the first page unchanged.
+1. Run the account-page skill. Use the second saved target brief.
+2. Open both pages. Compare buyer names and ideas.
+3. Save the repeat result. Keep the first page intact.
 
 Copy the complete prompt from prompts.html#p1-repeat.
 
 ```text
-For browser review, use a local HTTP preview bound to 127.0.0.1. Serve only a dedicated folder containing this page and its required public assets, never the whole workshop or private files. Open the exact HTTP URL in the browser and view the page. If this browser cannot reach the preview, name the actual limitation and offer an existing app preview or manual browser check. A local preview is supported; do not call localhost prohibited. Keep source and claim checks separate from the browser check. After visual review, stop the preview process you started. If the attendee still needs it for review, record its actual process ID and exact cleanup command in company-motion/PAGE-REVIEW.md. Do not stop another application's server.
-
-Read company-motion/skills/account-page/SKILL.md. Follow that saved file to build a page for the second target in company-motion/TARGETS.md. Do not assume a slash command exists.
+Use the saved account-page skill and the second target brief to build the second page.
 Keep the first page unchanged.
 Run the skill's full claim/source review and measured desktop/phone checks. A missing browser check stays unverified.
-Show a three-row comparison of the two pages: one sourced target fact, the headline, and the campaign idea. The second page must have a supported fact about the second company and an idea built around that fact. If only the name changed, revise it. Remove first-company facts and copied proof that does not fit. Show that the first page stayed unchanged.
+Show what changed between the two targets. Remove facts or generic copy carried over from the first company.
 Save company-motion/SKILL-TEST.md with both page paths, review evidence and remaining issues.
+If the browser blocks a local file URL, start a local HTTP preview on an unused 127.0.0.1 port. Serve only this page folder and its public assets. Open the page through that preview, then stop the preview when the browser checks are complete.
 Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: check the Part 1 files after the break.
-Use an unused port. If it is occupied, choose another port and report the exact URL. Never reuse an unrelated server. Record whether the phone check used device emulation, a real phone or a resized window. A resized window alone is a narrow-layout check, not proof of mobile-device behavior.
 ```
 
 You should have:
@@ -399,14 +386,12 @@ Check before continuing:
 - Each page addresses its own buyer.
 - The first page remains intact.
 - The saved skill produced both outputs.
-- The exact account page opens in the local HTTP preview and is visually checked.
-- The second page changes a sourced target fact, the headline and the campaign idea, not just the company name.
 
-If blocked: If the second website blocks access, use its saved official-source text. Label that source path. If the preview tool cannot reach localhost, open the same HTTP URL in your own browser and save the actual manual result.
+If blocked: If the second website blocks access, use its saved official-source text. Label that source path.
 
 Next: check the Part 1 files after the break.
 
-### Check your files. Repair only a failed check.
+### Check the files. Fix anything missing.
 
 Reference: p1-checkpoint
 
@@ -415,7 +400,7 @@ Time: 5 minutes. Difficulty: Easy.
 Tools: Your generated files and actual browser results. No new credits..
 
 1. Copy the checkpoint prompt. Your agent opens each required file.
-2. Repair a failed check, if one exists. If all checks passed, skip repair.
+2. Fix the first failed check. Keep both pages and the saved skill.
 3. Read PROGRESS.md. Check the result and your next task.
 
 Copy the complete prompt from prompts.html#p1-checkpoint.
@@ -424,9 +409,9 @@ Copy the complete prompt from prompts.html#p1-checkpoint.
 Open our company brief, setup receipt, company-motion/AUTHORITY.md, company-motion/AGENTS.md, target list, two target briefs, two pages, page review, saved skill and skill test.
 If company-motion/AUTHORITY.md or company-motion/AGENTS.md is missing, rerun bootstrap with the existing company brief. Preserve all working outputs and history.
 Append actual paths and passed or missing checks to company-motion/PROGRESS.md.
-Keep created, reviewed and published separate. If a check failed, repair the first actual local issue and rerun that check. If every required check passes, write Part 1 complete and skip repair. Do not invent an error or manufacture extra work.
+Keep created, reviewed and published separate. Repair the first available local issue and rerun its check.
 Name one exact next action for each remaining gap.
-Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: use individual help for a real failed check, or save your completed project and register for the next workshop.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: finish the first remaining issue with individual help.
 ```
 
 You should have:
@@ -438,13 +423,12 @@ Check before continuing:
 - Required files are actually opened.
 - Missing authority/instruction files can be repaired in place.
 - Created, reviewed and published remain separate labels.
-- An all-pass result skips repair and is recorded as complete.
 
 If blocked: Share the failed file or error with the repair prompt. Continue from the same project.
 
-Next: use help for a real gap, or save your completed project.
+Next: finish the first remaining issue with individual help.
 
-### Individual help, if you need it
+### Fix your first unfinished task
 
 Reference: p1-help
 
@@ -452,31 +436,66 @@ Time: 30 minutes. Difficulty: Help.
 
 Tools: Codex and your workshop project..
 
-1. Open PROGRESS.md. Check for a real unfinished item.
-2. If one exists, copy that task's repair prompt.
-3. If all checks passed, save your work. No repair needed.
+1. Open PROGRESS.md. Find the first unfinished check.
+2. Copy that task's repair prompt from prompts.html.
+3. Add your error. Rerun the check. Save the result.
 
 Copy the complete prompt from prompts.html#p1-help.
 
 ```text
-Read company-motion/PROGRESS.md. If all required Part 1 checks already pass, record Part 1 complete, name the saved brief, both pages and skill, then stop. Do not invent a failed check. Otherwise find the first real unfinished Part 1 check.
+Read company-motion/PROGRESS.md and find the first unfinished Part 1 check.
 Repair that local cause in this same project. Preserve working pages, source notes and the saved skill.
 Rerun its success check and update company-motion/PROGRESS.md.
 If only phone review is missing, show the exact manual device-mode or phone check instead of inventing a pass.
-Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: save your project and register for the next workshop.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: prepare the single email connection before Part 2.
 ```
 
 You should have:
 
-- A repaired actual gap, or a saved all-pass completion record.
+- One repaired task and updated progress.
 
 Check before continuing:
 
-- A real failed check is rerun, or an all-pass result skips repair.
+- The previously failed check is rerun.
 
 If blocked: Save the unresolved error and named missing setup. Do not reset the project.
 
-Next: save your project and register for the next workshop.
+Next: prepare the single email connection before Part 2.
+
+### Register for Parts 2 and 3. Prepare your email.
+
+Reference: p1-before-part2
+
+Time: 0 minutes. Difficulty: Setup.
+
+Tools: Google sender/calendar and ZeroBounce for the live email test. Finder optional..
+
+
+Copy the complete prompt from prompts.html#p1-before-part2.
+
+```text
+Read API-CONNECTIONS.html, API-CONNECTIONS.md and SETUP-SEQUENCE.md for the single email channel.
+Prepare my own sender, primary calendar, permitted countries and current customer/deal/opt-out exclusions.
+Follow the Google Cloud sign-in guide. It must initialize this fresh email configuration from code/ using python3 -B gtm.py init --config and the actual private path before treating email setup as ready; bootstrap alone is local file setup. Use the project launcher and the actual private client-file path. Record the authenticated sender and calendar; name any Workspace-admin blocker.
+Prepare ten distinct target domains and current buyer contacts plus my own self-test address.
+Read the actual ZeroBounce balance and show the validation cost. Ask for my bounded paid-validation approval before spending credits. Keep original pending request IDs.
+Save company-motion/CONNECTION-CHECK.md with each actual result or blocker. Keep outreach paused.
+Append this step, actual artifact, check and next task to company-motion/PROGRESS.md. Show the output. Stop. Next: keep this project and prepare your email before Part 2.
+```
+
+You should have:
+
+- CONNECTION-CHECK.md with ready or blocked email prerequisites.
+
+Check before continuing:
+
+- Own Google profile and calendar reads succeed.
+- Actual ZeroBounce credits and paid validation scope are known.
+- Current exclusions and permitted countries are ready.
+
+If blocked: Without sender authorization, Part 2 can prepare messages. It cannot prove live sending.
+
+Next: keep this project and prepare your email before Part 2.
 
 # Keep your project
 
