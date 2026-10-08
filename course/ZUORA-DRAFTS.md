@@ -1,15 +1,7 @@
-# Zuora: one account example
+# Zuora: the page, the email, the gift
 
-Page: the actual historical Metadata page screenshot in assets/actual-zuora-page.png. Its buyer description is accounting, billing operations and finance systems.
+The slide uses the current public page at https://demo.metadata.io/zuora/. The full-page screenshot was captured in a browser on October 7, 2026, with all images loaded. Its HTML preview scrolls through that screenshot. The live page opens in a new tab.
 
-These two matching messages are new workshop drafts. They are not original sent messages. No Zuora provider outcome is claimed.
+The email excerpt is exact text from Gil's August 16, 2026 email, subject "13 tools one gap". Its Gmail SENT label was checked. The screenshot layout is recreated. The recipient name and address, phone, postal address, message identifiers and tracking links are omitted. The earlier email linked to go.metadataone.com/zuora; the slide shows the current page.
 
-## Email draft. Not sent.
-
-May I send you campaign ideas for reaching Zuora's accounting, billing operations and finance systems buyers?
-
-## Gift invitation draft. Not sent.
-
-A thank-you gift with a campaign-planning demo for Zuora.
-
-Recipient, collection, value, expiry and redemption terms are not selected. This draft is not ready to send. Review those real fields and the exact cost in the gifting session.
+The gift invitation is a mockup, using the exact gift sentence from that email. It has no recipient, value, expiry or redemption link. The email's reference to Loop & Tie does not establish gift delivery or redemption. No current v5 outcome is claimed.

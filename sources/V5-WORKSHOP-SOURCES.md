@@ -39,3 +39,7 @@ Provider instructions link directly to official documentation in API-CONNECTIONS
 A participant reported completing the prior Part 1 with Claude Code and two real targets, Datadog and Okta. This supports the page play and skill reuse. It does not establish Parts 2 or 3 live replication, and this new revision needs another beginner run.
 
 Country recognition uses pinned ISO country names from https://github.com/pycountry/pycountry . The names are included in the existing validation module; attendees install no extra library. Unknown policy country values are rejected before configuration writes.
+
+## Zuora example update, October 7, 2026
+
+The opening Zuora example now shows the current live page at https://demo.metadata.io/zuora/, with a browser-captured scrolling preview. Its adjacent email is an exact, redacted excerpt of Gil's August 16, 2026 email, verified in Gmail Sent. The original recipient, personal phone, postal address, message identifiers and tracking links are omitted. The gift invitation card is explicitly a mockup. The email is historical evidence of sending, not a v5 outcome or proof of gift delivery. See course/ZUORA-DRAFTS.md for scope.

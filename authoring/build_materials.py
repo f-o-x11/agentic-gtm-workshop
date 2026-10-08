@@ -168,16 +168,28 @@ def part_one_example(c,s):
   paragraph(c,'Today: create the account page. Save the instructions. Use them for a second company.',56,114,1168,21,font='RubikMedium')
   return True
  if ident=='p1-real-outputs':
-  pic(c,R/'assets/actual-zuora-page.png',56,164,695,367)
-  paragraph(c,'Zuora / Actual account page',56,135,695,20,font='RubikMedium')
-  examples=vd['side_examples']
-  paragraph(c,'EMAIL DRAFT / Not sent',804,514,410,22,color=ORANGE,font='RubikBold')
-  paragraph(c,examples[0]['text'],804,466,410,21)
-  paragraph(c,'New workshop draft. No send claimed.',804,339,410,15,color=GRAY)
-  line(c,804,303,410)
-  paragraph(c,'GIFT INVITATION DRAFT',804,279,410,22,color=ORANGE,font='RubikBold')
-  paragraph(c,examples[1]['text'],804,233,410,21)
-  paragraph(c,'Not sent. Value, recipient and terms not selected.',804,126,410,15,color=GRAY)
+  x,y,w,h=56,153,627,378
+  c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(LINE);c.roundRect(x,y,w,h,10,fill=1,stroke=1)
+  c.setFillColor(HexColor('#eaf0e4'));c.rect(x+1,y+h-36,w-2,35,fill=1,stroke=0)
+  paragraph(c,'demo.metadata.io/zuora/',x+16,y+h-11,w-32,16,color=GREEN,font='RubikMedium')
+  c.linkURL(vd['page_url'],(x,y+h-36,x+w,y+h))
+  im=ImageReader(str(R/vd['image']));iw,ih=im.getSize();scaled_h=ih*w/iw
+  c.saveState();clip=c.beginPath();clip.rect(x+1,y+1,w-2,h-37);c.clipPath(clip,stroke=0)
+  c.drawImage(im,x,y+h-36-scaled_h,w,scaled_h,mask='auto');c.restoreState()
+  paragraph(c,'Open the real page. The HTML slide scrolls through it.',56,129,627,15,color=GREEN)
+  c.linkURL(vd['page_url'],(56,106,683,132))
+  pic(c,R/vd['email_image'],715,286,509,244)
+  paragraph(c,'Original sent email excerpt. Personal details hidden.',727,269,484,13,color=GRAY)
+  c.setFillColor(HexColor('#eaf0e4'));c.setStrokeColor(LINE);c.roundRect(715,120,509,126,10,fill=1,stroke=1)
+  c.setFillColor(HexColor('#ea5b2b'));c.rect(738,151,45,44,fill=1,stroke=0)
+  c.setFillColor(HexColor('#f69367'));c.rect(735,190,51,14,fill=1,stroke=0)
+  c.setFillColor(HexColor('#fff1d7'));c.rect(756,151,9,53,fill=1,stroke=0)
+  c.setStrokeColor(HexColor('#fff1d7'));c.setLineWidth(4);c.ellipse(746,201,760,218,stroke=1,fill=0);c.ellipse(760,201,774,218,stroke=1,fill=0)
+  paragraph(c,'GIFT INVITATION MOCKUP',804,228,400,12,color=GREEN,font='RubikMedium')
+  paragraph(c,'A gift from Gil at Metadata',804,207,400,22,font='RubikBold')
+  paragraph(c,'Pick something you will enjoy.',804,173,400,17)
+  paragraph(c,'Example layout. No live redemption link.',804,145,400,12,color=GRAY)
+  paragraph(c,vd['caption'],56,87,1168,14,color=GRAY)
   return True
  if ident=='p1-finish':
   for i,(label,artifact) in enumerate([('Set up your company','Company brief'),('Choose two companies','Two target briefs'),('Build and check page one','Reviewed HTML page'),('Save the skill. Build page two.','Saved instructions + second page')]):

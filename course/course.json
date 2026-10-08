@@ -376,33 +376,39 @@
         {
           "id": "p1-real-outputs",
           "part": 1,
-          "title": "Zuora: one page and two message drafts",
+          "title": "Zuora: the page, the email, the gift",
           "type": "show",
           "timing": 4,
           "minutes": 4,
           "difficulty": "Watch",
           "visual_type": "screenshot",
           "visual_data": {
-            "image": "assets/actual-zuora-page.png",
-            "caption": "Actual Zuora page screenshot. Message drafts created for this workshop; not sent.",
-            "callouts": [
-              "A real target company",
-              "Campaign ideas for that company",
-              "A clear next step"
-            ],
-            "side_examples": [
-              {
-                "label": "Zuora / EMAIL DRAFT / Not sent",
-                "text": "May I send you campaign ideas for reaching Zuora's accounting, billing operations and finance systems buyers?"
-              },
-              {
-                "label": "Zuora / GIFT INVITATION DRAFT / Not sent",
-                "text": "A thank-you gift with a campaign-planning demo for Zuora.",
-                "terms": "Gift value, recipient and terms are not selected."
-              }
-            ]
+            "image": "assets/zuora-live-full.png",
+            "page_url": "https://demo.metadata.io/zuora/",
+            "email_image": "assets/zuora-email-redacted.png",
+            "email": {
+              "subject": "13 tools one gap",
+              "date": "August 16, 2026",
+              "from": "Gil at Metadata",
+              "to": "Recipient hidden",
+              "excerpt": [
+                "So I had my team build Zuora a working account: a custom commercial, live audiences, and sample campaigns across LinkedIn, Google, and Meta, plus X, Reddit, Bing, ChatGPT, and CTV.",
+                "Take a look: go.metadataone.com/zuora",
+                "I also sent you something small through Loop & Tie. Hope you enjoy it."
+              ],
+              "full_text": "[Recipient name hidden],\n\nI'm Gil, founder/CEO of Metadata. We run paid for Zoom and Notion - and in your space, Maxio and FloQast.\n\nOur research shows 13 adtech tools on your site and a 67-person marketing org. You clearly invest in demand. So I had my team build Zuora a working account: a custom commercial, live audiences, and sample campaigns across LinkedIn, Google, and Meta, plus X, Reddit, Bing, ChatGPT, and CTV.\n\nTake a look: go.metadataone.com/zuora\n\nI also sent you something small through Loop & Tie. Hope you enjoy it.\n\nOpen to a quick walkthrough next week? I'll work around your schedule.\n\nGil\n[Phone hidden] | My LinkedIn https://linkedin.com/in/gilallouche\n\n[Postal address hidden]. Prefer I not reach out again? Just reply and I'll take you off my list.",
+              "verification": "Gmail Sent label checked. Original text, personal details hidden. Screenshot layout recreated.",
+              "page_url": "https://demo.metadata.io/zuora/"
+            },
+            "gift_label": "Gift invitation mockup",
+            "gift_text": "I also sent you something small through Loop & Tie. Hope you enjoy it.",
+            "caption": "Email sent August 16, 2026. Page shown is the current version. Gift card is a mockup.",
+            "gift_mock_copy": {
+              "heading": "A gift from Gil at Metadata",
+              "text": "Pick something you’ll enjoy."
+            }
           },
-          "body": "This is the actual Metadata account page for Zuora. The email and gift invitation beside it are workshop drafts for that same account. They were not sent.",
+          "body": "Open the real page. Read the email I sent. See how a gift invitation could look.",
           "steps": [],
           "prompt": "",
           "tools": [
@@ -413,14 +419,11 @@
           "fallback": "",
           "repair_prompt": "",
           "sources": [
-            {
-              "label": "Actual Zuora account-page screenshot; workshop message drafts",
-              "url": "sources/V5-WORKSHOP-SOURCES.md",
-              "date": "October 5, 2026",
-              "scope": "Page is historical. These matching messages are new teaching drafts, not historical provider receipts."
-            }
+            "Live Zuora page: demo.metadata.io/zuora/",
+            "Gmail Sent: August 16, 2026. Redacted excerpt.",
+            "Gift invitation: recreated example."
           ],
-          "notes": "Show the Zuora page first. Both adjacent messages are newly written teaching drafts. The local v5 account lookup found no Zuora provider action. Do not claim sent, delivered, redeemed or booked outcomes for this account. Part 1 builds pages only.",
+          "notes": "Show the live page scroll, then pause. This is the current public page. The email excerpt is exact text from Gil’s August 16 sent email, with personal details removed. It linked to the earlier page at go.metadataone.com/zuora. The gift card is a labeled invitation mockup, not a provider screenshot. Gmail Sent proves the historical email was sent, not gift delivery or redemption. Do not attribute this email to the current v5 engine. Part 1 builds pages only.",
           "build_step": 0,
           "prompt_label": "",
           "route": "main",
