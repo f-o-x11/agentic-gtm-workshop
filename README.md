@@ -60,3 +60,9 @@ The current edition keeps the original five-section exercise order and all 12 co
 The Agency Episode 1 precedes the glossary. The complete recorded build follows Episode 1, with all 54:51 of footage shown at twice speed and narration in Gil's AI voice. Episode 2 precedes target research. Episode 3 precedes the break. The Industrialist commercial precedes the first-page exercise. Episodes 4 to 7 and The Grind are reserved for Parts 2 and 3. The two-hour live plan includes 90 minutes of steps, ten minutes of Agency videos and twenty minutes of help. The full 27:26 walkthrough is an optional recording to watch before class or use for help.
 
 Private recording files and attendee portraits are not in this repository or its ZIP. The recorded-build page links to the existing password-protected workshop site. `part1_v10_final` remains the earlier tagged snapshot.
+
+## Part 2, November 17
+
+Open [the Part 2 welcome packet](https://workshop.metadata.io/gtm2/) or [part2/index.html](part2/index.html). Reuse this project. Complete the Google and ZeroBounce prep before class.
+
+Part 2 has five chapters: reopen the project, set the rules and choose ten companies, check buyers and write emails, send yourself one approved test, then run the reviewed pilot and save the email skill. The new folder includes slides, a booklet, prep, six pages of speaker cues and its own starter ZIP. Part 1 stays unchanged.

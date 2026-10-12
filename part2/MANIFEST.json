@@ -1,0 +1,17 @@
+{
+  "version": "part2_nov17_v1",
+  "slides": 37,
+  "exercise_prompts": 14,
+  "pdf_pages": {
+    "presentation": 51,
+    "booklet": 29,
+    "prep": 4,
+    "speaker_notes": 6
+  },
+  "runtime_files": 20,
+  "empty_tables": 16,
+  "zip_bytes": 597320,
+  "zip_sha256": "3d15dc9cff5e3a2e4d3da7a3fb8f0dfdbc0147a90a009e3b5f3f173e81601aff",
+  "raw_feedback_published": false,
+  "production_outreach": false
+}
